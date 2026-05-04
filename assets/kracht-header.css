@@ -17,13 +17,13 @@
 }
 
 .kracht-header__inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
   gap: 2rem;
   min-height: 72px;
   padding-block: 0.75rem;
 }
+.kracht-header__brand { margin-right: auto; }
 
 /* Brand */
 .kracht-header__brand {
@@ -65,20 +65,20 @@
 /* Nav */
 .kracht-header__nav {
   display: flex;
-  justify-content: center;
 }
 .kracht-header__menu {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 2rem;
+  gap: 1.6rem;
 }
 .kracht-header__menu-link {
   color: inherit;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.8125rem;
   font-weight: 500;
+  letter-spacing: 0.01em;
   position: relative;
   padding: 0.4rem 0;
   transition: color var(--kracht-trans);
@@ -268,11 +268,7 @@
   .kracht-header__cart-label { display: none; }
   .kracht-header__cart-pill { padding: 0.5rem 0.75rem; }
   .kracht-header__hamburger { display: inline-flex; align-items: center; justify-content: center; }
-  .kracht-header__inner {
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-    gap: 1rem;
-  }
+  .kracht-header__inner { gap: 1rem; }
 }
 
 @media (max-width: 480px) {
