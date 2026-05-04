@@ -1,15 +1,53 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "detail": {
       "type": "kracht-product-detail",
-      "name": "Kracht — Product Detail",
       "blocks": {
-        "u1": { "type": "usp", "settings": { "title": "Gratis verzending",  "subtitle": "vanaf €50" } },
-        "u2": { "type": "usp", "settings": { "title": "Op voorraad",        "subtitle": "— vandaag besteld" } },
-        "u3": { "type": "usp", "settings": { "title": "30 dagen retourrecht", "subtitle": "" } },
-        "u4": { "type": "usp", "settings": { "title": "Premium kwaliteit",  "subtitle": "gegarandeerd" } }
+        "u1": {
+          "type": "usp",
+          "settings": {
+            "title": "Gratis verzending",
+            "subtitle": "vanaf €50"
+          }
+        },
+        "u2": {
+          "type": "usp",
+          "settings": {
+            "title": "Op voorraad",
+            "subtitle": "— vandaag besteld"
+          }
+        },
+        "u3": {
+          "type": "usp",
+          "settings": {
+            "title": "30 dagen retourrecht",
+            "subtitle": ""
+          }
+        },
+        "u4": {
+          "type": "usp",
+          "settings": {
+            "title": "Premium kwaliteit",
+            "subtitle": "gegarandeerd"
+          }
+        }
       },
-      "block_order": ["u1", "u2", "u3", "u4"],
+      "block_order": [
+        "u1",
+        "u2",
+        "u3",
+        "u4"
+      ],
+      "name": "Kracht — Product Detail",
       "settings": {
         "show_breadcrumbs": true,
         "eyebrow": "T-shirts · Essentials",
@@ -23,14 +61,47 @@
     },
     "usp_strip": {
       "type": "kracht-values-strip",
-      "name": "Kracht — Values Strip",
       "blocks": {
-        "v1": { "type": "value", "settings": { "icon": "send",    "title": "Snelle levering",   "subtitle": "Binnen 2-3 werkdagen bezorgd" } },
-        "v2": { "type": "value", "settings": { "icon": "shield",  "title": "Premium kwaliteit", "subtitle": "Duurzaam en comfortabel" } },
-        "v3": { "type": "value", "settings": { "icon": "heart",   "title": "Met trots gedragen", "subtitle": "Door het hele Kracht team" } },
-        "v4": { "type": "value", "settings": { "icon": "refresh", "title": "30 dagen retour",   "subtitle": "Niet goed? Geld terug." } }
+        "v1": {
+          "type": "value",
+          "settings": {
+            "icon": "send",
+            "title": "Snelle levering",
+            "subtitle": "Binnen 2-3 werkdagen bezorgd"
+          }
+        },
+        "v2": {
+          "type": "value",
+          "settings": {
+            "icon": "shield",
+            "title": "Premium kwaliteit",
+            "subtitle": "Duurzaam en comfortabel"
+          }
+        },
+        "v3": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "title": "Met trots gedragen",
+            "subtitle": "Door het hele Kracht team"
+          }
+        },
+        "v4": {
+          "type": "value",
+          "settings": {
+            "icon": "refresh",
+            "title": "30 dagen retour",
+            "subtitle": "Niet goed? Geld terug."
+          }
+        }
       },
-      "block_order": ["v1", "v2", "v3", "v4"],
+      "block_order": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "name": "Kracht — Values Strip",
       "settings": {
         "layout": "row",
         "background_color": "#000000",
@@ -41,21 +112,99 @@
     },
     "info": {
       "type": "kracht-product-info-tabs",
-      "name": "Kracht — Info Tabs",
       "blocks": {
-        "tab1": { "type": "tab",  "settings": { "label": "Beschrijving", "body": "<p>De <strong>Kracht+ Team Tee</strong> is meer dan een t-shirt — het is een statement. Gemaakt voor het team dat altijd wint, comfortabel genoeg om de hele dag te dragen, en met een snit die past bij elke houding. Het Kracht+ logo is met zorg geborduurd op de borst — discreet maar aanwezig.</p><p><strong>Wat je krijgt:</strong></p><ul><li>Premium 100% katoen — zwaar 220 gr/m² voor stevigheid</li><li>Geborduurd Kracht+ logo in krachtig blauw op de borst</li><li>Versterkte zomen getest op 50+ wasbeurten</li><li>Klassieke ronde hals met ribbing houdt z'n vorm</li><li>Unisex pasvorm — true to size</li></ul>" } },
-        "tab2": { "type": "tab",  "settings": { "label": "Materiaal",   "body": "<p>100% premium katoen, 220 gr/m². Pre-shrunk en kleurvast.</p>" } },
-        "tab3": { "type": "tab",  "settings": { "label": "Onderhoud",   "body": "<p>Wasbaar op 30 °C, niet bleken, lage temp strijken. Binnenstebuiten wassen voor de beste levensduur van het logo.</p>" } },
-        "tab4": { "type": "tab",  "settings": { "label": "Verzending",  "body": "<p>Binnen 2-3 werkdagen geleverd in heel Nederland. Gratis verzending vanaf €50.</p>" } },
-        "s1": { "type": "spec", "settings": { "label": "Materiaal",   "value": "100% katoen" } },
-        "s2": { "type": "spec", "settings": { "label": "Gewicht",     "value": "220 gr/m²" } },
-        "s3": { "type": "spec", "settings": { "label": "Pasvorm",     "value": "Unisex — regular" } },
-        "s4": { "type": "spec", "settings": { "label": "Logo",        "value": "Geborduurd, blauw" } },
-        "s5": { "type": "spec", "settings": { "label": "Productie",   "value": "Portugal" } },
-        "s6": { "type": "spec", "settings": { "label": "Maten",       "value": "XS — 3XL" } },
-        "s7": { "type": "spec", "settings": { "label": "Op voorraad", "value": "Ja — 142 stuks" } }
+        "tab1": {
+          "type": "tab",
+          "settings": {
+            "label": "Beschrijving",
+            "body": "<p>De <strong>Kracht+ Team Tee</strong> is meer dan een t-shirt — het is een statement. Gemaakt voor het team dat altijd wint, comfortabel genoeg om de hele dag te dragen, en met een snit die past bij elke houding. Het Kracht+ logo is met zorg geborduurd op de borst — discreet maar aanwezig.</p><p><strong>Wat je krijgt:</strong></p><ul><li>Premium 100% katoen — zwaar 220 gr/m² voor stevigheid</li><li>Geborduurd Kracht+ logo in krachtig blauw op de borst</li><li>Versterkte zomen getest op 50+ wasbeurten</li><li>Klassieke ronde hals met ribbing houdt z'n vorm</li><li>Unisex pasvorm — true to size</li></ul>"
+          }
+        },
+        "tab2": {
+          "type": "tab",
+          "settings": {
+            "label": "Materiaal",
+            "body": "<p>100% premium katoen, 220 gr/m². Pre-shrunk en kleurvast.</p>"
+          }
+        },
+        "tab3": {
+          "type": "tab",
+          "settings": {
+            "label": "Onderhoud",
+            "body": "<p>Wasbaar op 30 °C, niet bleken, lage temp strijken. Binnenstebuiten wassen voor de beste levensduur van het logo.</p>"
+          }
+        },
+        "tab4": {
+          "type": "tab",
+          "settings": {
+            "label": "Verzending",
+            "body": "<p>Binnen 2-3 werkdagen geleverd in heel Nederland. Gratis verzending vanaf €50.</p>"
+          }
+        },
+        "s1": {
+          "type": "spec",
+          "settings": {
+            "label": "Materiaal",
+            "value": "100% katoen"
+          }
+        },
+        "s2": {
+          "type": "spec",
+          "settings": {
+            "label": "Gewicht",
+            "value": "220 gr/m²"
+          }
+        },
+        "s3": {
+          "type": "spec",
+          "settings": {
+            "label": "Pasvorm",
+            "value": "Unisex — regular"
+          }
+        },
+        "s4": {
+          "type": "spec",
+          "settings": {
+            "label": "Logo",
+            "value": "Geborduurd, blauw"
+          }
+        },
+        "s5": {
+          "type": "spec",
+          "settings": {
+            "label": "Productie",
+            "value": "Portugal"
+          }
+        },
+        "s6": {
+          "type": "spec",
+          "settings": {
+            "label": "Maten",
+            "value": "XS — 3XL"
+          }
+        },
+        "s7": {
+          "type": "spec",
+          "settings": {
+            "label": "Op voorraad",
+            "value": "Ja — 142 stuks"
+          }
+        }
       },
-      "block_order": ["tab1", "tab2", "tab3", "tab4", "s1", "s2", "s3", "s4", "s5", "s6", "s7"],
+      "block_order": [
+        "tab1",
+        "tab2",
+        "tab3",
+        "tab4",
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7"
+      ],
+      "name": "Kracht — Info Tabs",
       "settings": {
         "eyebrow": "Productinformatie",
         "heading": "<p>Alles over de <strong>Team Tee.</strong></p>",
@@ -85,16 +234,57 @@
     },
     "stories": {
       "type": "kracht-story-cards",
-      "name": "Kracht — Story Cards",
       "blocks": {
-        "s1": { "type": "story", "settings": { "tag_label": "Team",       "tag_date": "12 mei 2026", "title": "Hoe het Kracht team samen wint.",                "cta": "Lees meer" } },
-        "s2": { "type": "story", "settings": { "tag_label": "Cultuur",    "tag_date": "28 apr 2026", "title": "Werken vanuit Kracht — wat dat écht betekent.", "cta": "Lees meer" } },
-        "s3": { "type": "story", "settings": { "tag_label": "Stijl",      "tag_date": "15 apr 2026", "title": "Van werkkleding tot lifestyle.",                "cta": "Lees meer" } },
-        "s4": { "type": "story", "settings": { "tag_label": "Kandidaten", "tag_date": "",            "title": "Van een goede naar een betere baan.",           "cta": "Lees meer" } }
+        "s1": {
+          "type": "story",
+          "settings": {
+            "tag_label": "Team",
+            "tag_date": "12 mei 2026",
+            "title": "Hoe het Kracht team samen wint.",
+            "cta": "Lees meer",
+            "link": ""
+          }
+        },
+        "s2": {
+          "type": "story",
+          "settings": {
+            "tag_label": "Cultuur",
+            "tag_date": "28 apr 2026",
+            "title": "Werken vanuit Kracht — wat dat écht betekent.",
+            "cta": "Lees meer",
+            "link": ""
+          }
+        },
+        "s3": {
+          "type": "story",
+          "settings": {
+            "tag_label": "Stijl",
+            "tag_date": "15 apr 2026",
+            "title": "Van werkkleding tot lifestyle.",
+            "cta": "Lees meer",
+            "link": ""
+          }
+        },
+        "s4": {
+          "type": "story",
+          "settings": {
+            "tag_label": "Kandidaten",
+            "tag_date": "",
+            "title": "Van een goede naar een betere baan.",
+            "cta": "Lees meer",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "name": "Kracht — Story Cards",
       "settings": {
-        "eyebrow": "Verhalen vanuit Kracht",
+        "eyebrow": "",
         "heading": "<p>Meer dan <strong>merch.</strong></p>",
         "show_arrows": true,
         "show_progress": true,
