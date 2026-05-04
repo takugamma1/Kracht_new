@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -18,14 +27,47 @@
     },
     "categories": {
       "type": "kracht-categories",
-      "name": "Kracht — Home Categories",
       "blocks": {
-        "c1": { "type": "category", "settings": { "eyebrow": "Essentials",  "title": "T-shirts & Polos",   "link": "" } },
-        "c2": { "type": "category", "settings": { "eyebrow": "Workwear",    "title": "Helmen & Veiligheid", "link": "" } },
-        "c3": { "type": "category", "settings": { "eyebrow": "Lifestyle",   "title": "Accessoires",         "link": "" } },
-        "c4": { "type": "category", "settings": { "eyebrow": "Specials",    "title": "Cadeaupakketten",     "link": "" } }
+        "c1": {
+          "type": "category",
+          "settings": {
+            "eyebrow": "Essentials",
+            "title": "T-shirts & Polos",
+            "link": ""
+          }
+        },
+        "c2": {
+          "type": "category",
+          "settings": {
+            "eyebrow": "Workwear",
+            "title": "Helmen & Veiligheid",
+            "link": ""
+          }
+        },
+        "c3": {
+          "type": "category",
+          "settings": {
+            "eyebrow": "Lifestyle",
+            "title": "Accessoires",
+            "link": ""
+          }
+        },
+        "c4": {
+          "type": "category",
+          "settings": {
+            "eyebrow": "Specials",
+            "title": "Cadeaupakketten",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"],
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "name": "Kracht — Home Categories",
       "settings": {
         "heading": "Categorieën",
         "link_label": "Bekijk alles",
@@ -38,14 +80,47 @@
     },
     "values": {
       "type": "kracht-values-strip",
-      "name": "Kracht — Values Strip",
       "blocks": {
-        "v1": { "type": "value", "settings": { "icon": "send",  "title": "Snelle levering",    "subtitle": "Binnen 2-3 werkdagen bezorgd" } },
-        "v2": { "type": "value", "settings": { "icon": "leaf",  "title": "Premium kwaliteit",  "subtitle": "Duurzaam en comfortabel" } },
-        "v3": { "type": "value", "settings": { "icon": "star",  "title": "Met trots gedragen", "subtitle": "Door het hele Kracht team" } },
-        "v4": { "type": "value", "settings": { "icon": "heart", "title": "Winnend team",       "subtitle": "Of je wint, of je leert!" } }
+        "v1": {
+          "type": "value",
+          "settings": {
+            "icon": "send",
+            "title": "Snelle levering",
+            "subtitle": "Binnen 2-3 werkdagen bezorgd"
+          }
+        },
+        "v2": {
+          "type": "value",
+          "settings": {
+            "icon": "leaf",
+            "title": "Premium kwaliteit",
+            "subtitle": "Duurzaam en comfortabel"
+          }
+        },
+        "v3": {
+          "type": "value",
+          "settings": {
+            "icon": "star",
+            "title": "Met trots gedragen",
+            "subtitle": "Door het hele Kracht team"
+          }
+        },
+        "v4": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "title": "Winnend team",
+            "subtitle": "Of je wint, of je leert!"
+          }
+        }
       },
-      "block_order": ["v1", "v2", "v3", "v4"],
+      "block_order": [
+        "v1",
+        "v2",
+        "v3",
+        "v4"
+      ],
+      "name": "Kracht — Values Strip",
       "settings": {
         "background_color": "#ffffff",
         "text_color": "#000000",
@@ -91,14 +166,47 @@
     },
     "lookbook": {
       "type": "kracht-lookbook",
-      "name": "Kracht — Lookbook",
       "blocks": {
-        "lb1": { "type": "lookbook_card", "settings": { "eyebrow": "Workwear",         "title": "Aan de slag",            "link": "" } },
-        "lb2": { "type": "lookbook_card", "settings": { "eyebrow": "Office wear",      "title": "Professioneel & stijlvol", "link": "" } },
-        "lb3": { "type": "lookbook_card", "settings": { "eyebrow": "Winter collectie", "title": "Op avontuur met Kracht+", "link": "" } },
-        "lb4": { "type": "lookbook_card", "settings": { "eyebrow": "Padel & Sport",    "title": "Samen winnen",           "link": "" } }
+        "lb1": {
+          "type": "lookbook_card",
+          "settings": {
+            "eyebrow": "Workwear",
+            "title": "Aan de slag",
+            "link": ""
+          }
+        },
+        "lb2": {
+          "type": "lookbook_card",
+          "settings": {
+            "eyebrow": "Office wear",
+            "title": "Professioneel & stijlvol",
+            "link": ""
+          }
+        },
+        "lb3": {
+          "type": "lookbook_card",
+          "settings": {
+            "eyebrow": "Winter collectie",
+            "title": "Op avontuur met Kracht+",
+            "link": ""
+          }
+        },
+        "lb4": {
+          "type": "lookbook_card",
+          "settings": {
+            "eyebrow": "Padel & Sport",
+            "title": "Samen winnen",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["lb1", "lb2", "lb3", "lb4"],
+      "block_order": [
+        "lb1",
+        "lb2",
+        "lb3",
+        "lb4"
+      ],
+      "name": "Kracht — Lookbook",
       "settings": {
         "heading": "Lookbook",
         "link_label": "Meer bekijken",
