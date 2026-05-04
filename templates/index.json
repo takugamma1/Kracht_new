@@ -25,21 +25,6 @@
         "button2_link": ""
       }
     },
-    "kracht_newsletter_yeHVpj": {
-      "type": "kracht-newsletter",
-      "name": "Kracht — Newsletter",
-      "settings": {
-        "heading": "<p>Blijf op de <strong>hoogte!</strong></p>",
-        "subheading": "Ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve Kracht+ merchandise.",
-        "placeholder": "Jouw e-mailadres",
-        "button_label": "Aanmelden",
-        "success_message": "Bedankt! Je staat op de lijst.",
-        "background_color": "#009de1",
-        "background_gradient_color": "#0078b4",
-        "text_color": "#ffffff",
-        "padding_y": 48
-      }
-    },
     "kracht_product_grid_gBx6wt": {
       "type": "kracht-product-grid",
       "name": "Kracht — Product Grid",
@@ -56,11 +41,46 @@
         "text_color": "#000000",
         "padding_y": 64
       }
+    },
+    "kracht_cta_banner_zPWjzR": {
+      "type": "kracht-cta-banner",
+      "name": "Kracht — CTA Banner",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Jouw team, <strong>jouw Kracht.</strong></p>",
+        "subheading": "Op zoek naar gepersonaliseerde merchandise voor jouw team of bedrijfsevent? Wij regelen het voor je. Vraag vrijblijvend een offerte aan!",
+        "button1_label": "Offerte aanvragen",
+        "button1_link": "",
+        "button2_label": "",
+        "button2_link": "",
+        "show_stats": false,
+        "theme": "dark",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_y": 64,
+        "radius": 0
+      }
+    },
+    "kracht_newsletter_yeHVpj": {
+      "type": "kracht-newsletter",
+      "name": "Kracht — Newsletter",
+      "settings": {
+        "heading": "<p>Blijf op de <strong>hoogte!</strong></p>",
+        "subheading": "Ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve Kracht+ merchandise.",
+        "placeholder": "Jouw e-mailadres",
+        "button_label": "Aanmelden",
+        "success_message": "Bedankt! Je staat op de lijst.",
+        "background_color": "#009de1",
+        "background_gradient_color": "#0078b4",
+        "text_color": "#ffffff",
+        "padding_y": 48
+      }
     }
   },
   "order": [
     "kracht_home_hero_irjyhr",
     "kracht_product_grid_gBx6wt",
+    "kracht_cta_banner_zPWjzR",
     "kracht_newsletter_yeHVpj"
   ]
 }
