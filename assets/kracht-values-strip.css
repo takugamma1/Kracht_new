@@ -28,6 +28,36 @@
   margin-bottom: 0.25rem;
 }
 
+/* Row layout — icon on left, text on right (used on dark product page USP bar) */
+.kracht-values--row .kracht-values__grid {
+  text-align: left;
+}
+.kracht-values--row .kracht-values__item {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.7rem;
+  text-align: left;
+}
+.kracht-values--row .kracht-values__icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: rgba(0, 157, 225, 0.15);
+  margin: 0;
+}
+.kracht-values--row .kracht-values__icon svg { width: 18px; height: 18px; }
+.kracht-values--row .kracht-values__title {
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+.kracht-values--row .kracht-values__sub {
+  font-size: 0.78rem;
+  margin-top: 2px;
+  color: var(--kvs-fg);
+  opacity: 0.55;
+}
+
 .kracht-values__title {
   font-family: var(--kracht-font-heading);
   font-size: 0.95rem;

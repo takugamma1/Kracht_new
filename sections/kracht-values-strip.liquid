@@ -1,7 +1,7 @@
 {{ 'kracht-values-strip.css' | asset_url | stylesheet_tag }}
 
 <section
-  class="kracht-values"
+  class="kracht-values kracht-values--{{ section.settings.layout | default: 'stack' }}"
   style="
     --kvs-bg: {{ section.settings.background_color }};
     --kvs-fg: {{ section.settings.text_color }};
@@ -52,6 +52,16 @@
     {
       "type": "header",
       "content": "Appearance"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "stack", "label": "Icon on top (centered)" },
+        { "value": "row",   "label": "Icon on left (horizontal)" }
+      ],
+      "default": "stack"
     },
     {
       "type": "color",
