@@ -132,10 +132,10 @@
 .kracht-header__cart-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: var(--kracht-blauw);
+  gap: 0.55rem;
+  background: var(--kracht-zwart);
   color: var(--kracht-wit);
-  padding: 0.55rem 1rem;
+  padding: 0.55rem 0.85rem;
   border-radius: var(--kracht-radius-pill);
   text-decoration: none;
   font-size: 0.85rem;
@@ -144,20 +144,21 @@
   white-space: nowrap;
 }
 .kracht-header__cart-pill:hover {
-  background: var(--kracht-blauw-dark);
+  background: var(--kracht-zwart-card);
   color: var(--kracht-wit);
 }
+.kracht-header__cart-pill svg { color: var(--kracht-blauw); }
 .kracht-header__cart-count {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 22px;
-  height: 22px;
+  min-width: 20px;
+  height: 20px;
   padding-inline: 6px;
   background: var(--kracht-geel);
   color: var(--kracht-zwart);
   border-radius: var(--kracht-radius-pill);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   font-family: var(--kracht-font-body);
 }

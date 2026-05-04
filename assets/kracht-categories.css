@@ -78,24 +78,6 @@
   color: #ffffff;
 }
 
-.kracht-cat-card__plus {
-  position: absolute;
-  right: 0.85rem;
-  top: 0.85rem;
-  background: var(--kracht-blauw);
-  color: var(--kracht-wit);
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--kracht-font-heading);
-  font-weight: 900;
-  font-size: 1.05rem;
-  line-height: 1;
-}
-
 @media (max-width: 900px) {
   .kracht-categories__grid { grid-template-columns: repeat(2, 1fr); }
 }

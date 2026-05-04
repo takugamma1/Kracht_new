@@ -82,6 +82,7 @@
 .kracht-card__cat {
   font-size: 0.65rem;
   letter-spacing: 0.3em;
+  color: var(--kracht-blauw);
 }
 .kracht-card__title {
   font-family: var(--kracht-font-heading);

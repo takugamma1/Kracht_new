@@ -1,5 +1,5 @@
 .kracht-newsletter {
-  background: linear-gradient(90deg, var(--knl-bg, #009de1), var(--knl-bg-grad, #0078b4));
+  background: linear-gradient(90deg, var(--knl-bg, #009de1) 63%, var(--knl-bg-grad, #1763f8) 100%);
   color: var(--knl-fg, #ffffff);
   padding-block: var(--knl-pad-y, 48px);
   font-family: var(--kracht-font-body);
@@ -50,7 +50,7 @@
   flex: 1;
   background: var(--kracht-wit);
   border: 0;
-  border-radius: var(--kracht-radius-pill);
+  border-radius: 10px;
   padding: 0.95rem 1.25rem;
   font-family: var(--kracht-font-body);
   font-size: 0.9rem;
@@ -69,7 +69,7 @@
   background: var(--kracht-zwart);
   color: var(--kracht-wit);
   border: 0;
-  border-radius: var(--kracht-radius-pill);
+  border-radius: 10px;
   padding: 0.95rem 1.4rem;
   font-family: var(--kracht-font-body);
   font-size: 0.9rem;
