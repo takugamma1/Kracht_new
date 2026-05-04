@@ -24,9 +24,43 @@
         "button2_label": "Populaire items",
         "button2_link": ""
       }
+    },
+    "kracht_newsletter_yeHVpj": {
+      "type": "kracht-newsletter",
+      "name": "Kracht — Newsletter",
+      "settings": {
+        "heading": "<p>Blijf op de <strong>hoogte!</strong></p>",
+        "subheading": "Ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve Kracht+ merchandise.",
+        "placeholder": "Jouw e-mailadres",
+        "button_label": "Aanmelden",
+        "success_message": "Bedankt! Je staat op de lijst.",
+        "background_color": "#009de1",
+        "background_gradient_color": "#0078b4",
+        "text_color": "#ffffff",
+        "padding_y": 48
+      }
+    },
+    "kracht_product_grid_gBx6wt": {
+      "type": "kracht-product-grid",
+      "name": "Kracht — Product Grid",
+      "settings": {
+        "heading": "Populaire producten",
+        "subheading": "",
+        "collection": "",
+        "max_products": 8,
+        "link_label": "Alle producten",
+        "link_url": "",
+        "columns_desktop": 4,
+        "columns_tablet": 3,
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 64
+      }
     }
   },
   "order": [
-    "kracht_home_hero_irjyhr"
+    "kracht_home_hero_irjyhr",
+    "kracht_product_grid_gBx6wt",
+    "kracht_newsletter_yeHVpj"
   ]
 }
