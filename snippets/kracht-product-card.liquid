@@ -34,13 +34,19 @@
     {%- endif -%}
 
     {%- if product != blank -%}
+      {%- assign created_ts = product.created_at | date: '%s' | times: 1 -%}
+      {%- assign now_ts = 'now' | date: '%s' | times: 1 -%}
+      {%- assign new_cutoff = now_ts | minus: 2592000 -%}
+      {%- assign is_new = false -%}
+      {%- if created_ts > new_cutoff -%}{%- assign is_new = true -%}{%- endif -%}
+
       <div class="kracht-card__tags">
         {%- if product.metafields.kracht.tag != blank -%}
           <span class="kracht-tag kracht-tag--with-plus">{{ product.metafields.kracht.tag }}</span>
         {%- elsif product.compare_at_price > product.price -%}
           {%- assign discount = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
           <span class="kracht-tag kracht-tag--yellow">-{{ discount }}%</span>
-        {%- elsif product.created_at | date: '%s' | times: 1 > 'now' | date: '%s' | times: 1 | minus: 2592000 -%}
+        {%- elsif is_new -%}
           <span class="kracht-tag kracht-tag--with-plus">Nieuw</span>
         {%- endif -%}
       </div>
