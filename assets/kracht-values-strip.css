@@ -83,11 +83,18 @@
     flex-direction: row;
     align-items: flex-start;
     gap: 0.6rem;
+    text-align: left;
+  }
+  .kracht-values__title { font-size: 0.78rem; line-height: 1.2; }
+  .kracht-values__sub { font-size: 0.7rem; line-height: 1.3; margin-top: 1px; }
+
+  /* Stack-mode mobile: tinted card with white icon tile */
+  .kracht-values--stack .kracht-values__item {
     padding: 0.6rem 0.7rem;
     background: var(--kracht-grijs-soft);
     border-radius: 10px;
   }
-  .kracht-values__icon {
+  .kracht-values--stack .kracht-values__icon {
     width: 28px;
     height: 28px;
     background: var(--kracht-wit);
@@ -95,17 +102,13 @@
     flex-shrink: 0;
     margin-top: 2px;
   }
-  .kracht-values__icon svg { width: 18px; height: 18px; }
-  .kracht-values__title {
-    font-size: 0.78rem;
-    line-height: 1.2;
-  }
-  .kracht-values__sub {
-    font-size: 0.7rem;
-    line-height: 1.3;
-    margin-top: 1px;
+  .kracht-values--stack .kracht-values__icon svg { width: 18px; height: 18px; }
+
+  /* Row-mode mobile: keep the dark transparent icon tile, no card override */
+  .kracht-values--row .kracht-values__item {
+    padding: 0.4rem 0;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 480px) {
   .kracht-values__grid { grid-template-columns: 1fr; }
 }

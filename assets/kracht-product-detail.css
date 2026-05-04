@@ -301,14 +301,90 @@
 }
 .kracht-pdetail__usps li strong { color: var(--kpd-fg); font-weight: 600; }
 
-/* Responsive */
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 @media (max-width: 900px) {
-  .kracht-pdetail__layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .kracht-pdetail__layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .kracht-pdetail__crumbs {
+    margin-bottom: 1.25rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    gap: 0.35rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    scrollbar-width: none;
+    padding-bottom: 0.25rem;
+  }
+  .kracht-pdetail__crumbs::-webkit-scrollbar { display: none; }
+  .kracht-pdetail__crumbs > * { flex-shrink: 0; }
 }
+
 @media (max-width: 600px) {
-  .kracht-pdetail__gallery { grid-template-columns: 56px 1fr; }
-  .kracht-pdetail__thumb { width: 56px; }
-  .kracht-pdetail__usps { grid-template-columns: 1fr; }
+  .kracht-pdetail { padding-block: 1.5rem; }
+
+  /* Gallery becomes: main image on top, thumbnails as horizontal row */
+  .kracht-pdetail__gallery {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .kracht-pdetail__main-img { order: 1; }
+  .kracht-pdetail__thumbs {
+    order: 2;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.4rem;
+    padding-bottom: 2px;
+  }
+  .kracht-pdetail__thumbs::-webkit-scrollbar { display: none; }
+  .kracht-pdetail__thumb { width: 60px; flex-shrink: 0; }
+
+  /* Buy box typography scaling */
+  .kracht-pdetail__title { font-size: 1.6rem; line-height: 1.1; }
+  .kracht-pdetail__price { font-size: 1.35rem; }
+
+  /* Price row: tax flows on its own line, no margin-auto push */
+  .kracht-pdetail__tax {
+    margin-left: 0;
+    flex-basis: 100%;
+    margin-top: 0.1rem;
+  }
+
+  /* Size guide link drops below the option header */
+  .kracht-pdetail__option { padding-top: 0; }
+  .kracht-pdetail__sg {
+    position: static;
+    align-self: flex-end;
+    margin-top: -0.25rem;
+  }
+
+  /* USPs: single column, tighter padding */
+  .kracht-pdetail__usps {
+    grid-template-columns: 1fr;
+    padding: 0.85rem 1rem;
+    gap: 0.5rem;
+  }
+
+  /* Add to cart: qty + button only, no wishlist on small screens */
   .kracht-pdetail__add-row { grid-template-columns: auto 1fr; }
+  .kracht-pdetail__qty { padding: 0 0.2rem; }
+  .kracht-pdetail__qty-btn { width: 28px; }
+  .kracht-pdetail__qty-input { width: 28px; }
   .kracht-pdetail__wish { display: none; }
+
+  /* Description text sizing */
+  .kracht-pdetail__desc { font-size: 0.875rem; }
+  .kracht-pdetail__desc strong { color: var(--kpd-fg); }
+}
+
+@media (max-width: 380px) {
+  .kracht-pdetail__title { font-size: 1.4rem; }
+  .kracht-pdetail__sw-color { width: 32px; height: 32px; }
+  .kracht-pdetail__sw-size { min-width: 38px; height: 34px; padding: 0 0.45rem; font-size: 0.8rem; }
 }
