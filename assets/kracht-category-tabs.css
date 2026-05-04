@@ -1,0 +1,66 @@
+.kracht-cattabs {
+  background: var(--kct-bg, #ffffff);
+  color: var(--kct-fg, #000);
+  padding-block: var(--kct-pad-y, 24px);
+  font-family: var(--kracht-font-body);
+  border-bottom: 1px solid var(--kracht-grijs-border);
+}
+
+.kracht-cattabs__scroll {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.kracht-cattabs__scroll::-webkit-scrollbar { display: none; }
+
+.kracht-cattabs__item {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: var(--kracht-radius-md);
+  text-decoration: none;
+  color: var(--kct-fg);
+  background: transparent;
+  scroll-snap-align: start;
+  min-width: 88px;
+  transition: background var(--kracht-trans), color var(--kracht-trans);
+  border: 1px solid transparent;
+}
+.kracht-cattabs__item:hover {
+  background: var(--kracht-grijs-licht);
+  color: var(--kct-fg);
+}
+.kracht-cattabs__item.is-active {
+  background: var(--kct-active-bg, var(--kracht-blauw));
+  color: var(--kct-active-fg, #fff);
+}
+
+.kracht-cattabs__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+}
+.kracht-cattabs__item.is-active .kracht-cattabs__icon { color: #fff; }
+
+.kracht-cattabs__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+}
+.kracht-cattabs__count {
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  color: var(--kracht-grijs);
+  white-space: nowrap;
+}
+.kracht-cattabs__item.is-active .kracht-cattabs__count { color: rgba(255, 255, 255, 0.85); }

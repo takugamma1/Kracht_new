@@ -1,0 +1,90 @@
+{%- comment -%}
+  Kracht — product card
+  Accepts:
+    product (Product) — optional, falls back to placeholder
+    index (Number)    — used for placeholder demo content
+{%- endcomment -%}
+
+{%- assign product = product | default: blank -%}
+
+<a class="kracht-card" href="{{ product.url | default: '#' }}">
+  <div class="kracht-card__media">
+    {%- if product != blank and product.featured_image != blank -%}
+      <img
+        src="{{ product.featured_image | image_url: width: 600 }}"
+        srcset="{{ product.featured_image | image_url: width: 400 }} 400w, {{ product.featured_image | image_url: width: 600 }} 600w, {{ product.featured_image | image_url: width: 900 }} 900w"
+        sizes="(max-width: 600px) 50vw, 25vw"
+        alt="{{ product.featured_image.alt | escape }}"
+        class="kracht-card__img"
+        loading="lazy"
+      >
+      {%- if product.images.size > 1 -%}
+        <img
+          src="{{ product.images[1] | image_url: width: 600 }}"
+          alt=""
+          aria-hidden="true"
+          class="kracht-card__img kracht-card__img--hover"
+          loading="lazy"
+        >
+      {%- endif -%}
+    {%- else -%}
+      <div class="kracht-card__img kracht-card__img--placeholder">
+        {{- 'product-1' | placeholder_svg_tag: 'kracht-card__placeholder-svg' -}}
+      </div>
+    {%- endif -%}
+
+    {%- if product != blank -%}
+      <div class="kracht-card__tags">
+        {%- if product.metafields.kracht.tag != blank -%}
+          <span class="kracht-tag kracht-tag--with-plus">{{ product.metafields.kracht.tag }}</span>
+        {%- elsif product.compare_at_price > product.price -%}
+          {%- assign discount = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+          <span class="kracht-tag kracht-tag--yellow">-{{ discount }}%</span>
+        {%- elsif product.created_at | date: '%s' | times: 1 > 'now' | date: '%s' | times: 1 | minus: 2592000 -%}
+          <span class="kracht-tag kracht-tag--with-plus">Nieuw</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="kracht-card__body">
+    <p class="kracht-cat-label kracht-card__cat">
+      {%- if product != blank and product.type != blank -%}
+        {{ product.type }}
+      {%- else -%}
+        Categorie
+      {%- endif -%}
+    </p>
+    <h3 class="kracht-card__title">
+      {%- if product != blank -%}
+        {{ product.title }}
+      {%- else -%}
+        Productnaam — Variant
+      {%- endif -%}
+    </h3>
+    <div class="kracht-card__price-row">
+      <span class="kracht-card__price">
+        {%- if product != blank -%}
+          {{ product.price | money }}
+        {%- else -%}
+          €0,00
+        {%- endif -%}
+      </span>
+      {%- if product != blank and product.compare_at_price > product.price -%}
+        <s class="kracht-card__compare">{{ product.compare_at_price | money }}</s>
+      {%- endif -%}
+
+      {%- if product != blank and product.options_with_values != blank -%}
+        {%- for option in product.options_with_values -%}
+          {%- if option.name == 'Color' or option.name == 'Kleur' -%}
+            <span class="kracht-card__swatches">
+              {%- for value in option.values limit: 4 -%}
+                <span class="kracht-card__swatch" style="background: {{ value | downcase | replace: 'zwart','#000' | replace: 'wit','#fff' | replace: 'blauw','#009de1' | replace: 'grijs','#999' | replace: 'geel','#FAB725' }};" title="{{ value }}"></span>
+              {%- endfor -%}
+            </span>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</a>

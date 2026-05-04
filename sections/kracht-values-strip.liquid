@@ -1,0 +1,135 @@
+{{ 'kracht-values-strip.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-values"
+  style="
+    --kvs-bg: {{ section.settings.background_color }};
+    --kvs-fg: {{ section.settings.text_color }};
+    --kvs-icon: {{ section.settings.icon_color }};
+    --kvs-pad-y: {{ section.settings.padding_y }}px;
+  "
+>
+  <div class="kracht-values__inner kracht-container">
+    <div class="kracht-values__grid">
+      {%- for block in section.blocks -%}
+        <div class="kracht-values__item" {{ block.shopify_attributes }}>
+          <div class="kracht-values__icon">
+            {%- if block.settings.icon == 'send' -%}
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg>
+            {%- elsif block.settings.icon == 'leaf' -%}
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1c2.6-.7 5.3-1.7 7.6-3.2 1.2 5.3 1.6 8.6.4 12.2-1.2 3.6-4.5 5.7-7.4 5.7-2.5 0-4-2.4-4-3.9 0-2.7 4.7-3.6 7.4-1.8"/></svg>
+            {%- elsif block.settings.icon == 'star' -%}
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1L12 2z"/></svg>
+            {%- elsif block.settings.icon == 'heart' -%}
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-9.4-9C.7 8.4 2.7 4 6.5 4c2 0 3.6 1.1 4.5 2.6h2c.9-1.5 2.5-2.6 4.5-2.6 3.8 0 5.8 4.4 3.9 8-2.4 4.5-9.4 9-9.4 9z"/></svg>
+            {%- elsif block.settings.icon == 'shield' -%}
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            {%- elsif block.settings.icon == 'truck' -%}
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6h4l3 4v8h-3"/><path d="M3 18V6h11v12H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+            {%- elsif block.settings.icon == 'refresh' -%}
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            {%- elsif block.settings.icon == 'check' -%}
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            {%- endif -%}
+          </div>
+          <p class="kracht-values__title">{{ block.settings.title }}</p>
+          {%- if block.settings.subtitle != blank -%}
+            <p class="kracht-values__sub">{{ block.settings.subtitle }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Values Strip",
+  "tag": "section",
+  "class": "kracht-values-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#009de1"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "send", "label": "Paper plane" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "star", "label": "Star" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "send"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Snelle levering"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Binnen 2-3 werkdagen bezorgd"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "value", "settings": { "icon": "send",  "title": "Snelle levering",     "subtitle": "Binnen 2-3 werkdagen bezorgd" } },
+      { "type": "value", "settings": { "icon": "leaf",  "title": "Premium kwaliteit",   "subtitle": "Duurzaam en comfortabel" } },
+      { "type": "value", "settings": { "icon": "star",  "title": "Met trots gedragen",  "subtitle": "Door het hele Kracht team" } },
+      { "type": "value", "settings": { "icon": "heart", "title": "Winnend team",        "subtitle": "Of je wint, of je leert!" } }
+    ]
+  },
+  "presets": [
+    {
+      "name": "Kracht — Values Strip"
+    }
+  ]
+}
+{% endschema %}

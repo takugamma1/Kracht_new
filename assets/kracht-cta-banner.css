@@ -1,0 +1,125 @@
+.kracht-cta {
+  padding-block: var(--kc-pad-y, 64px);
+  font-family: var(--kracht-font-body);
+}
+.kracht-cta--dark  { background: #000; color: #fff; }
+.kracht-cta--blue  { background: var(--kracht-blauw); color: #fff; }
+.kracht-cta--light { background: #fff; color: #000; }
+
+.kracht-cta__card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  border-radius: var(--kc-radius, 0);
+  overflow: hidden;
+  background: var(--kc-bg);
+  color: var(--kc-fg);
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.kracht-cta--dark .kracht-cta__card { background: #000; }
+.kracht-cta--blue .kracht-cta__card { background: var(--kracht-blauw); }
+.kracht-cta--light .kracht-cta__card { background: var(--kracht-grijs-licht); }
+
+.kracht-cta__card::after {
+  content: "";
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(0, 157, 225, 0.18) 0%, rgba(0, 157, 225, 0) 70%);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.kracht-cta--blue .kracht-cta__card::after { background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%); }
+.kracht-cta--light .kracht-cta__card::after { display: none; }
+
+.kracht-cta__plus {
+  font-family: var(--kracht-font-heading);
+  font-weight: 900;
+  color: var(--kracht-blauw);
+  font-size: 5rem;
+  line-height: 0.7;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  opacity: 0.85;
+  display: none;
+}
+.kracht-cta--blue .kracht-cta__plus { color: var(--kracht-zwart); display: block; }
+
+.kracht-cta__body {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+.kracht-cta__eyebrow { color: var(--kracht-blauw); }
+.kracht-cta--blue .kracht-cta__eyebrow { color: var(--kracht-wit); }
+.kracht-cta--blue .kracht-cta__eyebrow::before { color: var(--kracht-wit); }
+
+.kracht-cta__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.6rem;
+  color: var(--kc-fg);
+}
+.kracht-cta__title strong, .kracht-cta__title b { font-weight: 800; }
+.kracht-cta__title p { margin: 0; }
+
+.kracht-cta__sub {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 540px;
+  opacity: 0.9;
+}
+
+.kracht-cta__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+.kracht-cta__secondary-btn {
+  background: transparent;
+  color: var(--kc-fg);
+  border: 1px solid currentColor;
+  border-radius: var(--kracht-radius-pill);
+}
+.kracht-cta__secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--kc-fg);
+}
+.kracht-cta--light .kracht-cta__secondary-btn:hover { background: rgba(0, 0, 0, 0.04); }
+
+.kracht-cta__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+.kracht-cta__stat-num {
+  font-family: var(--kracht-font-heading);
+  font-weight: 800;
+  font-size: 1.75rem;
+  margin: 0;
+  color: var(--kc-fg);
+}
+.kracht-cta__stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0.25rem 0 0;
+  opacity: 0.8;
+}
+
+@media (min-width: 900px) {
+  .kracht-cta__card { grid-template-columns: 1.4fr 1fr; align-items: center; }
+}

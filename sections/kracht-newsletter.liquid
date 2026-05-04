@@ -1,0 +1,134 @@
+{{ 'kracht-newsletter.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-newsletter"
+  style="
+    --knl-bg: {{ section.settings.background_color }};
+    --knl-bg-grad: {{ section.settings.background_gradient_color }};
+    --knl-fg: {{ section.settings.text_color }};
+    --knl-pad-y: {{ section.settings.padding_y }}px;
+  "
+>
+  <div class="kracht-newsletter__inner kracht-container">
+    <div class="kracht-newsletter__copy">
+      {% if section.settings.heading != blank %}
+        <h2 class="kracht-newsletter__title">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="kracht-newsletter__sub">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+
+    <div class="kracht-newsletter__form-wrap">
+      {% form 'customer', class: 'kracht-newsletter__form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <label class="kracht-vh" for="kracht-newsletter-email-{{ section.id }}">{{ section.settings.placeholder }}</label>
+        <input
+          id="kracht-newsletter-email-{{ section.id }}"
+          type="email"
+          name="contact[email]"
+          placeholder="{{ section.settings.placeholder }}"
+          autocomplete="email"
+          required
+          class="kracht-newsletter__input"
+        >
+        <button type="submit" class="kracht-newsletter__btn">
+          {{ section.settings.button_label }}
+          <span aria-hidden="true">→</span>
+        </button>
+        {%- if form.posted_successfully? -%}
+          <p class="kracht-newsletter__msg kracht-newsletter__msg--ok" role="status">
+            {{ section.settings.success_message }}
+          </p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <p class="kracht-newsletter__msg kracht-newsletter__msg--err" role="alert">
+            {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+          </p>
+        {%- endif -%}
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Newsletter",
+  "tag": "section",
+  "class": "kracht-newsletter-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Blijf op de <strong>hoogte!</strong></p>",
+      "info": "Use <strong> for the bold/emphasized word."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve Kracht+ merchandise."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "Jouw e-mailadres"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Aanmelden"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Bedankt! Je staat op de lijst."
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#009de1"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_color",
+      "label": "Gradient end color (optional)",
+      "default": "#0078b4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Newsletter"
+    }
+  ]
+}
+{% endschema %}

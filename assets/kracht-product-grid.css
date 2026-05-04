@@ -1,0 +1,134 @@
+.kracht-pgrid {
+  background: var(--kpg-bg, #f4f4f5);
+  color: var(--kpg-fg, #000000);
+  padding-block: var(--kpg-pad-y, 64px);
+  font-family: var(--kracht-font-body);
+}
+
+.kracht-pgrid__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--kpg-fg);
+}
+.kracht-pgrid__sub {
+  margin: 0.4rem 0 0;
+  color: var(--kracht-grijs);
+  font-size: 0.9rem;
+}
+
+.kracht-pgrid__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--kpg-cols, 4), minmax(0, 1fr));
+  gap: 1.5rem 1rem;
+}
+
+/* ==========================================================================
+   Card
+   ========================================================================== */
+.kracht-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  transition: transform var(--kracht-trans);
+}
+.kracht-card:hover { color: inherit; }
+
+.kracht-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--kracht-wit);
+  overflow: hidden;
+  border-radius: 4px;
+}
+.kracht-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 250ms ease;
+}
+.kracht-card__img--placeholder {
+  background: var(--kracht-grijs-licht);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kracht-card__placeholder-svg { max-width: 60%; opacity: 0.4; }
+.kracht-card__img--hover { opacity: 0; }
+.kracht-card:hover .kracht-card__img--hover { opacity: 1; }
+.kracht-card:hover .kracht-card__img:first-child { opacity: 0; }
+
+.kracht-card__tags {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  display: flex;
+  gap: 0.35rem;
+  z-index: 1;
+}
+
+.kracht-card__body {
+  padding: 0.85rem 0.1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.kracht-card__cat {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+}
+.kracht-card__title {
+  font-family: var(--kracht-font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--kpg-fg);
+  letter-spacing: -0.005em;
+}
+.kracht-card__price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.kracht-card__price {
+  font-family: var(--kracht-font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--kracht-blauw);
+}
+.kracht-card__compare {
+  color: var(--kracht-grijs);
+  font-size: 0.78rem;
+}
+.kracht-card__swatches {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--kracht-wit);
+  padding: 3px 4px;
+  border-radius: 4px;
+  border: 1px solid var(--kracht-grijs-border);
+}
+.kracht-card__swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 1024px) {
+  .kracht-pgrid__grid { grid-template-columns: repeat(var(--kpg-cols-tablet, 3), minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .kracht-pgrid__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 0.75rem; }
+}

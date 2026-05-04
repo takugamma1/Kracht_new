@@ -1,0 +1,161 @@
+.kracht-footer {
+  background: var(--kft-bg, #000000);
+  color: var(--kft-fg, #ffffff);
+  padding-block: var(--kft-pad-y, 64px);
+  font-family: var(--kracht-font-body);
+  position: relative;
+}
+
+.kracht-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.18) 0,
+    rgba(255, 255, 255, 0.18) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.kracht-footer__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.kracht-footer__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.kracht-footer__col {}
+.kracht-footer__col--brand .kracht-footer__brand-text {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  max-width: 280px;
+  line-height: 1.55;
+}
+
+.kracht-footer__logo { display: block; max-width: 160px; height: auto; }
+.kracht-footer__logo-text {
+  font-family: var(--kracht-font-heading);
+  font-weight: 900;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  display: inline-flex;
+  align-items: baseline;
+  color: var(--kft-fg);
+}
+.kracht-footer__logo-plus { color: var(--kracht-blauw); }
+.kracht-footer__logo-sub {
+  font-family: var(--kracht-font-body);
+  font-weight: 300;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-left: 0.4rem;
+  align-self: center;
+}
+
+.kracht-footer__col-title {
+  font-family: var(--kracht-font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 1.25rem;
+  color: var(--kft-muted, #ffffff);
+  letter-spacing: 0.02em;
+}
+.kracht-footer__col-title--mt { margin-top: 2rem; }
+
+.kracht-footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.kracht-footer__link {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  display: inline-block;
+  padding: 0.1rem 0;
+  transition: color var(--kracht-trans);
+}
+.kracht-footer__link:hover { color: var(--kracht-blauw); }
+
+.kracht-footer__col--socials .kracht-footer__link {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.kracht-footer__socials {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.kracht-footer__social {
+  color: var(--kft-fg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transition: color var(--kracht-trans);
+}
+.kracht-footer__social:hover { color: var(--kracht-blauw); }
+
+.kracht-footer__certs {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+.kracht-footer__cert {
+  display: block;
+  height: 36px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.kracht-footer__hr {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 3rem 0 1.25rem;
+}
+.kracht-footer__bottom {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+.kracht-footer__bottom p { margin: 0; }
+
+@media (max-width: 1024px) {
+  .kracht-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+  }
+  .kracht-footer__col--brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+  .kracht-footer__grid {
+    grid-template-columns: 1fr;
+    row-gap: 1.75rem;
+  }
+}

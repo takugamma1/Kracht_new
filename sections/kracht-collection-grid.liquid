@@ -1,0 +1,179 @@
+{{ 'kracht-collection-grid.css' | asset_url | stylesheet_tag }}
+
+{%- assign placeholder_count = section.settings.placeholder_count | default: 12 -%}
+{%- assign columns_d = section.settings.columns_desktop | default: 4 -%}
+{%- assign columns_t = section.settings.columns_tablet | default: 3 -%}
+
+<section
+  class="kracht-cgrid"
+  style="
+    --kcg-bg: {{ section.settings.background_color }};
+    --kcg-fg: {{ section.settings.text_color }};
+    --kcg-pad-y: {{ section.settings.padding_y }}px;
+    --kcg-cols: {{ columns_d }};
+    --kcg-cols-tablet: {{ columns_t }};
+  "
+>
+  <div class="kracht-cgrid__inner kracht-container">
+    <!-- Filter bar -->
+    <div class="kracht-cgrid__bar">
+      <div class="kracht-cgrid__bar-left">
+        <span class="kracht-cgrid__count">
+          {%- if collection != blank -%}
+            {{ collection.products_count }}
+          {%- else -%}
+            {{ placeholder_count }}
+          {%- endif -%}
+          resultaten
+        </span>
+        <button type="button" class="kracht-cgrid__filter-btn" aria-label="Filters">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="9" y1="18" x2="15" y2="18"/></svg>
+          Filters
+        </button>
+        {%- assign demo_chips = section.settings.demo_chips | default: 'Maat: M, Kleur: Zwart, €0 — €50' | split: ',' -%}
+        {%- for chip in demo_chips -%}
+          <span class="kracht-cgrid__chip">{{ chip | strip }}<span aria-hidden="true">×</span></span>
+        {%- endfor -%}
+      </div>
+
+      <div class="kracht-cgrid__bar-right">
+        <label class="kracht-cgrid__sort-label">
+          Sorteer op:
+          <select class="kracht-cgrid__sort">
+            <option>Aanbevolen</option>
+            <option>Prijs ↑</option>
+            <option>Prijs ↓</option>
+            <option>Nieuwste</option>
+          </select>
+        </label>
+        <div class="kracht-cgrid__view">
+          <button type="button" class="kracht-cgrid__view-btn is-active" aria-label="Grid view">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+          </button>
+          <button type="button" class="kracht-cgrid__view-btn" aria-label="List view">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="11" width="18" height="3" rx="1"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product grid -->
+    <div class="kracht-cgrid__grid">
+      {%- if collection != blank and collection.products_count > 0 -%}
+        {%- paginate collection.products by 24 -%}
+          {%- for product in collection.products -%}
+            {%- render 'kracht-product-card', product: product -%}
+          {%- endfor -%}
+        {%- endpaginate -%}
+      {%- else -%}
+        {%- for i in (1..placeholder_count) -%}
+          {%- render 'kracht-product-card', product: blank, index: i -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    <!-- Footer -->
+    <div class="kracht-cgrid__foot">
+      <button type="button" class="kracht-btn kracht-btn--dark kracht-cgrid__more">
+        Meer items laden <span aria-hidden="true">↓</span>
+      </button>
+      <p class="kracht-cgrid__progress">
+        Je bekijkt
+        <strong>
+          {%- if collection != blank -%}
+            {{ collection.products | size }}
+          {%- else -%}
+            {{ placeholder_count }}
+          {%- endif -%}
+        </strong>
+        van
+        <strong>
+          {%- if collection != blank -%}
+            {{ collection.products_count }}
+          {%- else -%}
+            48
+          {%- endif -%}
+        </strong>
+        items
+      </p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Collection Grid",
+  "tag": "section",
+  "class": "kracht-cgrid-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns (desktop)",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_tablet",
+      "label": "Columns (tablet)",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "placeholder_count",
+      "label": "Placeholder card count (when no collection)",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "text",
+      "id": "demo_chips",
+      "label": "Demo filter chips (comma separated)",
+      "default": "Maat: M, Kleur: Zwart, €0 — €50"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Collection Grid"
+    }
+  ]
+}
+{% endschema %}

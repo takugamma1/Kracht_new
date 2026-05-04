@@ -1,0 +1,137 @@
+{{ 'kracht-collection-hero.css' | asset_url | stylesheet_tag }}
+
+{%- assign current_collection = collection -%}
+{%- assign hero_title = section.settings.heading | default: current_collection.title -%}
+{%- assign hero_text = section.settings.subheading | default: current_collection.description -%}
+
+<section
+  class="kracht-coll-hero"
+  style="
+    --kch-bg: {{ section.settings.background_color }};
+    --kch-fg: {{ section.settings.text_color }};
+    --kch-pad-y: {{ section.settings.padding_y }}px;
+  "
+>
+  <div class="kracht-coll-hero__inner kracht-container">
+    {%- if section.settings.show_breadcrumbs -%}
+      <nav class="kracht-coll-hero__crumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">Home</a>
+        <span aria-hidden="true">+</span>
+        <a href="{{ routes.collections_url }}">Collecties</a>
+        {%- if current_collection != blank -%}
+          <span aria-hidden="true">+</span>
+          <span class="is-current">{{ current_collection.title }}</span>
+        {%- endif -%}
+      </nav>
+    {%- endif -%}
+
+    <div class="kracht-coll-hero__content">
+      {%- if hero_title != blank -%}
+        <h1 class="kracht-coll-hero__title">{{ hero_title }}</h1>
+      {%- endif -%}
+      {%- if hero_text != blank -%}
+        <p class="kracht-coll-hero__sub">{{ hero_text }}</p>
+      {%- endif -%}
+      {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
+        <div class="kracht-coll-hero__cta">
+          {%- if section.settings.button1_label != blank -%}
+            <a href="{{ section.settings.button1_link | default: '#' }}" class="kracht-btn kracht-btn--primary">
+              {{ section.settings.button1_label }} <span class="kracht-btn__arrow">→</span>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.button2_label != blank -%}
+            <a href="{{ section.settings.button2_link | default: '#' }}" class="kracht-btn kracht-btn--dark">
+              {{ section.settings.button2_label }}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Collection Hero",
+  "tag": "section",
+  "class": "kracht-coll-hero-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "Show breadcrumbs",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading override",
+      "info": "If empty, uses the collection title."
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading override",
+      "info": "If empty, uses the collection description.",
+      "default": "<p><strong>Premium kleding</strong> voor het team dat altijd wint. Van werkkleding tot lifestyle — <strong>met trots gedragen</strong> door het hele Kracht team.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Primary button label",
+      "default": "Bekijk de collectie"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Secondary button label",
+      "default": "Nieuwe items"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 32,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Collection Hero"
+    }
+  ]
+}
+{% endschema %}

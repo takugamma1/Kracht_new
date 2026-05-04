@@ -1,0 +1,197 @@
+{{ 'kracht-product-info-tabs.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-pinfo"
+  style="
+    --kpi-bg: {{ section.settings.background_color }};
+    --kpi-fg: {{ section.settings.text_color }};
+    --kpi-pad-y: {{ section.settings.padding_y }}px;
+  "
+>
+  <div class="kracht-pinfo__inner kracht-container">
+    <div class="kracht-pinfo__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="kracht-pinfo__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="kracht-pinfo__layout">
+      <!-- Tabs panel -->
+      <div class="kracht-pinfo__tabs-wrap">
+        <div class="kracht-pinfo__tabs" role="tablist">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'tab' -%}
+              <button
+                type="button"
+                role="tab"
+                class="kracht-pinfo__tab {% if forloop.first %}is-active{% endif %}"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                data-tab="{{ forloop.index }}"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.label | upcase }}
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <div class="kracht-pinfo__panels">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'tab' -%}
+              <div class="kracht-pinfo__panel {% if forloop.first %}is-active{% endif %}" role="tabpanel" data-panel="{{ forloop.index }}">
+                {{ block.settings.body }}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <!-- Specs card -->
+      {%- assign has_specs = false -%}
+      {%- for block in section.blocks -%}{%- if block.type == 'spec' -%}{%- assign has_specs = true -%}{%- endif -%}{%- endfor -%}
+      {%- if has_specs -%}
+        <aside class="kracht-pinfo__specs">
+          <p class="kracht-pinfo__specs-title">Specs <span class="kracht-pinfo__plus" aria-hidden="true">+</span></p>
+          <dl class="kracht-pinfo__specs-list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'spec' -%}
+                <div class="kracht-pinfo__specs-row" {{ block.shopify_attributes }}>
+                  <dt>{{ block.settings.label }}</dt>
+                  <dd>{{ block.settings.value }}</dd>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </dl>
+          {%- if section.settings.cta_label != blank -%}
+            <a href="{{ section.settings.cta_link | default: '#' }}" class="kracht-pinfo__specs-cta">
+              {{ section.settings.cta_label }} <span aria-hidden="true">→</span>
+            </a>
+          {%- endif -%}
+        </aside>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const root = document.currentScript.previousElementSibling;
+    if (!root) return;
+    const tabs = root.querySelectorAll('.kracht-pinfo__tab');
+    const panels = root.querySelectorAll('.kracht-pinfo__panel');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const i = tab.dataset.tab;
+        tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+        panels.forEach(p => p.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+        const target = root.querySelector('[data-panel="' + i + '"]');
+        if (target) target.classList.add('is-active');
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Kracht — Product Info Tabs",
+  "tag": "section",
+  "class": "kracht-pinfo-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Productinformatie"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Alles over de <strong>Team Tee.</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Specs CTA label",
+      "default": "Bekijk de maatgids"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Specs CTA link"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Description tab",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Tab label", "default": "Beschrijving" },
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>De <strong>Kracht+ Team Tee</strong> is meer dan een t-shirt — het is een statement.</p>" }
+      ]
+    },
+    {
+      "type": "spec",
+      "name": "Spec row",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Materiaal" },
+        { "type": "text", "id": "value", "label": "Value", "default": "100% katoen" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "tab", "settings": { "label": "Beschrijving", "body": "<p>De <strong>Kracht+ Team Tee</strong> is meer dan een t-shirt — het is een statement. Gemaakt voor het team dat altijd wint, comfortabel genoeg om de hele dag te dragen, en met een snit die past bij elke houding.</p><ul><li>Premium 100% katoen — zwaar 220 gr/m² voor stevigheid</li><li>Geborduurd Kracht+ logo in krachtig blauw op de borst</li><li>Versterkte zomen getest op 50+ wasbeurten</li><li>Klassieke ronde hals met ribbing houdt z'n vorm</li><li>Unisex pasvorm — true to size</li></ul>" } },
+      { "type": "tab", "settings": { "label": "Materiaal",   "body": "<p>100% premium katoen, 220 gr/m².</p>" } },
+      { "type": "tab", "settings": { "label": "Onderhoud",   "body": "<p>Wasbaar op 30 °C, niet bleken, lage temp strijken.</p>" } },
+      { "type": "tab", "settings": { "label": "Verzending",  "body": "<p>Binnen 2-3 werkdagen geleverd. Gratis verzending vanaf €50.</p>" } },
+      { "type": "spec", "settings": { "label": "Materiaal",  "value": "100% katoen" } },
+      { "type": "spec", "settings": { "label": "Gewicht",    "value": "220 gr/m²" } },
+      { "type": "spec", "settings": { "label": "Pasvorm",    "value": "Unisex — regular" } },
+      { "type": "spec", "settings": { "label": "Logo",       "value": "Geborduurd, blauw" } },
+      { "type": "spec", "settings": { "label": "Productie",  "value": "Portugal" } },
+      { "type": "spec", "settings": { "label": "Maten",      "value": "XS — 3XL" } },
+      { "type": "spec", "settings": { "label": "Op voorraad", "value": "Ja — 142 stuks" } }
+    ]
+  },
+  "presets": [
+    {
+      "name": "Kracht — Product Info Tabs"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,337 @@
+/* ==========================================================================
+   Kracht — Brand tokens & shared utilities
+   Loaded globally via layout/theme.liquid. Every kracht-* section can rely
+   on these variables and utility classes.
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --kracht-blauw: #009de1;
+  --kracht-blauw-dark: #0089c4;
+  --kracht-blauw-light: #2bb1ec;
+  --kracht-zwart: #000000;
+  --kracht-zwart-soft: #0a0a0a;
+  --kracht-zwart-card: #111111;
+  --kracht-wit: #ffffff;
+  --kracht-geel: #FAB725;
+  --kracht-grijs: #727272;
+  --kracht-grijs-licht: #f4f4f5;
+  --kracht-grijs-border: #e5e5e5;
+  --kracht-grijs-soft: #fafafa;
+
+  /* Typography */
+  --kracht-font-heading: 'Work Sans', system-ui, sans-serif;
+  --kracht-font-body: 'Raleway', system-ui, sans-serif;
+
+  /* Layout */
+  --kracht-container: 1280px;
+  --kracht-container-narrow: 1100px;
+  --kracht-radius-sm: 6px;
+  --kracht-radius-md: 12px;
+  --kracht-radius-lg: 20px;
+  --kracht-radius-pill: 999px;
+
+  /* Spacing scale */
+  --kracht-space-2: 0.5rem;
+  --kracht-space-3: 0.75rem;
+  --kracht-space-4: 1rem;
+  --kracht-space-5: 1.25rem;
+  --kracht-space-6: 1.5rem;
+  --kracht-space-8: 2rem;
+  --kracht-space-10: 2.5rem;
+  --kracht-space-12: 3rem;
+  --kracht-space-16: 4rem;
+  --kracht-space-20: 5rem;
+  --kracht-space-24: 6rem;
+
+  /* Shadows */
+  --kracht-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --kracht-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --kracht-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  /* Transitions */
+  --kracht-trans: 200ms ease;
+}
+
+/* ==========================================================================
+   Container
+   ========================================================================== */
+.kracht-container {
+  width: 100%;
+  max-width: var(--kracht-container);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  box-sizing: border-box;
+}
+
+.kracht-container--narrow {
+  max-width: var(--kracht-container-narrow);
+}
+
+/* ==========================================================================
+   Section eyebrow label  ("+ section name")
+   ========================================================================== */
+.kracht-eyebrow {
+  font-family: var(--kracht-font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kracht-blauw);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 1rem;
+}
+.kracht-eyebrow::before {
+  content: "+";
+  font-family: var(--kracht-font-heading);
+  font-weight: 900;
+  color: var(--kracht-blauw);
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+.kracht-h1,
+.kracht-h2,
+.kracht-h3 {
+  font-family: var(--kracht-font-heading);
+  font-weight: 400;
+  color: inherit;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.kracht-h1 { font-size: clamp(2.25rem, 5.5vw, 4rem); }
+.kracht-h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
+.kracht-h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 500; }
+
+.kracht-h1 strong,
+.kracht-h2 strong,
+.kracht-h3 strong {
+  font-weight: 800;
+}
+.kracht-accent {
+  color: var(--kracht-blauw);
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.kracht-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--kracht-font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--kracht-radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--kracht-trans);
+  white-space: nowrap;
+  line-height: 1;
+}
+.kracht-btn--primary {
+  background: var(--kracht-blauw);
+  color: var(--kracht-wit);
+}
+.kracht-btn--primary:hover {
+  background: var(--kracht-blauw-dark);
+  color: var(--kracht-wit);
+}
+.kracht-btn--dark {
+  background: var(--kracht-zwart);
+  color: var(--kracht-wit);
+}
+.kracht-btn--dark:hover {
+  background: var(--kracht-zwart-card);
+  color: var(--kracht-wit);
+}
+.kracht-btn--light {
+  background: var(--kracht-wit);
+  color: var(--kracht-zwart);
+}
+.kracht-btn--light:hover {
+  background: var(--kracht-grijs-licht);
+}
+.kracht-btn--outline-dark {
+  background: transparent;
+  color: var(--kracht-wit);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.kracht-btn--outline-dark:hover {
+  border-color: var(--kracht-wit);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--kracht-wit);
+}
+.kracht-btn--outline-light {
+  background: transparent;
+  color: var(--kracht-zwart);
+  border-color: var(--kracht-grijs-border);
+}
+.kracht-btn--outline-light:hover {
+  border-color: var(--kracht-zwart);
+}
+.kracht-btn--ghost {
+  background: transparent;
+  color: var(--kracht-blauw);
+  padding-inline: 0;
+}
+.kracht-btn--ghost:hover {
+  color: var(--kracht-blauw-dark);
+}
+.kracht-btn__arrow {
+  display: inline-block;
+  transition: transform var(--kracht-trans);
+}
+.kracht-btn:hover .kracht-btn__arrow {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Pills / chips / tags
+   ========================================================================== */
+.kracht-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--kracht-font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--kracht-radius-pill);
+  background: var(--kracht-blauw);
+  color: var(--kracht-wit);
+}
+.kracht-tag--dark { background: var(--kracht-zwart); color: var(--kracht-wit); }
+.kracht-tag--yellow { background: var(--kracht-geel); color: var(--kracht-zwart); }
+.kracht-tag--light { background: var(--kracht-wit); color: var(--kracht-zwart); }
+.kracht-tag--ghost { background: transparent; color: var(--kracht-blauw); border: 1px solid currentColor; }
+
+.kracht-tag--with-plus::before {
+  content: "+";
+  font-family: var(--kracht-font-heading);
+  font-weight: 900;
+  margin-right: 0.1rem;
+}
+
+/* ==========================================================================
+   Eyebrow uppercase category label (e.g. "T-SHIRTS")
+   ========================================================================== */
+.kracht-cat-label {
+  font-family: var(--kracht-font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--kracht-grijs);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Dashed divider
+   ========================================================================== */
+.kracht-dashed {
+  height: 0;
+  border: 0;
+  border-top: 1px dashed currentColor;
+  opacity: 0.18;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section wrappers — light + dark
+   ========================================================================== */
+.kracht-section {
+  position: relative;
+  background: var(--kracht-wit);
+  color: var(--kracht-zwart);
+}
+.kracht-section--dark {
+  background: var(--kracht-zwart);
+  color: var(--kracht-wit);
+}
+.kracht-section--blue {
+  background: var(--kracht-blauw);
+  color: var(--kracht-wit);
+}
+.kracht-section--soft {
+  background: var(--kracht-grijs-licht);
+  color: var(--kracht-zwart);
+}
+
+/* ==========================================================================
+   Section header (eyebrow + title + optional link)
+   ========================================================================== */
+.kracht-section__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.kracht-section__head-text { max-width: 720px; }
+.kracht-section__more {
+  font-family: var(--kracht-font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--kracht-blauw);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: var(--kracht-trans);
+}
+.kracht-section__more:hover { gap: 0.55rem; }
+.kracht-section--dark .kracht-section__more,
+.kracht-section--blue .kracht-section__more { color: var(--kracht-wit); }
+
+/* ==========================================================================
+   Big plus brand element
+   ========================================================================== */
+.kracht-plus {
+  font-family: var(--kracht-font-heading);
+  font-weight: 900;
+  color: var(--kracht-blauw);
+  line-height: 0.8;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Visually-hidden helper
+   ========================================================================== */
+.kracht-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Body reset only inside kracht sections — keeps Horizon defaults intact elsewhere
+   ========================================================================== */
+[class*="kracht-section"],
+[class*="kracht-section"] * {
+  -webkit-font-smoothing: antialiased;
+}
+[class*="kracht-section"] :is(p, h1, h2, h3, h4, h5, h6) {
+  font-family: var(--kracht-font-body);
+}
+[class*="kracht-section"] :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--kracht-font-heading);
+}

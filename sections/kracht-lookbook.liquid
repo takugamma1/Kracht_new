@@ -1,0 +1,141 @@
+{{ 'kracht-lookbook.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-lookbook"
+  style="
+    --klb-bg: {{ section.settings.background_color }};
+    --klb-fg: {{ section.settings.text_color }};
+    --klb-pad-y: {{ section.settings.padding_y }}px;
+    --klb-radius: {{ section.settings.radius }}px;
+  "
+>
+  <div class="kracht-lookbook__inner kracht-container">
+    <div class="kracht-section__head">
+      <div class="kracht-section__head-text">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-lookbook__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.link_label != blank -%}
+        <a href="{{ section.settings.link_url | default: '#' }}" class="kracht-section__more">
+          {{ section.settings.link_label }} <span aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="kracht-lookbook__grid">
+      {%- for block in section.blocks -%}
+        {%- assign size_class = '' -%}
+        {%- if forloop.first -%}{%- assign size_class = 'is-feature' -%}{%- endif -%}
+        <a class="kracht-lb-card {{ size_class }}" href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <img
+              src="{{ block.settings.image | image_url: width: 1200 }}"
+              srcset="{{ block.settings.image | image_url: width: 600 }} 600w, {{ block.settings.image | image_url: width: 1200 }} 1200w"
+              sizes="(max-width: 900px) 100vw, 50vw"
+              alt="{{ block.settings.image.alt | default: block.settings.title }}"
+              class="kracht-lb-card__img"
+              loading="lazy"
+            >
+          {%- else -%}
+            <div class="kracht-lb-card__img kracht-lb-card__img--ph"></div>
+          {%- endif -%}
+          <div class="kracht-lb-card__overlay" aria-hidden="true"></div>
+          <div class="kracht-lb-card__body">
+            {%- if block.settings.eyebrow != blank -%}
+              <span class="kracht-tag kracht-tag--with-plus">{{ block.settings.eyebrow }}</span>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <p class="kracht-lb-card__title">{{ block.settings.title }}</p>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Lookbook",
+  "tag": "section",
+  "class": "kracht-lookbook-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Lookbook"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Right link label",
+      "default": "Meer bekijken"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Right link URL"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "lookbook_card",
+      "name": "Lookbook card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Office wear" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Professioneel & stijlvol" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "lookbook_card", "settings": { "eyebrow": "Workwear", "title": "Aan de slag" } },
+      { "type": "lookbook_card", "settings": { "eyebrow": "Office wear", "title": "Professioneel & stijlvol" } },
+      { "type": "lookbook_card", "settings": { "eyebrow": "Winter collectie", "title": "Op avontuur met Kracht+" } },
+      { "type": "lookbook_card", "settings": { "eyebrow": "Padel & Sport", "title": "Samen winnen" } }
+    ]
+  },
+  "presets": [
+    {
+      "name": "Kracht — Lookbook"
+    }
+  ]
+}
+{% endschema %}

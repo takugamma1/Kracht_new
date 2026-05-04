@@ -1,0 +1,179 @@
+{{ 'kracht-cta-banner.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-cta {% if section.settings.theme == 'dark' %}kracht-cta--dark{% elsif section.settings.theme == 'blue' %}kracht-cta--blue{% else %}kracht-cta--light{% endif %}"
+  style="
+    --kc-bg: {{ section.settings.background_color }};
+    --kc-fg: {{ section.settings.text_color }};
+    --kc-pad-y: {{ section.settings.padding_y }}px;
+    --kc-radius: {{ section.settings.radius }}px;
+  "
+>
+  <div class="kracht-cta__inner kracht-container">
+    <div class="kracht-cta__card">
+      <span class="kracht-cta__plus" aria-hidden="true">+</span>
+
+      <div class="kracht-cta__body">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow kracht-cta__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-cta__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="kracht-cta__sub">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
+          <div class="kracht-cta__cta">
+            {%- if section.settings.button1_label != blank -%}
+              <a href="{{ section.settings.button1_link | default: '#' }}" class="kracht-btn kracht-btn--primary">
+                {{ section.settings.button1_label }} <span class="kracht-btn__arrow">→</span>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.button2_label != blank -%}
+              <a href="{{ section.settings.button2_link | default: '#' }}" class="kracht-btn kracht-cta__secondary-btn">
+                {{ section.settings.button2_label }}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_stats -%}
+        <div class="kracht-cta__stats">
+          {%- for block in section.blocks -%}
+            <div class="kracht-cta__stat" {{ block.shopify_attributes }}>
+              <p class="kracht-cta__stat-num">{{ block.settings.value }}</p>
+              <p class="kracht-cta__stat-label">{{ block.settings.label }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — CTA Banner",
+  "tag": "section",
+  "class": "kracht-cta-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Jouw team, <strong>jouw Kracht.</strong></p>"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Op zoek naar gepersonaliseerde merchandise voor jouw team of bedrijfsevent? Wij regelen het voor je. Vraag vrijblijvend een offerte aan!"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Primary button label",
+      "default": "Offerte aanvragen"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Secondary button label"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Stats (optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stats",
+      "label": "Show stats column",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "Theme",
+      "options": [
+        { "value": "dark",  "label": "Dark"  },
+        { "value": "blue",  "label": "Blue"  },
+        { "value": "light", "label": "Light" }
+      ],
+      "default": "dark"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 32,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "48+" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Items in collectie" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — CTA Banner"
+    }
+  ]
+}
+{% endschema %}

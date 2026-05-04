@@ -1,0 +1,110 @@
+.kracht-newsletter {
+  background: linear-gradient(90deg, var(--knl-bg, #009de1), var(--knl-bg-grad, #0078b4));
+  color: var(--knl-fg, #ffffff);
+  padding-block: var(--knl-pad-y, 48px);
+  font-family: var(--kracht-font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.kracht-newsletter__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 3rem;
+}
+
+.kracht-newsletter__copy { max-width: 520px; }
+
+.kracht-newsletter__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+.kracht-newsletter__title strong,
+.kracht-newsletter__title b {
+  font-weight: 800;
+}
+.kracht-newsletter__title p { margin: 0; }
+
+.kracht-newsletter__sub {
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  opacity: 0.92;
+  margin: 0;
+  max-width: 460px;
+}
+
+.kracht-newsletter__form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: min(420px, 100%);
+}
+
+.kracht-newsletter__input {
+  flex: 1;
+  background: var(--kracht-wit);
+  border: 0;
+  border-radius: var(--kracht-radius-pill);
+  padding: 0.95rem 1.25rem;
+  font-family: var(--kracht-font-body);
+  font-size: 0.9rem;
+  color: var(--kracht-zwart);
+  outline: none;
+  min-width: 0;
+}
+.kracht-newsletter__input::placeholder {
+  color: var(--kracht-grijs);
+}
+.kracht-newsletter__input:focus {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+.kracht-newsletter__btn {
+  background: var(--kracht-zwart);
+  color: var(--kracht-wit);
+  border: 0;
+  border-radius: var(--kracht-radius-pill);
+  padding: 0.95rem 1.4rem;
+  font-family: var(--kracht-font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background var(--kracht-trans);
+  white-space: nowrap;
+}
+.kracht-newsletter__btn:hover {
+  background: var(--kracht-zwart-card);
+}
+
+.kracht-newsletter__msg {
+  flex-basis: 100%;
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0;
+}
+.kracht-newsletter__msg--ok { color: var(--kracht-wit); }
+.kracht-newsletter__msg--err { color: var(--kracht-geel); }
+
+@media (max-width: 768px) {
+  .kracht-newsletter__inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .kracht-newsletter__form { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .kracht-newsletter__form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kracht-newsletter__btn { justify-content: center; }
+}

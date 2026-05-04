@@ -1,0 +1,51 @@
+.kracht-values {
+  background: var(--kvs-bg, #ffffff);
+  color: var(--kvs-fg, #000000);
+  padding-block: var(--kvs-pad-y, 32px);
+  font-family: var(--kracht-font-body);
+}
+
+.kracht-values__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.kracht-values__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.kracht-values__icon {
+  color: var(--kvs-icon, #009de1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.kracht-values__title {
+  font-family: var(--kracht-font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.005em;
+  color: var(--kvs-fg);
+}
+.kracht-values__sub {
+  font-size: 0.8rem;
+  color: var(--kracht-grijs);
+  margin: 0;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .kracht-values__grid { grid-template-columns: repeat(2, 1fr); row-gap: 1.5rem; }
+}
+@media (max-width: 380px) {
+  .kracht-values__grid { grid-template-columns: 1fr; }
+}

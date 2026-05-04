@@ -1,0 +1,67 @@
+.kracht-announcement-bar {
+  background: var(--kab-bg, #009de1);
+  color: var(--kab-fg, #ffffff);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--kracht-font-body);
+  font-size: var(--kab-font-size, 13px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  width: 100%;
+}
+
+.kracht-announcement-bar__track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: var(--kab-pad-y, 12px) clamp(1rem, 4vw, 2.5rem);
+  flex-wrap: wrap;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.kracht-announcement-bar__item {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 400;
+}
+.kracht-announcement-bar__item:hover {
+  text-decoration: underline;
+}
+
+.kracht-announcement-bar__sep {
+  opacity: 0.65;
+}
+.kracht-announcement-bar__sep:last-child { display: none; }
+
+.kracht-announcement-bar__dashed {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.55) 0,
+    rgba(255, 255, 255, 0.55) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+@media (max-width: 640px) {
+  .kracht-announcement-bar__track {
+    gap: 0.6rem;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    justify-content: flex-start;
+    animation: kracht-marquee 18s linear infinite;
+    width: max-content;
+  }
+  @keyframes kracht-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+}

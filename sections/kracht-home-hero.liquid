@@ -1,0 +1,155 @@
+{{ 'kracht-home-hero.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-hero"
+  style="
+    --khh-min-height: {{ section.settings.min_height }}px;
+    --khh-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --khh-text: {{ section.settings.text_color }};
+  "
+>
+  {%- if section.settings.image != blank -%}
+    <img
+      src="{{ section.settings.image | image_url: width: 2400 }}"
+      srcset="
+        {{ section.settings.image | image_url: width: 800 }} 800w,
+        {{ section.settings.image | image_url: width: 1200 }} 1200w,
+        {{ section.settings.image | image_url: width: 1600 }} 1600w,
+        {{ section.settings.image | image_url: width: 2400 }} 2400w
+      "
+      sizes="100vw"
+      alt="{{ section.settings.image.alt | default: section.settings.heading }}"
+      class="kracht-hero__bg"
+      loading="eager"
+      fetchpriority="high"
+    >
+  {%- endif -%}
+
+  <div class="kracht-hero__overlay" aria-hidden="true"></div>
+
+  <div class="kracht-hero__inner kracht-container">
+    <div class="kracht-hero__content">
+      {%- if section.settings.tag != blank -%}
+        <span class="kracht-tag kracht-hero__tag">{{ section.settings.tag }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="kracht-hero__title">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="kracht-hero__sub">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
+        <div class="kracht-hero__cta">
+          {%- if section.settings.button1_label != blank -%}
+            <a href="{{ section.settings.button1_link | default: '#' }}" class="kracht-btn kracht-btn--primary">
+              {{ section.settings.button1_label }} <span class="kracht-btn__arrow">→</span>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.button2_label != blank -%}
+            <a href="{{ section.settings.button2_link | default: '#' }}" class="kracht-btn kracht-btn--outline-dark">
+              {{ section.settings.button2_label }}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Home Hero",
+  "tag": "section",
+  "class": "kracht-hero-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Min height (desktop)",
+      "min": 360,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 640
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay darkness",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 35
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag pill",
+      "default": "Nieuwe collectie 2026"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Draag je Kracht <em>met trots.</em></p>",
+      "info": "Use <em>...</em> for the bold/emphasized portion."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Exclusieve merchandise voor het team dat altijd wint. Van werkkleding tot lifestyle — allemaal vanuit Kracht."
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Primary button label",
+      "default": "Bekijk de collectie"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Secondary button label",
+      "default": "Populaire items"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Secondary button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Home Hero"
+    }
+  ]
+}
+{% endschema %}

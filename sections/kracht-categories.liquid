@@ -1,0 +1,149 @@
+{{ 'kracht-categories.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-section--dark kracht-categories"
+  style="
+    --kct-bg: {{ section.settings.background_color }};
+    --kct-fg: {{ section.settings.text_color }};
+    --kct-pad-y: {{ section.settings.padding_y }}px;
+    --kct-radius: {{ section.settings.card_radius }}px;
+  "
+>
+  <div class="kracht-categories__inner kracht-container">
+    <div class="kracht-section__head">
+      <div class="kracht-section__head-text">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-categories__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.link_label != blank -%}
+        <a href="{{ section.settings.link_url | default: '#' }}" class="kracht-section__more">
+          {{ section.settings.link_label }} <span aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="kracht-categories__grid">
+      {%- for block in section.blocks -%}
+        <a class="kracht-cat-card" href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <img
+              src="{{ block.settings.image | image_url: width: 600 }}"
+              srcset="
+                {{ block.settings.image | image_url: width: 400 }} 400w,
+                {{ block.settings.image | image_url: width: 600 }} 600w,
+                {{ block.settings.image | image_url: width: 900 }} 900w
+              "
+              sizes="(max-width: 600px) 50vw, 25vw"
+              alt="{{ block.settings.image.alt | default: block.settings.title }}"
+              class="kracht-cat-card__img"
+              loading="lazy"
+            >
+          {%- else -%}
+            <div class="kracht-cat-card__img kracht-cat-card__img--placeholder"></div>
+          {%- endif -%}
+
+          <div class="kracht-cat-card__overlay" aria-hidden="true"></div>
+
+          <div class="kracht-cat-card__body">
+            {%- if block.settings.eyebrow != blank -%}
+              <span class="kracht-cat-card__eyebrow">{{ block.settings.eyebrow }}</span>
+            {%- endif -%}
+            <span class="kracht-cat-card__title">{{ block.settings.title }}</span>
+          </div>
+
+          <span class="kracht-cat-card__plus" aria-hidden="true">+</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Home Categories",
+  "tag": "section",
+  "class": "kracht-categories-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Categorieën"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Right link label",
+      "default": "Bekijk alles"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Right link URL"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Essentials" },
+        { "type": "text", "id": "title", "label": "Title", "default": "T-shirts & Polos" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "category", "settings": { "eyebrow": "Essentials", "title": "T-shirts & Polos" } },
+      { "type": "category", "settings": { "eyebrow": "Workwear", "title": "Helmen & Veiligheid" } },
+      { "type": "category", "settings": { "eyebrow": "Lifestyle", "title": "Accessoires" } },
+      { "type": "category", "settings": { "eyebrow": "Specials", "title": "Cadeaupakketten" } }
+    ]
+  },
+  "presets": [
+    {
+      "name": "Kracht — Home Categories"
+    }
+  ]
+}
+{% endschema %}

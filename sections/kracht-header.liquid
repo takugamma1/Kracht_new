@@ -1,0 +1,272 @@
+{{ 'kracht-header.css' | asset_url | stylesheet_tag }}
+
+{%- assign menu = linklists[section.settings.menu] -%}
+{%- assign cart_count = cart.item_count -%}
+{%- assign use_logo_image = section.settings.logo != blank -%}
+{%- assign logo_text = section.settings.logo_text | default: 'kracht' -%}
+{%- assign logo_subtitle = section.settings.logo_subtitle -%}
+
+<header
+  class="kracht-header {% if section.settings.theme == 'dark' %}kracht-header--dark{% else %}kracht-header--light{% endif %} {% if section.settings.sticky %}kracht-header--sticky{% endif %}"
+  style="
+    --khdr-bg: {{ section.settings.background_color }};
+    --khdr-fg: {{ section.settings.text_color }};
+    --khdr-border: {{ section.settings.border_color }};
+  "
+  data-kracht-header
+>
+  <div class="kracht-header__inner kracht-container">
+    <a class="kracht-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+      {%- if use_logo_image -%}
+        <img
+          src="{{ section.settings.logo | image_url: width: 320 }}"
+          alt="{{ shop.name }}"
+          width="{{ section.settings.logo_width }}"
+          height="auto"
+          class="kracht-header__logo-img"
+          loading="eager"
+        >
+      {%- else -%}
+        <span class="kracht-header__logo-text">
+          {{ logo_text }}<span class="kracht-header__logo-plus">+</span>
+        </span>
+        {%- if logo_subtitle != blank -%}
+          <span class="kracht-header__logo-sub">{{ logo_subtitle }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </a>
+
+    <nav class="kracht-header__nav" aria-label="Main">
+      {%- if menu != blank -%}
+        <ul class="kracht-header__menu">
+          {%- for link in menu.links -%}
+            <li class="kracht-header__menu-item {% if link.active %}is-active{% endif %}">
+              <a href="{{ link.url }}" class="kracht-header__menu-link">{{ link.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <ul class="kracht-header__menu">
+          <li class="kracht-header__menu-item"><a class="kracht-header__menu-link" href="{{ routes.collections_url }}">Shop</a></li>
+          <li class="kracht-header__menu-item"><a class="kracht-header__menu-link" href="{{ routes.collections_url }}">Collecties</a></li>
+          <li class="kracht-header__menu-item"><a class="kracht-header__menu-link" href="/pages/over-ons">Over ons</a></li>
+          <li class="kracht-header__menu-item"><a class="kracht-header__menu-link" href="/pages/contact">Contact</a></li>
+        </ul>
+      {%- endif -%}
+    </nav>
+
+    <div class="kracht-header__actions">
+      {%- if section.settings.show_search -%}
+        <a class="kracht-header__icon-btn" href="{{ routes.search_url }}" aria-label="Zoeken">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-3.5-3.5"></path>
+          </svg>
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.show_account and shop.customer_accounts_enabled -%}
+        <a class="kracht-header__icon-btn" href="{{ routes.account_url }}" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+      {%- endif -%}
+
+      <a class="kracht-header__cart-pill" href="{{ routes.cart_url }}" aria-label="Winkelwagen">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 3h2l3 12h11l3-8H6"></path>
+          <circle cx="9" cy="20" r="1.5"></circle>
+          <circle cx="18" cy="20" r="1.5"></circle>
+        </svg>
+        <span class="kracht-header__cart-label">{{ section.settings.cart_label | default: 'Winkelwagen' }}</span>
+        <span class="kracht-header__cart-count" data-kracht-cart-count>{{ cart_count }}</span>
+      </a>
+
+      <button class="kracht-header__hamburger" type="button" aria-label="Menu openen" aria-expanded="false" data-kracht-drawer-open>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="kracht-drawer" id="kracht-drawer" hidden>
+  <div class="kracht-drawer__overlay" data-kracht-drawer-close></div>
+  <aside class="kracht-drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="kracht-drawer__head">
+      <a class="kracht-header__brand kracht-header__brand--drawer" href="{{ routes.root_url }}">
+        {%- if use_logo_image -%}
+          <img src="{{ section.settings.logo | image_url: width: 240 }}" alt="{{ shop.name }}" width="120" height="auto">
+        {%- else -%}
+          <span class="kracht-header__logo-text">{{ logo_text }}<span class="kracht-header__logo-plus">+</span></span>
+        {%- endif -%}
+      </a>
+      <button class="kracht-drawer__close" type="button" aria-label="Menu sluiten" data-kracht-drawer-close>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+    </div>
+    <nav class="kracht-drawer__nav" aria-label="Mobile">
+      {%- if menu != blank -%}
+        {%- for link in menu.links -%}
+          <a class="kracht-drawer__link" href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a class="kracht-drawer__link" href="{{ routes.collections_url }}">Shop</a>
+        <a class="kracht-drawer__link" href="{{ routes.collections_url }}">Collecties</a>
+        <a class="kracht-drawer__link" href="/pages/over-ons">Over ons</a>
+        <a class="kracht-drawer__link" href="/pages/contact">Contact</a>
+      {%- endif -%}
+    </nav>
+    <div class="kracht-drawer__foot">
+      <a class="kracht-btn kracht-btn--primary kracht-drawer__cta" href="{{ routes.cart_url }}">
+        Winkelwagen <span class="kracht-header__cart-count">{{ cart_count }}</span>
+      </a>
+    </div>
+  </aside>
+</div>
+
+<script>
+  (() => {
+    const opens = document.querySelectorAll('[data-kracht-drawer-open]');
+    const closes = document.querySelectorAll('[data-kracht-drawer-close]');
+    const drawer = document.getElementById('kracht-drawer');
+    if (!drawer) return;
+    const open = () => {
+      drawer.hidden = false;
+      requestAnimationFrame(() => drawer.classList.add('is-open'));
+      document.documentElement.style.overflow = 'hidden';
+      opens.forEach(b => b.setAttribute('aria-expanded', 'true'));
+    };
+    const close = () => {
+      drawer.classList.remove('is-open');
+      setTimeout(() => { drawer.hidden = true; }, 250);
+      document.documentElement.style.overflow = '';
+      opens.forEach(b => b.setAttribute('aria-expanded', 'false'));
+    };
+    opens.forEach(b => b.addEventListener('click', open));
+    closes.forEach(b => b.addEventListener('click', close));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Kracht — Header",
+  "tag": "section",
+  "class": "kracht-header-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "Leave empty to use text logo."
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width (desktop)",
+      "min": 80,
+      "max": 240,
+      "step": 5,
+      "unit": "px",
+      "default": 130
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Text logo",
+      "default": "kracht"
+    },
+    {
+      "type": "text",
+      "id": "logo_subtitle",
+      "label": "Logo subtitle (optional)",
+      "default": "recruitment"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "Actions"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search icon",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "Show account icon",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cart_label",
+      "label": "Cart button label",
+      "default": "Winkelwagen"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "Theme",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "dark", "label": "Dark" }
+      ],
+      "default": "light"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Bottom border color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Sticky on scroll",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Header"
+    }
+  ]
+}
+{% endschema %}
