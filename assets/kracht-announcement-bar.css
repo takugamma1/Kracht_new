@@ -16,15 +16,16 @@
   justify-content: center;
   gap: 1.25rem;
   padding: var(--kab-pad-y, 12px) clamp(1rem, 4vw, 2.5rem);
-  flex-wrap: wrap;
-  text-align: center;
+  flex-wrap: nowrap;
   white-space: nowrap;
+  text-align: center;
 }
 
 .kracht-announcement-bar__item {
   color: inherit;
   text-decoration: none;
   font-weight: 400;
+  white-space: nowrap;
 }
 .kracht-announcement-bar__item:hover {
   text-decoration: underline;
@@ -32,8 +33,8 @@
 
 .kracht-announcement-bar__sep {
   opacity: 0.65;
+  flex-shrink: 0;
 }
-.kracht-announcement-bar__sep:last-child { display: none; }
 
 .kracht-announcement-bar__dashed {
   position: absolute;
@@ -51,17 +52,19 @@
 }
 
 @media (max-width: 640px) {
+  .kracht-announcement-bar { font-size: 11px; }
   .kracht-announcement-bar__track {
     gap: 0.6rem;
-    flex-wrap: nowrap;
+    padding-inline: 0.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .kracht-announcement-bar__track {
     overflow: hidden;
     text-overflow: ellipsis;
-    justify-content: flex-start;
-    animation: kracht-marquee 18s linear infinite;
-    width: max-content;
+    justify-content: center;
   }
-  @keyframes kracht-marquee {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
+  .kracht-announcement-bar__sep { display: none; }
+  .kracht-announcement-bar__item + .kracht-announcement-bar__item { display: none; }
 }

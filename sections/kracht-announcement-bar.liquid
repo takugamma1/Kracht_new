@@ -9,22 +9,17 @@
     --kab-font-size: {{ section.settings.font_size }}px;
   "
 >
-  <div class="kracht-announcement-bar__track" data-speed="{{ section.settings.scroll_speed }}">
-    {% for block in section.blocks %}
-      {%- assign repeats = section.settings.repeat_count | default: 4 -%}
-      {%- for i in (1..repeats) -%}
-        {%- if block.settings.link != blank -%}
-          <a class="kracht-announcement-bar__item" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
-            {{ block.settings.text }}
-          </a>
-        {%- else -%}
-          <span class="kracht-announcement-bar__item" {{ block.shopify_attributes }}>
-            {{ block.settings.text }}
-          </span>
-        {%- endif -%}
+  <div class="kracht-announcement-bar__track">
+    {%- for block in section.blocks -%}
+      {%- if block.settings.link != blank -%}
+        <a class="kracht-announcement-bar__item" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</a>
+      {%- else -%}
+        <span class="kracht-announcement-bar__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+      {%- endif -%}
+      {%- unless forloop.last -%}
         <span class="kracht-announcement-bar__sep" aria-hidden="true">·</span>
-      {%- endfor -%}
-    {% endfor %}
+      {%- endunless -%}
+    {%- endfor -%}
   </div>
 
   {% if section.settings.show_dashed_border %}
@@ -83,30 +78,6 @@
       "label": "Show dashed bottom border",
       "default": true
     },
-    {
-      "type": "header",
-      "content": "Scrolling"
-    },
-    {
-      "type": "range",
-      "id": "scroll_speed",
-      "label": "Scroll speed (seconds per loop)",
-      "min": 0,
-      "max": 60,
-      "step": 5,
-      "default": 0,
-      "info": "Set to 0 to disable scrolling (centered static)."
-    },
-    {
-      "type": "range",
-      "id": "repeat_count",
-      "label": "Repeat each message",
-      "min": 1,
-      "max": 10,
-      "step": 1,
-      "default": 4,
-      "info": "Only matters if scrolling is on."
-    }
   ],
   "blocks": [
     {
