@@ -9,7 +9,7 @@
  */
 {
   "sections": {
-    "kracht_home_hero_irjyhr": {
+    "hero": {
       "type": "kracht-home-hero",
       "name": "Kracht — Home Hero",
       "settings": {
@@ -25,24 +25,61 @@
         "button2_link": ""
       }
     },
-    "kracht_product_grid_gBx6wt": {
+    "categories": {
+      "type": "kracht-categories",
+      "name": "Kracht — Home Categories",
+      "blocks": {
+        "c1": { "type": "category", "settings": { "eyebrow": "Essentials",  "title": "T-shirts & Polos",   "link": "" } },
+        "c2": { "type": "category", "settings": { "eyebrow": "Workwear",    "title": "Helmen & Veiligheid", "link": "" } },
+        "c3": { "type": "category", "settings": { "eyebrow": "Lifestyle",   "title": "Accessoires",         "link": "" } },
+        "c4": { "type": "category", "settings": { "eyebrow": "Specials",    "title": "Cadeaupakketten",     "link": "" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": {
+        "heading": "Categorieën",
+        "link_label": "Bekijk alles",
+        "link_url": "",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_y": 56,
+        "card_radius": 12
+      }
+    },
+    "values": {
+      "type": "kracht-values-strip",
+      "name": "Kracht — Values Strip",
+      "blocks": {
+        "v1": { "type": "value", "settings": { "icon": "send",  "title": "Snelle levering",    "subtitle": "Binnen 2-3 werkdagen bezorgd" } },
+        "v2": { "type": "value", "settings": { "icon": "leaf",  "title": "Premium kwaliteit",  "subtitle": "Duurzaam en comfortabel" } },
+        "v3": { "type": "value", "settings": { "icon": "star",  "title": "Met trots gedragen", "subtitle": "Door het hele Kracht team" } },
+        "v4": { "type": "value", "settings": { "icon": "heart", "title": "Winnend team",       "subtitle": "Of je wint, of je leert!" } }
+      },
+      "block_order": ["v1", "v2", "v3", "v4"],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "icon_color": "#009de1",
+        "padding_y": 32
+      }
+    },
+    "products": {
       "type": "kracht-product-grid",
       "name": "Kracht — Product Grid",
       "settings": {
         "heading": "Populaire producten",
         "subheading": "",
-        "collection": "",
+        "collection": "all",
         "max_products": 8,
         "link_label": "Alle producten",
         "link_url": "",
         "columns_desktop": 4,
         "columns_tablet": 3,
-        "background_color": "#ffffff",
+        "background_color": "#f4f4f5",
         "text_color": "#000000",
         "padding_y": 64
       }
     },
-    "kracht_cta_banner_zPWjzR": {
+    "cta": {
       "type": "kracht-cta-banner",
       "name": "Kracht — CTA Banner",
       "settings": {
@@ -61,7 +98,27 @@
         "radius": 0
       }
     },
-    "kracht_newsletter_yeHVpj": {
+    "lookbook": {
+      "type": "kracht-lookbook",
+      "name": "Kracht — Lookbook",
+      "blocks": {
+        "lb1": { "type": "lookbook_card", "settings": { "eyebrow": "Workwear",         "title": "Aan de slag",            "link": "" } },
+        "lb2": { "type": "lookbook_card", "settings": { "eyebrow": "Office wear",      "title": "Professioneel & stijlvol", "link": "" } },
+        "lb3": { "type": "lookbook_card", "settings": { "eyebrow": "Winter collectie", "title": "Op avontuur met Kracht+", "link": "" } },
+        "lb4": { "type": "lookbook_card", "settings": { "eyebrow": "Padel & Sport",    "title": "Samen winnen",           "link": "" } }
+      },
+      "block_order": ["lb1", "lb2", "lb3", "lb4"],
+      "settings": {
+        "heading": "Lookbook",
+        "link_label": "Meer bekijken",
+        "link_url": "",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 64,
+        "radius": 0
+      }
+    },
+    "newsletter": {
       "type": "kracht-newsletter",
       "name": "Kracht — Newsletter",
       "settings": {
@@ -78,9 +135,12 @@
     }
   },
   "order": [
-    "kracht_home_hero_irjyhr",
-    "kracht_product_grid_gBx6wt",
-    "kracht_cta_banner_zPWjzR",
-    "kracht_newsletter_yeHVpj"
+    "hero",
+    "categories",
+    "values",
+    "products",
+    "cta",
+    "lookbook",
+    "newsletter"
   ]
 }
