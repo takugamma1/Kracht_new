@@ -2,7 +2,8 @@
 
 {%- assign menu = linklists[section.settings.menu] -%}
 {%- assign cart_count = cart.item_count -%}
-{%- assign use_logo_image = section.settings.logo != blank -%}
+{%- assign use_logo_image = false -%}
+{%- if section.settings.logo != blank -%}{%- assign use_logo_image = true -%}{%- endif -%}
 {%- assign logo_text = section.settings.logo_text | default: 'kracht' -%}
 {%- assign logo_subtitle = section.settings.logo_subtitle -%}
 
