@@ -1,0 +1,218 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "kracht-split-hero",
+      "name": "Kracht — Split Hero",
+      "settings": {
+        "show_breadcrumbs": true,
+        "breadcrumbs": "Home / Collecties / Trainingen",
+        "tag": "",
+        "heading": "<p>Voor <strong>groei</strong> heb je <em>Kracht</em> nodig.</p>",
+        "subheading": "<p>Onze <strong>trainingen</strong> zijn gemaakt voor teams en professionals die verder willen — niet alleen vakinhoudelijk, maar ook in <strong>samenwerken, leiderschap en communicatie</strong>. Praktisch, persoonlijk en altijd vanuit Kracht.</p>",
+        "button1_label": "Bekijk de trainingen",
+        "button1_link": "",
+        "button2_label": "Plan een adviesgesprek",
+        "button2_link": "",
+        "show_plus": true,
+        "image_radius": 4,
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_y": 72
+      }
+    },
+    "stats": {
+      "type": "kracht-stats-strip",
+      "name": "Kracht — Stats Strip",
+      "blocks": {
+        "s1": { "type": "stat", "settings": { "value": "500+",   "label": "Professionals getraind sinds 2014" } },
+        "s2": { "type": "stat", "settings": { "value": "8.7/10", "label": "Gemiddelde deelnemertevredenheid" } },
+        "s3": { "type": "stat", "settings": { "value": "95%",    "label": "Beveelt Kracht trainingen aan" } },
+        "s4": { "type": "stat", "settings": { "value": "12+",    "label": "Jaar ervaring in de technische sector" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": {
+        "float_above_previous": true,
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "accent_color": "#000000",
+        "padding_y": 0,
+        "radius": 6
+      }
+    },
+    "trainings": {
+      "type": "kracht-feature-rows",
+      "name": "Kracht — Feature Rows",
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "tag": "01",
+            "title": "Samenwerken vanuit Kracht.",
+            "description": "Bouw een team dat écht samenwerkt. Van vertrouwen tot gedeelde verantwoordelijkheid — krachtiger als groep dan als optelsom van individuen. Inclusief een teamprofiel-analyse en concrete actieplannen.",
+            "meta1_label": "Duur",   "meta1_value": "2 dagen",
+            "meta2_label": "Format", "meta2_value": "Klassikaal",
+            "meta3_label": "Voor",   "meta3_value": "Teams 6 — 15 pers.",
+            "button1_label": "Meer informatie",
+            "button2_label": "Download brochure"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "tag": "02",
+            "title": "Leiden vanuit Kracht.",
+            "description": "Ontwikkel een authentieke leiderschapsstijl die past bij jou én bij je team. Effectief delegeren, lastige gesprekken voeren, en het beste uit anderen halen — met een concrete toolkit die je direct toepast.",
+            "meta1_label": "Duur",   "meta1_value": "4 dagdelen",
+            "meta2_label": "Format", "meta2_value": "Hybride",
+            "meta3_label": "Voor",   "meta3_value": "Managers & leads",
+            "button1_label": "Meer informatie",
+            "button2_label": "Download brochure"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "tag": "03",
+            "title": "Heldere taal, scherpe boodschap.",
+            "description": "Leer écht luisteren, helder overtuigen en feedback geven die bijdraagt aan groei. Een intensieve trainingsdag met praktijkcases uit de techniek, gericht op resultaat dat blijft hangen.",
+            "meta1_label": "Duur",   "meta1_value": "1 dag intensief",
+            "meta2_label": "Format", "meta2_value": "Klassikaal of online",
+            "meta3_label": "Voor",   "meta3_value": "Iedere professional",
+            "button1_label": "Meer informatie",
+            "button2_label": "Download brochure"
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": {
+        "eyebrow": "Onze trainingen",
+        "heading": "<p>Drie programma's,<br><strong>één missie: <em>groei.</em></strong></p>",
+        "intro": "<p>Elke training is op maat te maken voor jouw team of organisatie. Klassikaal, online of hybride — altijd persoonlijk, altijd praktisch.</p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80,
+        "image_radius": 4
+      }
+    },
+    "process": {
+      "type": "kracht-step-cards",
+      "name": "Kracht — Step Cards",
+      "blocks": {
+        "p1": { "type": "step", "settings": { "title": "Intake",    "description": "We leren jou en je team kennen. Wat speelt er, wat zijn de doelen, wat is de context?" } },
+        "p2": { "type": "step", "settings": { "title": "Op maat",   "description": "Geen standaard programma — we ontwerpen de training rond jullie praktijk en uitdagingen." } },
+        "p3": { "type": "step", "settings": { "title": "Training",  "description": "Intensieve, interactieve dagen. Praktisch, persoonlijk en met cases uit jullie eigen werkveld." } },
+        "p4": { "type": "step", "settings": { "title": "Opvolging", "description": "Met follow-up sessies en concrete actieplannen borgen we wat je hebt geleerd in de praktijk." } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4"],
+      "settings": {
+        "eyebrow": "Onze aanpak",
+        "heading": "<p>Van intake <strong>tot impact — <em>in 4 stappen.</em></strong></p>",
+        "intro": "<p>We werken altijd op maat. Geen losse trainingsdag, maar een traject met duidelijke doelen, persoonlijke begeleiding en borging achteraf.</p>",
+        "background_color": "#f4f4f5",
+        "text_color": "#000000",
+        "card_color": "#ffffff",
+        "padding_y": 80,
+        "card_radius": 8
+      }
+    },
+    "testimonial": {
+      "type": "kracht-testimonial",
+      "name": "Kracht — Testimonial",
+      "settings": {
+        "eyebrow": "Succesverhalen",
+        "heading": "<p>De resultaten <strong>spreken voor <em>zich.</em></strong></p>",
+        "intro": "<p>Lees hoe teams en professionals groeiden met onze trainingen — vanuit hun eigen woorden.</p>",
+        "card_tag": "Succesverhaal",
+        "card_meta": "Ted Maters · Architect",
+        "card_quote": "<p>\"Hoe Ted via Kracht terechtkwam bij het architectenbureau van zijn <strong>oud-docent.</strong>\"</p>",
+        "card_cta": "Lees meer",
+        "card_cta_link": "",
+        "show_dots": true,
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80,
+        "image_radius": 4
+      }
+    },
+    "audiences": {
+      "type": "kracht-two-cards",
+      "name": "Kracht — Two Cards",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "theme": "light",
+            "background_color": "#f4f4f5",
+            "text_color": "#000000",
+            "eyebrow": "Voor professionals",
+            "title": "Versterk je eigen Kracht.",
+            "description": "Investeer in jezelf en zet de volgende stap in je carrière. Onze trainingen sluiten aan bij wat je écht nodig hebt — geen ballast, alleen wat werkt.",
+            "checklist": "Vergroot je impact in de praktijk\nOntwikkel concrete vaardigheden direct toepasbaar\nBouw aan een krachtig persoonlijk profiel\nWerk met specialisten uit de technische sector",
+            "button1_label": "Bekijk individuele trainingen",
+            "button1_link": ""
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "theme": "dark",
+            "background_color": "#000000",
+            "text_color": "#ffffff",
+            "eyebrow": "Voor werkgevers",
+            "title": "Investeer in je team.",
+            "description": "Een sterk team begint bij investeren in mensen. Vergroot productiviteit, behoud talent en bouw aan een cultuur waarin iedereen wint — vanuit Kracht.",
+            "checklist": "Meetbare resultaten en duidelijke ROI\nVerhoog medewerkertevredenheid en retentie\nIn-company, flexibel in te plannen\nMaatwerk programma's voor jouw organisatie",
+            "button1_label": "Vraag een offerte aan",
+            "button1_link": ""
+          }
+        }
+      },
+      "block_order": ["c1", "c2"],
+      "settings": {
+        "eyebrow": "Voor wie",
+        "heading": "<p>Trainingen voor <strong>professionals</strong><br>én <strong><em>werkgevers.</em></strong></p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80,
+        "card_radius": 8
+      }
+    },
+    "cta": {
+      "type": "kracht-cta-banner",
+      "name": "Kracht — CTA Banner",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Klaar om te <strong>groeien?</strong></p>",
+        "subheading": "",
+        "button1_label": "Plan een adviesgesprek",
+        "button1_link": "",
+        "button2_label": "Download brochure",
+        "button2_link": "",
+        "show_stats": false,
+        "theme": "blue",
+        "background_color": "#009de1",
+        "text_color": "#ffffff",
+        "padding_y": 56,
+        "radius": 0
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stats",
+    "trainings",
+    "process",
+    "testimonial",
+    "audiences",
+    "cta"
+  ]
+}
