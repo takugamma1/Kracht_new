@@ -1,0 +1,202 @@
+{{ 'kracht-retreat-cards.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-rcards"
+  style="
+    --krc-bg: {{ section.settings.background_color }};
+    --krc-fg: {{ section.settings.text_color }};
+    --krc-card-bg: {{ section.settings.card_color }};
+    --krc-pad-y: {{ section.settings.padding_y }}px;
+    --krc-radius: {{ section.settings.radius }}px;
+  "
+>
+  <div class="kracht-rcards__inner kracht-container">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="kracht-rcards__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-rcards__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="kracht-rcards__list">
+      {%- for block in section.blocks -%}
+        {%- assign mod = forloop.index | modulo: 2 -%}
+        {%- assign reverse = false -%}
+        {%- if mod == 0 -%}{%- assign reverse = true -%}{%- endif -%}
+
+        <article class="kracht-rcard {% if reverse %}kracht-rcard--reverse{% endif %}" {{ block.shopify_attributes }}>
+          <div class="kracht-rcard__media">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 1000 }}"
+                srcset="{{ block.settings.image | image_url: width: 600 }} 600w, {{ block.settings.image | image_url: width: 1000 }} 1000w"
+                sizes="(max-width: 900px) 100vw, 50vw"
+                alt="{{ block.settings.image.alt | escape }}"
+                class="kracht-rcard__img"
+                loading="lazy"
+              >
+            {%- else -%}
+              <div class="kracht-rcard__img kracht-rcard__img--ph"></div>
+            {%- endif -%}
+
+            {%- if block.settings.location != blank -%}
+              <span class="kracht-rcard__loc">
+                <span class="kracht-rcard__loc-dot" aria-hidden="true"></span>
+                {{ block.settings.location }}
+              </span>
+            {%- endif -%}
+          </div>
+
+          <div class="kracht-rcard__panel">
+            {%- if block.settings.code != blank -%}
+              <span class="kracht-rcard__code" aria-hidden="true">{{ block.settings.code }}</span>
+            {%- endif -%}
+
+            <div class="kracht-rcard__body">
+              {%- if block.settings.title != blank -%}
+                <h3 class="kracht-rcard__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.description != blank -%}
+                <p class="kracht-rcard__desc">{{ block.settings.description }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.meta1_label != blank or block.settings.meta2_label != blank or block.settings.meta3_label != blank -%}
+                <dl class="kracht-rcard__meta">
+                  {%- if block.settings.meta1_label != blank -%}
+                    <div class="kracht-rcard__meta-item"><dt>{{ block.settings.meta1_label }}</dt><dd>{{ block.settings.meta1_value }}</dd></div>
+                  {%- endif -%}
+                  {%- if block.settings.meta2_label != blank -%}
+                    <div class="kracht-rcard__meta-item"><dt>{{ block.settings.meta2_label }}</dt><dd>{{ block.settings.meta2_value }}</dd></div>
+                  {%- endif -%}
+                  {%- if block.settings.meta3_label != blank -%}
+                    <div class="kracht-rcard__meta-item"><dt>{{ block.settings.meta3_label }}</dt><dd>{{ block.settings.meta3_value }}</dd></div>
+                  {%- endif -%}
+                </dl>
+              {%- endif -%}
+
+              {%- if block.settings.button_label != blank or block.settings.price != blank -%}
+                <div class="kracht-rcard__cta">
+                  {%- if block.settings.button_label != blank -%}
+                    <a href="{{ block.settings.button_link | default: '#' }}" class="kracht-btn kracht-btn--dark">
+                      {{ block.settings.button_label }} <span class="kracht-btn__arrow">→</span>
+                    </a>
+                  {%- endif -%}
+                  {%- if block.settings.price != blank -%}
+                    <span class="kracht-rcard__price">{{ block.settings.price }}</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Retreat Cards",
+  "tag": "section",
+  "class": "kracht-rcards-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header (optional)"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": ""
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "Info card background",
+      "default": "#f4f4f5"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "type": "retreat",
+      "name": "Retreat",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "location", "label": "Location label", "default": "Nederland · IJsselmeer" },
+        { "type": "text", "id": "code", "label": "Code (faded number, e.g. 3.1.1)", "default": "3.1.1" },
+        { "type": "richtext", "id": "title", "label": "Title", "default": "<p>Op <strong>Koers.</strong></p>", "info": "Use <strong> for the bold portion." },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Vier dagen aan boord van een klassiek tjalkschip over het IJsselmeer. Geen wifi, geen agenda — wel open water, goede gesprekken en de tijd om je richting te herijken." },
+        { "type": "header", "content": "Metadata (3 columns)" },
+        { "type": "text", "id": "meta1_label", "label": "Label 1", "default": "Duur" },
+        { "type": "text", "id": "meta1_value", "label": "Value 1", "default": "4 dagen" },
+        { "type": "text", "id": "meta2_label", "label": "Label 2", "default": "Volgende" },
+        { "type": "text", "id": "meta2_value", "label": "Value 2", "default": "22 — 25 juni 2026" },
+        { "type": "text", "id": "meta3_label", "label": "Label 3", "default": "Plekken" },
+        { "type": "text", "id": "meta3_value", "label": "Value 3", "default": "Max. 8" },
+        { "type": "header", "content": "CTA" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Bekijk retraite" },
+        { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "richtext", "id": "price", "label": "Price (richtext)", "default": "<p>Vanaf <strong>€1.850</strong> p.p.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Retreat Cards",
+      "blocks": [
+        { "type": "retreat" },
+        { "type": "retreat", "settings": { "code": "3.1.2", "location": "Spanje · Andalusië", "title": "<p>Reset in <strong>Spanje.</strong></p>", "description": "Zeven dagen in een privé-finca aan de voet van de Sierra Nevada. Begeleide ochtenden, wandelingen door de bergen, lange tafels met lokaal eten. Een echte reset — voor wie ruimte zoekt voor de volgende stap.", "meta1_value": "7 dagen", "meta2_value": "12 — 18 oktober 2026", "meta3_value": "Max. 12", "price": "<p>Vanaf <strong>€3.450</strong> p.p.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

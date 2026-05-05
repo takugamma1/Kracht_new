@@ -1,0 +1,130 @@
+{{ 'kracht-image-hero.css' | asset_url | stylesheet_tag }}
+
+{%- assign current_collection = collection -%}
+{%- assign hero_title = section.settings.heading | default: current_collection.title -%}
+{%- assign hero_text = section.settings.subheading | default: current_collection.description -%}
+
+<section
+  class="kracht-img-hero"
+  style="
+    --kih-fg: {{ section.settings.text_color }};
+    --kih-min-h: {{ section.settings.min_height }}px;
+    --kih-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  "
+>
+  <div class="kracht-img-hero__bg" aria-hidden="true">
+    {%- if section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 2000 }}"
+        srcset="{{ section.settings.image | image_url: width: 1000 }} 1000w, {{ section.settings.image | image_url: width: 1600 }} 1600w, {{ section.settings.image | image_url: width: 2000 }} 2000w"
+        sizes="100vw"
+        alt=""
+        class="kracht-img-hero__img"
+        loading="eager"
+      >
+    {%- else -%}
+      <div class="kracht-img-hero__img kracht-img-hero__img--ph"></div>
+    {%- endif -%}
+    <div class="kracht-img-hero__shade"></div>
+  </div>
+
+  <div class="kracht-img-hero__inner kracht-container">
+    {%- if section.settings.show_breadcrumbs -%}
+      <nav class="kracht-img-hero__crumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="{{ routes.collections_url }}">Collecties</a>
+        {%- if current_collection != blank -%}
+          <span aria-hidden="true">/</span>
+          <span class="is-current">{{ current_collection.title }}</span>
+        {%- endif -%}
+      </nav>
+    {%- endif -%}
+
+    <div class="kracht-img-hero__content">
+      {%- if hero_title != blank -%}
+        <h1 class="kracht-img-hero__title">{{ hero_title }}</h1>
+      {%- endif -%}
+      {%- if hero_text != blank -%}
+        <div class="kracht-img-hero__sub">{{ hero_text }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Image Hero",
+  "tag": "section",
+  "class": "kracht-img-hero-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "Show breadcrumbs",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Even <strong>stilstaan,</strong> om écht <em>vooruit</em> te komen.</p>",
+      "info": "Use <strong> for bold; <em> for blue accent."
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Twee dagen, vijf dagen of zeven — onze retraites zijn <strong>geen vakantie en geen training</strong>. Het is de plek waar leiders, teams en professionals tot rust komen, scherp nadenken en met <strong>nieuwe richting</strong> terugkomen.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay darkness",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 35
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Min height",
+      "min": 320,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 560
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Image Hero"
+    }
+  ]
+}
+{% endschema %}

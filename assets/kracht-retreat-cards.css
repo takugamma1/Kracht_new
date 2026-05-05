@@ -1,0 +1,177 @@
+.kracht-rcards {
+  background: var(--krc-bg, #ffffff);
+  color: var(--krc-fg, #000000);
+  padding-block: var(--krc-pad-y, 80px);
+  font-family: var(--kracht-font-body);
+}
+
+.kracht-rcards__head { margin-bottom: 2.5rem; }
+.kracht-rcards__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--krc-fg);
+}
+.kracht-rcards__title p { margin: 0; }
+.kracht-rcards__title strong { font-weight: 800; }
+
+.kracht-rcards__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ==========================================================================
+   Single retreat card (image + info panel)
+   ========================================================================== */
+.kracht-rcard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.kracht-rcard--reverse .kracht-rcard__media { order: 2; }
+.kracht-rcard--reverse .kracht-rcard__panel { order: 1; }
+
+.kracht-rcard__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--krc-radius, 16px);
+  overflow: hidden;
+  background: linear-gradient(135deg, #d9e7f0, #b9c8d3);
+}
+.kracht-rcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.kracht-rcard__img--ph { background: inherit; }
+
+.kracht-rcard__loc {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--kracht-wit);
+  color: var(--kracht-zwart);
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--kracht-radius-pill);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.kracht-rcard__loc-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--kracht-blauw);
+  display: inline-block;
+}
+
+/* Info panel */
+.kracht-rcard__panel {
+  position: relative;
+  background: var(--krc-card-bg, #f4f4f5);
+  border-radius: var(--krc-radius, 16px);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.kracht-rcard__code {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-family: var(--kracht-font-heading);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.06);
+  letter-spacing: -0.02em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.kracht-rcard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.kracht-rcard__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--krc-fg);
+}
+.kracht-rcard__title p { margin: 0; }
+.kracht-rcard__title strong { font-weight: 800; color: var(--kracht-blauw); }
+.kracht-rcard__desc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #2a2a2a;
+  margin: 0;
+  max-width: 46ch;
+}
+
+.kracht-rcard__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 0.25rem;
+  border-top: 1px dashed var(--kracht-grijs-border);
+}
+.kracht-rcard__meta-item dt {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kracht-grijs);
+  margin: 0;
+  font-weight: 500;
+}
+.kracht-rcard__meta-item dd {
+  margin: 0.2rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--krc-fg);
+  line-height: 1.2;
+}
+
+.kracht-rcard__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+.kracht-rcard__price {
+  font-size: 0.85rem;
+  color: #2a2a2a;
+}
+.kracht-rcard__price p { margin: 0; display: inline; }
+.kracht-rcard__price strong { font-weight: 800; color: var(--krc-fg); font-size: 0.95rem; }
+
+@media (max-width: 900px) {
+  .kracht-rcard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .kracht-rcard--reverse .kracht-rcard__media,
+  .kracht-rcard--reverse .kracht-rcard__panel { order: initial; }
+  .kracht-rcard__media { aspect-ratio: 16 / 10; }
+}

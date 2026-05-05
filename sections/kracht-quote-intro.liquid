@@ -1,0 +1,113 @@
+{{ 'kracht-quote-intro.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-qintro"
+  style="
+    --kqi-bg: {{ section.settings.background_color }};
+    --kqi-fg: {{ section.settings.text_color }};
+    --kqi-pad-y: {{ section.settings.padding_y }}px;
+  "
+>
+  <div class="kracht-qintro__inner kracht-container">
+    <div class="kracht-qintro__grid">
+      <div class="kracht-qintro__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow kracht-qintro__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-qintro__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+
+      <div class="kracht-qintro__body">
+        {%- if section.settings.body_top != blank -%}
+          <div class="kracht-qintro__copy">{{ section.settings.body_top }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.quote != blank -%}
+          <blockquote class="kracht-qintro__quote">{{ section.settings.quote }}</blockquote>
+        {%- endif -%}
+
+        {%- if section.settings.body_bottom != blank -%}
+          <div class="kracht-qintro__copy">{{ section.settings.body_bottom }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Quote Intro",
+  "tag": "section",
+  "class": "kracht-qintro-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": ""
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Kracht ontstaat in <strong>stilte</strong> en <strong>aandacht.</strong></p>",
+      "info": "Use <strong> for the bold portion."
+    },
+    {
+      "type": "richtext",
+      "id": "body_top",
+      "label": "Body — top paragraph",
+      "default": "<p>Een retraite is geen luxe. Het is <strong>noodzakelijke afstand</strong> — van je inbox, je rol, je dagdagelijkse ritme. Pas wanneer je fysiek én mentaal even loskomt, kun je écht zien wat er ligt en waar je naartoe wilt.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Pull quote",
+      "default": "<p>De stap die je niet zet in vier weken, zet je in <strong>vier dagen.</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "body_bottom",
+      "label": "Body — bottom paragraph",
+      "default": "<p>Onze retraites combineren <strong>begeleide reflectie</strong>, beweging, goede gesprekken en stilte — op locaties die uitnodigen om dieper te kijken. Voor leiders die richting zoeken, teams die opnieuw afstemmen, en <strong>mensen die durven kijken</strong>.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#009de1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 32,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Quote Intro"
+    }
+  ]
+}
+{% endschema %}

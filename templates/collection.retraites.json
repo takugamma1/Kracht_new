@@ -1,0 +1,105 @@
+{
+  "sections": {
+    "hero": {
+      "type": "kracht-image-hero",
+      "name": "Kracht — Image Hero",
+      "settings": {
+        "show_breadcrumbs": true,
+        "heading": "<p>Even <strong>stilstaan,</strong> om écht <em>vooruit</em> te komen.</p>",
+        "subheading": "<p>Twee dagen, vijf dagen of zeven — onze retraites zijn <strong>geen vakantie en geen training</strong>. Het is de plek waar leiders, teams en professionals tot rust komen, scherp nadenken en met <strong>nieuwe richting</strong> terugkomen.</p>",
+        "overlay_opacity": 35,
+        "text_color": "#ffffff",
+        "min_height": 560
+      }
+    },
+    "intro": {
+      "type": "kracht-quote-intro",
+      "name": "Kracht — Quote Intro",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Kracht ontstaat in <strong>stilte</strong> en <strong>aandacht.</strong></p>",
+        "body_top": "<p>Een retraite is geen luxe. Het is <strong>noodzakelijke afstand</strong> — van je inbox, je rol, je dagdagelijkse ritme. Pas wanneer je fysiek én mentaal even loskomt, kun je écht zien wat er ligt en waar je naartoe wilt.</p>",
+        "quote": "<p>De stap die je niet zet in vier weken, zet je in <strong>vier dagen.</strong></p>",
+        "body_bottom": "<p>Onze retraites combineren <strong>begeleide reflectie</strong>, beweging, goede gesprekken en stilte — op locaties die uitnodigen om dieper te kijken. Voor leiders die richting zoeken, teams die opnieuw afstemmen, en <strong>mensen die durven kijken</strong>.</p>",
+        "background_color": "#009de1",
+        "text_color": "#ffffff",
+        "padding_y": 96
+      }
+    },
+    "retreats": {
+      "type": "kracht-retreat-cards",
+      "name": "Kracht — Retreat Cards",
+      "blocks": {
+        "r1": {
+          "type": "retreat",
+          "settings": {
+            "location": "Nederland · IJsselmeer",
+            "code": "3.1.1",
+            "title": "<p>Op <strong>Koers.</strong></p>",
+            "description": "Vier dagen aan boord van een klassiek tjalkschip over het IJsselmeer. Geen wifi, geen agenda — wel open water, goede gesprekken en de tijd om je richting te herijken. Voor wie even het roer in handen wil nemen.",
+            "meta1_label": "Duur",       "meta1_value": "4 dagen",
+            "meta2_label": "Volgende",   "meta2_value": "22 — 25 juni 2026",
+            "meta3_label": "Plekken",    "meta3_value": "Max. 8",
+            "button_label": "Bekijk retraite",
+            "button_link": "",
+            "price": "<p>Vanaf <strong>€1.850</strong> p.p.</p>"
+          }
+        },
+        "r2": {
+          "type": "retreat",
+          "settings": {
+            "location": "Spanje · Andalusië",
+            "code": "3.1.2",
+            "title": "<p>Reset in <strong>Spanje.</strong></p>",
+            "description": "Zeven dagen in een privé-finca aan de voet van de Sierra Nevada. Begeleide ochtenden, wandelingen door de bergen, lange tafels met lokaal eten. Een echte reset — voor wie ruimte zoekt voor de volgende stap.",
+            "meta1_label": "Duur",       "meta1_value": "7 dagen",
+            "meta2_label": "Volgende",   "meta2_value": "12 — 18 oktober 2026",
+            "meta3_label": "Plekken",    "meta3_value": "Max. 12",
+            "button_label": "Bekijk retraite",
+            "button_link": "",
+            "price": "<p>Vanaf <strong>€3.450</strong> p.p.</p>"
+          }
+        }
+      },
+      "block_order": ["r1", "r2"],
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "card_color": "#f4f4f5",
+        "padding_y": 60,
+        "radius": 16
+      }
+    },
+    "process": {
+      "type": "kracht-process-stepper",
+      "name": "Kracht — Process Stepper",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Kennismaking", "content_title": "Vrijblijvend gesprek", "content": "<p>We bellen 30 minuten en kijken of we matchen. Geen verkooppraatje — wel concrete vragen over wat je nodig hebt.</p>" } },
+        "s2": { "type": "step", "settings": { "title": "Voorbereiding", "content_title": "Het intaketraject", "content": "<p>In de <strong>twee weken voor vertrek</strong> doe je een persoonlijke voorbereiding: intakevragen, een drijfverentest en een korte schrijfopdracht. Zo arriveer je niet leeg, maar gericht.</p>" } },
+        "s3": { "type": "step", "settings": { "title": "De retraite", "content_title": "De dagen zelf", "content": "<p>Begeleide reflectie, beweging, goede gesprekken en stilte — afgewisseld in een ritme dat werkt.</p>" } },
+        "s4": { "type": "step", "settings": { "title": "Integratie", "content_title": "Terug in het dagelijks leven", "content": "<p>Een terugkomdag na zes weken om te toetsen wat is geland — en wat een vervolgstap nodig heeft.</p>" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>In 4 stappen naar een <strong>retraite die past.</strong></p>",
+        "intro": "<p>Van eerste gesprek tot terugkomst — zo werkt het bij ons. Een <strong>gestructureerd traject</strong> dat zorgt dat de retraite niet eindigt op de laatste dag.</p>",
+        "active_step": 2,
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "card_color": "#009de1",
+        "card_text_color": "#ffffff",
+        "padding_y": 80,
+        "card_radius": 20
+      }
+    },
+    "newsletter": {
+      "type": "kracht-newsletter",
+      "name": "Kracht — Newsletter",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "intro", "retreats", "process", "newsletter"]
+}
