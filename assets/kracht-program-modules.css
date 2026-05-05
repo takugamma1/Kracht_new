@@ -1,0 +1,132 @@
+.kracht-prog {
+  background: var(--kp-bg, #000000);
+  color: var(--kp-fg, #ffffff);
+  padding-block: var(--kp-pad-y, 80px);
+  font-family: var(--kracht-font-body);
+}
+
+.kracht-prog__head { margin-bottom: 2.5rem; max-width: 720px; }
+.kracht-prog__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--kp-fg);
+}
+.kracht-prog__title strong { font-weight: 800; }
+.kracht-prog__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-prog__title p { margin: 0; }
+
+.kracht-prog__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.kracht-prog__module {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background var(--kracht-trans);
+}
+.kracht-prog__module[open] { background: rgba(0, 157, 225, 0.08); }
+
+.kracht-prog__summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+}
+.kracht-prog__summary::-webkit-details-marker { display: none; }
+
+.kracht-prog__day {
+  background: var(--kracht-blauw);
+  color: var(--kracht-wit);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  font-family: var(--kracht-font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.kracht-prog__title-row {
+  font-family: var(--kracht-font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.005em;
+  color: var(--kp-fg);
+}
+
+.kracht-prog__chev {
+  font-family: var(--kracht-font-heading);
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: var(--kracht-blauw);
+  line-height: 0.7;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--kracht-trans);
+}
+.kracht-prog__module[open] .kracht-prog__chev {
+  transform: rotate(45deg);
+}
+
+.kracht-prog__panel {
+  padding: 0 1.1rem 1.25rem 1.1rem;
+}
+.kracht-prog__body {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 0.75rem;
+}
+.kracht-prog__body p { margin: 0 0 0.6rem; }
+
+.kracht-prog__bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+.kracht-prog__bullets li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.85);
+}
+.kracht-prog__bullets li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: var(--kracht-blauw);
+  font-family: var(--kracht-font-heading);
+  font-weight: 900;
+}
+
+@media (max-width: 600px) {
+  .kracht-prog__summary {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "day chev"
+      "title chev";
+    gap: 0.4rem;
+    padding: 0.85rem 1rem;
+  }
+  .kracht-prog__day { grid-area: day; justify-self: start; }
+  .kracht-prog__title-row { grid-area: title; font-size: 0.88rem; }
+  .kracht-prog__chev { grid-area: chev; align-self: center; }
+}

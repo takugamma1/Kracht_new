@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -58,30 +49,10 @@
       "type": "kracht-program-modules",
       "name": "Kracht — Program Modules",
       "blocks": {
-        "m1": { "type": "module", "settings": {
-          "day_label": "DAG 1 — OCHTEND",
-          "title": "Module 01 — De basis: vertrouwen & openheid",
-          "body": "<p>We starten met kennismaken op niveau — niet alleen wat je doet, maar wat je drijft. Aan de hand van het Kracht drijfverenmodel brengen we in kaart waar de energie van het team zit, en waar het schuurt.</p>",
-          "bullets": "Persoonlijke drijfverentest per deelnemer\nTeamprofiel analyse: waar vullen we elkaar aan, waar overlappen we?\nEerste diepgaande feedback­oefening in subgroepen\nKernvraag: 'Wat heeft dit team van mij nodig?'"
-        } },
-        "m2": { "type": "module", "settings": {
-          "day_label": "DAG 1 — MIDDAG",
-          "title": "Module 02 — Conflict, schuring en de zachte landing",
-          "body": "<p>Hoe blijf je in verbinding wanneer het schuurt? We oefenen met lastige gesprekken in een veilige setting.</p>",
-          "bullets": ""
-        } },
-        "m3": { "type": "module", "settings": {
-          "day_label": "DAG 2 — OCHTEND",
-          "title": "Module 03 — Verantwoordelijkheid & commitment",
-          "body": "<p>Van afspraak naar afgesproken — gedeelde verantwoordelijkheid in de praktijk.</p>",
-          "bullets": ""
-        } },
-        "m4": { "type": "module", "settings": {
-          "day_label": "DAG 2 — MIDDAG",
-          "title": "Module 04 — Het 30/60/90 actieplan",
-          "body": "<p>Concreet vertalen naar wat je morgen doet, volgende maand en over 3 maanden.</p>",
-          "bullets": ""
-        } }
+        "m1": { "type": "module", "settings": { "day_label": "DAG 1 — OCHTEND", "title": "Module 01 — De basis: vertrouwen & openheid", "body": "<p>We starten met kennismaken op niveau — niet alleen wat je doet, maar wat je drijft. Aan de hand van het Kracht drijfverenmodel brengen we in kaart waar de energie van het team zit, en waar het schuurt.</p>", "bullets": "Persoonlijke drijfverentest per deelnemer\nTeamprofiel analyse: waar vullen we elkaar aan, waar overlappen we?\nEerste diepgaande feedback­oefening in subgroepen\nKernvraag: 'Wat heeft dit team van mij nodig?'" } },
+        "m2": { "type": "module", "settings": { "day_label": "DAG 1 — MIDDAG", "title": "Module 02 — Conflict, schuring en de zachte landing", "body": "<p>Hoe blijf je in verbinding wanneer het schuurt? We oefenen met lastige gesprekken in een veilige setting.</p>", "bullets": "" } },
+        "m3": { "type": "module", "settings": { "day_label": "DAG 2 — OCHTEND", "title": "Module 03 — Verantwoordelijkheid & commitment", "body": "<p>Van afspraak naar afgesproken — gedeelde verantwoordelijkheid in de praktijk.</p>", "bullets": "" } },
+        "m4": { "type": "module", "settings": { "day_label": "DAG 2 — MIDDAG", "title": "Module 04 — Het 30/60/90 actieplan", "body": "<p>Concreet vertalen naar wat je morgen doet, volgende maand en over 3 maanden.</p>", "bullets": "" } }
       },
       "block_order": ["m1", "m2", "m3", "m4"],
       "settings": {
@@ -119,35 +90,9 @@
       "type": "kracht-schedule-cards",
       "name": "Kracht — Schedule Cards",
       "blocks": {
-        "s1": { "type": "session", "settings": {
-          "month": "MEI 2026",
-          "dates": "13 — 14 mei 2026",
-          "time": "Donderdag & vrijdag 09:00 — 17:00",
-          "location": "Arnhem · Hoofdkantoor Kracht",
-          "price": "€1.250 p.p. excl. btw",
-          "spots": "3 plaatsen beschikbaar",
-          "status": "Bijna vol",
-          "button_label": "Inschrijven",
-          "button_link": ""
-        } },
-        "s2": { "type": "session", "settings": {
-          "month": "SEPTEMBER 2026",
-          "dates": "17 — 18 september 2026",
-          "time": "Donderdag & vrijdag 09:00 — 17:00",
-          "location": "Utrecht · Postillion Hotel",
-          "price": "€1.250 p.p. excl. btw",
-          "spots": "10 plaatsen beschikbaar",
-          "status": "",
-          "button_label": "Inschrijven",
-          "button_link": ""
-        } },
-        "ic": { "type": "incompany", "settings": {
-          "tag": "In company",
-          "title": "Liever bij jullie op locatie?",
-          "description": "Voor 6 of meer deelnemers organiseren we de training graag in-company. We stemmen het programma volledig af op jullie team en context, op een datum die jullie schikt.",
-          "button_label": "Vraag een offerte aan",
-          "button_link": ""
-        } }
+        "s1": { "type": "session", "settings": { "month": "MEI 2026", "dates": "13 — 14 mei 2026", "time": "Donderdag & vrijdag 09:00 — 17:00", "location": "Arnhem · Hoofdkantoor Kracht", "price": "€1.250 p.p. excl. btw", "spots": "3 plaatsen beschikbaar", "status": "Bijna vol", "button_label": "Inschrijven", "button_link": "" } },
+        "s2": { "type": "session", "settings": { "month": "SEPTEMBER 2026", "dates": "17 — 18 september 2026", "time": "Donderdag & vrijdag 09:00 — 17:00", "location": "Utrecht · Postillion Hotel", "price": "€1.250 p.p. excl. btw", "spots": "10 plaatsen beschikbaar", "status": "", "button_label": "Inschrijven", "button_link": "" } },
+        "ic": { "type": "incompany", "settings": { "tag": "In company", "title": "Liever bij jullie op locatie?", "description": "Voor 6 of meer deelnemers organiseren we de training graag in-company. We stemmen het programma volledig af op jullie team en context, op een datum die jullie schikt.", "button_label": "Vraag een offerte aan", "button_link": "" } }
       },
       "block_order": ["s1", "s2", "ic"],
       "settings": {
