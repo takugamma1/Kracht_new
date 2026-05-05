@@ -1,17 +1,16 @@
 .kracht-cta {
   padding-block: var(--kc-pad-y, 64px);
   font-family: var(--kracht-font-body);
+  background: transparent;
+  color: inherit;
 }
-.kracht-cta--dark  { background: #000; color: #fff; }
-.kracht-cta--blue  { background: var(--kracht-blauw); color: #fff; }
-.kracht-cta--light { background: #fff; color: #000; }
 
 .kracht-cta__card {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  border-radius: var(--kc-radius, 0);
+  border-radius: var(--kc-radius, 24px);
   overflow: hidden;
   background: var(--kc-bg);
   color: var(--kc-fg);

@@ -76,7 +76,7 @@
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 64,
-        "radius": 0
+        "radius": 24
       }
     },
     "newsletter": {
