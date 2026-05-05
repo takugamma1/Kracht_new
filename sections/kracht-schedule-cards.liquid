@@ -1,0 +1,201 @@
+{{ 'kracht-schedule-cards.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-sched"
+  style="
+    --ksc-bg: {{ section.settings.background_color }};
+    --ksc-fg: {{ section.settings.text_color }};
+    --ksc-pad-y: {{ section.settings.padding_y }}px;
+    --ksc-radius: {{ section.settings.card_radius }}px;
+  "
+>
+  <div class="kracht-sched__inner kracht-container">
+    <div class="kracht-sched__head">
+      <div class="kracht-sched__head-left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-sched__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.intro != blank -%}
+        <div class="kracht-sched__intro">{{ section.settings.intro }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="kracht-sched__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'session' -%}
+          <article class="kracht-sched__card" {{ block.shopify_attributes }}>
+            {%- if block.settings.status != blank -%}
+              <span class="kracht-tag kracht-tag--yellow kracht-sched__status">{{ block.settings.status }}</span>
+            {%- endif -%}
+            {%- if block.settings.month != blank -%}
+              <p class="kracht-sched__month">{{ block.settings.month }}</p>
+            {%- endif -%}
+            {%- if block.settings.dates != blank -%}
+              <p class="kracht-sched__dates">{{ block.settings.dates }}</p>
+            {%- endif -%}
+            {%- if block.settings.time != blank -%}
+              <p class="kracht-sched__time">{{ block.settings.time }}</p>
+            {%- endif -%}
+
+            <div class="kracht-sched__rows">
+              {%- if block.settings.location != blank -%}
+                <div class="kracht-sched__row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>{{ block.settings.location }}</span>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.price != blank -%}
+                <div class="kracht-sched__row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M16 8H9.5a2.5 2.5 0 0 0 0 5h5a2.5 2.5 0 0 1 0 5H8"/><path d="M12 6v2M12 18v-2"/></svg>
+                  <span>{{ block.settings.price }}</span>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.spots != blank -%}
+                <div class="kracht-sched__row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-1a6 6 0 0 1 12 0v1"/><path d="M16 11h6M19 8v6"/></svg>
+                  <span>{{ block.settings.spots }}</span>
+                </div>
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.button_label != blank -%}
+              <a href="{{ block.settings.button_link | default: '#' }}" class="kracht-btn kracht-btn--outline-light kracht-sched__btn">
+                {{ block.settings.button_label }} <span class="kracht-btn__arrow">→</span>
+              </a>
+            {%- endif -%}
+          </article>
+
+        {%- elsif block.type == 'incompany' -%}
+          <article class="kracht-sched__card kracht-sched__card--incompany" {{ block.shopify_attributes }}>
+            {%- if block.settings.tag != blank -%}
+              <span class="kracht-eyebrow kracht-sched__incompany-eyebrow">{{ block.settings.tag }}</span>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <h3 class="kracht-sched__incompany-title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.description != blank -%}
+              <p class="kracht-sched__incompany-desc">{{ block.settings.description }}</p>
+            {%- endif -%}
+            {%- if block.settings.button_label != blank -%}
+              <a href="{{ block.settings.button_link | default: '#' }}" class="kracht-btn kracht-btn--primary kracht-sched__btn">
+                {{ block.settings.button_label }} <span class="kracht-btn__arrow">→</span>
+              </a>
+            {%- endif -%}
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Schedule Cards",
+  "tag": "section",
+  "class": "kracht-sched-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Eerstvolgende sessies"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Plan jouw <strong>team in.</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro",
+      "default": "<p>Of kies voor <strong>in-company</strong> — dan komen we naar jullie locatie en stemmen het programma af op jullie context.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f4f4f5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    }
+  ],
+  "blocks": [
+    {
+      "type": "session",
+      "name": "Session date",
+      "settings": [
+        { "type": "text", "id": "month", "label": "Month label (small)", "default": "MEI 2026" },
+        { "type": "text", "id": "dates", "label": "Dates", "default": "13 — 14 mei 2026" },
+        { "type": "text", "id": "time", "label": "Time", "default": "Donderdag & vrijdag 09:00 — 17:00" },
+        { "type": "text", "id": "location", "label": "Location", "default": "Arnhem · Hoofdkantoor Kracht" },
+        { "type": "text", "id": "price", "label": "Price", "default": "€1.250 p.p. excl. btw" },
+        { "type": "text", "id": "spots", "label": "Spots line", "default": "3 plaatsen beschikbaar" },
+        { "type": "text", "id": "status", "label": "Status pill (optional)", "default": "Bijna vol" },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Inschrijven" },
+        { "type": "url", "id": "button_link", "label": "Button link" }
+      ]
+    },
+    {
+      "type": "incompany",
+      "name": "In-company card",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "tag", "label": "Eyebrow", "default": "In company" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Liever bij jullie op locatie?" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Voor 6 of meer deelnemers organiseren we de training graag in-company. We stemmen het programma volledig af op jullie team en context, op een datum die jullie schikt." },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Vraag een offerte aan" },
+        { "type": "url", "id": "button_link", "label": "Button link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Schedule Cards",
+      "blocks": [
+        { "type": "session", "settings": { "month": "MEI 2026",       "dates": "13 — 14 mei 2026",       "time": "Donderdag & vrijdag 09:00 — 17:00", "location": "Arnhem · Hoofdkantoor Kracht", "price": "€1.250 p.p. excl. btw", "spots": "3 plaatsen beschikbaar",  "status": "Bijna vol", "button_label": "Inschrijven" } },
+        { "type": "session", "settings": { "month": "SEPTEMBER 2026", "dates": "17 — 18 september 2026", "time": "Donderdag & vrijdag 09:00 — 17:00", "location": "Utrecht · Postillion Hotel",  "price": "€1.250 p.p. excl. btw", "spots": "10 plaatsen beschikbaar", "status": "",          "button_label": "Inschrijven" } },
+        { "type": "incompany" }
+      ]
+    }
+  ]
+}
+{% endschema %}

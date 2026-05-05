@@ -39,6 +39,23 @@
           <div class="kracht-shero__sub">{{ section.settings.subheading }}</div>
         {%- endif -%}
 
+        {%- if section.settings.meta1_label != blank or section.settings.meta2_label != blank or section.settings.meta3_label != blank or section.settings.meta4_label != blank -%}
+          <dl class="kracht-shero__meta">
+            {%- if section.settings.meta1_label != blank -%}
+              <div class="kracht-shero__meta-item"><dt>{{ section.settings.meta1_label }}</dt><dd>{{ section.settings.meta1_value }}</dd></div>
+            {%- endif -%}
+            {%- if section.settings.meta2_label != blank -%}
+              <div class="kracht-shero__meta-item"><dt>{{ section.settings.meta2_label }}</dt><dd>{{ section.settings.meta2_value }}</dd></div>
+            {%- endif -%}
+            {%- if section.settings.meta3_label != blank -%}
+              <div class="kracht-shero__meta-item"><dt>{{ section.settings.meta3_label }}</dt><dd>{{ section.settings.meta3_value }}</dd></div>
+            {%- endif -%}
+            {%- if section.settings.meta4_label != blank -%}
+              <div class="kracht-shero__meta-item"><dt>{{ section.settings.meta4_label }}</dt><dd>{{ section.settings.meta4_value }}</dd></div>
+            {%- endif -%}
+          </dl>
+        {%- endif -%}
+
         {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
           <div class="kracht-shero__cta">
             {%- if section.settings.button1_label != blank -%}
@@ -138,6 +155,19 @@
       "id": "button2_link",
       "label": "Secondary button link"
     },
+    {
+      "type": "header",
+      "content": "Metadata strip (optional)",
+      "info": "Up to 4 columns shown between the description and the buttons. Leave label empty to hide a column."
+    },
+    { "type": "text", "id": "meta1_label", "label": "Label 1" },
+    { "type": "text", "id": "meta1_value", "label": "Value 1" },
+    { "type": "text", "id": "meta2_label", "label": "Label 2" },
+    { "type": "text", "id": "meta2_value", "label": "Value 2" },
+    { "type": "text", "id": "meta3_label", "label": "Label 3" },
+    { "type": "text", "id": "meta3_value", "label": "Value 3" },
+    { "type": "text", "id": "meta4_label", "label": "Label 4" },
+    { "type": "text", "id": "meta4_value", "label": "Value 4" },
     {
       "type": "header",
       "content": "Media"

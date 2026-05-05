@@ -1,0 +1,127 @@
+{{ 'kracht-program-modules.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-prog"
+  style="
+    --kp-bg: {{ section.settings.background_color }};
+    --kp-fg: {{ section.settings.text_color }};
+    --kp-pad-y: {{ section.settings.padding_y }}px;
+  "
+>
+  <div class="kracht-prog__inner kracht-container">
+    <div class="kracht-prog__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="kracht-prog__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="kracht-prog__list">
+      {%- for block in section.blocks -%}
+        <details class="kracht-prog__module" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary class="kracht-prog__summary">
+            {%- if block.settings.day_label != blank -%}
+              <span class="kracht-prog__day">{{ block.settings.day_label }}</span>
+            {%- endif -%}
+            <span class="kracht-prog__title-row">{{ block.settings.title }}</span>
+            <span class="kracht-prog__chev" aria-hidden="true">+</span>
+          </summary>
+          <div class="kracht-prog__panel">
+            {%- if block.settings.body != blank -%}
+              <div class="kracht-prog__body">{{ block.settings.body }}</div>
+            {%- endif -%}
+            {%- if block.settings.bullets != blank -%}
+              {%- assign items = block.settings.bullets | newline_to_br | split: '<br />' -%}
+              <ul class="kracht-prog__bullets">
+                {%- for item in items -%}
+                  {%- assign trimmed = item | strip -%}
+                  {%- if trimmed != blank -%}
+                    <li>{{ trimmed }}</li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Program Modules",
+  "tag": "section",
+  "class": "kracht-prog-section",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Het programma"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Twee dagen, <strong>vier modules, <em>één team.</em></strong></p>"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "module",
+      "name": "Module",
+      "settings": [
+        { "type": "text", "id": "day_label", "label": "Day label (small pill)", "default": "DAG 1 — OCHTEND" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Module 01 — De basis: vertrouwen & openheid" },
+        { "type": "richtext", "id": "body", "label": "Body paragraph", "default": "<p>We starten met kennismaken op niveau — niet alleen wat je doet, maar wat je drijft.</p>" },
+        { "type": "textarea", "id": "bullets", "label": "Bullet points (one per line)", "default": "Persoonlijke drijfverentest per deelnemer\nTeamprofiel analyse\nEerste diepgaande feedback­oefening in subgroepen\nKernvraag: 'Wat heeft dit team van mij nodig?'" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Program Modules",
+      "blocks": [
+        { "type": "module", "settings": { "day_label": "DAG 1 — OCHTEND", "title": "Module 01 — De basis: vertrouwen & openheid", "body": "<p>We starten met kennismaken op niveau — niet alleen wat je doet, maar wat je drijft. Aan de hand van het Kracht drijfverenmodel brengen we in kaart waar de energie van het team zit, en waar het schuurt.</p>", "bullets": "Persoonlijke drijfverentest per deelnemer\nTeamprofiel analyse: waar vullen we elkaar aan, waar overlappen we?\nEerste diepgaande feedback­oefening in subgroepen\nKernvraag: 'Wat heeft dit team van mij nodig?'" } },
+        { "type": "module", "settings": { "day_label": "DAG 1 — MIDDAG",  "title": "Module 02 — Conflict, schuring en de zachte landing", "body": "<p>Hoe blijf je in verbinding wanneer het schuurt?</p>", "bullets": "" } },
+        { "type": "module", "settings": { "day_label": "DAG 2 — OCHTEND", "title": "Module 03 — Verantwoordelijkheid & commitment", "body": "<p>Van afspraak naar afgesproken — gedeelde verantwoordelijkheid in de praktijk.</p>", "bullets": "" } },
+        { "type": "module", "settings": { "day_label": "DAG 2 — MIDDAG",  "title": "Module 04 — Het 30/60/90 actieplan", "body": "<p>Concreet vertalen naar wat je morgen doet, volgende maand en over 3 maanden.</p>", "bullets": "" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

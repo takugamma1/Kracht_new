@@ -1,0 +1,171 @@
+{{ 'kracht-trainer-profile.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-tprof"
+  style="
+    --ktp-bg: {{ section.settings.background_color }};
+    --ktp-fg: {{ section.settings.text_color }};
+    --ktp-pad-y: {{ section.settings.padding_y }}px;
+    --ktp-radius: {{ section.settings.image_radius }}px;
+  "
+>
+  <div class="kracht-tprof__inner kracht-container">
+    <div class="kracht-tprof__grid">
+      <div class="kracht-tprof__media">
+        {%- if section.settings.image != blank -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 800 }}"
+            srcset="{{ section.settings.image | image_url: width: 400 }} 400w, {{ section.settings.image | image_url: width: 800 }} 800w"
+            sizes="(max-width: 900px) 100vw, 40vw"
+            alt="{{ section.settings.image.alt | default: section.settings.name }}"
+            class="kracht-tprof__img"
+            loading="lazy"
+          >
+        {%- else -%}
+          <div class="kracht-tprof__img kracht-tprof__img--ph"></div>
+        {%- endif -%}
+        {%- if section.settings.show_plus -%}
+          <span class="kracht-tprof__plus" aria-hidden="true">+</span>
+        {%- endif -%}
+      </div>
+
+      <div class="kracht-tprof__body">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.name != blank -%}
+          <h2 class="kracht-tprof__name">{{ section.settings.name }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="kracht-tprof__sub">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
+        {%- if section.settings.quote != blank -%}
+          <blockquote class="kracht-tprof__quote">{{ section.settings.quote }}</blockquote>
+        {%- endif -%}
+        {%- if section.settings.bio != blank -%}
+          <div class="kracht-tprof__bio">{{ section.settings.bio }}</div>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="kracht-tprof__chips">
+            {%- for block in section.blocks -%}
+              <span class="kracht-tprof__chip" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Trainer Profile",
+  "tag": "section",
+  "class": "kracht-tprof-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Profile"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Portrait image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_plus",
+      "label": "Show + brand mark on image",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Jouw trainer"
+    },
+    {
+      "type": "richtext",
+      "id": "name",
+      "label": "Name heading",
+      "default": "<p>Maak kennis met <strong>Mark.</strong></p>"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle / role",
+      "default": "Senior Trainer & Teamcoach"
+    },
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Pull quote",
+      "default": "<p>\"Een team dat <strong>écht samenwerkt</strong> hoeft minder hard te werken. Dat klinkt tegenstrijdig — totdat je het zelf meemaakt.\"</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "bio",
+      "label": "Bio paragraph",
+      "default": "<p>Mark traint al 14 jaar teams in de technische en bouwsector. Hij combineert een achtergrond in <strong>organisatiepsychologie</strong> met praktische ervaring als projectleider. Werkt eerder gedaan voor <strong>Heijmans, BAM en Witteveen+Bos</strong>.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "chip",
+      "name": "Chip / tag",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Org. Psychologie" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Trainer Profile",
+      "blocks": [
+        { "type": "chip", "settings": { "label": "Org. Psychologie" } },
+        { "type": "chip", "settings": { "label": "Lencioni Certified" } },
+        { "type": "chip", "settings": { "label": "14+ jaar ervaring" } },
+        { "type": "chip", "settings": { "label": "NL/EN/DE" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

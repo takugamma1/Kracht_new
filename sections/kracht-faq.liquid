@@ -1,0 +1,112 @@
+{{ 'kracht-faq.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-faq"
+  style="
+    --kf-bg: {{ section.settings.background_color }};
+    --kf-fg: {{ section.settings.text_color }};
+    --kf-pad-y: {{ section.settings.padding_y }}px;
+  "
+>
+  <div class="kracht-faq__inner kracht-container">
+    <div class="kracht-faq__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="kracht-faq__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="kracht-faq__list">
+      {%- for block in section.blocks -%}
+        {%- assign idx = forloop.index | prepend: '0' | slice: -2, 2 -%}
+        <details class="kracht-faq__item" {{ block.shopify_attributes }}>
+          <summary class="kracht-faq__summary">
+            <span class="kracht-faq__num">{{ idx }}</span>
+            <span class="kracht-faq__q">{{ block.settings.question }}</span>
+            <span class="kracht-faq__chev" aria-hidden="true">+</span>
+          </summary>
+          <div class="kracht-faq__panel">
+            {{ block.settings.answer }}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — FAQ",
+  "tag": "section",
+  "class": "kracht-faq-section",
+  "max_blocks": 16,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Veelgestelde vragen"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Goed om te <strong>weten.</strong></p>"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Voor wie is deze training bedoeld?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Voor teams en professionals in de technische sector die hun samenwerking willen verdiepen.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — FAQ",
+      "blocks": [
+        { "type": "qa", "settings": { "question": "Voor wie is deze training bedoeld?",                  "answer": "<p>Voor teams en professionals in de technische sector die hun samenwerking willen verdiepen.</p>" } },
+        { "type": "qa", "settings": { "question": "Wat is er inbegrepen in de prijs?",                   "answer": "<p>Twee dagen training, alle materialen, lunch en een follow-up sessie.</p>" } },
+        { "type": "qa", "settings": { "question": "Kan dit ook in-company?",                             "answer": "<p>Ja — vanaf 6 deelnemers organiseren we de training graag bij jullie op locatie.</p>" } },
+        { "type": "qa", "settings": { "question": "Wat als ik niet tevreden ben?",                       "answer": "<p>Niet goed? Geld terug. Zo simpel is het.</p>" } },
+        { "type": "qa", "settings": { "question": "Komt deze training in aanmerking voor STAP/SLIM?",   "answer": "<p>Ja, deze training is STAP/SLIM-erkend.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

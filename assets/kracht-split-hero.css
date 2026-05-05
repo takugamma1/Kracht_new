@@ -58,6 +58,32 @@
 .kracht-shero__sub p { margin: 0; }
 .kracht-shero__sub strong { color: var(--ksh-fg); font-weight: 600; }
 
+.kracht-shero__meta {
+  margin: 0.5rem 0 0;
+  padding: 0.85rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.18);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
+  width: 100%;
+}
+.kracht-shero__meta-item dt {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-weight: 500;
+}
+.kracht-shero__meta-item dd {
+  margin: 0.2rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ksh-fg);
+  line-height: 1.2;
+}
+
 .kracht-shero__cta {
   display: flex;
   flex-wrap: wrap;
