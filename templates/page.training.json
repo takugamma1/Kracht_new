@@ -15,7 +15,7 @@
       "settings": {
         "show_breadcrumbs": true,
         "breadcrumbs": "Home / Collecties / Trainingen / Samenwerken vanuit Kracht",
-        "tag": "Training 2.1.1 · Teamontwikkeling",
+        "tag": "",
         "heading": "<p>Samen­werken<br/>vanuit <em>Kracht.</em></p>",
         "subheading": "<p>Bouw een team dat <strong>écht samenwerkt</strong>. Van vertrouwen tot gedeelde verantwoordelijkheid — krachtiger als groep dan als optelsom van individuen. Praktisch, persoonlijk en met <strong>concrete actieplannen</strong> die direct werken.</p>",
         "button1_label": "Plan adviesgesprek",
@@ -77,8 +77,8 @@
       ],
       "name": "Kracht — Step Cards",
       "settings": {
-        "eyebrow": "Wat haal je hier uit",
-        "heading": "<p>Resultaten die <strong>blijven <em>hangen.</em></strong></p>",
+        "eyebrow": "",
+        "heading": "<p>Resultaten die <strong>blijven </strong><em><strong>hangen.</strong></em></p>",
         "intro": "<p>Geen vrijblijvende inzichten — maar concrete vaardigheden, afspraken en gedragsverandering die je team direct in de praktijk toepast.</p>",
         "background_color": "#ffffff",
         "text_color": "#000000",
