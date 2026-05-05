@@ -1,0 +1,231 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "kracht-split-hero",
+      "name": "Kracht — Split Hero",
+      "settings": {
+        "show_breadcrumbs": true,
+        "breadcrumbs": "Home / Collecties / Trainingen / Samenwerken vanuit Kracht",
+        "tag": "Training 2.1.1 · Teamontwikkeling",
+        "heading": "<p>Samen­werken<br>vanuit <em>Kracht.</em></p>",
+        "subheading": "<p>Bouw een team dat <strong>écht samenwerkt</strong>. Van vertrouwen tot gedeelde verantwoordelijkheid — krachtiger als groep dan als optelsom van individuen. Praktisch, persoonlijk en met <strong>concrete actieplannen</strong> die direct werken.</p>",
+        "meta1_label": "Duur",        "meta1_value": "2 dagen",
+        "meta2_label": "Format",      "meta2_value": "Klassikaal",
+        "meta3_label": "Voor",        "meta3_value": "6 — 15 pers.",
+        "meta4_label": "Investering", "meta4_value": "€1.250 p.p.",
+        "button1_label": "Plan adviesgesprek",
+        "button1_link": "",
+        "button2_label": "Download brochure",
+        "button2_link": "",
+        "show_plus": true,
+        "image_radius": 4,
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_y": 72
+      }
+    },
+    "results": {
+      "type": "kracht-step-cards",
+      "name": "Kracht — Step Cards",
+      "blocks": {
+        "r1": { "type": "step", "settings": { "title": "Sterker onderling vertrouwen", "description": "Een team dat elkaar écht kent — drijfveren, valkuilen, kwaliteiten en grenzen." } },
+        "r2": { "type": "step", "settings": { "title": "Heldere teamdoelen",          "description": "Gedeelde focus en meetbare doelstellingen waar iedereen zich aan committeert." } },
+        "r3": { "type": "step", "settings": { "title": "Open feedbackcultuur",        "description": "Leer feedback geven die écht aankomt — en feedback ontvangen zonder verdediging." } },
+        "r4": { "type": "step", "settings": { "title": "Direct toepasbaar",           "description": "Een concreet 30/60/90-actieplan per teamlid — geen theorie, maar werk dat je morgen oppakt." } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4"],
+      "settings": {
+        "eyebrow": "Wat haal je hier uit",
+        "heading": "<p>Resultaten die <strong>blijven <em>hangen.</em></strong></p>",
+        "intro": "<p>Geen vrijblijvende inzichten — maar concrete vaardigheden, afspraken en gedragsverandering die je team direct in de praktijk toepast.</p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "card_color": "#f4f4f5",
+        "padding_y": 80,
+        "card_radius": 8
+      }
+    },
+    "modules": {
+      "type": "kracht-program-modules",
+      "name": "Kracht — Program Modules",
+      "blocks": {
+        "m1": { "type": "module", "settings": {
+          "day_label": "DAG 1 — OCHTEND",
+          "title": "Module 01 — De basis: vertrouwen & openheid",
+          "body": "<p>We starten met kennismaken op niveau — niet alleen wat je doet, maar wat je drijft. Aan de hand van het Kracht drijfverenmodel brengen we in kaart waar de energie van het team zit, en waar het schuurt.</p>",
+          "bullets": "Persoonlijke drijfverentest per deelnemer\nTeamprofiel analyse: waar vullen we elkaar aan, waar overlappen we?\nEerste diepgaande feedback­oefening in subgroepen\nKernvraag: 'Wat heeft dit team van mij nodig?'"
+        } },
+        "m2": { "type": "module", "settings": {
+          "day_label": "DAG 1 — MIDDAG",
+          "title": "Module 02 — Conflict, schuring en de zachte landing",
+          "body": "<p>Hoe blijf je in verbinding wanneer het schuurt? We oefenen met lastige gesprekken in een veilige setting.</p>",
+          "bullets": ""
+        } },
+        "m3": { "type": "module", "settings": {
+          "day_label": "DAG 2 — OCHTEND",
+          "title": "Module 03 — Verantwoordelijkheid & commitment",
+          "body": "<p>Van afspraak naar afgesproken — gedeelde verantwoordelijkheid in de praktijk.</p>",
+          "bullets": ""
+        } },
+        "m4": { "type": "module", "settings": {
+          "day_label": "DAG 2 — MIDDAG",
+          "title": "Module 04 — Het 30/60/90 actieplan",
+          "body": "<p>Concreet vertalen naar wat je morgen doet, volgende maand en over 3 maanden.</p>",
+          "bullets": ""
+        } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4"],
+      "settings": {
+        "eyebrow": "Het programma",
+        "heading": "<p>Twee dagen, <strong>vier modules, <em>één team.</em></strong></p>",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_y": 80
+      }
+    },
+    "trainer": {
+      "type": "kracht-trainer-profile",
+      "name": "Kracht — Trainer Profile",
+      "blocks": {
+        "ch1": { "type": "chip", "settings": { "label": "Org. Psychologie" } },
+        "ch2": { "type": "chip", "settings": { "label": "Lencioni Certified" } },
+        "ch3": { "type": "chip", "settings": { "label": "14+ jaar ervaring" } },
+        "ch4": { "type": "chip", "settings": { "label": "NL/EN/DE" } }
+      },
+      "block_order": ["ch1", "ch2", "ch3", "ch4"],
+      "settings": {
+        "show_plus": true,
+        "eyebrow": "Jouw trainer",
+        "name": "<p>Maak kennis met <strong>Mark.</strong></p>",
+        "subtitle": "Senior Trainer & Teamcoach",
+        "quote": "<p>\"Een team dat <strong>écht samenwerkt</strong> hoeft minder hard te werken. Dat klinkt tegenstrijdig — totdat je het zelf meemaakt.\"</p>",
+        "bio": "<p>Mark traint al 14 jaar teams in de technische en bouwsector. Hij combineert een achtergrond in <strong>organisatiepsychologie</strong> met praktische ervaring als projectleider. Werkt eerder gedaan voor <strong>Heijmans, BAM en Witteveen+Bos</strong>.</p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80,
+        "image_radius": 4
+      }
+    },
+    "schedule": {
+      "type": "kracht-schedule-cards",
+      "name": "Kracht — Schedule Cards",
+      "blocks": {
+        "s1": { "type": "session", "settings": {
+          "month": "MEI 2026",
+          "dates": "13 — 14 mei 2026",
+          "time": "Donderdag & vrijdag 09:00 — 17:00",
+          "location": "Arnhem · Hoofdkantoor Kracht",
+          "price": "€1.250 p.p. excl. btw",
+          "spots": "3 plaatsen beschikbaar",
+          "status": "Bijna vol",
+          "button_label": "Inschrijven",
+          "button_link": ""
+        } },
+        "s2": { "type": "session", "settings": {
+          "month": "SEPTEMBER 2026",
+          "dates": "17 — 18 september 2026",
+          "time": "Donderdag & vrijdag 09:00 — 17:00",
+          "location": "Utrecht · Postillion Hotel",
+          "price": "€1.250 p.p. excl. btw",
+          "spots": "10 plaatsen beschikbaar",
+          "status": "",
+          "button_label": "Inschrijven",
+          "button_link": ""
+        } },
+        "ic": { "type": "incompany", "settings": {
+          "tag": "In company",
+          "title": "Liever bij jullie op locatie?",
+          "description": "Voor 6 of meer deelnemers organiseren we de training graag in-company. We stemmen het programma volledig af op jullie team en context, op een datum die jullie schikt.",
+          "button_label": "Vraag een offerte aan",
+          "button_link": ""
+        } }
+      },
+      "block_order": ["s1", "s2", "ic"],
+      "settings": {
+        "eyebrow": "Eerstvolgende sessies",
+        "heading": "<p>Plan jouw <strong>team in.</strong></p>",
+        "intro": "<p>Of kies voor <strong>in-company</strong> — dan komen we naar jullie locatie en stemmen het programma af op jullie context.</p>",
+        "background_color": "#f4f4f5",
+        "text_color": "#000000",
+        "padding_y": 80,
+        "card_radius": 8
+      }
+    },
+    "faq": {
+      "type": "kracht-faq",
+      "name": "Kracht — FAQ",
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "Voor wie is deze training bedoeld?",                  "answer": "<p>Voor teams en professionals in de technische sector die hun samenwerking willen verdiepen. Geschikt voor zowel ervaren teams als pas opgestarte projectgroepen.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "Wat is er inbegrepen in de prijs?",                   "answer": "<p>Twee dagen training, alle materialen, lunch en drankjes, een persoonlijk drijfverenrapport en een follow-up sessie van 2 uur na 6 weken.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "Kan dit ook in-company?",                             "answer": "<p>Ja — vanaf 6 deelnemers organiseren we de training graag bij jullie op locatie. Vraag een offerte aan.</p>" } },
+        "q4": { "type": "qa", "settings": { "question": "Wat als ik niet tevreden ben?",                       "answer": "<p>Niet goed? Geld terug — zonder gedoe. Zo simpel is het.</p>" } },
+        "q5": { "type": "qa", "settings": { "question": "Komt deze training in aanmerking voor STAP/SLIM?",   "answer": "<p>Ja, deze training is STAP-erkend en SLIM-subsidiabel. We helpen je graag bij de aanvraag.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+      "settings": {
+        "eyebrow": "Veelgestelde vragen",
+        "heading": "<p>Goed om te <strong>weten.</strong></p>",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_y": 80
+      }
+    },
+    "cta": {
+      "type": "kracht-cta-banner",
+      "name": "Kracht — CTA Banner",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Klaar om je team te <strong>versterken?</strong></p>",
+        "subheading": "Plan een vrijblijvend adviesgesprek van 30 minuten. We luisteren naar jullie uitdaging, delen onze aanpak en kijken samen of deze training de juiste match is. Geen verkoopgesprek — beloofd.",
+        "button1_label": "Plan adviesgesprek",
+        "button1_link": "",
+        "button2_label": "Download brochure",
+        "button2_link": "",
+        "show_stats": false,
+        "theme": "blue",
+        "background_color": "#009de1",
+        "text_color": "#ffffff",
+        "padding_y": 64,
+        "radius": 0
+      }
+    },
+    "related": {
+      "type": "kracht-feature-rows",
+      "name": "Kracht — Feature Rows",
+      "blocks": {
+        "f1": { "type": "row", "settings": { "tag": "02", "title": "Leiden vanuit Kracht.", "description": "Ontwikkel een authentieke leiderschapsstijl. Effectief delegeren en het beste uit je team halen.", "meta1_label": "", "meta2_label": "", "meta3_label": "", "button1_label": "Meer info", "button2_label": "" } },
+        "f2": { "type": "row", "settings": { "tag": "03", "title": "Heldere taal, scherpe boodschap.", "description": "Leer écht luisteren, helder overtuigen en feedback geven die bijdraagt aan groei.", "meta1_label": "", "meta2_label": "", "meta3_label": "", "button1_label": "Meer info", "button2_label": "" } },
+        "f3": { "type": "row", "settings": { "tag": "04", "title": "Eigen programma op jullie maat.", "description": "Combineer modules of bouw samen met ons een traject dat exact past bij jullie organisatie.", "meta1_label": "", "meta2_label": "", "meta3_label": "", "button1_label": "Meer info", "button2_label": "" } }
+      },
+      "block_order": ["f1", "f2", "f3"],
+      "settings": {
+        "eyebrow": "Andere trainingen",
+        "heading": "<p>Ontdek meer <strong>vanuit Kracht.</strong></p>",
+        "intro": "",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80,
+        "image_radius": 4
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "results",
+    "modules",
+    "trainer",
+    "schedule",
+    "faq",
+    "cta",
+    "related"
+  ]
+}
