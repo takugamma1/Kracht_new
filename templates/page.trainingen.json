@@ -143,7 +143,7 @@
       "name": "Kracht — Feature Rows",
       "settings": {
         "eyebrow": "Onze trainingen",
-        "heading": "<p>Drie programma's,<br><strong>één missie: <em>groei.</em></strong></p>",
+        "heading": "<p>Drie programma's,<br/><strong>één missie: </strong><em><strong>groei.</strong></em></p>",
         "intro": "<p>Elke training is op maat te maken voor jouw team of organisatie. Klassikaal, online of hybride — altijd persoonlijk, altijd praktisch.</p>",
         "background_color": "#ffffff",
         "text_color": "#000000",
@@ -191,8 +191,8 @@
       ],
       "name": "Kracht — Step Cards",
       "settings": {
-        "eyebrow": "Onze aanpak",
-        "heading": "<p>Van intake <strong>tot impact — <em>in 4 stappen.</em></strong></p>",
+        "eyebrow": "",
+        "heading": "<p>Van intake <strong>tot impact — </strong><em><strong>in 4 stappen.</strong></em></p>",
         "intro": "<p>We werken altijd op maat. Geen losse trainingsdag, maar een traject met duidelijke doelen, persoonlijke begeleiding en borging achteraf.</p>",
         "background_color": "#f4f4f5",
         "text_color": "#000000",
