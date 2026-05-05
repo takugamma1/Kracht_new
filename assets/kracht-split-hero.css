@@ -1,0 +1,106 @@
+.kracht-shero {
+  background: var(--ksh-bg, #000);
+  color: var(--ksh-fg, #fff);
+  padding-block: var(--ksh-pad-y, 72px);
+  font-family: var(--kracht-font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.kracht-shero__crumbs {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 1.5rem;
+  flex-wrap: wrap;
+}
+.kracht-shero__crumbs .is-current { color: var(--ksh-fg); }
+.kracht-shero__sep { color: var(--kracht-blauw); font-weight: 700; }
+
+.kracht-shero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.kracht-shero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  max-width: 540px;
+}
+
+.kracht-shero__title {
+  font-family: var(--kracht-font-heading);
+  font-weight: 400;
+  font-size: clamp(2rem, 4.4vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--ksh-fg);
+}
+.kracht-shero__title strong { font-weight: 800; }
+.kracht-shero__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-shero__title p { margin: 0; }
+
+.kracht-shero__sub {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 460px;
+}
+.kracht-shero__sub p { margin: 0; }
+.kracht-shero__sub strong { color: var(--ksh-fg); font-weight: 600; }
+
+.kracht-shero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.kracht-shero__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--ksh-radius, 4px);
+  overflow: visible;
+}
+.kracht-shero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--ksh-radius, 4px);
+  display: block;
+}
+.kracht-shero__img--ph {
+  background: linear-gradient(135deg, #2c2c2c, #444);
+}
+.kracht-shero__plus {
+  position: absolute;
+  bottom: -22px;
+  left: -22px;
+  font-family: var(--kracht-font-heading);
+  font-weight: 900;
+  color: var(--kracht-blauw);
+  font-size: 4.5rem;
+  line-height: 0.7;
+}
+
+@media (max-width: 900px) {
+  .kracht-shero__grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .kracht-shero__media { aspect-ratio: 16 / 10; }
+  .kracht-shero__plus { font-size: 3rem; bottom: -14px; left: -10px; }
+}
+@media (max-width: 480px) {
+  .kracht-shero__cta { width: 100%; }
+  .kracht-shero__cta .kracht-btn { flex: 1; justify-content: center; }
+}

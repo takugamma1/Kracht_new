@@ -1,0 +1,52 @@
+.kracht-stats {
+  font-family: var(--kracht-font-body);
+  padding-block: var(--kss-pad-y, 0);
+}
+.kracht-stats--float {
+  margin-top: -2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.kracht-stats__card {
+  background: var(--kss-bg, #ffffff);
+  color: var(--kss-fg, #000000);
+  border-radius: var(--kss-radius, 6px);
+  padding: 1.5rem clamp(1rem, 3vw, 2rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  align-items: flex-start;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+.kracht-stats__item {
+  position: relative;
+  padding-left: 1rem;
+  border-left: 2px solid var(--kss-accent, #000000);
+}
+
+.kracht-stats__num {
+  font-family: var(--kracht-font-heading);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2vw, 1.65rem);
+  margin: 0;
+  color: var(--kss-fg);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.kracht-stats__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  margin: 0.25rem 0 0;
+  color: var(--kracht-grijs);
+  line-height: 1.35;
+}
+
+@media (max-width: 600px) {
+  .kracht-stats--float { margin-top: -1.5rem; }
+  .kracht-stats__card {
+    grid-template-columns: 1fr 1fr;
+    padding: 1.1rem;
+  }
+}

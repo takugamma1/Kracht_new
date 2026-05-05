@@ -1,0 +1,110 @@
+.kracht-tcards {
+  background: var(--ktc-bg, #ffffff);
+  color: var(--ktc-fg, #000000);
+  padding-block: var(--ktc-pad-y, 80px);
+  font-family: var(--kracht-font-body);
+}
+
+.kracht-tcards__head {
+  margin-bottom: 2.5rem;
+  max-width: 720px;
+}
+.kracht-tcards__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ktc-fg);
+}
+.kracht-tcards__title strong { font-weight: 800; }
+.kracht-tcards__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-tcards__title p { margin: 0; }
+
+.kracht-tcards__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.kracht-tcard {
+  background: var(--ktc-card-bg, #f4f4f5);
+  color: var(--ktc-card-fg, #000000);
+  border-radius: var(--ktc-radius, 8px);
+  padding: 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.kracht-tcard__eyebrow { color: var(--kracht-blauw); }
+.kracht-tcard--dark .kracht-tcard__eyebrow,
+.kracht-tcard--dark .kracht-tcard__eyebrow::before { color: var(--kracht-blauw); }
+
+.kracht-tcard__title {
+  font-family: var(--kracht-font-heading);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ktc-card-fg);
+}
+.kracht-tcard__desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ktc-card-fg);
+  opacity: 0.85;
+  margin: 0;
+}
+
+.kracht-tcard__list {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ktc-card-fg);
+}
+.kracht-tcard__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.4;
+}
+.kracht-tcard__list svg {
+  color: var(--kracht-blauw);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.kracht-tcard__cta {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.kracht-tcard__secondary {
+  background: transparent;
+  color: var(--ktc-card-fg);
+  border: 1px solid currentColor;
+  border-radius: var(--kracht-radius-pill);
+}
+.kracht-tcard__secondary:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ktc-card-fg);
+}
+.kracht-tcard--light .kracht-tcard__secondary:hover { background: rgba(0, 0, 0, 0.04); }
+
+@media (max-width: 768px) {
+  .kracht-tcards__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .kracht-tcard { padding: 1.25rem; }
+  .kracht-tcard__cta { width: 100%; }
+  .kracht-tcard__cta .kracht-btn { flex: 1; justify-content: center; }
+}

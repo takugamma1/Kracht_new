@@ -1,0 +1,95 @@
+.kracht-steps {
+  background: var(--kst-bg, #f4f4f5);
+  color: var(--kst-fg, #000000);
+  padding-block: var(--kst-pad-y, 80px);
+  font-family: var(--kracht-font-body);
+}
+
+.kracht-steps__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+.kracht-steps__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--kst-fg);
+}
+.kracht-steps__title strong { font-weight: 800; }
+.kracht-steps__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-steps__title p { margin: 0; }
+.kracht-steps__intro {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--kracht-grijs);
+  max-width: 380px;
+}
+.kracht-steps__intro p { margin: 0; }
+
+.kracht-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--kst-cols, 4), minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.kracht-steps__card {
+  background: var(--kst-card-bg, #ffffff);
+  color: var(--kst-fg);
+  border-radius: var(--kst-radius, 8px);
+  padding: 1.25rem 1.1rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.kracht-steps__num {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--kracht-blauw);
+  color: var(--kracht-wit);
+  align-self: flex-start;
+  padding: 0.4rem 0.65rem 0.4rem 0.55rem;
+  border-radius: 6px;
+  font-family: var(--kracht-font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.35rem;
+}
+.kracht-steps__num-plus {
+  font-family: var(--kracht-font-heading);
+  font-weight: 900;
+  font-size: 0.95rem;
+  line-height: 0.7;
+}
+
+.kracht-steps__card-title {
+  font-family: var(--kracht-font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0;
+  letter-spacing: -0.005em;
+  color: var(--kst-fg);
+}
+.kracht-steps__card-desc {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--kracht-grijs);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .kracht-steps__head { grid-template-columns: 1fr; gap: 1rem; align-items: flex-start; }
+  .kracht-steps__intro { max-width: none; }
+  .kracht-steps__grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+}
+@media (max-width: 480px) {
+  .kracht-steps__grid { grid-template-columns: 1fr; }
+}
