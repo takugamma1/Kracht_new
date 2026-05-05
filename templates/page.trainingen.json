@@ -205,7 +205,7 @@
       "type": "kracht-testimonial",
       "name": "Kracht — Testimonial",
       "settings": {
-        "eyebrow": "Succesverhalen",
+        "eyebrow": "",
         "heading": "<p>De resultaten <strong>spreken voor </strong><em><strong>zich.</strong></em></p>",
         "intro": "<p>Lees hoe teams en professionals groeiden met onze trainingen — vanuit hun eigen woorden.</p>",
         "card_tag": "Succesverhaal",
@@ -262,8 +262,8 @@
       ],
       "name": "Kracht — Two Cards",
       "settings": {
-        "eyebrow": "Voor wie",
-        "heading": "<p>Trainingen voor <strong>professionals</strong><br>én <strong><em>werkgevers.</em></strong></p>",
+        "eyebrow": "",
+        "heading": "<p>Trainingen voor <strong>professionals</strong><br/>én <em><strong>werkgevers.</strong></em></p>",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 80,
