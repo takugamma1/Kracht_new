@@ -1,0 +1,175 @@
+{{ 'kracht-two-cards.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-tcards"
+  style="
+    --ktc-bg: {{ section.settings.background_color }};
+    --ktc-fg: {{ section.settings.text_color }};
+    --ktc-pad-y: {{ section.settings.padding_y }}px;
+    --ktc-radius: {{ section.settings.card_radius }}px;
+  "
+>
+  <div class="kracht-tcards__inner kracht-container">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="kracht-tcards__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-tcards__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="kracht-tcards__grid">
+      {%- for block in section.blocks -%}
+        <article
+          class="kracht-tcard kracht-tcard--{{ block.settings.theme | default: 'light' }}"
+          {{ block.shopify_attributes }}
+          style="--ktc-card-bg: {{ block.settings.background_color }}; --ktc-card-fg: {{ block.settings.text_color }};"
+        >
+          {%- if block.settings.eyebrow != blank -%}
+            <span class="kracht-eyebrow kracht-tcard__eyebrow">{{ block.settings.eyebrow }}</span>
+          {%- endif -%}
+          {%- if block.settings.title != blank -%}
+            <h3 class="kracht-tcard__title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.description != blank -%}
+            <p class="kracht-tcard__desc">{{ block.settings.description }}</p>
+          {%- endif -%}
+
+          {%- if block.settings.checklist != blank -%}
+            {%- assign items = block.settings.checklist | newline_to_br | split: '<br />' -%}
+            <ul class="kracht-tcard__list">
+              {%- for item in items -%}
+                {%- assign trimmed = item | strip -%}
+                {%- if trimmed != blank -%}
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    {{ trimmed }}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if block.settings.button1_label != blank or block.settings.button2_label != blank -%}
+            <div class="kracht-tcard__cta">
+              {%- if block.settings.button1_label != blank -%}
+                <a href="{{ block.settings.button1_link | default: '#' }}" class="kracht-btn kracht-btn--primary">
+                  {{ block.settings.button1_label }} <span class="kracht-btn__arrow">→</span>
+                </a>
+              {%- endif -%}
+              {%- if block.settings.button2_label != blank -%}
+                <a href="{{ block.settings.button2_link | default: '#' }}" class="kracht-btn kracht-tcard__secondary">
+                  {{ block.settings.button2_label }}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Two Cards",
+  "tag": "section",
+  "class": "kracht-tcards-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Voor wie"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Trainingen voor <strong>professionals</strong><br>én <strong><em>werkgevers.</em></strong></p>"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Section text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "theme",
+          "label": "Theme",
+          "options": [
+            { "value": "light", "label": "Light" },
+            { "value": "dark",  "label": "Dark" }
+          ],
+          "default": "light"
+        },
+        { "type": "color", "id": "background_color", "label": "Background color", "default": "#f4f4f5" },
+        { "type": "color", "id": "text_color", "label": "Text color", "default": "#000000" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Voor professionals" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Versterk je eigen Kracht." },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Investeer in jezelf en zet de volgende stap in je carrière. Onze trainingen sluiten aan bij wat je écht nodig hebt — geen ballast, alleen wat werkt." },
+        { "type": "textarea", "id": "checklist", "label": "Checklist (one per line)", "default": "Vergroot je impact in de praktijk\nOntwikkel concrete vaardigheden direct toepasbaar\nBouw aan een krachtig persoonlijk profiel\nWerk met specialisten uit de technische sector" },
+        { "type": "header", "content": "Buttons" },
+        { "type": "text", "id": "button1_label", "label": "Primary button label", "default": "Bekijk individuele trainingen" },
+        { "type": "url", "id": "button1_link", "label": "Primary button link" },
+        { "type": "text", "id": "button2_label", "label": "Secondary button label" },
+        { "type": "url", "id": "button2_link", "label": "Secondary button link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Two Cards",
+      "blocks": [
+        { "type": "card", "settings": { "theme": "light", "background_color": "#f4f4f5", "text_color": "#000000", "eyebrow": "Voor professionals", "title": "Versterk je eigen Kracht.", "description": "Investeer in jezelf en zet de volgende stap in je carrière. Onze trainingen sluiten aan bij wat je écht nodig hebt — geen ballast, alleen wat werkt.", "checklist": "Vergroot je impact in de praktijk\nOntwikkel concrete vaardigheden direct toepasbaar\nBouw aan een krachtig persoonlijk profiel\nWerk met specialisten uit de technische sector", "button1_label": "Bekijk individuele trainingen" } },
+        { "type": "card", "settings": { "theme": "dark",  "background_color": "#000000", "text_color": "#ffffff", "eyebrow": "Voor werkgevers", "title": "Investeer in je team.", "description": "Een sterk team begint bij investeren in mensen. Vergroot productiviteit, behoud talent en bouw aan een cultuur waarin iedereen wint — vanuit Kracht.", "checklist": "Meetbare resultaten en duidelijke ROI\nVerhoog medewerkertevredenheid en retentie\nIn-company, flexibel in te plannen\nMaatwerk programma's voor jouw organisatie", "button1_label": "Vraag een offerte aan" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

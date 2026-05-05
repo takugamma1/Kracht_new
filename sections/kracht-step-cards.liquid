@@ -1,0 +1,141 @@
+{{ 'kracht-step-cards.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-steps"
+  style="
+    --kst-bg: {{ section.settings.background_color }};
+    --kst-fg: {{ section.settings.text_color }};
+    --kst-card-bg: {{ section.settings.card_color }};
+    --kst-pad-y: {{ section.settings.padding_y }}px;
+    --kst-radius: {{ section.settings.card_radius }}px;
+  "
+>
+  <div class="kracht-steps__inner kracht-container">
+    <div class="kracht-steps__head">
+      <div class="kracht-steps__head-left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-steps__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.intro != blank -%}
+        <div class="kracht-steps__intro">{{ section.settings.intro }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="kracht-steps__grid" style="--kst-cols: {{ section.blocks.size | at_most: 4 }};">
+      {%- for block in section.blocks -%}
+        <div class="kracht-steps__card" {{ block.shopify_attributes }}>
+          <span class="kracht-steps__num">
+            <span class="kracht-steps__num-plus" aria-hidden="true">+</span>
+            {{ forloop.index | prepend: '0' | slice: -2, 2 }}
+          </span>
+          {%- if block.settings.title != blank -%}
+            <p class="kracht-steps__card-title">{{ block.settings.title }}</p>
+          {%- endif -%}
+          {%- if block.settings.description != blank -%}
+            <p class="kracht-steps__card-desc">{{ block.settings.description }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Step Cards",
+  "tag": "section",
+  "class": "kracht-steps-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Onze aanpak"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Van intake <strong>tot impact — <em>in 4 stappen.</em></strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro paragraph",
+      "default": "<p>We werken altijd op maat. Geen losse trainingsdag, maar een traject met duidelijke doelen, persoonlijke begeleiding en borging achteraf.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#f4f4f5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Intake" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "We leren jou en je team kennen. Wat speelt er, wat zijn de doelen, wat is de context?" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Step Cards",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Intake",     "description": "We leren jou en je team kennen. Wat speelt er, wat zijn de doelen, wat is de context?" } },
+        { "type": "step", "settings": { "title": "Op maat",    "description": "Geen standaard programma — we ontwerpen de training rond jullie praktijk en uitdagingen." } },
+        { "type": "step", "settings": { "title": "Training",   "description": "Intensieve, interactieve dagen. Praktisch, persoonlijk en met cases uit jullie eigen werkveld." } },
+        { "type": "step", "settings": { "title": "Opvolging",  "description": "Met follow-up sessies en concrete actieplannen borgen we wat je hebt geleerd in de praktijk." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

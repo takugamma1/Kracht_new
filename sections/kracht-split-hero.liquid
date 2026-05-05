@@ -1,0 +1,199 @@
+{{ 'kracht-split-hero.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-shero"
+  style="
+    --ksh-bg: {{ section.settings.background_color }};
+    --ksh-fg: {{ section.settings.text_color }};
+    --ksh-pad-y: {{ section.settings.padding_y }}px;
+    --ksh-radius: {{ section.settings.image_radius }}px;
+  "
+>
+  <div class="kracht-shero__inner kracht-container">
+    {%- if section.settings.show_breadcrumbs -%}
+      <nav class="kracht-shero__crumbs" aria-label="Breadcrumb">
+        {%- assign crumbs = section.settings.breadcrumbs | default: 'Home / Collecties / Trainingen' | split: '/' -%}
+        {%- for c in crumbs -%}
+          {%- assign trimmed = c | strip -%}
+          {%- if forloop.last -%}
+            <span class="is-current">{{ trimmed }}</span>
+          {%- else -%}
+            <span>{{ trimmed }}</span>
+            <span class="kracht-shero__sep" aria-hidden="true">/</span>
+          {%- endif -%}
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+
+    <div class="kracht-shero__grid">
+      <div class="kracht-shero__content">
+        {%- if section.settings.tag != blank -%}
+          <span class="kracht-tag kracht-tag--with-plus">{{ section.settings.tag }}</span>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h1 class="kracht-shero__title">{{ section.settings.heading }}</h1>
+        {%- endif -%}
+
+        {%- if section.settings.subheading != blank -%}
+          <div class="kracht-shero__sub">{{ section.settings.subheading }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
+          <div class="kracht-shero__cta">
+            {%- if section.settings.button1_label != blank -%}
+              <a href="{{ section.settings.button1_link | default: '#' }}" class="kracht-btn kracht-btn--primary">
+                {{ section.settings.button1_label }} <span class="kracht-btn__arrow">→</span>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.button2_label != blank -%}
+              <a href="{{ section.settings.button2_link | default: '#' }}" class="kracht-btn kracht-btn--outline-dark">
+                {{ section.settings.button2_label }}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="kracht-shero__media">
+        {%- if section.settings.image != blank -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
+            sizes="(max-width: 900px) 100vw, 50vw"
+            alt="{{ section.settings.image.alt | escape }}"
+            class="kracht-shero__img"
+            loading="eager"
+          >
+        {%- else -%}
+          <div class="kracht-shero__img kracht-shero__img--ph"></div>
+        {%- endif -%}
+        {%- if section.settings.show_plus -%}
+          <span class="kracht-shero__plus" aria-hidden="true">+</span>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Split Hero",
+  "tag": "section",
+  "class": "kracht-shero-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "Show breadcrumbs",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "breadcrumbs",
+      "label": "Breadcrumbs (slash separated)",
+      "default": "Home / Collecties / Trainingen"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag pill (optional)"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Voor <strong>groei</strong> heb je <em>Kracht</em> nodig.</p>",
+      "info": "Use <strong> for bold, <em> for blue accent."
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Onze <strong>trainingen</strong> zijn gemaakt voor teams en professionals die verder willen — niet alleen vakinhoudelijk, maar ook in <strong>samenwerken, leiderschap en communicatie</strong>. Praktisch, persoonlijk en altijd vanuit Kracht.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Primary button label",
+      "default": "Bekijk de trainingen"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Secondary button label",
+      "default": "Plan een adviesgesprek"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_plus",
+      "label": "Show '+' brand mark on image",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 32,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Split Hero"
+    }
+  ]
+}
+{% endschema %}

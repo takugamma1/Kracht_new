@@ -1,0 +1,108 @@
+{{ 'kracht-stats-strip.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-stats {% if section.settings.float_above_previous %}kracht-stats--float{% endif %}"
+  style="
+    --kss-bg: {{ section.settings.background_color }};
+    --kss-fg: {{ section.settings.text_color }};
+    --kss-accent: {{ section.settings.accent_color }};
+    --kss-pad-y: {{ section.settings.padding_y }}px;
+    --kss-radius: {{ section.settings.radius }}px;
+  "
+>
+  <div class="kracht-stats__inner kracht-container">
+    <div class="kracht-stats__card">
+      {%- for block in section.blocks -%}
+        <div class="kracht-stats__item" {{ block.shopify_attributes }}>
+          <p class="kracht-stats__num">{{ block.settings.value }}</p>
+          <p class="kracht-stats__label">{{ block.settings.label }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Stats Strip",
+  "tag": "section",
+  "class": "kracht-stats-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "float_above_previous",
+      "label": "Float card up over previous section",
+      "default": true,
+      "info": "Pulls the card up so it overlaps the bottom of the section above (useful after a hero)."
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color (number tint)",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding (around card)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 6
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "500+" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Professionals getraind sinds 2014" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Stats Strip",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "500+",  "label": "Professionals getraind sinds 2014" } },
+        { "type": "stat", "settings": { "value": "8.7/10","label": "Gemiddelde deelnemertevredenheid" } },
+        { "type": "stat", "settings": { "value": "95%",   "label": "Beveelt Kracht trainingen aan" } },
+        { "type": "stat", "settings": { "value": "12+",   "label": "Jaar ervaring in de technische sector" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

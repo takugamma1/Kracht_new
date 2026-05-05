@@ -1,0 +1,186 @@
+{{ 'kracht-testimonial.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-test"
+  style="
+    --kt-bg: {{ section.settings.background_color }};
+    --kt-fg: {{ section.settings.text_color }};
+    --kt-pad-y: {{ section.settings.padding_y }}px;
+    --kt-radius: {{ section.settings.image_radius }}px;
+  "
+>
+  <div class="kracht-test__inner kracht-container">
+    <div class="kracht-test__head">
+      <div class="kracht-test__head-left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-test__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.intro != blank -%}
+        <div class="kracht-test__intro">{{ section.settings.intro }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="kracht-test__feature">
+      {%- if section.settings.image != blank -%}
+        <img
+          src="{{ section.settings.image | image_url: width: 1600 }}"
+          srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1600 }} 1600w"
+          sizes="100vw"
+          alt="{{ section.settings.image.alt | escape }}"
+          class="kracht-test__img"
+          loading="lazy"
+        >
+      {%- else -%}
+        <div class="kracht-test__img kracht-test__img--ph"></div>
+      {%- endif -%}
+
+      <article class="kracht-test__card">
+        {%- if section.settings.card_tag != blank -%}
+          <span class="kracht-tag kracht-tag--with-plus">{{ section.settings.card_tag }}</span>
+        {%- endif -%}
+        {%- if section.settings.card_meta != blank -%}
+          <p class="kracht-test__meta">{{ section.settings.card_meta }}</p>
+        {%- endif -%}
+        {%- if section.settings.card_quote != blank -%}
+          <blockquote class="kracht-test__quote">{{ section.settings.card_quote }}</blockquote>
+        {%- endif -%}
+        {%- if section.settings.card_cta != blank -%}
+          <a href="{{ section.settings.card_cta_link | default: '#' }}" class="kracht-test__cta">
+            {{ section.settings.card_cta }} <span aria-hidden="true">→</span>
+          </a>
+        {%- endif -%}
+      </article>
+    </div>
+
+    {%- if section.settings.show_dots -%}
+      <div class="kracht-test__dots" aria-hidden="true">
+        <span class="kracht-test__dot is-active"></span>
+        <span class="kracht-test__dot"></span>
+        <span class="kracht-test__dot"></span>
+        <span class="kracht-test__dot"></span>
+        <span class="kracht-test__dot"></span>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Testimonial",
+  "tag": "section",
+  "class": "kracht-test-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Succesverhalen"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>De resultaten <strong>spreken voor <em>zich.</em></strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro",
+      "default": "<p>Lees hoe teams en professionals groeiden met onze trainingen — vanuit hun eigen woorden.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Feature card"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "card_tag",
+      "label": "Card tag",
+      "default": "Succesverhaal"
+    },
+    {
+      "type": "text",
+      "id": "card_meta",
+      "label": "Card meta (subtitle)",
+      "default": "Ted Maters · Architect"
+    },
+    {
+      "type": "richtext",
+      "id": "card_quote",
+      "label": "Quote",
+      "default": "<p>\"Hoe Ted via Kracht terechtkwam bij het architectenbureau van zijn <strong>oud-docent.</strong>\"</p>"
+    },
+    {
+      "type": "text",
+      "id": "card_cta",
+      "label": "CTA label",
+      "default": "Lees meer"
+    },
+    {
+      "type": "url",
+      "id": "card_cta_link",
+      "label": "CTA link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show pagination dots",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Testimonial"
+    }
+  ]
+}
+{% endschema %}
