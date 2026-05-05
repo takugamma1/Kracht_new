@@ -239,7 +239,7 @@
       ],
       "name": "Kracht — Schedule Cards",
       "settings": {
-        "eyebrow": "Eerstvolgende sessies",
+        "eyebrow": "",
         "heading": "<p>Plan jouw <strong>team in.</strong></p>",
         "intro": "<p>Of kies voor <strong>in-company</strong> — dan komen we naar jullie locatie en stemmen het programma af op jullie context.</p>",
         "background_color": "#f4f4f5",
