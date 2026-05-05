@@ -322,79 +322,66 @@
         "radius": 24
       }
     },
-    "related": {
-      "type": "kracht-feature-rows",
+    "kracht_story_cards_VdTCdj": {
+      "type": "kracht-story-cards",
       "blocks": {
-        "f1": {
-          "type": "row",
+        "story_RCJPWm": {
+          "type": "story",
           "settings": {
-            "image": "shopify://shop_images/Background_1.png",
-            "tag": "02",
-            "title": "Leiden vanuit Kracht.",
-            "description": "Ontwikkel een authentieke leiderschapsstijl. Effectief delegeren en het beste uit je team halen.",
-            "meta1_label": "",
-            "meta1_value": "2 dagen",
-            "meta2_label": "",
-            "meta2_value": "Klassikaal",
-            "meta3_label": "",
-            "meta3_value": "Teams 6 — 15 pers.",
-            "button1_label": "Meer info",
-            "button1_link": "",
-            "button2_label": "",
-            "button2_link": ""
+            "tag_label": "Team",
+            "tag_date": "12 mei 2026",
+            "title": "Hoe het Kracht team samen wint.",
+            "cta": "Lees meer",
+            "link": ""
           }
         },
-        "f2": {
-          "type": "row",
+        "story_wyWB6D": {
+          "type": "story",
           "settings": {
-            "tag": "03",
-            "title": "Heldere taal, scherpe boodschap.",
-            "description": "Leer écht luisteren, helder overtuigen en feedback geven die bijdraagt aan groei.",
-            "meta1_label": "",
-            "meta1_value": "2 dagen",
-            "meta2_label": "",
-            "meta2_value": "Klassikaal",
-            "meta3_label": "",
-            "meta3_value": "Teams 6 — 15 pers.",
-            "button1_label": "Meer info",
-            "button1_link": "",
-            "button2_label": "",
-            "button2_link": ""
+            "tag_label": "Cultuur",
+            "tag_date": "28 apr 2026",
+            "title": "Werken vanuit Kracht — wat dat écht betekent.",
+            "cta": "Lees meer",
+            "link": ""
           }
         },
-        "f3": {
-          "type": "row",
+        "story_jJq3VH": {
+          "type": "story",
           "settings": {
-            "tag": "04",
-            "title": "Eigen programma op jullie maat.",
-            "description": "Combineer modules of bouw samen met ons een traject dat exact past bij jullie organisatie.",
-            "meta1_label": "",
-            "meta1_value": "2 dagen",
-            "meta2_label": "",
-            "meta2_value": "Klassikaal",
-            "meta3_label": "",
-            "meta3_value": "Teams 6 — 15 pers.",
-            "button1_label": "Meer info",
-            "button1_link": "",
-            "button2_label": "",
-            "button2_link": ""
+            "tag_label": "Stijl",
+            "tag_date": "15 apr 2026",
+            "title": "Van werkkleding tot lifestyle.",
+            "cta": "Lees meer",
+            "link": ""
+          }
+        },
+        "story_NQ8KX8": {
+          "type": "story",
+          "settings": {
+            "tag_label": "Kandidaten",
+            "tag_date": "12 mei 2026",
+            "title": "Van een goede naar een betere baan.",
+            "cta": "Lees meer",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "f1",
-        "f2",
-        "f3"
+        "story_RCJPWm",
+        "story_wyWB6D",
+        "story_jJq3VH",
+        "story_NQ8KX8"
       ],
-      "name": "Kracht — Feature Rows",
+      "name": "Kracht — Story Cards",
       "settings": {
-        "eyebrow": "Andere trainingen",
-        "heading": "<p>Ontdek meer <strong>vanuit Kracht.</strong></p>",
-        "intro": "",
+        "eyebrow": "Verhalen vanuit Kracht",
+        "heading": "<p>Meer dan <strong>merch.</strong></p>",
+        "show_arrows": true,
+        "show_progress": true,
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "padding_y": 80,
-        "image_radius": 4
+        "padding_y": 64,
+        "radius": 0
       }
     }
   },
@@ -406,6 +393,6 @@
     "schedule",
     "faq",
     "cta",
-    "related"
+    "kracht_story_cards_VdTCdj"
   ]
 }
