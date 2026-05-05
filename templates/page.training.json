@@ -136,7 +136,7 @@
       "name": "Kracht — Program Modules",
       "settings": {
         "eyebrow": "Het programma",
-        "heading": "<p>Twee dagen, <strong>vier modules, <em>één team.</em></strong></p>",
+        "heading": "<p>Twee dagen, <strong>vier modules, </strong><em><strong>één team.</strong></em></p>",
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 80
@@ -178,8 +178,8 @@
       ],
       "name": "Kracht — Trainer Profile",
       "settings": {
-        "show_plus": true,
-        "eyebrow": "Jouw trainer",
+        "show_plus": false,
+        "eyebrow": "",
         "name": "<p>Maak kennis met <strong>Mark.</strong></p>",
         "subtitle": "Senior Trainer & Teamcoach",
         "quote": "<p>\"Een team dat <strong>écht samenwerkt</strong> hoeft minder hard te werken. Dat klinkt tegenstrijdig — totdat je het zelf meemaakt.\"</p>",
