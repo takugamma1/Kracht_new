@@ -1,0 +1,199 @@
+{{ 'kracht-feature-rows.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-frows"
+  style="
+    --kfr-bg: {{ section.settings.background_color }};
+    --kfr-fg: {{ section.settings.text_color }};
+    --kfr-pad-y: {{ section.settings.padding_y }}px;
+    --kfr-radius: {{ section.settings.image_radius }}px;
+  "
+>
+  <div class="kracht-frows__inner kracht-container">
+    <div class="kracht-frows__head">
+      <div class="kracht-frows__head-left">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-frows__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.intro != blank -%}
+        <div class="kracht-frows__intro">{{ section.settings.intro }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="kracht-frows__list">
+      {%- for block in section.blocks -%}
+        {%- assign reverse = false -%}
+        {%- assign mod = forloop.index | modulo: 2 -%}
+        {%- if mod == 0 -%}{%- assign reverse = true -%}{%- endif -%}
+
+        <article class="kracht-frow {% if reverse %}kracht-frow--reverse{% endif %}" {{ block.shopify_attributes }}>
+          <div class="kracht-frow__media">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 1000 }}"
+                srcset="{{ block.settings.image | image_url: width: 600 }} 600w, {{ block.settings.image | image_url: width: 1000 }} 1000w"
+                sizes="(max-width: 900px) 100vw, 50vw"
+                alt="{{ block.settings.image.alt | escape }}"
+                class="kracht-frow__img"
+                loading="lazy"
+              >
+            {%- else -%}
+              <div class="kracht-frow__img kracht-frow__img--ph"></div>
+            {%- endif -%}
+          </div>
+
+          <div class="kracht-frow__body">
+            {%- if block.settings.tag != blank -%}
+              <span class="kracht-tag kracht-tag--with-plus kracht-frow__tag">{{ block.settings.tag }}</span>
+            {%- endif -%}
+
+            {%- if block.settings.title != blank -%}
+              <h3 class="kracht-frow__title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.description != blank -%}
+              <p class="kracht-frow__desc">{{ block.settings.description }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.meta1_label != blank or block.settings.meta2_label != blank or block.settings.meta3_label != blank -%}
+              <div class="kracht-frow__meta">
+                {%- if block.settings.meta1_label != blank -%}
+                  <div class="kracht-frow__meta-item"><dt>{{ block.settings.meta1_label }}</dt><dd>{{ block.settings.meta1_value }}</dd></div>
+                {%- endif -%}
+                {%- if block.settings.meta2_label != blank -%}
+                  <div class="kracht-frow__meta-item"><dt>{{ block.settings.meta2_label }}</dt><dd>{{ block.settings.meta2_value }}</dd></div>
+                {%- endif -%}
+                {%- if block.settings.meta3_label != blank -%}
+                  <div class="kracht-frow__meta-item"><dt>{{ block.settings.meta3_label }}</dt><dd>{{ block.settings.meta3_value }}</dd></div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.button1_label != blank or block.settings.button2_label != blank -%}
+              <div class="kracht-frow__cta">
+                {%- if block.settings.button1_label != blank -%}
+                  <a href="{{ block.settings.button1_link | default: '#' }}" class="kracht-btn kracht-btn--dark">
+                    {{ block.settings.button1_label }} <span class="kracht-btn__arrow">→</span>
+                  </a>
+                {%- endif -%}
+                {%- if block.settings.button2_label != blank -%}
+                  <a href="{{ block.settings.button2_link | default: '#' }}" class="kracht-btn kracht-btn--outline-light">
+                    {{ block.settings.button2_label }}
+                  </a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Feature Rows",
+  "tag": "section",
+  "class": "kracht-frows-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Onze trainingen"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Drie programma's,<br><strong>één missie: <em>groei.</em></strong></p>",
+      "info": "Use <strong> for bold, <em> for blue accent."
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro paragraph",
+      "default": "<p>Elke training is op maat te maken voor jouw team of organisatie. Klassikaal, online of hybride — altijd persoonlijk, altijd praktisch.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 24,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Feature row",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "01" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Samenwerken vanuit Kracht." },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Bouw een team dat écht samenwerkt. Van vertrouwen tot gedeelde verantwoordelijkheid — krachtiger als groep dan als optelsom van individuen." },
+        { "type": "header", "content": "Metadata (3 columns)" },
+        { "type": "text", "id": "meta1_label", "label": "Label 1", "default": "Duur" },
+        { "type": "text", "id": "meta1_value", "label": "Value 1", "default": "2 dagen" },
+        { "type": "text", "id": "meta2_label", "label": "Label 2", "default": "Format" },
+        { "type": "text", "id": "meta2_value", "label": "Value 2", "default": "Klassikaal" },
+        { "type": "text", "id": "meta3_label", "label": "Label 3", "default": "Voor" },
+        { "type": "text", "id": "meta3_value", "label": "Value 3", "default": "Teams 6 — 15 pers." },
+        { "type": "header", "content": "Buttons" },
+        { "type": "text", "id": "button1_label", "label": "Primary button label", "default": "Meer informatie" },
+        { "type": "url", "id": "button1_link", "label": "Primary button link" },
+        { "type": "text", "id": "button2_label", "label": "Secondary button label", "default": "Download brochure" },
+        { "type": "url", "id": "button2_link", "label": "Secondary button link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Feature Rows",
+      "blocks": [
+        { "type": "row", "settings": { "tag": "01", "title": "Samenwerken vanuit Kracht.", "meta1_label": "Duur", "meta1_value": "2 dagen", "meta2_label": "Format", "meta2_value": "Klassikaal", "meta3_label": "Voor", "meta3_value": "Teams 6 — 15 pers." } },
+        { "type": "row", "settings": { "tag": "02", "title": "Leiden vanuit Kracht.",     "description": "Ontwikkel een authentieke leiderschapsstijl die past bij jou én bij je team. Effectief delegeren, lastige gesprekken voeren, en het beste uit anderen halen.", "meta1_label": "Duur", "meta1_value": "4 dagdelen", "meta2_label": "Format", "meta2_value": "Hybride", "meta3_label": "Voor", "meta3_value": "Managers & leads" } },
+        { "type": "row", "settings": { "tag": "03", "title": "Heldere taal, scherpe boodschap.", "description": "Leer écht luisteren, helder overtuigen en feedback geven die bijdraagt aan groei. Een intensieve trainingsdag met praktijkcases uit de techniek.", "meta1_label": "Duur", "meta1_value": "1 dag intensief", "meta2_label": "Format", "meta2_value": "Klassikaal of online", "meta3_label": "Voor", "meta3_value": "Iedere professional" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
