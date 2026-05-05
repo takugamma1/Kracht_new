@@ -328,8 +328,8 @@
         "f1": {
           "type": "row",
           "settings": {
+            "image": "shopify://shop_images/Background_1.png",
             "tag": "02",
-            "eyebrow": "2.1.2 — Leiderschap",
             "title": "Leiden vanuit Kracht.",
             "description": "Ontwikkel een authentieke leiderschapsstijl. Effectief delegeren en het beste uit je team halen.",
             "meta1_label": "",
@@ -348,7 +348,6 @@
           "type": "row",
           "settings": {
             "tag": "03",
-            "eyebrow": "2.1.3 — Communicatie",
             "title": "Heldere taal, scherpe boodschap.",
             "description": "Leer écht luisteren, helder overtuigen en feedback geven die bijdraagt aan groei.",
             "meta1_label": "",
@@ -367,7 +366,6 @@
           "type": "row",
           "settings": {
             "tag": "04",
-            "eyebrow": "Maatwerk · In-company",
             "title": "Eigen programma op jullie maat.",
             "description": "Combineer modules of bouw samen met ons een traject dat exact past bij jullie organisatie.",
             "meta1_label": "",
