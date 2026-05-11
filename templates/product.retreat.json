@@ -356,6 +356,7 @@
         "t1": {
           "type": "trainer",
           "settings": {
+            "image": "shopify://shop_images/Background_1.png",
             "name": "Anouk de Wit",
             "role": "Lead Host",
             "subline": "Org. Psychologie · 14+ jaar",
@@ -365,6 +366,7 @@
         "t2": {
           "type": "trainer",
           "settings": {
+            "image": "shopify://shop_images/Background_1.png",
             "name": "Rob van Houten",
             "role": "Body & Breath",
             "subline": "Yogadocent",
@@ -374,6 +376,7 @@
         "t3": {
           "type": "trainer",
           "settings": {
+            "image": "shopify://shop_images/Background_1.png",
             "name": "Mark Janssen",
             "role": "Local Host",
             "subline": "Specialist Andalusië · 9+ jaar",
