@@ -17,7 +17,7 @@
         "tag": "Retraite",
         "heading": "",
         "subheading": "",
-        "show_plus": true,
+        "show_plus": false,
         "meta1_label": "Begeleid door",
         "meta1_value": "Anouk & Rob van Houten",
         "meta2_label": "Vertrekt",
@@ -358,7 +358,8 @@
           "settings": {
             "name": "Anouk de Wit",
             "role": "Lead Host",
-            "subline": "Org. Psychologie · 14+ jaar"
+            "subline": "Org. Psychologie · 14+ jaar",
+            "contact": ""
           }
         },
         "t2": {
@@ -366,7 +367,8 @@
           "settings": {
             "name": "Rob van Houten",
             "role": "Body & Breath",
-            "subline": "Yogadocent"
+            "subline": "Yogadocent",
+            "contact": ""
           }
         },
         "t3": {
@@ -374,12 +376,18 @@
           "settings": {
             "name": "Mark Janssen",
             "role": "Local Host",
-            "subline": "Specialist Andalusië · 9+ jaar"
+            "subline": "Specialist Andalusië · 9+ jaar",
+            "contact": ""
           }
         },
         "cta": {
           "type": "cta",
-          "settings": {}
+          "settings": {
+            "heading": "Past deze retraite bij jou?",
+            "body": "Twee weken voorafgaand aan vertrek begeleiden we je verder. Geen verkooppraatje — wel een match check.",
+            "button_label": "Plan kennismaking",
+            "button_link": ""
+          }
         }
       },
       "block_order": [
