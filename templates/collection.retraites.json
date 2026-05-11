@@ -37,18 +37,20 @@
     },
     "retreats": {
       "type": "kracht-retreat-cards",
-      "name": "Kracht — Retreat Cards",
       "blocks": {
         "r1": {
           "type": "retreat",
           "settings": {
             "location": "Nederland · IJsselmeer",
-            "code": "3.1.1",
+            "code": "",
             "title": "<p>Op <strong>Koers.</strong></p>",
             "description": "Vier dagen aan boord van een klassiek tjalkschip over het IJsselmeer. Geen wifi, geen agenda — wel open water, goede gesprekken en de tijd om je richting te herijken. Voor wie even het roer in handen wil nemen.",
-            "meta1_label": "Duur",       "meta1_value": "4 dagen",
-            "meta2_label": "Volgende",   "meta2_value": "22 — 25 juni 2026",
-            "meta3_label": "Plekken",    "meta3_value": "Max. 8",
+            "meta1_label": "Duur",
+            "meta1_value": "4 dagen",
+            "meta2_label": "Volgende",
+            "meta2_value": "22 — 25 juni 2026",
+            "meta3_label": "Plekken",
+            "meta3_value": "Max. 8",
             "button_label": "Bekijk retraite",
             "button_link": "",
             "price": "<p>Vanaf <strong>€1.850</strong> p.p.</p>"
@@ -58,19 +60,26 @@
           "type": "retreat",
           "settings": {
             "location": "Spanje · Andalusië",
-            "code": "3.1.2",
+            "code": "",
             "title": "<p>Reset in <strong>Spanje.</strong></p>",
             "description": "Zeven dagen in een privé-finca aan de voet van de Sierra Nevada. Begeleide ochtenden, wandelingen door de bergen, lange tafels met lokaal eten. Een echte reset — voor wie ruimte zoekt voor de volgende stap.",
-            "meta1_label": "Duur",       "meta1_value": "7 dagen",
-            "meta2_label": "Volgende",   "meta2_value": "12 — 18 oktober 2026",
-            "meta3_label": "Plekken",    "meta3_value": "Max. 12",
+            "meta1_label": "Duur",
+            "meta1_value": "7 dagen",
+            "meta2_label": "Volgende",
+            "meta2_value": "12 — 18 oktober 2026",
+            "meta3_label": "Plekken",
+            "meta3_value": "Max. 12",
             "button_label": "Bekijk retraite",
             "button_link": "",
             "price": "<p>Vanaf <strong>€3.450</strong> p.p.</p>"
           }
         }
       },
-      "block_order": ["r1", "r2"],
+      "block_order": [
+        "r1",
+        "r2"
+      ],
+      "name": "Kracht — Retreat Cards",
       "settings": {
         "eyebrow": "",
         "heading": "",
@@ -83,14 +92,47 @@
     },
     "process": {
       "type": "kracht-process-stepper",
-      "name": "Kracht — Process Stepper",
       "blocks": {
-        "s1": { "type": "step", "settings": { "title": "Kennismaking", "content_title": "Vrijblijvend gesprek", "content": "<p>We bellen 30 minuten en kijken of we matchen. Geen verkooppraatje — wel concrete vragen over wat je nodig hebt.</p>" } },
-        "s2": { "type": "step", "settings": { "title": "Voorbereiding", "content_title": "Het intaketraject", "content": "<p>In de <strong>twee weken voor vertrek</strong> doe je een persoonlijke voorbereiding: intakevragen, een drijfverentest en een korte schrijfopdracht. Zo arriveer je niet leeg, maar gericht.</p>" } },
-        "s3": { "type": "step", "settings": { "title": "De retraite", "content_title": "De dagen zelf", "content": "<p>Begeleide reflectie, beweging, goede gesprekken en stilte — afgewisseld in een ritme dat werkt.</p>" } },
-        "s4": { "type": "step", "settings": { "title": "Integratie", "content_title": "Terug in het dagelijks leven", "content": "<p>Een terugkomdag na zes weken om te toetsen wat is geland — en wat een vervolgstap nodig heeft.</p>" } }
+        "s1": {
+          "type": "step",
+          "settings": {
+            "title": "Kennismaking",
+            "content_title": "Vrijblijvend gesprek",
+            "content": "<p>We bellen 30 minuten en kijken of we matchen. Geen verkooppraatje — wel concrete vragen over wat je nodig hebt.</p>"
+          }
+        },
+        "s2": {
+          "type": "step",
+          "settings": {
+            "title": "Voorbereiding",
+            "content_title": "Het intaketraject",
+            "content": "<p>In de <strong>twee weken voor vertrek</strong> doe je een persoonlijke voorbereiding: intakevragen, een drijfverentest en een korte schrijfopdracht. Zo arriveer je niet leeg, maar gericht.</p>"
+          }
+        },
+        "s3": {
+          "type": "step",
+          "settings": {
+            "title": "De retraite",
+            "content_title": "De dagen zelf",
+            "content": "<p>Begeleide reflectie, beweging, goede gesprekken en stilte — afgewisseld in een ritme dat werkt.</p>"
+          }
+        },
+        "s4": {
+          "type": "step",
+          "settings": {
+            "title": "Integratie",
+            "content_title": "Terug in het dagelijks leven",
+            "content": "<p>Een terugkomdag na zes weken om te toetsen wat is geland — en wat een vervolgstap nodig heeft.</p>"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "name": "Kracht — Process Stepper",
       "settings": {
         "eyebrow": "",
         "heading": "<p>In 4 stappen naar een <strong>retraite die past.</strong></p>",
@@ -105,5 +147,10 @@
       }
     }
   },
-  "order": ["hero", "intro", "retreats", "process"]
+  "order": [
+    "hero",
+    "intro",
+    "retreats",
+    "process"
+  ]
 }
