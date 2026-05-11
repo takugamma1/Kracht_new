@@ -56,7 +56,8 @@
           {%- endfor -%}
         </ol>
 
-        {%- assign active_block = section.blocks[active_index | minus: 1] -%}
+        {%- assign active_zero = active_index | minus: 1 -%}
+        {%- assign active_block = section.blocks[active_zero] -%}
         {%- if active_block -%}
           <div class="kracht-pstep__active">
             {%- assign active_num = active_index | prepend: '0' | slice: -2, 2 -%}
@@ -90,8 +91,7 @@
     {
       "type": "text",
       "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": ""
+      "label": "Eyebrow"
     },
     {
       "type": "richtext",
@@ -169,8 +169,8 @@
       "name": "Step",
       "settings": [
         { "type": "text", "id": "title", "label": "Step title", "default": "Stap" },
-        { "type": "text", "id": "content_title", "label": "Active content title", "default": "" },
-        { "type": "richtext", "id": "content", "label": "Active content body", "default": "" }
+        { "type": "text", "id": "content_title", "label": "Active content title" },
+        { "type": "richtext", "id": "content", "label": "Active content body" }
       ]
     }
   ],

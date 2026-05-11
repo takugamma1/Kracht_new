@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -94,12 +103,7 @@
         "padding_y": 80,
         "card_radius": 20
       }
-    },
-    "newsletter": {
-      "type": "kracht-newsletter",
-      "name": "Kracht — Newsletter",
-      "settings": {}
     }
   },
-  "order": ["hero", "intro", "retreats", "process", "newsletter"]
+  "order": ["hero", "intro", "retreats", "process"]
 }
