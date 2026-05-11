@@ -51,6 +51,27 @@
 
   /* Transitions */
   --kracht-trans: 200ms ease;
+
+  /* Branded Kracht "+" / cross shape, used as a CSS mask so currentColor controls fill.
+     Two equivalents are available:
+       - color: var(--kracht-wit)   → "white branded cross" (the Figma "Vector")
+       - color: var(--kracht-blauw) → "blue branded cross"  (the Figma "Vector1")
+     For HTML, prefer the snippet: {% render 'kracht-plus', class: '...' %}. */
+  --kracht-plus-mask: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 252 229'%3E%3Cpath d='M108.585 0C122.783 0 136.981 0 151.61 0C151.61 29.3508 151.61 58.7017 151.61 88.942C170.075 88.5383 170.075 88.5383 188.538 88.021C190.867 87.9911 193.197 87.9651 195.526 87.9436C196.718 87.8913 197.909 87.839 199.137 87.7851C204.251 87.7797 207.614 87.8647 211.709 91.104C214.066 93.6915 216.142 96.334 218.195 99.1652C219.616 100.897 221.045 102.624 222.485 104.341C223.665 105.794 224.845 107.248 226.024 108.703C228.84 112.161 231.682 115.597 234.521 119.037C235.438 120.149 235.438 120.149 236.373 121.283C239.219 124.733 242.073 128.175 244.953 131.596C245.433 132.167 245.913 132.737 246.408 133.325C247.691 134.847 248.977 136.367 250.263 137.886C252 140.058 252 140.058 252 141.08C218.871 141.08 185.742 141.08 151.61 141.08C151.61 170.094 151.61 199.107 151.61 229C137.75 229 123.89 229 109.61 229C109.61 199.987 109.61 170.973 109.61 141.08C73.4385 141.08 37.2673 141.08 0 141.08C0 124.212 0 107.344 0 89.9643C35.8332 89.9643 71.6663 89.9643 108.585 89.9643C108.585 60.2761 108.585 30.5879 108.585 0Z'/%3E%3C/svg%3E");
+}
+
+/* Utility class for an inline branded plus rendered purely via CSS mask.
+   Useful when you have a span you can size/color and don't want to render a snippet.
+   Example: <span class="kracht-plus-mark" style="font-size:5rem"></span> */
+.kracht-plus-mark {
+  display: inline-block;
+  width: 1em;
+  height: calc(1em * 229 / 252);
+  background-color: currentColor;
+  -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
+          mask: var(--kracht-plus-mask) center / contain no-repeat;
+  vertical-align: middle;
+  flex: none;
 }
 
 /* ==========================================================================
@@ -84,11 +105,14 @@
   margin: 0 0 1rem;
 }
 .kracht-eyebrow::before {
-  content: "+";
-  font-family: var(--kracht-font-heading);
-  font-weight: 900;
-  color: var(--kracht-blauw);
-  font-size: 1rem;
+  content: "";
+  display: inline-block;
+  width: 0.95em;
+  height: calc(0.95em * 229 / 252);
+  background-color: currentColor;
+  -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
+          mask: var(--kracht-plus-mask) center / contain no-repeat;
+  flex: none;
 }
 
 /* ==========================================================================
@@ -218,10 +242,15 @@
 .kracht-tag--ghost { background: transparent; color: var(--kracht-blauw); border: 1px solid currentColor; }
 
 .kracht-tag--with-plus::before {
-  content: "+";
-  font-family: var(--kracht-font-heading);
-  font-weight: 900;
-  margin-right: 0.1rem;
+  content: "";
+  display: inline-block;
+  width: 0.85em;
+  height: calc(0.85em * 229 / 252);
+  background-color: currentColor;
+  -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
+          mask: var(--kracht-plus-mask) center / contain no-repeat;
+  margin-right: 0.15rem;
+  flex: none;
 }
 
 /* ==========================================================================

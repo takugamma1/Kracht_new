@@ -24,7 +24,7 @@
           >
         {%- else -%}
           <div class="kracht-footer__logo-text">
-            {{ section.settings.logo_text }}<span class="kracht-footer__logo-plus">+</span>
+            {{ section.settings.logo_text }}<span class="kracht-footer__logo-plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
             {%- if section.settings.logo_subtitle != blank -%}
               <span class="kracht-footer__logo-sub">{{ section.settings.logo_subtitle }}</span>
             {%- endif -%}

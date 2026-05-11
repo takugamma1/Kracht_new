@@ -16,10 +16,10 @@
     {%- if section.settings.show_breadcrumbs -%}
       <nav class="kracht-coll-hero__crumbs" aria-label="Breadcrumb">
         <a href="{{ routes.root_url }}">Home</a>
-        <span aria-hidden="true">+</span>
+        <span class="kracht-coll-hero__crumb-sep" aria-hidden="true">{% render 'kracht-plus' %}</span>
         <a href="{{ routes.collections_url }}">Collecties</a>
         {%- if current_collection != blank -%}
-          <span aria-hidden="true">+</span>
+          <span class="kracht-coll-hero__crumb-sep" aria-hidden="true">{% render 'kracht-plus' %}</span>
           <span class="is-current">{{ current_collection.title }}</span>
         {%- endif -%}
       </nav>

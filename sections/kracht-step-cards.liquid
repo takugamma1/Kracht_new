@@ -29,7 +29,7 @@
       {%- for block in section.blocks -%}
         <div class="kracht-steps__card" {{ block.shopify_attributes }}>
           <span class="kracht-steps__num">
-            <span class="kracht-steps__num-plus" aria-hidden="true">+</span>
+            <span class="kracht-steps__num-plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
             {{ forloop.index | prepend: '0' | slice: -2, 2 }}
           </span>
           {%- if block.settings.title != blank -%}

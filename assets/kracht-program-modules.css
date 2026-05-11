@@ -108,13 +108,15 @@
   color: rgba(255, 255, 255, 0.85);
 }
 .kracht-prog__bullets li::before {
-  content: "+";
+  content: "";
   position: absolute;
   left: 0;
-  top: -1px;
-  color: var(--kracht-blauw);
-  font-family: var(--kracht-font-heading);
-  font-weight: 900;
+  top: 0.35em;
+  width: 0.7em;
+  height: calc(0.7em * 229 / 252);
+  background-color: var(--kracht-blauw);
+  -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
+          mask: var(--kracht-plus-mask) center / contain no-repeat;
 }
 
 @media (max-width: 600px) {

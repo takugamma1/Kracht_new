@@ -29,7 +29,7 @@
         >
       {%- else -%}
         <span class="kracht-header__logo-text">
-          {{ logo_text }}<span class="kracht-header__logo-plus">+</span>
+          {{ logo_text }}<span class="kracht-header__logo-plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
         </span>
         {%- if logo_subtitle != blank -%}
           <span class="kracht-header__logo-sub">{{ logo_subtitle }}</span>
@@ -101,7 +101,7 @@
         {%- if use_logo_image -%}
           <img src="{{ section.settings.logo | image_url: width: 240 }}" alt="{{ shop.name }}" width="120" height="auto">
         {%- else -%}
-          <span class="kracht-header__logo-text">{{ logo_text }}<span class="kracht-header__logo-plus">+</span></span>
+          <span class="kracht-header__logo-text">{{ logo_text }}<span class="kracht-header__logo-plus" aria-hidden="true">{% render 'kracht-plus' %}</span></span>
         {%- endif -%}
       </a>
       <button class="kracht-drawer__close" type="button" aria-label="Menu sluiten" data-kracht-drawer-close>

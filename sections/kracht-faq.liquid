@@ -25,7 +25,7 @@
           <summary class="kracht-faq__summary">
             <span class="kracht-faq__num">{{ idx }}</span>
             <span class="kracht-faq__q">{{ block.settings.question }}</span>
-            <span class="kracht-faq__chev" aria-hidden="true">+</span>
+            <span class="kracht-faq__chev" aria-hidden="true">{% render 'kracht-plus' %}</span>
           </summary>
           <div class="kracht-faq__panel">
             {{ block.settings.answer }}

@@ -52,15 +52,14 @@
   position: absolute;
   right: -1.5rem;
   bottom: -2.5rem;
-  font-family: var(--kracht-font-heading);
-  font-weight: 900;
   font-size: 12rem;
-  line-height: 0.7;
+  line-height: 0;
   color: rgba(0, 0, 0, 0.10);
   pointer-events: none;
   user-select: none;
   z-index: 0;
 }
+.kracht-pstep__plus svg { display: block; }
 
 .kracht-pstep__rail {
   position: relative;

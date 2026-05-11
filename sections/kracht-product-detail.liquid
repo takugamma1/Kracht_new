@@ -15,18 +15,18 @@
     {%- if section.settings.show_breadcrumbs -%}
       <nav class="kracht-pdetail__crumbs" aria-label="Breadcrumb">
         <a href="{{ routes.root_url }}">Home</a>
-        <span aria-hidden="true">+</span>
+        <span class="kracht-pdetail__crumb-sep" aria-hidden="true">{% render 'kracht-plus' %}</span>
         <a href="{{ routes.collections_url }}">Collecties</a>
         {%- if product.collections.first -%}
-          <span aria-hidden="true">+</span>
+          <span class="kracht-pdetail__crumb-sep" aria-hidden="true">{% render 'kracht-plus' %}</span>
           <a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a>
         {%- endif -%}
         {%- if product.type != blank -%}
-          <span aria-hidden="true">+</span>
+          <span class="kracht-pdetail__crumb-sep" aria-hidden="true">{% render 'kracht-plus' %}</span>
           <span>{{ product.type }}</span>
         {%- endif -%}
         {%- if product != blank -%}
-          <span aria-hidden="true">+</span>
+          <span class="kracht-pdetail__crumb-sep" aria-hidden="true">{% render 'kracht-plus' %}</span>
           <span class="is-current">{{ product.title }}</span>
         {%- endif -%}
       </nav>

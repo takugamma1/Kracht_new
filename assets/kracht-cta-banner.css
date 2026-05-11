@@ -37,17 +37,16 @@
 .kracht-cta--light .kracht-cta__card::after { display: none; }
 
 .kracht-cta__plus {
-  font-family: var(--kracht-font-heading);
-  font-weight: 900;
-  color: var(--kracht-blauw);
-  font-size: 5rem;
-  line-height: 0.7;
   position: absolute;
   left: 1rem;
   top: 1rem;
+  color: var(--kracht-blauw);
+  font-size: 5rem;
+  line-height: 0;
   opacity: 0.85;
   display: none;
 }
+.kracht-cta__plus svg { display: block; }
 .kracht-cta--blue .kracht-cta__plus { color: var(--kracht-zwart); display: block; }
 
 .kracht-cta__body {

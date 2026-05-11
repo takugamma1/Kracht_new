@@ -73,12 +73,15 @@
   margin-bottom: 0.5rem;
 }
 .kracht-pinfo__panel ul li::before {
-  content: "+";
+  content: "";
   position: absolute;
   left: 0;
-  color: var(--kracht-blauw);
-  font-weight: 800;
-  font-family: var(--kracht-font-heading);
+  top: 0.35em;
+  width: 0.7em;
+  height: calc(0.7em * 229 / 252);
+  background-color: var(--kracht-blauw);
+  -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
+          mask: var(--kracht-plus-mask) center / contain no-repeat;
 }
 
 /* Specs card */
