@@ -1,3 +1,5 @@
+/* Card styles live in kracht-product-card.css (shared with kracht-collection-grid). */
+
 .kracht-pgrid {
   background: var(--kpg-bg, #f4f4f5);
   color: var(--kpg-fg, #000000);
@@ -25,121 +27,9 @@
   gap: 1.5rem 1rem;
 }
 
-/* ==========================================================================
-   Card
-   ========================================================================== */
-.kracht-card {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  background: transparent;
-  transition: transform var(--kracht-trans);
-}
-.kracht-card:hover { color: inherit; }
-
-.kracht-card__media {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  background: var(--kracht-wit);
-  overflow: hidden;
-  border-radius: 4px;
-}
-.kracht-card__img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 250ms ease;
-}
-.kracht-card__img--placeholder {
-  background: var(--kracht-grijs-licht);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.kracht-card__placeholder-svg { max-width: 60%; opacity: 0.4; }
-.kracht-card__img--hover { opacity: 0; }
-.kracht-card:hover .kracht-card__img--hover { opacity: 1; }
-.kracht-card:hover .kracht-card__img:first-child { opacity: 0; }
-
-.kracht-card__tags {
-  position: absolute;
-  top: 0.6rem;
-  left: 0.6rem;
-  display: flex;
-  gap: 0.3rem;
-  z-index: 1;
-}
-/* Compact badge variant just for product cards (overrides the global .kracht-tag) */
-.kracht-card__tags .kracht-tag {
-  font-size: 0.62rem;
-  padding: 0.22rem 0.5rem;
-  letter-spacing: 0.04em;
-  gap: 0.2rem;
-}
-.kracht-card__tags .kracht-tag--with-plus::before {
-  width: 0.75em;
-  height: calc(0.75em * 229 / 252);
-}
-
-.kracht-card__body {
-  padding: 0.85rem 0.1rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-.kracht-card__cat {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: var(--kracht-blauw);
-  margin: 0;
-}
-.kracht-card__title {
-  font-family: var(--kracht-font-heading);
-  font-weight: 700;
-  font-size: 0.95rem;
-  line-height: 1.3;
-  margin: 0;
-  color: var(--kpg-fg);
-  letter-spacing: -0.005em;
-}
-.kracht-card__price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  margin-top: 0.15rem;
-}
-.kracht-card__price {
-  font-family: var(--kracht-font-heading);
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--kpg-fg);
-}
-.kracht-card__compare {
-  color: var(--kracht-grijs);
-  font-size: 0.8rem;
-  text-decoration: line-through;
-}
-.kracht-card__swatches {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  background: var(--kracht-wit);
-  padding: 3px 4px;
-  border-radius: 4px;
-  border: 1px solid var(--kracht-grijs-border);
-}
-.kracht-card__swatch {
-  width: 12px;
-  height: 12px;
-  border-radius: 2px;
-  display: inline-block;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-}
+/* Card price uses the section's text color when nested under .kracht-pgrid */
+.kracht-pgrid .kracht-card__price { color: var(--kpg-fg); }
+.kracht-pgrid .kracht-card__title { color: var(--kpg-fg); }
 
 @media (max-width: 1024px) {
   .kracht-pgrid__grid { grid-template-columns: repeat(var(--kpg-cols-tablet, 3), minmax(0, 1fr)); }
