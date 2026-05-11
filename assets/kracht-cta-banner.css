@@ -88,7 +88,7 @@
   background: transparent;
   color: var(--kc-fg);
   border: 1px solid currentColor;
-  border-radius: var(--kracht-radius-pill);
+  border-radius: 6px;
 }
 .kracht-cta__secondary-btn:hover {
   background: rgba(255, 255, 255, 0.08);
