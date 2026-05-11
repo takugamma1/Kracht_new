@@ -41,8 +41,17 @@
       {%- if menu != blank -%}
         <ul class="kracht-header__menu">
           {%- for link in menu.links -%}
-            <li class="kracht-header__menu-item {% if link.active %}is-active{% endif %}">
-              <a href="{{ link.url }}" class="kracht-header__menu-link">{{ link.title }}</a>
+            {%- assign has_children = false -%}
+            {%- if link.links.size > 0 -%}{%- assign has_children = true -%}{%- endif -%}
+            <li class="kracht-header__menu-item {% if link.active %}is-active{% endif %} {% if has_children %}has-mega{% endif %}"
+                {% if has_children %}data-mega-trigger="mega-{{ section.id }}-{{ forloop.index }}"{% endif %}>
+              <a href="{{ link.url }}" class="kracht-header__menu-link"
+                 {% if has_children %}aria-haspopup="true" aria-expanded="false"{% endif %}>
+                {{ link.title }}
+                {%- if has_children -%}
+                  <svg class="kracht-header__menu-caret" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {%- endif -%}
+              </a>
             </li>
           {%- endfor -%}
         </ul>
@@ -55,6 +64,38 @@
         </ul>
       {%- endif -%}
     </nav>
+
+    {%- comment -%} Mega-menu panels — sit at the bottom of the header, full-width. {%- endcomment -%}
+    {%- if menu != blank -%}
+      {%- for link in menu.links -%}
+        {%- if link.links.size > 0 -%}
+          <div class="kracht-mega" id="mega-{{ section.id }}-{{ forloop.index }}" hidden>
+            <div class="kracht-container kracht-mega__inner">
+              <div class="kracht-mega__cols" style="--mega-cols: {{ link.links.size | at_most: 4 }};">
+                {%- for child in link.links -%}
+                  <div class="kracht-mega__col">
+                    <a href="{{ child.url }}" class="kracht-mega__title">
+                      <span class="kracht-mega__plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
+                      {{ child.title }}
+                    </a>
+                    {%- if child.links.size > 0 -%}
+                      <ul class="kracht-mega__sub">
+                        {%- for gc in child.links -%}
+                          <li><a href="{{ gc.url }}" class="kracht-mega__sub-link">{{ gc.title }}</a></li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+              <a href="{{ link.url }}" class="kracht-mega__all">
+                Bekijk alles in {{ link.title }} <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
 
     <div class="kracht-header__actions">
       {%- if section.settings.show_search -%}
@@ -111,7 +152,31 @@
     <nav class="kracht-drawer__nav" aria-label="Mobile">
       {%- if menu != blank -%}
         {%- for link in menu.links -%}
-          <a class="kracht-drawer__link" href="{{ link.url }}">{{ link.title }}</a>
+          {%- if link.links.size > 0 -%}
+            <details class="kracht-drawer__group">
+              <summary class="kracht-drawer__link kracht-drawer__link--toggle">
+                {{ link.title }}
+                <svg class="kracht-drawer__caret" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </summary>
+              <div class="kracht-drawer__sub">
+                <a class="kracht-drawer__sub-link kracht-drawer__sub-link--all" href="{{ link.url }}">Bekijk alles</a>
+                {%- for child in link.links -%}
+                  {%- if child.links.size > 0 -%}
+                    <div class="kracht-drawer__subgroup">
+                      <a class="kracht-drawer__sub-title" href="{{ child.url }}">{{ child.title }}</a>
+                      {%- for gc in child.links -%}
+                        <a class="kracht-drawer__sub-link" href="{{ gc.url }}">{{ gc.title }}</a>
+                      {%- endfor -%}
+                    </div>
+                  {%- else -%}
+                    <a class="kracht-drawer__sub-link" href="{{ child.url }}">{{ child.title }}</a>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </details>
+          {%- else -%}
+            <a class="kracht-drawer__link" href="{{ link.url }}">{{ link.title }}</a>
+          {%- endif -%}
         {%- endfor -%}
       {%- else -%}
         <a class="kracht-drawer__link" href="{{ routes.collections_url }}">Shop</a>
@@ -149,6 +214,87 @@
     opens.forEach(b => b.addEventListener('click', open));
     closes.forEach(b => b.addEventListener('click', close));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  })();
+
+  /* ------------------------------------------------------------------
+     Mega-menu: hover / focus / click to open the panel below the header.
+     ------------------------------------------------------------------ */
+  (() => {
+    const header = document.querySelector('[data-kracht-header]');
+    if (!header) return;
+
+    const triggers = header.querySelectorAll('[data-mega-trigger]');
+    if (!triggers.length) return;
+
+    let activeId = null;
+    let hideTimer = null;
+
+    const panelFor = (id) => document.getElementById(id);
+
+    const showOnly = (id) => {
+      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+      triggers.forEach((t) => {
+        const tid = t.getAttribute('data-mega-trigger');
+        const isMe = tid === id;
+        t.classList.toggle('is-open', isMe);
+        const a = t.querySelector('a');
+        if (a) a.setAttribute('aria-expanded', isMe ? 'true' : 'false');
+        const p = panelFor(tid);
+        if (!p) return;
+        if (isMe) {
+          p.hidden = false;
+          requestAnimationFrame(() => p.classList.add('is-open'));
+        } else {
+          p.classList.remove('is-open');
+          /* delay hidden so the fade-out transition can play */
+          setTimeout(() => { if (!p.classList.contains('is-open')) p.hidden = true; }, 180);
+        }
+      });
+      activeId = id;
+    };
+
+    const closeAll = () => { showOnly(null); };
+
+    const scheduleClose = () => {
+      if (hideTimer) clearTimeout(hideTimer);
+      hideTimer = setTimeout(closeAll, 150);
+    };
+    const cancelClose = () => {
+      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+    };
+
+    triggers.forEach((t) => {
+      const id = t.getAttribute('data-mega-trigger');
+      const panel = panelFor(id);
+      if (!panel) return;
+
+      t.addEventListener('mouseenter', () => showOnly(id));
+      t.addEventListener('mouseleave', scheduleClose);
+      panel.addEventListener('mouseenter', cancelClose);
+      panel.addEventListener('mouseleave', scheduleClose);
+
+      /* Keyboard / touch: clicking the top-level link toggles when it has children. */
+      const link = t.querySelector('a');
+      if (link) {
+        link.addEventListener('click', (e) => {
+          /* Allow normal navigation if user holds modifier or right-clicks */
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+          if (activeId !== id) {
+            e.preventDefault();
+            showOnly(id);
+          }
+        });
+        link.addEventListener('focus', () => showOnly(id));
+      }
+      panel.addEventListener('focusout', (e) => {
+        if (!panel.contains(e.relatedTarget) && !t.contains(e.relatedTarget)) scheduleClose();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+    document.addEventListener('click', (e) => {
+      if (!header.contains(e.target)) closeAll();
+    });
   })();
 </script>
 
