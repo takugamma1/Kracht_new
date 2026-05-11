@@ -374,7 +374,7 @@
       ],
       "name": "Kracht — Story Cards",
       "settings": {
-        "eyebrow": "Verhalen vanuit Kracht",
+        "eyebrow": "",
         "heading": "<p>Meer dan <strong>merch.</strong></p>",
         "show_arrows": true,
         "show_progress": true,
