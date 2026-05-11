@@ -13,7 +13,7 @@
       "type": "kracht-collection-hero",
       "name": "Kracht — Collection Hero",
       "settings": {
-        "show_breadcrumbs": true,
+        "show_breadcrumbs": false,
         "heading": "",
         "subheading": "<p><strong>Premium kleding</strong> voor het team dat altijd wint. Van werkkleding tot lifestyle — <strong>met trots gedragen</strong> door het hele Kracht team.</p>",
         "button1_label": "Bekijk de collectie",
@@ -27,19 +27,101 @@
     },
     "tabs": {
       "type": "kracht-category-tabs",
-      "name": "Kracht — Category Tabs",
       "blocks": {
-        "t1": { "type": "tab", "settings": { "icon": "all",      "label": "Alle kleding", "count": "48", "link": "" } },
-        "t2": { "type": "tab", "settings": { "icon": "tshirt",   "label": "T-shirts",     "count": "14", "link": "" } },
-        "t3": { "type": "tab", "settings": { "icon": "polo",     "label": "Polo's",       "count": "8",  "link": "" } },
-        "t4": { "type": "tab", "settings": { "icon": "hoodie",   "label": "Hoodies",      "count": "6",  "link": "" } },
-        "t5": { "type": "tab", "settings": { "icon": "jacket",   "label": "Jacks",        "count": "5",  "link": "" } },
-        "t6": { "type": "tab", "settings": { "icon": "workwear", "label": "Werkkleding",  "count": "9",  "link": "" } },
-        "t7": { "type": "tab", "settings": { "icon": "pants",    "label": "Broeken",      "count": "4",  "link": "" } },
-        "t8": { "type": "tab", "settings": { "icon": "sport",    "label": "Sport",        "count": "7",  "link": "" } },
-        "t9": { "type": "tab", "settings": { "icon": "cap",      "label": "Petten",       "count": "3",  "link": "" } }
+        "t1": {
+          "type": "tab",
+          "settings": {
+            "icon": "all",
+            "label": "Alle kleding",
+            "count": "48",
+            "link": ""
+          }
+        },
+        "t2": {
+          "type": "tab",
+          "settings": {
+            "icon": "tshirt",
+            "label": "T-shirts",
+            "count": "14",
+            "link": ""
+          }
+        },
+        "t3": {
+          "type": "tab",
+          "settings": {
+            "icon": "polo",
+            "label": "Polo's",
+            "count": "8",
+            "link": ""
+          }
+        },
+        "t4": {
+          "type": "tab",
+          "settings": {
+            "icon": "hoodie",
+            "label": "Hoodies",
+            "count": "6",
+            "link": ""
+          }
+        },
+        "t5": {
+          "type": "tab",
+          "settings": {
+            "icon": "jacket",
+            "label": "Jacks",
+            "count": "5",
+            "link": ""
+          }
+        },
+        "t6": {
+          "type": "tab",
+          "settings": {
+            "icon": "workwear",
+            "label": "Werkkleding",
+            "count": "9",
+            "link": ""
+          }
+        },
+        "t7": {
+          "type": "tab",
+          "settings": {
+            "icon": "pants",
+            "label": "Broeken",
+            "count": "4",
+            "link": ""
+          }
+        },
+        "t8": {
+          "type": "tab",
+          "settings": {
+            "icon": "sport",
+            "label": "Sport",
+            "count": "7",
+            "link": ""
+          }
+        },
+        "t9": {
+          "type": "tab",
+          "settings": {
+            "icon": "cap",
+            "label": "Petten",
+            "count": "3",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "t7",
+        "t8",
+        "t9"
+      ],
+      "name": "Kracht — Category Tabs",
       "settings": {
         "first_active": true,
         "background_color": "#ffffff",
@@ -64,14 +146,43 @@
     },
     "cta": {
       "type": "kracht-cta-banner",
-      "name": "Kracht — CTA Banner",
       "blocks": {
-        "s1": { "type": "stat", "settings": { "value": "48+",  "label": "Items in collectie" } },
-        "s2": { "type": "stat", "settings": { "value": "100%", "label": "Premium kwaliteit" } },
-        "s3": { "type": "stat", "settings": { "value": "2-3",  "label": "Werkdagen levering" } },
-        "s4": { "type": "stat", "settings": { "value": "€50",  "label": "Gratis verzending vanaf" } }
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "value": "48+",
+            "label": "Items in collectie"
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "value": "100%",
+            "label": "Premium kwaliteit"
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "value": "2-3",
+            "label": "Werkdagen levering"
+          }
+        },
+        "s4": {
+          "type": "stat",
+          "settings": {
+            "value": "€50",
+            "label": "Gratis verzending vanaf"
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "name": "Kracht — CTA Banner",
       "settings": {
         "eyebrow": "",
         "heading": "<p>Jouw team, <strong>jouw Kracht.</strong></p>",
