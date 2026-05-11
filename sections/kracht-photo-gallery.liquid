@@ -1,0 +1,94 @@
+{{ 'kracht-photo-gallery.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-pgal"
+  style="
+    --kpg2-bg: {{ section.settings.background_color }};
+    --kpg2-fg: {{ section.settings.text_color }};
+    --kpg2-pad-y: {{ section.settings.padding_y }}px;
+    --kpg2-radius: {{ section.settings.radius }}px;
+    --kpg2-gap: {{ section.settings.gap }}px;
+  "
+>
+  <div class="kracht-pgal__inner kracht-container">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="kracht-pgal__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-pgal__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="kracht-pgal__grid">
+      {%- for block in section.blocks -%}
+        {%- assign span = block.settings.span | default: 'small' -%}
+        <figure class="kracht-pgal__item kracht-pgal__item--{{ span }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <img
+              src="{{ block.settings.image | image_url: width: 1400 }}"
+              srcset="{{ block.settings.image | image_url: width: 600 }} 600w, {{ block.settings.image | image_url: width: 1000 }} 1000w, {{ block.settings.image | image_url: width: 1400 }} 1400w"
+              sizes="(max-width: 900px) 100vw, 50vw"
+              alt="{{ block.settings.image.alt | escape }}"
+              loading="lazy"
+            >
+          {%- else -%}
+            <div class="kracht-pgal__placeholder"></div>
+          {%- endif -%}
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Photo Gallery",
+  "tag": "section",
+  "class": "kracht-pgal-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "header", "content": "Section header (optional)" },
+    { "type": "text",     "id": "eyebrow", "label": "Eyebrow", "default": "" },
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Finca Las Encinas — <strong>een plek die vertraagt.</strong></p>" },
+
+    { "type": "header", "content": "Appearance" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#000000" },
+    { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#ffffff" },
+    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "radius",           "label": "Image radius",     "min": 0, "max": 32, "step": 1, "unit": "px", "default": 8 },
+    { "type": "range", "id": "gap",              "label": "Gap between photos", "min": 4, "max": 32, "step": 2, "unit": "px", "default": 12 }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "select", "id": "span", "label": "Size",
+          "options": [
+            { "value": "small",  "label": "Small"  },
+            { "value": "medium", "label": "Medium" },
+            { "value": "large",  "label": "Large (spans 2)" }
+          ],
+          "default": "medium"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Photo Gallery",
+      "blocks": [
+        { "type": "photo", "settings": { "span": "large"  } },
+        { "type": "photo", "settings": { "span": "medium" } },
+        { "type": "photo", "settings": { "span": "small"  } },
+        { "type": "photo", "settings": { "span": "medium" } },
+        { "type": "photo", "settings": { "span": "small"  } }
+      ]
+    }
+  ]
+}
+{% endschema %}

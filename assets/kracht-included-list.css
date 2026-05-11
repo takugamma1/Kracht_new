@@ -1,0 +1,99 @@
+.kracht-incl {
+  background: var(--kil-bg, #fff);
+  color: var(--kil-fg, #000);
+  padding-block: var(--kil-pad-y, 80px);
+  font-family: var(--kracht-font-body);
+}
+
+.kracht-incl__head { margin-bottom: 2.5rem; }
+.kracht-incl__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--kil-fg);
+}
+.kracht-incl__title p { margin: 0; }
+.kracht-incl__title strong { font-weight: 800; }
+
+.kracht-incl__cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.kracht-incl__col {
+  border-radius: var(--kil-radius, 12px);
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  background: var(--kracht-grijs-licht);
+  color: var(--kil-fg);
+}
+.kracht-incl__col--out {
+  background: var(--kracht-zwart);
+  color: var(--kracht-wit);
+}
+
+.kracht-incl__col-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--kracht-font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+.kracht-incl__col-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--kracht-blauw);
+  font-size: 1rem;
+  line-height: 0;
+}
+.kracht-incl__col--out .kracht-incl__col-mark {
+  color: var(--kracht-grijs);
+  font-family: var(--kracht-font-heading);
+  font-weight: 700;
+}
+
+.kracht-incl__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.kracht-incl__list li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.kracht-incl__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 0.7em;
+  height: calc(0.7em * 229 / 252);
+  background-color: var(--kracht-blauw);
+  -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
+          mask: var(--kracht-plus-mask) center / contain no-repeat;
+}
+.kracht-incl__col--out .kracht-incl__list li::before {
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-mask: none;
+  mask: none;
+  width: 0.5em;
+  height: 1px;
+  top: 0.8em;
+}
+
+@media (max-width: 800px) {
+  .kracht-incl__cols { grid-template-columns: 1fr; gap: 1rem; }
+}

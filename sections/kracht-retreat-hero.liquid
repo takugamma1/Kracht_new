@@ -1,0 +1,153 @@
+{{ 'kracht-retreat-hero.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%} Pull from the active product so the same section works for every retreat. {%- endcomment -%}
+{%- assign p_title       = section.settings.heading       | default: product.title -%}
+{%- assign p_subheading  = section.settings.subheading                                  -%}
+{%- assign p_image       = section.settings.image         | default: product.featured_image -%}
+{%- if p_subheading == blank and product != blank -%}
+  {%- assign p_subheading = product.metafields.kracht.tagline | default: product.description | strip_html | truncatewords: 30 -%}
+{%- endif -%}
+
+<section
+  class="kracht-rhero"
+  style="
+    --krh-bg: {{ section.settings.background_color }};
+    --krh-fg: {{ section.settings.text_color }};
+    --krh-pad-y: {{ section.settings.padding_y }}px;
+    --krh-radius: {{ section.settings.image_radius }}px;
+  "
+>
+  <div class="kracht-rhero__inner kracht-container">
+    {%- if section.settings.show_breadcrumbs -%}
+      <nav class="kracht-rhero__crumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">Home</a>
+        <span class="kracht-rhero__sep" aria-hidden="true">/</span>
+        <a href="{{ routes.collections_url }}">Collecties</a>
+        {%- if product.collections.first -%}
+          <span class="kracht-rhero__sep" aria-hidden="true">/</span>
+          <a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a>
+        {%- endif -%}
+        {%- if product != blank -%}
+          <span class="kracht-rhero__sep" aria-hidden="true">/</span>
+          <span class="is-current">{{ product.title }}</span>
+        {%- endif -%}
+      </nav>
+    {%- endif -%}
+
+    <div class="kracht-rhero__grid">
+      <div class="kracht-rhero__content">
+        {%- if section.settings.tag != blank -%}
+          <span class="kracht-tag kracht-tag--with-plus">{{ section.settings.tag }}</span>
+        {%- endif -%}
+
+        {%- if p_title != blank -%}
+          <h1 class="kracht-rhero__title">{{ p_title }}</h1>
+        {%- endif -%}
+
+        {%- if p_subheading != blank -%}
+          <div class="kracht-rhero__sub">{{ p_subheading }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.meta1_label != blank or section.settings.meta2_label != blank or section.settings.meta3_label != blank -%}
+          <dl class="kracht-rhero__meta">
+            {%- if section.settings.meta1_label != blank -%}
+              <div class="kracht-rhero__meta-item"><dt>{{ section.settings.meta1_label }}</dt><dd>{{ section.settings.meta1_value }}</dd></div>
+            {%- endif -%}
+            {%- if section.settings.meta2_label != blank -%}
+              <div class="kracht-rhero__meta-item"><dt>{{ section.settings.meta2_label }}</dt><dd>{{ section.settings.meta2_value }}</dd></div>
+            {%- endif -%}
+            {%- if section.settings.meta3_label != blank -%}
+              <div class="kracht-rhero__meta-item"><dt>{{ section.settings.meta3_label }}</dt><dd>{{ section.settings.meta3_value }}</dd></div>
+            {%- endif -%}
+          </dl>
+        {%- endif -%}
+      </div>
+
+      <div class="kracht-rhero__media">
+        {%- if p_image != blank -%}
+          <img
+            src="{{ p_image | image_url: width: 1200 }}"
+            srcset="{{ p_image | image_url: width: 600 }} 600w, {{ p_image | image_url: width: 1200 }} 1200w"
+            sizes="(max-width: 900px) 100vw, 50vw"
+            alt="{{ p_image.alt | default: product.title | escape }}"
+            class="kracht-rhero__img"
+            loading="eager"
+          >
+        {%- else -%}
+          <div class="kracht-rhero__img kracht-rhero__img--ph"></div>
+        {%- endif -%}
+        {%- if section.settings.show_plus -%}
+          <span class="kracht-rhero__plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- comment -%} Bottom strip: dates / spots / price / CTA — pulls from product when possible. {%- endcomment -%}
+    <div class="kracht-rhero__strip">
+      <div class="kracht-rhero__strip-meta">
+        {%- if section.settings.strip_meta1 != blank -%}<span>{{ section.settings.strip_meta1 }}</span>{%- endif -%}
+        {%- if section.settings.strip_meta2 != blank -%}<span>{{ section.settings.strip_meta2 }}</span>{%- endif -%}
+        {%- if section.settings.strip_meta3 != blank -%}<span>{{ section.settings.strip_meta3 }}</span>{%- endif -%}
+        {%- if product != blank and product.price > 0 -%}
+          <span class="kracht-rhero__price"><strong>{{ product.price | money }}</strong>{%- if section.settings.price_suffix != blank %} {{ section.settings.price_suffix }}{%- endif -%}</span>
+        {%- endif -%}
+      </div>
+
+      <div class="kracht-rhero__strip-cta">
+        {%- if section.settings.link_label != blank -%}
+          <a href="{{ section.settings.link_url | default: '#' }}" class="kracht-rhero__link">{{ section.settings.link_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="kracht-btn kracht-btn--primary">
+            {{ section.settings.button_label }} <span class="kracht-btn__arrow">→</span>
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Retreat Hero",
+  "tag": "section",
+  "class": "kracht-rhero-section",
+  "enabled_on": { "templates": ["product"] },
+  "settings": [
+    { "type": "header", "content": "Content (auto-fills from product)" },
+    { "type": "checkbox", "id": "show_breadcrumbs", "label": "Show breadcrumbs", "default": true },
+    { "type": "text", "id": "tag", "label": "Eyebrow tag (e.g. Retraite)", "default": "Retraite" },
+    { "type": "richtext", "id": "heading", "label": "Heading override", "info": "Leave blank to use product title." },
+    { "type": "richtext", "id": "subheading", "label": "Subheading override", "info": "Leave blank to use product.metafields.kracht.tagline, then product description." },
+    { "type": "image_picker", "id": "image", "label": "Hero image override", "info": "Leave blank to use product featured image." },
+    { "type": "checkbox", "id": "show_plus", "label": "Show large + accent between content and image", "default": true },
+
+    { "type": "header", "content": "Meta block (left column)" },
+    { "type": "text", "id": "meta1_label", "label": "Label 1", "default": "Begeleid door" },
+    { "type": "text", "id": "meta1_value", "label": "Value 1", "default": "Anouk & Rob van Houten" },
+    { "type": "text", "id": "meta2_label", "label": "Label 2", "default": "Vertrekt" },
+    { "type": "text", "id": "meta2_value", "label": "Value 2", "default": "12 — 18 oktober 2026" },
+    { "type": "text", "id": "meta3_label", "label": "Label 3", "default": "Duur" },
+    { "type": "text", "id": "meta3_value", "label": "Value 3", "default": "7 dagen, 6 nachten" },
+
+    { "type": "header", "content": "Bottom strip" },
+    { "type": "text", "id": "strip_meta1", "label": "Strip text 1", "default": "12 — 18 oktober 2026" },
+    { "type": "text", "id": "strip_meta2", "label": "Strip text 2", "default": "7 dagen, 6 nachten" },
+    { "type": "text", "id": "strip_meta3", "label": "Strip text 3", "default": "Max. 12 deelnemers" },
+    { "type": "text", "id": "price_suffix", "label": "Price suffix", "default": "p.p." },
+    { "type": "text", "id": "link_label", "label": "Secondary link", "default": "+ geen match voor jou?" },
+    { "type": "url",  "id": "link_url",   "label": "Secondary link URL" },
+    { "type": "text", "id": "button_label", "label": "Primary button", "default": "Reserveer plek" },
+    { "type": "url",  "id": "button_link",  "label": "Primary button link" },
+
+    { "type": "header", "content": "Appearance" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#000000" },
+    { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#ffffff" },
+    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 32, "max": 160, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "image_radius",     "label": "Image corner radius", "min": 0, "max": 32, "step": 1, "unit": "px", "default": 6 }
+  ],
+  "presets": [
+    { "name": "Kracht — Retreat Hero" }
+  ]
+}
+{% endschema %}

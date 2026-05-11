@@ -1,0 +1,156 @@
+{{ 'kracht-day-timeline.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-dtime"
+  style="
+    --kdt-bg: {{ section.settings.background_color }};
+    --kdt-fg: {{ section.settings.text_color }};
+    --kdt-card-bg: {{ section.settings.card_color }};
+    --kdt-pad-y: {{ section.settings.padding_y }}px;
+    --kdt-radius: {{ section.settings.radius }}px;
+  "
+>
+  <div class="kracht-dtime__inner kracht-container">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="kracht-dtime__head">
+        <div class="kracht-dtime__head-text">
+          {%- if section.settings.eyebrow != blank -%}
+            <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="kracht-dtime__title">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.aside != blank -%}
+          <div class="kracht-dtime__aside">{{ section.settings.aside }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="kracht-dtime__list">
+      {%- for block in section.blocks -%}
+        {%- assign mod = forloop.index | modulo: 2 -%}
+        {%- assign reverse = false -%}
+        {%- if mod == 0 -%}{%- assign reverse = true -%}{%- endif -%}
+
+        <article class="kracht-dtime__row {% if reverse %}kracht-dtime__row--reverse{% endif %}" {{ block.shopify_attributes }}>
+          <div class="kracht-dtime__media">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 900 }}"
+                srcset="{{ block.settings.image | image_url: width: 500 }} 500w, {{ block.settings.image | image_url: width: 900 }} 900w"
+                sizes="(max-width: 900px) 100vw, 45vw"
+                alt="{{ block.settings.image.alt | escape }}"
+                class="kracht-dtime__img"
+                loading="lazy"
+              >
+            {%- else -%}
+              <div class="kracht-dtime__img kracht-dtime__img--ph"></div>
+            {%- endif -%}
+            <div class="kracht-dtime__media-shade" aria-hidden="true"></div>
+
+            <div class="kracht-dtime__media-text">
+              {%- if block.settings.day_label != blank -%}
+                <span class="kracht-dtime__day">{{ block.settings.day_label }}</span>
+              {%- endif -%}
+              {%- if block.settings.image_title != blank -%}
+                <h3 class="kracht-dtime__media-title">{{ block.settings.image_title }}</h3>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <div class="kracht-dtime__panel">
+            {%- if block.settings.panel_eyebrow != blank -%}
+              <span class="kracht-eyebrow kracht-dtime__panel-eyebrow">{{ block.settings.panel_eyebrow }}</span>
+            {%- endif -%}
+            {%- if block.settings.panel_title != blank -%}
+              <h4 class="kracht-dtime__panel-title">{{ block.settings.panel_title }}</h4>
+            {%- endif -%}
+            {%- if block.settings.panel_body != blank -%}
+              <div class="kracht-dtime__panel-body">{{ block.settings.panel_body }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.sublist_title != blank or block.settings.sublist_items != blank -%}
+              <div class="kracht-dtime__sublist">
+                {%- if block.settings.sublist_title != blank -%}
+                  <p class="kracht-dtime__sublist-title">{{ block.settings.sublist_title }}</p>
+                {%- endif -%}
+                {%- if block.settings.sublist_items != blank -%}
+                  <ul>
+                    {%- assign items = block.settings.sublist_items | strip | newline_to_br | split: '<br />' -%}
+                    {%- for it in items -%}
+                      {%- assign clean = it | strip -%}
+                      {%- if clean != blank -%}<li>{{ clean }}</li>{%- endif -%}
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.tags != blank -%}
+              <div class="kracht-dtime__tags">
+                {%- assign tag_list = block.settings.tags | split: ',' -%}
+                {%- for t in tag_list -%}
+                  {%- assign tt = t | strip -%}
+                  {%- if tt != blank -%}<span class="kracht-tag kracht-tag--ghost kracht-dtime__tag">{{ tt }}</span>{%- endif -%}
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Day Timeline",
+  "tag": "section",
+  "class": "kracht-dtime-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "header", "content": "Section header" },
+    { "type": "text",     "id": "eyebrow", "label": "Eyebrow", "default": "Het programma" },
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Zeven dagen, <strong>zorgvuldig geritmeerd.</strong></p>" },
+    { "type": "richtext", "id": "aside",   "label": "Aside (right column)" },
+
+    { "type": "header", "content": "Appearance" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#000000" },
+    { "type": "color", "id": "card_color",       "label": "Panel background", "default": "#f4f4f5" },
+    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "radius",           "label": "Card radius",      "min": 0, "max": 32, "step": 1, "unit": "px", "default": 12 }
+  ],
+  "blocks": [
+    {
+      "type": "day",
+      "name": "Day",
+      "settings": [
+        { "type": "header", "content": "Image card (left side)" },
+        { "type": "image_picker", "id": "image",       "label": "Image" },
+        { "type": "text",         "id": "day_label",   "label": "Day label (overlay)", "default": "Dag 01 — Zondag — Aankomst" },
+        { "type": "richtext",     "id": "image_title", "label": "Image title (overlay)", "default": "<p>Welkom in <strong>Andalusië.</strong></p>" },
+
+        { "type": "header", "content": "Info panel (right side)" },
+        { "type": "text",     "id": "panel_eyebrow", "label": "Panel eyebrow", "default": "Aankomst" },
+        { "type": "richtext", "id": "panel_title",   "label": "Panel title",   "default": "<p>Eerst <strong>aankomen.</strong></p>" },
+        { "type": "richtext", "id": "panel_body",    "label": "Panel body",    "default": "" },
+        { "type": "text",     "id": "sublist_title", "label": "Sublist label", "default": "Programma" },
+        { "type": "textarea", "id": "sublist_items", "label": "Sublist items (one per line)", "default": "Welkomsdiner & introborrel" },
+        { "type": "text",     "id": "tags",          "label": "Tags (comma separated)", "default": "Aankomst, Welkomstoer" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Day Timeline",
+      "blocks": [
+        { "type": "day" },
+        { "type": "day", "settings": { "day_label": "Dag 02 — Maandag — Verstilling", "image_title": "<p>Tijd om te <strong>landen.</strong></p>", "panel_eyebrow": "Verstilling", "panel_title": "<p>Eerst <strong>stil worden.</strong></p>" } },
+        { "type": "day", "settings": { "day_label": "Dag 03 — Dinsdag — Drijfveren",  "image_title": "<p>Wat drijft <strong>jou écht?</strong></p>", "panel_eyebrow": "Drijfveren", "panel_title": "<p>Naar de <strong>kern.</strong></p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

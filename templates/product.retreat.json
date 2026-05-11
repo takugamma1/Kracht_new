@@ -1,0 +1,255 @@
+{
+  "sections": {
+    "hero": {
+      "type": "kracht-retreat-hero",
+      "name": "Kracht — Retreat Hero",
+      "settings": {
+        "show_breadcrumbs": true,
+        "tag": "Retraite",
+        "heading": "",
+        "subheading": "",
+        "show_plus": true,
+        "meta1_label": "Begeleid door",
+        "meta1_value": "Anouk & Rob van Houten",
+        "meta2_label": "Vertrekt",
+        "meta2_value": "12 — 18 oktober 2026",
+        "meta3_label": "Duur",
+        "meta3_value": "7 dagen, 6 nachten",
+        "strip_meta1": "12 — 18 oktober 2026",
+        "strip_meta2": "7 dagen, 6 nachten",
+        "strip_meta3": "Max. 12 deelnemers",
+        "price_suffix": "p.p.",
+        "link_label": "+ geen match voor jou?",
+        "link_url": "",
+        "button_label": "Reserveer plek",
+        "button_link": "",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_y": 72,
+        "image_radius": 6
+      }
+    },
+    "intro": {
+      "type": "kracht-quote-intro",
+      "name": "Kracht — Quote Intro",
+      "settings": {
+        "eyebrow": "Alles over deze retraite",
+        "heading": "<p>Zeven dagen om <strong>terug te komen bij jezelf.</strong></p>",
+        "body_top": "<p>Van het moment dat de bus aankomt voor je deur tot aan het einde van de retraite. We zorgen voor alles — vluchten, transfers, finca, eten, programma — en zo voor jou is dat één ding: er <strong>écht</strong> zijn.</p>",
+        "quote": "",
+        "body_bottom": "<p>Geen vast programma, geen vaste tijden. Wel <strong>ruimte, rust en aandacht</strong> — en de structuur om die te benutten. Voor leiders die afstemmen op de kern. Voor teams die in stilte willen kijken. Voor mensen die durven zien wat er echt is.</p>",
+        "background_color": "#009de1",
+        "text_color": "#ffffff",
+        "padding_y": 96
+      }
+    },
+    "program": {
+      "type": "kracht-day-timeline",
+      "name": "Kracht — Day Timeline",
+      "blocks": {
+        "d1": { "type": "day", "settings": {
+          "day_label": "Dag 01 — Zondag — Aankomst",
+          "image_title": "<p>Welkom in <strong>Andalusië.</strong></p>",
+          "panel_eyebrow": "Aankomst",
+          "panel_title": "<p>Eerst <strong>aankomen.</strong></p>",
+          "panel_body": "<p>Aankomst op Málaga Airport, transfer naar de finca. Wij zorgen voor alle koffers en boodschappen — een rustige eerste avond met <strong>welkomsdiner</strong> in de open lucht.</p>",
+          "sublist_title": "Programma",
+          "sublist_items": "Welkomsdiner & introborrel",
+          "tags": "Aankomst, Welkomstoer"
+        }},
+        "d2": { "type": "day", "settings": {
+          "day_label": "Dag 02 — Maandag — Verstilling",
+          "image_title": "<p>Tijd om te <strong>landen.</strong></p>",
+          "panel_eyebrow": "Verstilling",
+          "panel_title": "<p>Eerst <strong>stil worden.</strong></p>",
+          "panel_body": "<p>We openen met <strong>yoga en ademhaling</strong>, gevolgd door een lange ochtend journaling in Málaga's olijfgaard rondom de finca. Op stille middag uitloop.</p>",
+          "sublist_title": "Highlights",
+          "sublist_items": "Yoga & ademwerk · 3 uur\nJournaling · 2 uur",
+          "tags": "Yoga, Ademwerk, Journaling, Ruime Stilte"
+        }},
+        "d3": { "type": "day", "settings": {
+          "day_label": "Dag 03 — Dinsdag — Drijfveren",
+          "image_title": "<p>Wat drijft <strong>jou écht?</strong></p>",
+          "panel_eyebrow": "Drijfveren",
+          "panel_title": "<p>Naar de <strong>kern.</strong></p>",
+          "panel_body": "<p>Een diepe duik in jouw drijfveren — wat je <strong>écht</strong> wil, wat je tegenhoudt, en wat je nodig hebt. Begeleide reflectie en op pijn-gesprekken met hulp van een tijd-tijd-tijdeel in de natuur.</p>",
+          "sublist_title": "Highlights",
+          "sublist_items": "1-op-1 coaching met host",
+          "tags": "Drijfveren, 1-op-1 coaching, Reflectie"
+        }},
+        "d4": { "type": "day", "settings": {
+          "day_label": "Dag 04 — Woensdag — Drijfveren",
+          "image_title": "<p>Een dag in de <strong>bergen.</strong></p>",
+          "panel_eyebrow": "Beweging",
+          "panel_title": "<p>Beweging maakt <strong>los.</strong></p>",
+          "panel_body": "<p>Vroege dagwandeling naar de top van de Sierra Nevada. Talenten, de wandeling werken zodat de persoonlijke vragen — beweging maakt los van het denkenhuid.</p>",
+          "sublist_title": "Highlights",
+          "sublist_items": "Bergwandeling Sierra Nevada",
+          "tags": "Bergwandeling, Lokale gids, Picknick"
+        }},
+        "d5": { "type": "day", "settings": {
+          "day_label": "Dag 05 — Donderdag — Keuzes",
+          "image_title": "<p>Van inzicht naar <strong>richting.</strong></p>",
+          "panel_eyebrow": "Richting",
+          "panel_title": "<p>Beslissingen <strong>durven nemen.</strong></p>",
+          "panel_body": "<p>De zoektocht uit de afgelopen dagen vertalen we naar concrete keuzes. Wat ligt je te liggen, wat laat je los? Werken in persoonlijke pijler-positie, en met loslaatmiddag rond elkaar de elke afsluiting.</p>",
+          "sublist_title": "Sublist",
+          "sublist_items": "Persoonlijk plan & dnoor",
+          "tags": "Keuzes maken, Scenario mapping, Werk"
+        }},
+        "d6": { "type": "day", "settings": {
+          "day_label": "Dag 06 — Vrijdag — Verbinding",
+          "image_title": "<p>Het lokale <strong>leven in.</strong></p>",
+          "panel_eyebrow": "Verbinding",
+          "panel_title": "<p>Leven is <strong>óók een doel.</strong></p>",
+          "panel_body": "<p>Vandaag bezoeken we een nabijgelegen pueblo voor een markt bezoek, een korte lunch in een familierestaurant en een flamenco-avond. Een dag die het programma af haalt — en herinnert dat genieten doors-ook een doel kan zijn.</p>",
+          "sublist_title": "Sublist",
+          "sublist_items": "Puebla & flamenco",
+          "tags": "Markt, Lokaal eten, Flamenco"
+        }},
+        "d7": { "type": "day", "settings": {
+          "day_label": "Dag 07 — Vrijdag — Vertrek",
+          "image_title": "<p>Mee naar <strong>huis.</strong></p>",
+          "panel_eyebrow": "Vertrek",
+          "panel_title": "<p>Niet het einde, <strong>het begin.</strong></p>",
+          "panel_body": "<p>We sluiten af met een <strong>closing circle</strong> en eenvoudige integratietijd. Integratiequit via de vluchten naar Nederland zorgt straling. Brunch, koffies, een laatste hide op de bergen — en transfer naar het vliegveld.</p>",
+          "sublist_title": "Sublist",
+          "sublist_items": "Closing circle & integratie",
+          "tags": "Closing circle, Integratiegesprek, Transfer"
+        }}
+      },
+      "block_order": ["d1","d2","d3","d4","d5","d6","d7"],
+      "settings": {
+        "eyebrow": "Het programma",
+        "heading": "<p>Zeven dagen, <strong>zorgvuldig geritmeerd.</strong></p>",
+        "aside": "<p>Geen scherm afhetkt. <a href=\"#\">Oudtijdsmiddag schedule</a>.</p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "card_color": "#f4f4f5",
+        "padding_y": 80,
+        "radius": 12
+      }
+    },
+    "gallery": {
+      "type": "kracht-photo-gallery",
+      "name": "Kracht — Photo Gallery",
+      "blocks": {
+        "g1": { "type": "photo", "settings": { "span": "large"  } },
+        "g2": { "type": "photo", "settings": { "span": "medium" } },
+        "g3": { "type": "photo", "settings": { "span": "small"  } },
+        "g4": { "type": "photo", "settings": { "span": "medium" } },
+        "g5": { "type": "photo", "settings": { "span": "small"  } }
+      },
+      "block_order": ["g1","g2","g3","g4","g5"],
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Finca Las Encinas — <strong>een plek die vertraagt.</strong></p>",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_y": 80,
+        "radius": 8,
+        "gap": 12
+      }
+    },
+    "included": {
+      "type": "kracht-included-list",
+      "name": "Kracht — Included List",
+      "blocks": {
+        "i1": { "type": "in", "settings": { "text": "Retourshuttle Schiphol — Málaga BLM/Transavia" } },
+        "i2": { "type": "in", "settings": { "text": "Privé-transfers van en naar het gedeelde hotel" } },
+        "i3": { "type": "in", "settings": { "text": "6 nachten in een gemeubileerde finca, eigen of gedeelde kamer" } },
+        "i4": { "type": "in", "settings": { "text": "Alle maaltijden, snacks en drankjes op locatie" } },
+        "i5": { "type": "in", "settings": { "text": "Dagelijkse ochtendsessies door Anouk & Rob" } },
+        "i6": { "type": "in", "settings": { "text": "Twee persoonlijke 1-op-1 coachingsgesprekken" } },
+        "i7": { "type": "in", "settings": { "text": "Begeleiding met social-detox protocol" } },
+        "i8": { "type": "in", "settings": { "text": "Puebla-uitje inclusief lunch en flamenco-avond" } },
+        "i9": { "type": "in", "settings": { "text": "Werkboek met een persoonlijke integratieplan" } },
+        "i10":{ "type": "in", "settings": { "text": "Twee opvolggesprekken na 30 en 90 dagen, online" } },
+
+        "o1": { "type": "out", "settings": { "text": "Reisverzekering en annuleringsverzekering" } },
+        "o2": { "type": "out", "settings": { "text": "Persoonlijke uitgaven (souvenirs, wegens etc.)" } },
+        "o3": { "type": "out", "settings": { "text": "Optionele extra dressage-massage activiteiten" } },
+        "o4": { "type": "out", "settings": { "text": "Vluchten vanuit andere luchthavens dan Schiphol" } },
+        "o5": { "type": "out", "settings": { "text": "Eventuele upgrades op de heen-/terugvlucht" } },
+        "o6": { "type": "out", "settings": { "text": "Bagage boven 23 kg" } }
+      },
+      "block_order": ["i1","i2","i3","i4","i5","i6","i7","i8","i9","i10","o1","o2","o3","o4","o5","o6"],
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Eén prijs, <strong>geen verrassingen.</strong></p>",
+        "col1_title": "Inbegrepen",
+        "col2_title": "Niet inbegrepen",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80,
+        "radius": 12
+      }
+    },
+    "team": {
+      "type": "kracht-team-grid",
+      "name": "Kracht — Team Grid",
+      "blocks": {
+        "t1": { "type": "trainer", "settings": { "name": "Anouk de Wit",   "role": "Lead Host",  "subline": "Org. Psychologie · 14+ jaar" } },
+        "t2": { "type": "trainer", "settings": { "name": "Rob van Houten", "role": "Body & Breath", "subline": "Yogadocent" } },
+        "t3": { "type": "trainer", "settings": { "name": "Mark Janssen",   "role": "Local Host", "subline": "Specialist Andalusië · 9+ jaar" } },
+        "cta":{ "type": "cta" }
+      },
+      "block_order": ["t1","t2","t3","cta"],
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Begeleid door <strong>Anouk & Rob.</strong></p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80,
+        "radius": 12
+      }
+    },
+    "booking": {
+      "type": "kracht-booking-summary",
+      "name": "Kracht — Booking Summary",
+      "blocks": {
+        "r1": { "type": "room", "settings": { "name": "Gedeelde kamer",      "price": "<p><strong>€3.450</strong></p>" } },
+        "r2": { "type": "room", "settings": { "name": "Eigen kamer",         "price": "<p><strong>€4.150</strong></p>" } },
+        "r3": { "type": "room", "settings": { "name": "Suite met balkon",    "price": "<p><strong>€4.850</strong></p>" } }
+      },
+      "block_order": ["r1","r2","r3"],
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Eén bedrag, <strong>alles erin van vlucht tot integratie.</strong></p>",
+        "body": "<p>Onze prijs is <strong>all-inclusive</strong>. Geen verrassingen onderweg, geen toeslagen achteraf — alles is betaald. Je krijgt een <strong>kennismakingsgesprek</strong> en pas op vrije plek de match.</p>",
+        "date_label": "12 — 18 oktober 2026",
+        "fallback_label": "Vanaf",
+        "button_label": "Plan kennismakingsgesprek",
+        "button_link": "",
+        "fineprint": "Vrijblijvend gesprek — kan ook per video chat",
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "card_color": "#009de1",
+        "card_text_color": "#ffffff",
+        "padding_y": 88,
+        "card_radius": 20
+      }
+    },
+    "faq": {
+      "type": "kracht-faq",
+      "name": "Kracht — FAQ",
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "Wat is de eg moeiljk op een retraite ben gewend?",            "answer": "<p>We staartten meer als het wéer twéén in een retraite</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "Kan ik 's ochtends ook naar het bezig?",                       "answer": "<p>Wel kan je hut ekoms van Anouk!</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "Wat als ik allergieën of dieetwensen heb?",                    "answer": "<p>De finca-keuken werkt graag met jouw dieet. We zijn bekend met allergieën, intoleranties en voorkeuren.</p>" } },
+        "q4": { "type": "qa", "settings": { "question": "Komt deze retraite in aanmerking voor opleidingsbudget?",      "answer": "<p>Ja, voor de meeste opleidingsbudgetten kwalificeert onze retraite als persoonlijke ontwikkeling. We kunnen op verzoek een aparte factuur opstellen.</p>" } },
+        "q5": { "type": "qa", "settings": { "question": "Wat is het annuleringsbeleid?",                                 "answer": "<p>Tot 60 dagen voor vertrek: 100% terug. Tussen 60 en 30 dagen: 50% terug. Binnen 30 dagen: helaas geen restitutie. We raden een annuleringsverzekering aan.</p>" } }
+      },
+      "block_order": ["q1","q2","q3","q4","q5"],
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Wat we vaak <strong>gevraagd krijgen.</strong></p>",
+        "intro": "<p>Staat je vraag er niet bij? Stuur ons een <a href=\"mailto:retraites@kracht.nu\">mailtje</a> — we helpen je graag.</p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80
+      }
+    }
+  },
+  "order": ["hero", "intro", "program", "gallery", "included", "team", "booking", "faq"]
+}

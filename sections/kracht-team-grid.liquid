@@ -1,0 +1,127 @@
+{{ 'kracht-team-grid.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-team"
+  style="
+    --ktg-bg: {{ section.settings.background_color }};
+    --ktg-fg: {{ section.settings.text_color }};
+    --ktg-pad-y: {{ section.settings.padding_y }}px;
+    --ktg-radius: {{ section.settings.radius }}px;
+  "
+>
+  <div class="kracht-team__inner kracht-container">
+    {%- if section.settings.heading != blank -%}
+      <div class="kracht-team__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2 class="kracht-team__title">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="kracht-team__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'trainer' -%}
+          <article class="kracht-team__card" {{ block.shopify_attributes }}>
+            <div class="kracht-team__photo">
+              {%- if block.settings.image != blank -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 600 }}"
+                  srcset="{{ block.settings.image | image_url: width: 400 }} 400w, {{ block.settings.image | image_url: width: 600 }} 600w"
+                  sizes="(max-width: 900px) 50vw, 25vw"
+                  alt="{{ block.settings.name | escape }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <div class="kracht-team__photo--ph"></div>
+              {%- endif -%}
+            </div>
+            <div class="kracht-team__body">
+              {%- if block.settings.name != blank -%}
+                <p class="kracht-team__name">{{ block.settings.name }}</p>
+              {%- endif -%}
+              {%- if block.settings.role != blank -%}
+                <p class="kracht-team__role">{{ block.settings.role }}</p>
+              {%- endif -%}
+              {%- if block.settings.subline != blank -%}
+                <p class="kracht-team__subline">{{ block.settings.subline }}</p>
+              {%- endif -%}
+              {%- if block.settings.contact != blank -%}
+                <p class="kracht-team__contact">{{ block.settings.contact }}</p>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- elsif block.type == 'cta' -%}
+          <article class="kracht-team__card kracht-team__card--cta" {{ block.shopify_attributes }}>
+            <div class="kracht-team__cta-plus" aria-hidden="true">{% render 'kracht-plus' %}</div>
+            {%- if block.settings.heading != blank -%}
+              <p class="kracht-team__cta-title">{{ block.settings.heading }}</p>
+            {%- endif -%}
+            {%- if block.settings.body != blank -%}
+              <p class="kracht-team__cta-body">{{ block.settings.body }}</p>
+            {%- endif -%}
+            {%- if block.settings.button_label != blank -%}
+              <a href="{{ block.settings.button_link | default: '#' }}" class="kracht-team__cta-link">
+                {{ block.settings.button_label }} <span aria-hidden="true">→</span>
+              </a>
+            {%- endif -%}
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Team Grid",
+  "tag": "section",
+  "class": "kracht-team-section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "header", "content": "Section header" },
+    { "type": "text",     "id": "eyebrow", "label": "Eyebrow", "default": "" },
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Begeleid door <strong>Anouk & Rob.</strong></p>" },
+
+    { "type": "header", "content": "Appearance" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#000000" },
+    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "radius",           "label": "Card radius",      "min": 0, "max": 32, "step": 1, "unit": "px", "default": 12 }
+  ],
+  "blocks": [
+    {
+      "type": "trainer",
+      "name": "Trainer",
+      "settings": [
+        { "type": "image_picker", "id": "image",   "label": "Photo" },
+        { "type": "text",         "id": "name",    "label": "Name", "default": "Anouk de Wit" },
+        { "type": "text",         "id": "role",    "label": "Role", "default": "Lead Host" },
+        { "type": "text",         "id": "subline", "label": "Subline", "default": "Org. Psychologie · 14+ jaar" },
+        { "type": "text",         "id": "contact", "label": "Contact (e.g. icons or email)", "default": "" }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "CTA card",
+      "settings": [
+        { "type": "text",     "id": "heading",      "label": "Heading",      "default": "Past deze retraite bij jou?" },
+        { "type": "textarea", "id": "body",         "label": "Body",         "default": "Twee weken voorafgaand aan vertrek begeleiden we je verder. Geen verkooppraatje — wel een match check." },
+        { "type": "text",     "id": "button_label", "label": "Button label", "default": "Plan kennismaking" },
+        { "type": "url",      "id": "button_link",  "label": "Button link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Team Grid",
+      "blocks": [
+        { "type": "trainer" },
+        { "type": "trainer", "settings": { "name": "Rob van Houten", "role": "Body & Breath",       "subline": "Yogadocent" } },
+        { "type": "trainer", "settings": { "name": "Mark Janssen",   "role": "Local Host",          "subline": "Specialist Andalusië · 9+ jaar" } },
+        { "type": "cta" }
+      ]
+    }
+  ]
+}
+{% endschema %}

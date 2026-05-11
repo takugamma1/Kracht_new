@@ -1,0 +1,114 @@
+{{ 'kracht-booking-summary.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-book"
+  style="
+    --kb-bg: {{ section.settings.background_color }};
+    --kb-fg: {{ section.settings.text_color }};
+    --kb-card-bg: {{ section.settings.card_color }};
+    --kb-card-fg: {{ section.settings.card_text_color }};
+    --kb-pad-y: {{ section.settings.padding_y }}px;
+    --kb-radius: {{ section.settings.card_radius }}px;
+  "
+>
+  <div class="kracht-book__inner kracht-container">
+    <div class="kracht-book__grid">
+      <div class="kracht-book__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-book__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.body != blank -%}
+          <div class="kracht-book__body">{{ section.settings.body }}</div>
+        {%- endif -%}
+      </div>
+
+      <aside class="kracht-book__card">
+        {%- if section.settings.date_label != blank -%}
+          <div class="kracht-book__date">
+            <span class="kracht-book__date-dot" aria-hidden="true"></span>
+            {{ section.settings.date_label }}
+          </div>
+        {%- endif -%}
+
+        <ul class="kracht-book__rooms">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'room' -%}
+              <li class="kracht-book__room" {{ block.shopify_attributes }}>
+                <span class="kracht-book__room-name">{{ block.settings.name }}</span>
+                <span class="kracht-book__room-price">{{ block.settings.price }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if section.blocks.size == 0 and product != blank and product.price > 0 -%}
+            <li class="kracht-book__room">
+              <span class="kracht-book__room-name">{{ section.settings.fallback_label | default: 'Vanaf' }}</span>
+              <span class="kracht-book__room-price">{{ product.price | money }}</span>
+            </li>
+          {%- endif -%}
+        </ul>
+
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="kracht-btn kracht-btn--light kracht-book__btn">
+            {{ section.settings.button_label }} <span class="kracht-btn__arrow">→</span>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.fineprint != blank -%}
+          <p class="kracht-book__fine">{{ section.settings.fineprint }}</p>
+        {%- endif -%}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Booking Summary",
+  "tag": "section",
+  "class": "kracht-book-section",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "header", "content": "Left column" },
+    { "type": "text",     "id": "eyebrow", "label": "Eyebrow", "default": "" },
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Eén bedrag, <strong>alles erin van vlucht tot integratie.</strong></p>" },
+    { "type": "richtext", "id": "body",    "label": "Body",    "default": "<p>Onze prijs is <strong>all-inclusive</strong>. Geen verrassingen onderweg, geen toeslagen achteraf — onlangs is alles betaald. Je krijgt een <strong>kennismakingsgesprek</strong> en pas op vrije plek de match.</p>" },
+
+    { "type": "header", "content": "Right card" },
+    { "type": "text",     "id": "date_label",    "label": "Date label", "default": "12 — 18 oktober 2026" },
+    { "type": "text",     "id": "fallback_label","label": "Fallback price label (used when no Room blocks)", "default": "Vanaf" },
+    { "type": "text",     "id": "button_label",  "label": "Button label", "default": "Plan kennismakingsgesprek" },
+    { "type": "url",      "id": "button_link",   "label": "Button link" },
+    { "type": "text",     "id": "fineprint",     "label": "Fine print",   "default": "Vrijblijvend gesprek — kan ook per video chat" },
+
+    { "type": "header", "content": "Appearance" },
+    { "type": "color", "id": "background_color",  "label": "Background color", "default": "#000000" },
+    { "type": "color", "id": "text_color",        "label": "Text color",       "default": "#ffffff" },
+    { "type": "color", "id": "card_color",        "label": "Card background",  "default": "#009de1" },
+    { "type": "color", "id": "card_text_color",   "label": "Card text color",  "default": "#ffffff" },
+    { "type": "range", "id": "padding_y",         "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 88 },
+    { "type": "range", "id": "card_radius",       "label": "Card radius",      "min": 0, "max": 40, "step": 1, "unit": "px", "default": 20 }
+  ],
+  "blocks": [
+    {
+      "type": "room",
+      "name": "Room / Price row",
+      "settings": [
+        { "type": "text",     "id": "name",  "label": "Name",  "default": "Gedeelde kamer" },
+        { "type": "richtext", "id": "price", "label": "Price", "default": "<p><strong>€3.450</strong></p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Booking Summary",
+      "blocks": [
+        { "type": "room" },
+        { "type": "room", "settings": { "name": "Eigen kamer",       "price": "<p><strong>€4.150</strong></p>" } },
+        { "type": "room", "settings": { "name": "Suite met balkon",  "price": "<p><strong>€4.850</strong></p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

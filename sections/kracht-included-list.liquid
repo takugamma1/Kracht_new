@@ -1,0 +1,123 @@
+{{ 'kracht-included-list.css' | asset_url | stylesheet_tag }}
+
+<section
+  class="kracht-incl"
+  style="
+    --kil-bg: {{ section.settings.background_color }};
+    --kil-fg: {{ section.settings.text_color }};
+    --kil-pad-y: {{ section.settings.padding_y }}px;
+    --kil-radius: {{ section.settings.radius }}px;
+  "
+>
+  <div class="kracht-incl__inner kracht-container">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="kracht-incl__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="kracht-incl__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="kracht-incl__cols">
+      {%- comment -%} Left = included; Right = excluded {%- endcomment -%}
+      <div class="kracht-incl__col kracht-incl__col--in">
+        {%- if section.settings.col1_title != blank -%}
+          <p class="kracht-incl__col-title">
+            <span class="kracht-incl__col-mark" aria-hidden="true">{% render 'kracht-plus' %}</span>
+            {{ section.settings.col1_title }}
+          </p>
+        {%- endif -%}
+        <ul class="kracht-incl__list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'in' -%}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <div class="kracht-incl__col kracht-incl__col--out">
+        {%- if section.settings.col2_title != blank -%}
+          <p class="kracht-incl__col-title">
+            <span class="kracht-incl__col-mark" aria-hidden="true">×</span>
+            {{ section.settings.col2_title }}
+          </p>
+        {%- endif -%}
+        <ul class="kracht-incl__list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'out' -%}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kracht — Included List",
+  "tag": "section",
+  "class": "kracht-incl-section",
+  "max_blocks": 30,
+  "settings": [
+    { "type": "header", "content": "Section header" },
+    { "type": "text",     "id": "eyebrow", "label": "Eyebrow", "default": "" },
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Eén prijs, <strong>geen verrassingen.</strong></p>" },
+
+    { "type": "header", "content": "Columns" },
+    { "type": "text", "id": "col1_title", "label": "Left column title",  "default": "Inbegrepen" },
+    { "type": "text", "id": "col2_title", "label": "Right column title", "default": "Niet inbegrepen" },
+
+    { "type": "header", "content": "Appearance" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#000000" },
+    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "radius",           "label": "Column corner radius", "min": 0, "max": 32, "step": 1, "unit": "px", "default": 12 }
+  ],
+  "blocks": [
+    {
+      "type": "in",
+      "name": "Included item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Item text", "default": "Retourshuttle Schiphol — Málaga BLM/Transavia" }
+      ]
+    },
+    {
+      "type": "out",
+      "name": "Excluded item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Item text", "default": "Reisverzekering en annuleringsverzekering" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kracht — Included List",
+      "blocks": [
+        { "type": "in", "settings": { "text": "Retourshuttle Schiphol — Málaga BLM/Transavia" } },
+        { "type": "in", "settings": { "text": "Privé-transfers van en naar het gedeelde hotel" } },
+        { "type": "in", "settings": { "text": "6 nachten in een gemeubileerde finca, eigen of gedeelde kamer" } },
+        { "type": "in", "settings": { "text": "Alle maaltijden, snacks en drankjes op locatie" } },
+        { "type": "in", "settings": { "text": "Dagelijkse ochtendsessies door Anouk & Rob" } },
+        { "type": "in", "settings": { "text": "Twee persoonlijke 1-op-1 coachingsgesprekken" } },
+        { "type": "in", "settings": { "text": "Begeleiding met social-detox protocol" } },
+        { "type": "in", "settings": { "text": "Puebla-uitje inclusief lunch en flamenco-avond" } },
+        { "type": "in", "settings": { "text": "Werkboek met een persoonlijke integratieplan" } },
+        { "type": "in", "settings": { "text": "Twee opvolggesprekken na 30 en 90 dagen, online" } },
+
+        { "type": "out", "settings": { "text": "Reisverzekering en annuleringsverzekering" } },
+        { "type": "out", "settings": { "text": "Persoonlijke uitgaven (souvenirs, wegens etc.)" } },
+        { "type": "out", "settings": { "text": "Optionele extra dressage-massage activiteiten" } },
+        { "type": "out", "settings": { "text": "Vluchten vanuit andere luchthavens dan Schiphol" } },
+        { "type": "out", "settings": { "text": "Eventuele upgrades op de heen-/terugvlucht" } },
+        { "type": "out", "settings": { "text": "Bagage boven 23 kg" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
