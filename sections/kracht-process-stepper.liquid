@@ -1,9 +1,12 @@
 {{ 'kracht-process-stepper.css' | asset_url | stylesheet_tag }}
 
-{%- assign active_index = section.settings.active_step -%}
-{%- if active_index < 1 -%}{%- assign active_index = 1 -%}{%- endif -%}
+{%- assign default_index = section.settings.active_step -%}
+{%- if default_index < 1 -%}{%- assign default_index = 1 -%}{%- endif -%}
+{%- assign blocks_count = section.blocks.size -%}
+{%- if default_index > blocks_count -%}{%- assign default_index = blocks_count -%}{%- endif -%}
 
 <section
+  id="kracht-pstep-{{ section.id }}"
   class="kracht-pstep"
   style="
     --kps-bg: {{ section.settings.background_color }};
@@ -28,54 +31,121 @@
         {%- endif -%}
       </div>
 
-      <div class="kracht-pstep__card">
+      <div class="kracht-pstep__card" data-stepper data-current="{{ default_index }}">
         <div class="kracht-pstep__plus" aria-hidden="true">{% render 'kracht-plus' %}</div>
 
-        <div class="kracht-pstep__rail" role="list">
-          {%- for block in section.blocks -%}
-            {%- assign is_active = false -%}
-            {%- if forloop.index == active_index -%}{%- assign is_active = true -%}{%- endif -%}
-            <span
-              class="kracht-pstep__dot {% if is_active %}is-active{% endif %}"
-              role="listitem"
-              aria-current="{% if is_active %}step{% else %}false{% endif %}"
-            ></span>
-          {%- endfor -%}
+        <div class="kracht-pstep__rail" role="tablist" aria-label="Stappen">
           <span class="kracht-pstep__rail-line" aria-hidden="true"></span>
+          {%- for block in section.blocks -%}
+            <button
+              type="button"
+              class="kracht-pstep__dot {% if forloop.index == default_index %}is-active{% endif %}"
+              role="tab"
+              data-step-target="{{ forloop.index }}"
+              aria-controls="kracht-pstep-{{ section.id }}-panel-{{ forloop.index }}"
+              aria-selected="{% if forloop.index == default_index %}true{% else %}false{% endif %}"
+            >
+              <span class="kracht-vh">Stap {{ forloop.index }} — {{ block.settings.title }}</span>
+            </button>
+          {%- endfor -%}
         </div>
 
         <ol class="kracht-pstep__labels">
           {%- for block in section.blocks -%}
-            {%- assign is_active = false -%}
-            {%- if forloop.index == active_index -%}{%- assign is_active = true -%}{%- endif -%}
             {%- assign num = forloop.index | prepend: '0' | slice: -2, 2 -%}
-            <li class="kracht-pstep__label {% if is_active %}is-active{% endif %}" {{ block.shopify_attributes }}>
-              <span class="kracht-pstep__label-num">{{ num }}</span>
-              <span class="kracht-pstep__label-text">{{ block.settings.title }}</span>
+            <li class="kracht-pstep__label-li" {{ block.shopify_attributes }}>
+              <button
+                type="button"
+                class="kracht-pstep__label {% if forloop.index == default_index %}is-active{% endif %}"
+                data-step-target="{{ forloop.index }}"
+                aria-controls="kracht-pstep-{{ section.id }}-panel-{{ forloop.index }}"
+              >
+                <span class="kracht-pstep__label-num">{{ num }}</span>
+                <span class="kracht-pstep__label-text">{{ block.settings.title }}</span>
+              </button>
             </li>
           {%- endfor -%}
         </ol>
 
-        {%- assign active_zero = active_index | minus: 1 -%}
-        {%- assign active_block = section.blocks[active_zero] -%}
-        {%- if active_block -%}
-          <div class="kracht-pstep__active">
-            {%- assign active_num = active_index | prepend: '0' | slice: -2, 2 -%}
-            <span class="kracht-pstep__active-eyebrow">
-              Stap {{ active_num }} · {{ active_block.settings.title | upcase }}
-            </span>
-            {%- if active_block.settings.content_title != blank -%}
-              <h3 class="kracht-pstep__active-title">{{ active_block.settings.content_title }}</h3>
-            {%- endif -%}
-            {%- if active_block.settings.content != blank -%}
-              <div class="kracht-pstep__active-body">{{ active_block.settings.content }}</div>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
+        <div class="kracht-pstep__panels">
+          {%- for block in section.blocks -%}
+            {%- assign num = forloop.index | prepend: '0' | slice: -2, 2 -%}
+            <div
+              id="kracht-pstep-{{ section.id }}-panel-{{ forloop.index }}"
+              class="kracht-pstep__panel {% if forloop.index == default_index %}is-active{% endif %}"
+              role="tabpanel"
+              data-step-index="{{ forloop.index }}"
+              tabindex="0"
+            >
+              <span class="kracht-pstep__active-eyebrow">Stap {{ num }} · {{ block.settings.title | upcase }}</span>
+              {%- if block.settings.content_title != blank -%}
+                <h3 class="kracht-pstep__active-title">{{ block.settings.content_title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.content != blank -%}
+                <div class="kracht-pstep__active-body">{{ block.settings.content }}</div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var root = document.getElementById('kracht-pstep-{{ section.id }}');
+    if (!root) return;
+    var stepper = root.querySelector('[data-stepper]');
+    if (!stepper) return;
+
+    var dots   = stepper.querySelectorAll('.kracht-pstep__dot[data-step-target]');
+    var labels = stepper.querySelectorAll('.kracht-pstep__label[data-step-target]');
+    var panels = stepper.querySelectorAll('.kracht-pstep__panel[data-step-index]');
+
+    function setActive(i) {
+      stepper.dataset.current = String(i);
+      function toggle(el, on) {
+        if (on) { el.classList.add('is-active'); }
+        else    { el.classList.remove('is-active'); }
+      }
+      dots.forEach(function (el) {
+        var on = parseInt(el.getAttribute('data-step-target'), 10) === i;
+        toggle(el, on);
+        el.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      labels.forEach(function (el) {
+        var on = parseInt(el.getAttribute('data-step-target'), 10) === i;
+        toggle(el, on);
+      });
+      panels.forEach(function (el) {
+        var on = parseInt(el.getAttribute('data-step-index'), 10) === i;
+        toggle(el, on);
+      });
+    }
+
+    function onClick(e) {
+      var target = e.currentTarget.getAttribute('data-step-target');
+      if (target) setActive(parseInt(target, 10));
+    }
+
+    dots.forEach(function (el)   { el.addEventListener('click', onClick); });
+    labels.forEach(function (el) { el.addEventListener('click', onClick); });
+
+    // Keyboard nav (left/right between tabs)
+    stepper.querySelector('.kracht-pstep__rail').addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var cur = parseInt(stepper.dataset.current || '1', 10);
+      var next = e.key === 'ArrowRight' ? cur + 1 : cur - 1;
+      if (next < 1) next = dots.length;
+      if (next > dots.length) next = 1;
+      setActive(next);
+      var dot = stepper.querySelector('.kracht-pstep__dot[data-step-target="' + next + '"]');
+      if (dot) dot.focus();
+      e.preventDefault();
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -84,93 +154,28 @@
   "class": "kracht-pstep-section",
   "max_blocks": 6,
   "settings": [
-    {
-      "type": "header",
-      "content": "Section header"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow"
-    },
-    {
-      "type": "richtext",
-      "id": "heading",
-      "label": "Heading",
-      "default": "<p>In 4 stappen naar een <strong>retraite die past.</strong></p>"
-    },
-    {
-      "type": "richtext",
-      "id": "intro",
-      "label": "Intro paragraph",
-      "default": "<p>Van eerste gesprek tot terugkomst — zo werkt het bij ons. Een <strong>gestructureerd traject</strong> dat zorgt dat de retraite niet eindigt op de laatste dag.</p>"
-    },
-    {
-      "type": "range",
-      "id": "active_step",
-      "label": "Active step (1-based)",
-      "min": 1,
-      "max": 6,
-      "step": 1,
-      "default": 2
-    },
-    {
-      "type": "header",
-      "content": "Appearance"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "card_color",
-      "label": "Card background",
-      "default": "#009de1"
-    },
-    {
-      "type": "color",
-      "id": "card_text_color",
-      "label": "Card text color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "range",
-      "id": "padding_y",
-      "label": "Vertical padding",
-      "min": 24,
-      "max": 160,
-      "step": 4,
-      "unit": "px",
-      "default": 80
-    },
-    {
-      "type": "range",
-      "id": "card_radius",
-      "label": "Card corner radius",
-      "min": 0,
-      "max": 40,
-      "step": 1,
-      "unit": "px",
-      "default": 20
-    }
+    { "type": "header", "content": "Section header" },
+    { "type": "text",     "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>In 4 stappen naar een <strong>retraite die past.</strong></p>" },
+    { "type": "richtext", "id": "intro",   "label": "Intro paragraph", "default": "<p>Van eerste gesprek tot terugkomst — zo werkt het bij ons. Een <strong>gestructureerd traject</strong> dat zorgt dat de retraite niet eindigt op de laatste dag.</p>" },
+    { "type": "range",    "id": "active_step", "label": "Default active step (1-based)", "min": 1, "max": 6, "step": 1, "default": 2 },
+
+    { "type": "header", "content": "Appearance" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#000000" },
+    { "type": "color", "id": "card_color",       "label": "Card background",  "default": "#009de1" },
+    { "type": "color", "id": "card_text_color",  "label": "Card text color",  "default": "#ffffff" },
+    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "card_radius",      "label": "Card corner radius", "min": 0, "max": 40, "step": 1, "unit": "px", "default": 20 }
   ],
   "blocks": [
     {
       "type": "step",
       "name": "Step",
       "settings": [
-        { "type": "text", "id": "title", "label": "Step title", "default": "Stap" },
-        { "type": "text", "id": "content_title", "label": "Active content title" },
-        { "type": "richtext", "id": "content", "label": "Active content body" }
+        { "type": "text",     "id": "title",         "label": "Step title", "default": "Stap" },
+        { "type": "text",     "id": "content_title", "label": "Active content title" },
+        { "type": "richtext", "id": "content",       "label": "Active content body" }
       ]
     }
   ],
@@ -178,10 +183,10 @@
     {
       "name": "Kracht — Process Stepper",
       "blocks": [
-        { "type": "step", "settings": { "title": "Kennismaking", "content_title": "Vrijblijvend gesprek", "content": "<p>We bellen 30 minuten en kijken of we matchen. Geen verkooppraatje — wel concrete vragen over wat je nodig hebt.</p>" } },
+        { "type": "step", "settings": { "title": "Kennismaking",   "content_title": "Vrijblijvend gesprek", "content": "<p>We bellen 30 minuten en kijken of we matchen. Geen verkooppraatje — wel concrete vragen over wat je nodig hebt.</p>" } },
         { "type": "step", "settings": { "title": "Voorbereiding",  "content_title": "Het intaketraject", "content": "<p>In de <strong>twee weken voor vertrek</strong> doe je een persoonlijke voorbereiding: intakevragen, een drijfverentest en een korte schrijfopdracht. Zo arriveer je niet leeg, maar gericht.</p>" } },
-        { "type": "step", "settings": { "title": "De retraite",   "content_title": "De dagen zelf", "content": "<p>Begeleide reflectie, beweging, goede gesprekken en stilte — afgewisseld in een ritme dat werkt.</p>" } },
-        { "type": "step", "settings": { "title": "Integratie",    "content_title": "Terug in het dagelijks leven", "content": "<p>Een terugkomdag na zes weken om te toetsen wat is geland — en wat een vervolgstap nodig heeft.</p>" } }
+        { "type": "step", "settings": { "title": "De retraite",    "content_title": "De dagen zelf", "content": "<p>Begeleide reflectie, beweging, goede gesprekken en stilte — afgewisseld in een ritme dat werkt.</p>" } },
+        { "type": "step", "settings": { "title": "Integratie",     "content_title": "Terug in het dagelijks leven", "content": "<p>Een terugkomdag na zes weken om te toetsen wat is geland — en wat een vervolgstap nodig heeft.</p>" } }
       ]
     }
   ]

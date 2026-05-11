@@ -61,6 +61,9 @@
 }
 .kracht-pstep__plus svg { display: block; }
 
+/* ==========================================================================
+   Rail of dots
+   ========================================================================== */
 .kracht-pstep__rail {
   position: relative;
   display: grid;
@@ -86,7 +89,14 @@
   display: block;
   justify-self: center;
   position: relative;
-  transition: transform 0.15s ease;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.kracht-pstep__dot:hover,
+.kracht-pstep__dot:focus-visible {
+  border-color: var(--kps-card-fg, #ffffff);
+  outline: none;
 }
 .kracht-pstep__dot.is-active {
   background: var(--kps-card-fg, #ffffff);
@@ -95,6 +105,9 @@
   transform: scale(1.15);
 }
 
+/* ==========================================================================
+   Labels (also clickable)
+   ========================================================================== */
 .kracht-pstep__labels {
   list-style: none;
   margin: 0 0 1.5rem;
@@ -106,7 +119,21 @@
   position: relative;
   z-index: 1;
 }
+.kracht-pstep__label-li {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
 .kracht-pstep__label {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0.25rem 0.4rem;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
@@ -115,6 +142,15 @@
   font-size: 0.8rem;
   line-height: 1.2;
   opacity: 0.7;
+  transition: opacity 0.15s ease;
+  border-radius: 6px;
+}
+.kracht-pstep__label:hover {
+  opacity: 0.95;
+}
+.kracht-pstep__label:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
 }
 .kracht-pstep__label.is-active { opacity: 1; }
 .kracht-pstep__label-num {
@@ -131,12 +167,20 @@
   font-size: 0.85rem;
 }
 
-.kracht-pstep__active {
+/* ==========================================================================
+   Panels (only the active one is visible)
+   ========================================================================== */
+.kracht-pstep__panels {
   position: relative;
   z-index: 1;
+}
+.kracht-pstep__panel {
+  display: none;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
+.kracht-pstep__panel.is-active { display: block; }
+
 .kracht-pstep__active-eyebrow {
   display: inline-block;
   font-size: 0.65rem;
@@ -163,6 +207,9 @@
 .kracht-pstep__active-body p:last-child { margin: 0; }
 .kracht-pstep__active-body strong { font-weight: 700; }
 
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 @media (max-width: 900px) {
   .kracht-pstep__grid {
     grid-template-columns: 1fr;
