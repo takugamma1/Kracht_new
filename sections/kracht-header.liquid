@@ -128,7 +128,11 @@
       </a>
 
       <button class="kracht-header__hamburger" type="button" aria-label="Menu openen" aria-expanded="false" data-kracht-drawer-open>
-        <span></span><span></span><span></span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
       </button>
     </div>
   </div>
@@ -139,13 +143,6 @@
   <div class="kracht-drawer__overlay" data-kracht-drawer-close></div>
   <aside class="kracht-drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
     <div class="kracht-drawer__head">
-      <a class="kracht-header__brand kracht-header__brand--drawer" href="{{ routes.root_url }}">
-        {%- if use_logo_image -%}
-          <img src="{{ section.settings.logo | image_url: width: 240 }}" alt="{{ shop.name }}" width="120" height="auto">
-        {%- else -%}
-          <span class="kracht-header__logo-text">{{ logo_text }}<span class="kracht-header__logo-plus" aria-hidden="true">{% render 'kracht-plus' %}</span></span>
-        {%- endif -%}
-      </a>
       <button class="kracht-drawer__close" type="button" aria-label="Menu sluiten" data-kracht-drawer-close>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
       </button>

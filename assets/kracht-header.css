@@ -180,6 +180,8 @@
 /* Hamburger */
 .kracht-header__hamburger {
   display: none;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   border: 0;
   width: 40px;
@@ -187,17 +189,8 @@
   padding: 0;
   cursor: pointer;
   color: inherit;
-  position: relative;
 }
-.kracht-header__hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  margin: 5px auto;
-  background: currentColor;
-  border-radius: 2px;
-  transition: var(--kracht-trans);
-}
+.kracht-header__hamburger svg { display: block; }
 
 /* Drawer */
 .kracht-drawer {
@@ -236,8 +229,8 @@
 .kracht-drawer__head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 1.5rem;
+  justify-content: flex-end;
+  padding: 1rem 1rem;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
 }
 .kracht-drawer__close {
