@@ -13,7 +13,7 @@
       "type": "kracht-split-hero",
       "name": "Kracht — Split Hero",
       "settings": {
-        "show_breadcrumbs": true,
+        "show_breadcrumbs": false,
         "breadcrumbs": "Home / Collecties / Trainingen / Samenwerken vanuit Kracht",
         "tag": "",
         "heading": "<p>Samen­werken<br/>vanuit <em>Kracht.</em></p>",
