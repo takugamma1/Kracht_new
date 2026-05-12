@@ -1,0 +1,160 @@
+.kracht-trrows {
+  background: var(--ktr-bg, #ffffff);
+  color: var(--ktr-fg, #000000);
+  padding-block: var(--ktr-pad-y, 80px);
+  font-family: var(--kracht-font-body);
+}
+
+.kracht-trrows__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+.kracht-trrows__title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ktr-fg);
+}
+.kracht-trrows__title p { margin: 0; }
+.kracht-trrows__title strong { font-weight: 800; }
+.kracht-trrows__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-trrows__intro {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--kracht-grijs);
+  max-width: 360px;
+}
+.kracht-trrows__intro p { margin: 0; }
+
+.kracht-trrows__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ==========================================================================
+   One row = a single rounded card with image on one side + content on the other
+   ========================================================================== */
+.kracht-trrow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  background: var(--ktr-card-bg, #ffffff);
+  border-radius: var(--ktr-radius, 12px);
+  overflow: hidden;
+  border: 1px solid var(--kracht-grijs-border);
+}
+.kracht-trrow--reverse { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+.kracht-trrow--reverse .kracht-trrow__media { order: 2; }
+.kracht-trrow--reverse .kracht-trrow__body  { order: 1; }
+
+.kracht-trrow__media {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  background: linear-gradient(135deg, #e8e8eb, #cfcfd3);
+  overflow: hidden;
+}
+.kracht-trrow__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.kracht-trrow__img--ph { background: inherit; }
+
+.kracht-trrow__tag {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  font-size: 0.65rem;
+  padding: 0.3rem 0.55rem;
+  letter-spacing: 0.04em;
+}
+
+.kracht-trrow__body {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.kracht-trrow__eyebrow {
+  margin: 0;
+  color: var(--kracht-blauw);
+}
+
+.kracht-trrow__title {
+  font-family: var(--kracht-font-heading);
+  font-weight: 800;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ktr-fg);
+}
+.kracht-trrow__desc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #2a2a2a;
+  margin: 0;
+}
+
+.kracht-trrow__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 0.25rem;
+  border-top: 1px dashed var(--kracht-grijs-border);
+}
+.kracht-trrow__meta-item dt {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--kracht-grijs);
+  margin: 0;
+  font-weight: 500;
+}
+.kracht-trrow__meta-item dd {
+  margin: 0.25rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ktr-fg);
+  line-height: 1.2;
+}
+
+.kracht-trrow__cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-top: 0.75rem;
+}
+.kracht-trrow__link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ktr-fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+}
+.kracht-trrow__link:hover { opacity: 1; color: var(--ktr-fg); }
+
+@media (max-width: 900px) {
+  .kracht-trrows__head { grid-template-columns: 1fr; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; }
+  .kracht-trrows__intro { max-width: none; }
+  .kracht-trrow,
+  .kracht-trrow--reverse { grid-template-columns: 1fr; }
+  .kracht-trrow--reverse .kracht-trrow__media,
+  .kracht-trrow--reverse .kracht-trrow__body { order: initial; }
+  .kracht-trrow__media { aspect-ratio: 16 / 11; }
+}
