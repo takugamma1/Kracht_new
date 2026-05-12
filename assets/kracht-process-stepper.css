@@ -179,7 +179,13 @@
   padding-top: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
-.kracht-pstep__panel.is-active { display: block; }
+.kracht-pstep__panel.is-active {
+  display: block;
+  animation: kracht-fade-in var(--kracht-trans-slow, 320ms) ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kracht-pstep__panel.is-active { animation: none; }
+}
 
 .kracht-pstep__active-eyebrow {
   display: inline-block;

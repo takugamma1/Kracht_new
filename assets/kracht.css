@@ -51,6 +51,8 @@
 
   /* Transitions */
   --kracht-trans: 200ms ease;
+  --kracht-trans-slow: 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  --kracht-trans-drawer: 360ms cubic-bezier(0.22, 0.61, 0.36, 1);
 
   /* Branded Kracht "+" / cross shape, used as a CSS mask so currentColor controls fill.
      Two equivalents are available:
@@ -363,4 +365,33 @@
 }
 [class*="kracht-section"] :is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--kracht-font-heading);
+}
+
+/* ==========================================================================
+   Reveal animation — used by accordions, dropdowns, and any element that
+   appears/disappears via class toggle or [open] attribute. Soft + slow.
+   ========================================================================== */
+@keyframes kracht-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes kracht-fade-in-soft {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Apply a slow fade to anything tagged .kracht-reveal — escape hatch for
+   one-off elements that don't have their own opacity transition. */
+.kracht-reveal {
+  animation: kracht-fade-in var(--kracht-trans-slow) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kracht-reveal { animation: none; }
 }

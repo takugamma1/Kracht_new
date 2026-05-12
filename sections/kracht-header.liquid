@@ -205,7 +205,7 @@
     };
     const close = () => {
       drawer.classList.remove('is-open');
-      setTimeout(() => { drawer.hidden = true; }, 250);
+      setTimeout(() => { drawer.hidden = true; }, 380);
       document.documentElement.style.overflow = '';
       opens.forEach(b => b.setAttribute('aria-expanded', 'false'));
     };
@@ -245,7 +245,7 @@
         } else {
           p.classList.remove('is-open');
           /* delay hidden so the fade-out transition can play */
-          setTimeout(() => { if (!p.classList.contains('is-open')) p.hidden = true; }, 180);
+          setTimeout(() => { if (!p.classList.contains('is-open')) p.hidden = true; }, 340);
         }
       });
       activeId = id;

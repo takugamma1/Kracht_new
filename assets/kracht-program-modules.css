@@ -75,7 +75,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform var(--kracht-trans);
+  transition: transform var(--kracht-trans-slow, 320ms) cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .kracht-prog__module[open] .kracht-prog__chev {
   transform: rotate(45deg);
@@ -83,6 +83,13 @@
 
 .kracht-prog__panel {
   padding: 0 1.1rem 1.25rem 1.1rem;
+}
+.kracht-prog__module[open] .kracht-prog__panel {
+  animation: kracht-fade-in var(--kracht-trans-slow, 320ms) ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kracht-prog__module[open] .kracht-prog__panel,
+  .kracht-prog__chev { animation: none; transition: none; }
 }
 .kracht-prog__body {
   font-size: 0.88rem;

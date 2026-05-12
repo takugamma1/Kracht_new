@@ -208,7 +208,7 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   opacity: 0;
-  transition: opacity 250ms ease;
+  transition: opacity var(--kracht-trans-drawer, 360ms) ease;
 }
 .kracht-drawer.is-open .kracht-drawer__overlay { opacity: 1; }
 .kracht-drawer__panel {
@@ -221,10 +221,14 @@
   display: flex;
   flex-direction: column;
   transform: translateX(100%);
-  transition: transform 250ms ease;
+  transition: transform var(--kracht-trans-drawer, 360ms) cubic-bezier(0.22, 0.61, 0.36, 1);
   font-family: var(--kracht-font-body);
 }
 .kracht-drawer.is-open .kracht-drawer__panel { transform: translateX(0); }
+@media (prefers-reduced-motion: reduce) {
+  .kracht-drawer__panel,
+  .kracht-drawer__overlay { transition: none; }
+}
 
 .kracht-drawer__head {
   display: flex;
@@ -301,14 +305,19 @@
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
   z-index: 60;
   opacity: 0;
-  transform: translateY(-6px);
-  transition: opacity 160ms ease, transform 160ms ease;
+  transform: translateY(-8px);
+  transition:
+    opacity var(--kracht-trans-slow, 320ms) ease,
+    transform var(--kracht-trans-slow, 320ms) ease;
   pointer-events: none;
 }
 .kracht-mega.is-open {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kracht-mega { transition: none; transform: none; }
 }
 
 .kracht-mega__inner {

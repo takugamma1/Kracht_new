@@ -63,7 +63,13 @@
   line-height: 1.65;
   color: #2a2a2a;
 }
-.kracht-pinfo__panel.is-active { display: block; }
+.kracht-pinfo__panel.is-active {
+  display: block;
+  animation: kracht-fade-in var(--kracht-trans-slow, 320ms) ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kracht-pinfo__panel.is-active { animation: none; }
+}
 .kracht-pinfo__panel p { margin: 0 0 1rem; }
 .kracht-pinfo__panel strong { color: var(--kpi-fg); font-weight: 600; }
 .kracht-pinfo__panel ul { padding-left: 0; list-style: none; margin: 0; }
