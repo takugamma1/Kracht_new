@@ -18,7 +18,12 @@
 }
 
 .kracht-cta--dark .kracht-cta__card { background: #000; }
-.kracht-cta--blue .kracht-cta__card { background: var(--kracht-blauw); }
+.kracht-cta--blue .kracht-cta__card {
+  /* Diagonal gradient from light cyan-blue (top-left) to deeper saturated blue (bottom-right) */
+  background: linear-gradient(135deg, #2bb1ec 0%, #009de1 55%, #1763f8 100%);
+  /* Leave room on the left for the big "+" decoration */
+  padding-left: clamp(7rem, 16vw, 13rem);
+}
 .kracht-cta--light .kracht-cta__card { background: var(--kracht-grijs-licht); }
 
 .kracht-cta__card::after {
@@ -33,7 +38,7 @@
   transform: translateY(-50%);
   pointer-events: none;
 }
-.kracht-cta--blue .kracht-cta__card::after { background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%); }
+.kracht-cta--blue .kracht-cta__card::after { background: radial-gradient(circle, rgba(255, 255, 255, 0.10) 0%, transparent 70%); }
 .kracht-cta--light .kracht-cta__card::after { display: none; }
 
 .kracht-cta__plus {
@@ -47,7 +52,17 @@
   display: none;
 }
 .kracht-cta__plus svg { display: block; }
-.kracht-cta--blue .kracht-cta__plus { color: var(--kracht-zwart); display: block; }
+
+/* Blue variant: big black "+" vertically centered on the left, fully visible */
+.kracht-cta--blue .kracht-cta__plus {
+  display: block;
+  color: var(--kracht-zwart);
+  left: clamp(1rem, 4vw, 2.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(4.5rem, 10vw, 9rem);
+  opacity: 1;
+}
 
 .kracht-cta__body {
   position: relative;
