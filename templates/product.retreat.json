@@ -14,7 +14,7 @@
       "name": "Kracht — Retreat Hero",
       "settings": {
         "show_breadcrumbs": true,
-        "tag": "Retraite",
+        "tag": "",
         "heading": "",
         "subheading": "",
         "show_plus": false,
@@ -360,7 +360,9 @@
             "name": "Anouk de Wit",
             "role": "Lead Host",
             "subline": "Org. Psychologie · 14+ jaar",
-            "contact": ""
+            "email": "",
+            "phone": "",
+            "whatsapp": ""
           }
         },
         "t2": {
@@ -370,7 +372,9 @@
             "name": "Rob van Houten",
             "role": "Body & Breath",
             "subline": "Yogadocent",
-            "contact": ""
+            "email": "",
+            "phone": "",
+            "whatsapp": ""
           }
         },
         "t3": {
@@ -380,16 +384,19 @@
             "name": "Mark Janssen",
             "role": "Local Host",
             "subline": "Specialist Andalusië · 9+ jaar",
-            "contact": ""
+            "email": "",
+            "phone": "",
+            "whatsapp": ""
           }
         },
         "cta": {
           "type": "cta",
           "settings": {
             "heading": "Past deze retraite bij jou?",
-            "body": "Twee weken voorafgaand aan vertrek begeleiden we je verder. Geen verkooppraatje — wel een match check.",
+            "body": "<p>Twee weken voorafgaand aan vertrek begeleiden we je verder. Geen verkooppraatje — wel een match check.</p>",
             "button_label": "Plan kennismaking",
-            "button_link": ""
+            "button_link": "",
+            "open_in_new_tab": true
           }
         }
       },
@@ -403,8 +410,14 @@
       "settings": {
         "eyebrow": "",
         "heading": "<p>Begeleid door <strong>Anouk & Rob.</strong></p>",
+        "bottom_button_label": "Maak kennis met ons team",
+        "bottom_button_link": "",
         "background_color": "#ffffff",
         "text_color": "#000000",
+        "card_color": "#000000",
+        "card_text_color": "#ffffff",
+        "cta_color_from": "#2bb1ec",
+        "cta_color_to": "#009de1",
         "padding_y": 80,
         "radius": 12
       }
