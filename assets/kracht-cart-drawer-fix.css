@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Kracht — mobile fixes for Horizon's cart drawer
+   The Horizon default math (.cart-drawer__content { height: calc(100% - var(--header-height)) })
+   assumes the drawer's internal header is the same height as the page header,
+   which on mobile leaves a gap or causes the items list to overflow under the
+   summary. These overrides switch to a flex column so the items grow, the
+   summary sticks to the bottom, and the close button is a proper tap target.
+   ========================================================================== */
+
+@media (max-width: 749px) {
+  /* Dialog itself: dynamic viewport height so iOS toolbar resize doesn't crop */
+  .cart-drawer__dialog,
+  .cart-drawer__dialog:modal {
+    width: 100%;
+    max-width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-left: 0;
+    border-radius: 0;
+  }
+
+  /* Replace Horizon's percentage math with flex layout so header + content +
+     summary all participate naturally. */
+  .cart-drawer__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .cart-drawer__header {
+    flex: 0 0 auto;
+    position: relative;        /* sticky was being computed against the dialog and added a tiny gap */
+    top: auto;
+    padding: 0.85rem 1rem 0.65rem;
+  }
+
+  .cart-drawer__content {
+    height: auto;
+    flex: 1 1 auto;
+    min-height: 0;             /* allow the flex child to shrink so its inner scrolls */
+    overflow: hidden;          /* scrolling happens on .cart-drawer__items */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cart-drawer__items {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-inline: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  /* Empty state — fill remaining space + centre */
+  .cart-drawer--empty .cart-drawer__inner {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .cart-drawer--empty .cart-drawer__header {
+    padding-bottom: 0;
+  }
+
+  /* Summary: stick to the bottom of the drawer + respect iPhone home indicator */
+  .cart-drawer__summary {
+    --cart-drawer-summary-padding: 1rem;
+    flex: 0 0 auto;
+    position: sticky;
+    bottom: 0;
+    margin-top: 0;
+    mask-image: none;          /* mask-image fade was clipping the buttons on small screens */
+    padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0));
+    border-top: var(--style-border-width) solid var(--color-border);
+  }
+
+  /* The "go to checkout" / "view cart" buttons stack full-width on mobile */
+  .cart-drawer__summary .button,
+  .cart-drawer__summary .cart-actions,
+  .cart-drawer__summary form {
+    width: 100%;
+  }
+  .cart-drawer__summary .button {
+    min-height: 48px;          /* comfortable tap target */
+  }
+
+  /* Heading sits flush + a bit smaller on tight viewports */
+  .cart-drawer__heading {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  /* Bigger tap target + visible focus ring on the close button */
+  .cart-drawer__close-button {
+    width: 44px;
+    height: 44px;
+    margin-right: 0;
+    top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Each line item shouldn't be ridiculously padded on a 360px screen */
+  .cart-drawer__items .cart-items__table-row {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+}
