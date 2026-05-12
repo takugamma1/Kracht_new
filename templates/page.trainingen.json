@@ -13,7 +13,7 @@
       "type": "kracht-split-hero",
       "name": "Kracht — Split Hero",
       "settings": {
-        "show_breadcrumbs": true,
+        "show_breadcrumbs": false,
         "breadcrumbs": "Home / Collecties / Trainingen",
         "tag": "",
         "heading": "<p>Voor <strong>groei</strong> heb je <em>Kracht</em> nodig.</p>",
