@@ -93,8 +93,8 @@
         "m1": {
           "type": "module",
           "settings": {
-            "day_label": "DAG 1 — OCHTEND",
-            "title": "Module 01 — De basis: vertrouwen & openheid",
+            "day_label": "DAG 1 - OCHTEND",
+            "title": "Module 01 - De basis: vertrouwen & openheid",
             "body": "<p>We starten met kennismaken op niveau — niet alleen wat je doet, maar wat je drijft. Aan de hand van het Kracht drijfverenmodel brengen we in kaart waar de energie van het team zit, en waar het schuurt.</p>",
             "bullets": "Persoonlijke drijfverentest per deelnemer\nTeamprofiel analyse: waar vullen we elkaar aan, waar overlappen we?\nEerste diepgaande feedback­oefening in subgroepen\nKernvraag: 'Wat heeft dit team van mij nodig?'"
           }
@@ -102,7 +102,7 @@
         "m2": {
           "type": "module",
           "settings": {
-            "day_label": "DAG 1 — MIDDAG",
+            "day_label": "DAG 1 - MIDDAG",
             "title": "Module 02 — Conflict, schuring en de zachte landing",
             "body": "<p>Hoe blijf je in verbinding wanneer het schuurt? We oefenen met lastige gesprekken in een veilige setting.</p>",
             "bullets": ""
@@ -111,7 +111,7 @@
         "m3": {
           "type": "module",
           "settings": {
-            "day_label": "DAG 2 — OCHTEND",
+            "day_label": "DAG 2 - OCHTEND",
             "title": "Module 03 — Verantwoordelijkheid & commitment",
             "body": "<p>Van afspraak naar afgesproken — gedeelde verantwoordelijkheid in de praktijk.</p>",
             "bullets": ""
@@ -120,7 +120,7 @@
         "m4": {
           "type": "module",
           "settings": {
-            "day_label": "DAG 2 — MIDDAG",
+            "day_label": "DAG 2 - MIDDAG",
             "title": "Module 04 — Het 30/60/90 actieplan",
             "body": "<p>Concreet vertalen naar wat je morgen doet, volgende maand en over 3 maanden.</p>",
             "bullets": ""
