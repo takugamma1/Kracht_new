@@ -32,6 +32,7 @@
         "c1": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Container.png",
             "eyebrow": "Essentials",
             "title": "T-shirts & Polos",
             "link": ""
@@ -40,6 +41,7 @@
         "c2": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/2_man_op_bouwplaats_kijkt_naar_gebouw.webp",
             "eyebrow": "Workwear",
             "title": "Helmen & Veiligheid",
             "link": ""
@@ -48,6 +50,7 @@
         "c3": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-05-13_at_12.01.10.png",
             "eyebrow": "Lifestyle",
             "title": "Accessoires",
             "link": ""
@@ -56,6 +59,7 @@
         "c4": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-05-13_at_12.01.57.png",
             "eyebrow": "Specials",
             "title": "Cadeaupakketten",
             "link": ""
@@ -181,7 +185,7 @@
         "lb2": {
           "type": "lookbook_card",
           "settings": {
-            "image": "shopify://shop_images/Background_7.png",
+            "image": "shopify://shop_images/1_man_en_vrouw_in_pak_lachend_naar_de_camera_1.webp",
             "eyebrow": "Office wear",
             "title": "Professioneel & stijlvol",
             "link": ""
@@ -199,7 +203,7 @@
         "lb4": {
           "type": "lookbook_card",
           "settings": {
-            "image": "shopify://shop_images/Background_8.png",
+            "image": "shopify://shop_images/pexels-olly-3973335_2.jpg",
             "eyebrow": "Padel & Sport",
             "title": "Samen winnen",
             "link": ""
