@@ -330,6 +330,7 @@
         "story_RCJPWm": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/pexels-rovshan-nazirli-691066883-17984670.jpg",
             "tag_label": "Team",
             "tag_date": "12 mei 2026",
             "title": "Hoe het Kracht team samen wint.",
@@ -340,6 +341,7 @@
         "story_wyWB6D": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/pexels-a-darmel-7710050.jpg",
             "tag_label": "Cultuur",
             "tag_date": "28 apr 2026",
             "title": "Werken vanuit Kracht — wat dat écht betekent.",
@@ -350,6 +352,7 @@
         "story_jJq3VH": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/pexels-yankrukov-7793653.jpg",
             "tag_label": "Stijl",
             "tag_date": "15 apr 2026",
             "title": "Van werkkleding tot lifestyle.",
@@ -360,6 +363,7 @@
         "story_NQ8KX8": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/de-kracht-van-samenwerken.webp",
             "tag_label": "Kandidaten",
             "tag_date": "12 mei 2026",
             "title": "Van een goede naar een betere baan.",
