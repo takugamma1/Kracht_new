@@ -30,6 +30,7 @@
         "meta3_value": "6 — 15 pers.",
         "meta4_label": "Investering",
         "meta4_value": "€1.250 p.p.",
+        "image": "shopify://shop_images/pexels-mizunokozuki-12903273.jpg",
         "show_plus": false,
         "image_radius": 4,
         "background_color": "#000000",
@@ -178,6 +179,7 @@
       ],
       "name": "Kracht — Trainer Profile",
       "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-05-13_193920.png",
         "show_plus": false,
         "eyebrow": "",
         "name": "<p>Maak kennis met <strong>Mark.</strong></p>",
