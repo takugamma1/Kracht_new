@@ -16,6 +16,7 @@
         "show_breadcrumbs": true,
         "heading": "<p>Even <strong>stilstaan,</strong> om écht <em>vooruit</em> te komen.</p>",
         "subheading": "<p>Twee dagen, vijf dagen of zeven — onze retraites zijn <strong>geen vakantie en geen training</strong>. Het is de plek waar leiders, teams en professionals tot rust komen, scherp nadenken en met <strong>nieuwe richting</strong> terugkomen.</p>",
+        "image": "shopify://shop_images/pexels-tolgaaslanturk-13695885.jpg",
         "overlay_opacity": 35,
         "text_color": "#ffffff",
         "min_height": 560
@@ -41,6 +42,7 @@
         "r1": {
           "type": "retreat",
           "settings": {
+            "image": "shopify://shop_images/Untitled_design_9.png",
             "location": "Nederland · IJsselmeer",
             "code": "",
             "title": "<p>Op <strong>Koers.</strong></p>",
@@ -59,6 +61,7 @@
         "r2": {
           "type": "retreat",
           "settings": {
+            "image": "shopify://shop_images/Untitled_design_10.png",
             "location": "Spanje · Andalusië",
             "code": "",
             "title": "<p>Reset in <strong>Spanje.</strong></p>",
