@@ -17,6 +17,7 @@
         "tag": "",
         "heading": "",
         "subheading": "",
+        "image": "shopify://shop_images/Untitled_design_10.png",
         "show_plus": false,
         "meta1_label": "Begeleid door",
         "meta1_value": "Anouk & Rob van Houten",
@@ -58,6 +59,7 @@
         "d1": {
           "type": "day",
           "settings": {
+            "image": "shopify://shop_images/Untitled_design_10_07fb56a2-92c1-49d5-ae68-2226ed0f9aee.png",
             "day_label": "Dag 01 — Zondag — Aankomst",
             "image_title": "<p>Welkom in <strong>Andalusië.</strong></p>",
             "panel_eyebrow": "Aankomst",
@@ -71,6 +73,7 @@
         "d2": {
           "type": "day",
           "settings": {
+            "image": "shopify://shop_images/pexels-anastasiakasina-20259101.jpg",
             "day_label": "Dag 02 — Maandag — Verstilling",
             "image_title": "<p>Tijd om te <strong>landen.</strong></p>",
             "panel_eyebrow": "Verstilling",
@@ -84,6 +87,7 @@
         "d3": {
           "type": "day",
           "settings": {
+            "image": "shopify://shop_images/pexels-gangansidd-16735431.jpg",
             "day_label": "Dag 03 — Dinsdag — Drijfveren",
             "image_title": "<p>Wat drijft <strong>jou écht?</strong></p>",
             "panel_eyebrow": "Drijfveren",
@@ -97,6 +101,7 @@
         "d4": {
           "type": "day",
           "settings": {
+            "image": "shopify://shop_images/pexels-karolina-2031292-9629644.jpg",
             "day_label": "Dag 04 — Woensdag — Drijfveren",
             "image_title": "<p>Een dag in de <strong>bergen.</strong></p>",
             "panel_eyebrow": "Beweging",
@@ -110,6 +115,7 @@
         "d5": {
           "type": "day",
           "settings": {
+            "image": "shopify://shop_images/Image_3_372183ee-d577-4f39-a380-37b7b414440f.png",
             "day_label": "Dag 05 — Donderdag — Keuzes",
             "image_title": "<p>Van inzicht naar <strong>richting.</strong></p>",
             "panel_eyebrow": "Richting",
@@ -123,6 +129,7 @@
         "d6": {
           "type": "day",
           "settings": {
+            "image": "shopify://shop_images/pexels-danieljschwarz-34257471.jpg",
             "day_label": "Dag 06 — Vrijdag — Verbinding",
             "image_title": "<p>Het lokale <strong>leven in.</strong></p>",
             "panel_eyebrow": "Verbinding",
@@ -136,6 +143,7 @@
         "d7": {
           "type": "day",
           "settings": {
+            "image": "shopify://shop_images/pexels-migsg-2421020.jpg",
             "day_label": "Dag 07 — Vrijdag — Vertrek",
             "image_title": "<p>Mee naar <strong>huis.</strong></p>",
             "panel_eyebrow": "Vertrek",
@@ -174,30 +182,35 @@
         "g1": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Untitled_design_10_07fb56a2-92c1-49d5-ae68-2226ed0f9aee.png",
             "span": "large"
           }
         },
         "g2": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Image_1_b1dda74c-8131-4c92-93f4-3ffdcd8d26e5.png",
             "span": "medium"
           }
         },
         "g3": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Image_2_7ef89068-326e-4d9d-8a79-c6d876a83002.png",
             "span": "small"
           }
         },
         "g4": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/Image_3_372183ee-d577-4f39-a380-37b7b414440f.png",
             "span": "medium"
           }
         },
         "g5": {
           "type": "photo",
           "settings": {
+            "image": "shopify://shop_images/pexels-anastasiakasina-20259101.jpg",
             "span": "small"
           }
         }
@@ -356,7 +369,7 @@
         "t1": {
           "type": "trainer",
           "settings": {
-            "image": "shopify://shop_images/Background_1.png",
+            "image": "shopify://shop_images/pexels-rovshan-nazirli-691066883-17984670.jpg",
             "name": "Anouk de Wit",
             "role": "Lead Host",
             "subline": "Org. Psychologie · 14+ jaar",
@@ -368,7 +381,7 @@
         "t2": {
           "type": "trainer",
           "settings": {
-            "image": "shopify://shop_images/Background_1.png",
+            "image": "shopify://shop_images/pexels-helenalopes-27086922.jpg",
             "name": "Rob van Houten",
             "role": "Body & Breath",
             "subline": "Yogadocent",
@@ -380,7 +393,7 @@
         "t3": {
           "type": "trainer",
           "settings": {
-            "image": "shopify://shop_images/Background_1.png",
+            "image": "shopify://shop_images/pexels-bymuratisikofficial-31112196.jpg",
             "name": "Mark Janssen",
             "role": "Local Host",
             "subline": "Specialist Andalusië · 9+ jaar",

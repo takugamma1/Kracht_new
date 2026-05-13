@@ -290,8 +290,8 @@
       "settings": {
         "eyebrow": "",
         "heading": "<p>Meer dan <strong>merch.</strong></p>",
-        "show_arrows": true,
-        "show_progress": true,
+        "show_arrows": false,
+        "show_progress": false,
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 64,
