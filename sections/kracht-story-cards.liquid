@@ -8,6 +8,7 @@
     --kst-fg: {{ section.settings.text_color }};
     --kst-pad-y: {{ section.settings.padding_y }}px;
     --kst-radius: {{ section.settings.radius }}px;
+    --kst-grad: {{ section.settings.gradient_strength | divided_by: 100.0 }};
   "
   data-stories
   data-total="{{ section.blocks.size }}"
@@ -205,6 +206,17 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "range",
+      "id": "gradient_strength",
+      "label": "Card gradient strength",
+      "info": "How dark the bottom of each card becomes. 100 = full black panel, 0 = no overlay.",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
     }
   ],
   "blocks": [

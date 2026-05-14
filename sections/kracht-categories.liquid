@@ -7,6 +7,7 @@
     --kct-fg: {{ section.settings.text_color }};
     --kct-pad-y: {{ section.settings.padding_y }}px;
     --kct-radius: {{ section.settings.card_radius }}px;
+    --kct-grad: {{ section.settings.gradient_strength | divided_by: 100.0 }};
   "
 >
   <div class="kracht-categories__inner kracht-container">
@@ -116,6 +117,17 @@
       "step": 1,
       "unit": "px",
       "default": 12
+    },
+    {
+      "type": "range",
+      "id": "gradient_strength",
+      "label": "Card gradient strength",
+      "info": "How dark the bottom of each card becomes. 100 = full black panel, 0 = no overlay.",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
     }
   ],
   "blocks": [

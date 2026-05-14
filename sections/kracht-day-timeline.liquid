@@ -8,6 +8,7 @@
     --kdt-card-bg: {{ section.settings.card_color }};
     --kdt-pad-y: {{ section.settings.padding_y }}px;
     --kdt-radius: {{ section.settings.radius }}px;
+    --kdt-grad: {{ section.settings.gradient_strength | divided_by: 100.0 }};
   "
 >
   <div class="kracht-dtime__inner kracht-container">
@@ -120,7 +121,8 @@
     { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#000000" },
     { "type": "color", "id": "card_color",       "label": "Panel background", "default": "#f4f4f5" },
     { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 80 },
-    { "type": "range", "id": "radius",           "label": "Card radius",      "min": 0, "max": 32, "step": 1, "unit": "px", "default": 12 }
+    { "type": "range", "id": "radius",           "label": "Card radius",      "min": 0, "max": 32, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "gradient_strength","label": "Image gradient strength", "info": "How dark the bottom of each day's image becomes. 100 = full black panel, 0 = no overlay.", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 100 }
   ],
   "blocks": [
     {
