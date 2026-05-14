@@ -104,7 +104,7 @@
             "meta3_label": "Voor",
             "meta3_value": "Teams 6 — 15 pers.",
             "button1_label": "Meer informatie",
-            "button1_link": "",
+            "button1_link": "shopify://pages/samenwerken-vanuit-kracht",
             "button2_label": "Download brochure",
             "button2_link": ""
           }
@@ -124,7 +124,7 @@
             "meta3_label": "Voor",
             "meta3_value": "Managers & leads",
             "button1_label": "Meer informatie",
-            "button1_link": "",
+            "button1_link": "shopify://pages/samenwerken-vanuit-kracht",
             "button2_label": "Download brochure",
             "button2_link": ""
           }
@@ -144,7 +144,7 @@
             "meta3_label": "Voor",
             "meta3_value": "Iedere professional",
             "button1_label": "Meer informatie",
-            "button1_link": "",
+            "button1_link": "shopify://pages/samenwerken-vanuit-kracht",
             "button2_label": "Download brochure",
             "button2_link": ""
           }
@@ -229,7 +229,7 @@
         "card_meta": "Ted Maters · Architect",
         "card_quote": "<p>\"Hoe Ted via Kracht terechtkwam bij het architectenbureau van zijn <strong>oud-docent.</strong>\"</p>",
         "card_cta": "Lees meer",
-        "card_cta_link": "",
+        "card_cta_link": "shopify://pages/samenwerken-vanuit-kracht",
         "show_dots": true,
         "background_color": "#ffffff",
         "text_color": "#000000",
@@ -251,7 +251,7 @@
             "description": "Investeer in jezelf en zet de volgende stap in je carrière. Onze trainingen sluiten aan bij wat je écht nodig hebt — geen ballast, alleen wat werkt.",
             "checklist": "Vergroot je impact in de praktijk\nOntwikkel concrete vaardigheden direct toepasbaar\nBouw aan een krachtig persoonlijk profiel\nWerk met specialisten uit de technische sector",
             "button1_label": "Bekijk individuele trainingen",
-            "button1_link": "",
+            "button1_link": "shopify://pages/trainingen",
             "button2_label": "",
             "button2_link": ""
           }
@@ -267,7 +267,7 @@
             "description": "Een sterk team begint bij investeren in mensen. Vergroot productiviteit, behoud talent en bouw aan een cultuur waarin iedereen wint — vanuit Kracht.",
             "checklist": "Meetbare resultaten en duidelijke ROI\nVerhoog medewerkertevredenheid en retentie\nIn-company, flexibel in te plannen\nMaatwerk programma's voor jouw organisatie",
             "button1_label": "Vraag een offerte aan",
-            "button1_link": "",
+            "button1_link": "shopify://pages/trainingen",
             "button2_label": "",
             "button2_link": ""
           }
