@@ -20,10 +20,13 @@
 .kracht-hero__overlay {
   position: absolute;
   inset: 0;
+  /* The bottom of the hero reads as a solid black "panel" that the
+     headline + buttons sit on, with the image fading down into it. */
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, var(--khh-overlay, 0.65)) 0%,
-    rgba(0, 0, 0, calc(var(--khh-overlay, 0.65) * 0.55)) 40%,
+    rgba(0, 0, 0, 0.97) 0%,
+    rgba(0, 0, 0, 0.92) 30%,
+    rgba(0, 0, 0, calc(0.55 * (var(--khh-overlay, 0.65) + 0.4))) 55%,
     rgba(0, 0, 0, 0) 85%
   );
   z-index: 1;
