@@ -298,7 +298,7 @@
       ],
       "name": "Kracht — FAQ",
       "settings": {
-        "eyebrow": "Veelgestelde vragen",
+        "eyebrow": "",
         "heading": "<p>Goed om te <strong>weten.</strong></p>",
         "background_color": "#000000",
         "text_color": "#ffffff",
