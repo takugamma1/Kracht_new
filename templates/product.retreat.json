@@ -535,7 +535,7 @@
         "heading": "<p>Wat we vaak <strong>gevraagd krijgen.</strong></p>",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "answer_color": "#cfcfd1",
+        "answer_color": "#000000",
         "card_color": "#ffffff",
         "card_open_color": "#fbfbfb",
         "accent_color": "#009de1",
