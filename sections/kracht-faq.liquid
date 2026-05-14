@@ -5,6 +5,10 @@
   style="
     --kf-bg: {{ section.settings.background_color }};
     --kf-fg: {{ section.settings.text_color }};
+    --kf-answer: {{ section.settings.answer_color }};
+    --kf-card-bg: {{ section.settings.card_color }};
+    --kf-card-open-bg: {{ section.settings.card_open_color }};
+    --kf-accent: {{ section.settings.accent_color }};
     --kf-pad-y: {{ section.settings.padding_y }}px;
   "
 >
@@ -66,14 +70,38 @@
     {
       "type": "color",
       "id": "background_color",
-      "label": "Background color",
+      "label": "Section background",
       "default": "#000000"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text color",
+      "label": "Heading + question text",
       "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "answer_color",
+      "label": "Answer text (dropdown content)",
+      "default": "#cfcfd1"
+    },
+    {
+      "type": "color",
+      "id": "card_color",
+      "label": "FAQ card background",
+      "default": "#141416"
+    },
+    {
+      "type": "color",
+      "id": "card_open_color",
+      "label": "FAQ card background — when open",
+      "default": "#0f1418"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Number badge + chevron color",
+      "default": "#009de1"
     },
     {
       "type": "range",

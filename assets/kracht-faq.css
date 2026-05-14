@@ -25,12 +25,12 @@
 }
 
 .kracht-faq__item {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--kf-card-bg, rgba(255, 255, 255, 0.04));
   border-radius: 8px;
   overflow: hidden;
   transition: background var(--kracht-trans);
 }
-.kracht-faq__item[open] { background: rgba(0, 157, 225, 0.08); }
+.kracht-faq__item[open] { background: var(--kf-card-open-bg, rgba(0, 157, 225, 0.08)); }
 
 .kracht-faq__summary {
   list-style: none;
@@ -44,7 +44,7 @@
 .kracht-faq__summary::-webkit-details-marker { display: none; }
 
 .kracht-faq__num {
-  background: var(--kracht-blauw);
+  background: var(--kf-accent, var(--kracht-blauw));
   color: var(--kracht-wit);
   padding: 0.35rem 0.55rem;
   border-radius: 5px;
@@ -67,7 +67,7 @@
   font-family: var(--kracht-font-heading);
   font-weight: 900;
   font-size: 1.4rem;
-  color: var(--kracht-blauw);
+  color: var(--kf-accent, var(--kracht-blauw));
   line-height: 0.7;
   width: 28px;
   height: 28px;
@@ -86,8 +86,14 @@
   padding: 0 1.1rem 1.25rem 4rem;
   font-size: 0.88rem;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--kf-answer, rgba(255, 255, 255, 0.78));
 }
+.kracht-faq__panel a {
+  color: var(--kf-accent, var(--kracht-blauw));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.kracht-faq__panel strong { color: inherit; font-weight: 700; }
 .kracht-faq__item[open] .kracht-faq__panel {
   animation: kracht-fade-in var(--kracht-trans-slow, 320ms) ease-out both;
 }
