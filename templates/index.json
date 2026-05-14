@@ -23,7 +23,7 @@
         "button1_label": "Bekijk de collectie",
         "button1_link": "shopify://collections/frontpage",
         "button2_label": "Populaire items",
-        "button2_link": ""
+        "button2_link": "shopify://collections/frontpage"
       }
     },
     "categories": {
