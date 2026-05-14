@@ -1,6 +1,7 @@
 {{ 'kracht-story-cards.css' | asset_url | stylesheet_tag }}
 
 <section
+  id="kracht-stories-{{ section.id }}"
   class="kracht-stories"
   style="
     --kst-bg: {{ section.settings.background_color }};
@@ -8,6 +9,8 @@
     --kst-pad-y: {{ section.settings.padding_y }}px;
     --kst-radius: {{ section.settings.radius }}px;
   "
+  data-stories
+  data-total="{{ section.blocks.size }}"
 >
   <div class="kracht-stories__inner kracht-container">
     <div class="kracht-section__head">
@@ -68,9 +71,9 @@
     </div>
 
     {%- if section.settings.show_progress -%}
-      <div class="kracht-stories__progress">
-        <span class="kracht-stories__bar"><span class="kracht-stories__bar-fill"></span></span>
-        <span class="kracht-stories__count">01 / {{ section.blocks.size }}</span>
+      <div class="kracht-stories__progress" data-stories-progress>
+        <span class="kracht-stories__bar"><span class="kracht-stories__bar-fill" data-stories-fill></span></span>
+        <span class="kracht-stories__count" data-stories-count>01 / {{ section.blocks.size | prepend: '0' | slice: -2, 2 }}</span>
       </div>
     {%- endif -%}
   </div>
@@ -78,18 +81,57 @@
 
 <script>
   (() => {
-    const root = document.currentScript.previousElementSibling;
+    const root = document.getElementById('kracht-stories-{{ section.id }}');
     if (!root) return;
     const rail = root.querySelector('.kracht-stories__rail');
-    if (!rail) return;
-    root.querySelectorAll('.kracht-stories__arrow').forEach(b => {
+    const track = root.querySelector('.kracht-stories__track');
+    if (!rail || !track) return;
+
+    const arrows = root.querySelectorAll('.kracht-stories__arrow');
+    const fill = root.querySelector('[data-stories-fill]');
+    const count = root.querySelector('[data-stories-count]');
+    const total = parseInt(root.dataset.total || '0', 10);
+
+    const pad2 = (n) => String(n).padStart(2, '0');
+
+    function cardStep() {
+      const first = root.querySelector('.kracht-story-card');
+      if (!first) return rail.clientWidth;
+      const gap = parseFloat(getComputedStyle(track).columnGap || '0') || 0;
+      return first.offsetWidth + gap;
+    }
+
+    function maxScroll() {
+      return Math.max(0, rail.scrollWidth - rail.clientWidth);
+    }
+
+    function isScrollable() {
+      return maxScroll() > 2;
+    }
+
+    function update() {
+      const max = maxScroll();
+      const pct = max > 0 ? Math.min(100, Math.max(0, (rail.scrollLeft / max) * 100)) : 100;
+      if (fill) fill.style.setProperty('--kst-progress', pct + '%');
+      if (count && total > 0) {
+        const step = cardStep();
+        const current = step > 0 ? Math.min(total, Math.max(1, Math.round(rail.scrollLeft / step) + 1)) : 1;
+        count.textContent = pad2(current) + ' / ' + pad2(total);
+      }
+      /* Hide controls entirely when there's nothing to scroll. */
+      root.classList.toggle('is-static', !isScrollable());
+    }
+
+    arrows.forEach((b) => {
       b.addEventListener('click', () => {
-        const dir = parseInt(b.dataset.dir, 10);
-        const card = root.querySelector('.kracht-story-card');
-        const w = card ? card.offsetWidth + 16 : 320;
-        rail.scrollBy({ left: dir * w, behavior: 'smooth' });
+        const dir = parseInt(b.dataset.dir, 10) || 1;
+        rail.scrollBy({ left: dir * cardStep(), behavior: 'smooth' });
       });
     });
+
+    rail.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener('resize', () => requestAnimationFrame(update));
+    update();
   })();
 </script>
 

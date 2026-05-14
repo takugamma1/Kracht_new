@@ -40,16 +40,19 @@
 .kracht-stories__rail {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  margin-inline: calc(-1 * clamp(1rem, 4vw, 2.5rem));
-  padding-inline: clamp(1rem, 4vw, 2.5rem);
   scrollbar-width: none;
+  margin-inline: calc(-1 * clamp(1rem, 4vw, 2.5rem));
+  padding: 0.25rem clamp(1rem, 4vw, 2.5rem) 1rem;
 }
 .kracht-stories__rail::-webkit-scrollbar { display: none; }
 .kracht-stories__track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(0, 1fr);
+  /* Show ~3 cards per viewport on desktop; remaining cards live to the right
+     and the rail scrolls horizontally with snap. */
+  grid-auto-columns: calc((100% - 2rem) / 3);
   gap: 1rem;
 }
 
@@ -140,24 +143,38 @@
 }
 .kracht-stories__bar-fill {
   position: absolute;
-  inset: 0 60% 0 0;
+  inset: 0 auto 0 0;
+  width: var(--kst-progress, 33%);
   background: var(--kracht-blauw);
   border-radius: 2px;
+  transition: width var(--kracht-trans-slow, 280ms) ease-out;
 }
 .kracht-stories__count {
   font-size: 0.75rem;
   color: var(--kracht-grijs);
   font-weight: 500;
+  min-width: 56px;
+  text-align: right;
 }
 
-/* Default 3 cols on desktop */
-@media (min-width: 901px) {
-  .kracht-stories__track { grid-auto-columns: minmax(0, 1fr); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* When all cards fit (no scroll needed) — hide carousel UI */
+.kracht-stories.is-static .kracht-stories__nav,
+.kracht-stories.is-static .kracht-stories__progress { display: none; }
+
+@media (max-width: 1024px) {
+  /* 2 cards visible at a time on tablet */
+  .kracht-stories__track { grid-auto-columns: calc((100% - 1rem) / 2); }
 }
-@media (max-width: 900px) {
-  .kracht-stories__track { grid-auto-columns: 70%; }
+@media (max-width: 720px) {
+  /* 1 card with a small peek on phone */
+  .kracht-stories__track { grid-auto-columns: 80%; }
   .kracht-stories__nav { display: none; }
 }
 @media (max-width: 480px) {
-  .kracht-stories__track { grid-auto-columns: 85%; }
+  .kracht-stories__track { grid-auto-columns: 86%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kracht-stories__rail { scroll-behavior: auto; }
+  .kracht-stories__bar-fill { transition: none; }
 }
