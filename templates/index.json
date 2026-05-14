@@ -32,7 +32,7 @@
         "c1": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/Container.png",
+            "image": "shopify://shop_images/Screenshot_2026-05-13_at_12.02.57.png",
             "eyebrow": "Essentials",
             "title": "T-shirts & Polos",
             "link": ""
@@ -80,7 +80,8 @@
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 56,
-        "card_radius": 12
+        "card_radius": 12,
+        "gradient_strength": 75
       }
     },
     "values": {
@@ -224,7 +225,8 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 64,
-        "radius": 0
+        "radius": 0,
+        "gradient_strength": 100
       }
     },
     "newsletter": {
