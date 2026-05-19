@@ -49,7 +49,7 @@
       ],
       "name": "Kracht — Product Detail",
       "settings": {
-        "show_breadcrumbs": true,
+        "show_breadcrumbs": false,
         "eyebrow": "T-shirts · Essentials",
         "brand_prefix": "Kracht+",
         "show_new_tag": true,
@@ -206,7 +206,7 @@
       ],
       "name": "Kracht — Info Tabs",
       "settings": {
-        "eyebrow": "Productinformatie",
+        "eyebrow": "",
         "heading": "<p>Alles over de <strong>Team Tee.</strong></p>",
         "cta_label": "Bekijk de maatgids",
         "cta_link": "",
@@ -295,7 +295,8 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 64,
-        "radius": 0
+        "radius": 0,
+        "gradient_strength": 100
       }
     },
     "newsletter": {
