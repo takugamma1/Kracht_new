@@ -41,7 +41,7 @@
         "c2": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/2_man_op_bouwplaats_kijkt_naar_gebouw.webp",
+            "image": "shopify://shop_images/2_man_op_bouwplaats_kijkt_naar_gebouw.jpg",
             "eyebrow": "Workwear",
             "title": "Helmen & Veiligheid",
             "link": ""
@@ -186,7 +186,6 @@
         "lb2": {
           "type": "lookbook_card",
           "settings": {
-            "image": "shopify://shop_images/1_man_en_vrouw_in_pak_lachend_naar_de_camera_1.webp",
             "eyebrow": "Office wear",
             "title": "Professioneel & stijlvol",
             "link": ""
@@ -204,7 +203,6 @@
         "lb4": {
           "type": "lookbook_card",
           "settings": {
-            "image": "shopify://shop_images/01J9BR3KSM6Z6KENZXA1XD9TR3.webp",
             "eyebrow": "Padel & Sport",
             "title": "Samen winnen",
             "link": ""
