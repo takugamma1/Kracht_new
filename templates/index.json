@@ -186,6 +186,7 @@
         "lb2": {
           "type": "lookbook_card",
           "settings": {
+            "image": "shopify://shop_images/Background_7.png",
             "eyebrow": "Office wear",
             "title": "Professioneel & stijlvol",
             "link": ""
@@ -203,6 +204,7 @@
         "lb4": {
           "type": "lookbook_card",
           "settings": {
+            "image": "shopify://shop_images/01J9BR3KSM6Z6KENZXA1XD9TR3.jpg",
             "eyebrow": "Padel & Sport",
             "title": "Samen winnen",
             "link": ""
