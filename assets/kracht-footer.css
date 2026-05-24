@@ -1,25 +1,9 @@
 .kracht-footer {
   background: var(--kft-bg, #000000);
   color: var(--kft-fg, #ffffff);
-  padding-block: var(--kft-pad-y, 64px);
+  padding-block: var(--kft-pad-y, 80px) 0;
   font-family: var(--kracht-font-body);
   position: relative;
-}
-
-.kracht-footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-image: repeating-linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.18) 0,
-    rgba(255, 255, 255, 0.18) 4px,
-    transparent 4px,
-    transparent 8px
-  );
 }
 
 .kracht-footer__inner {
@@ -27,27 +11,36 @@
   z-index: 1;
 }
 
+/* ==========================================================================
+   4-column desktop grid — matches vanuitkracht.nl
+   ========================================================================== */
 .kracht-footer__grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 0.9fr;
-  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3.5rem;
   align-items: flex-start;
+  padding-bottom: 3rem;
 }
 
-.kracht-footer__col {}
-.kracht-footer__col--brand .kracht-footer__brand-text {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.85rem;
-  margin-top: 1rem;
-  max-width: 280px;
-  line-height: 1.55;
+.kracht-footer__col {
+  display: flex;
+  flex-direction: column;
 }
 
-.kracht-footer__logo { display: block; max-width: 160px; height: auto; }
+/* Brand column */
+.kracht-footer__col--brand { padding-top: 0.25rem; }
+.kracht-footer__brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  text-decoration: none;
+  color: inherit;
+}
+.kracht-footer__logo { display: block; max-width: 200px; height: auto; }
 .kracht-footer__logo-text {
   font-family: var(--kracht-font-heading);
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 2.25rem;
   letter-spacing: -0.02em;
   text-transform: lowercase;
   display: inline-flex;
@@ -62,49 +55,68 @@
   letter-spacing: 0.4em;
   text-transform: uppercase;
   opacity: 0.7;
-  margin-left: 0.4rem;
+  margin-left: 0.5rem;
   align-self: center;
 }
 
+/* Section column headings */
 .kracht-footer__col-title {
-  font-family: var(--kracht-font-body);
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-family: var(--kracht-font-heading);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.005em;
   margin: 0 0 1.25rem;
   color: var(--kft-muted, #ffffff);
-  letter-spacing: 0.02em;
 }
-.kracht-footer__col-title--mt { margin-top: 2rem; }
+.kracht-footer__col-title--mt { margin-top: 2.25rem; }
 
+/* Links list */
 .kracht-footer__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.6rem;
 }
+
+/* ==========================================================================
+   Animated underline on hover — fills from light blue to ocean blue
+   ========================================================================== */
 .kracht-footer__link {
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-  font-size: 0.9rem;
-  font-weight: 400;
+  position: relative;
   display: inline-block;
-  padding: 0.1rem 0;
-  transition: color var(--kracht-trans);
+  color: var(--kft-fg, #ffffff);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 0.05rem 0 0.15rem;
+  background-image: linear-gradient(
+    to right,
+    var(--kft-hover-from, #2bb1ec) 0%,
+    var(--kft-hover-to,   #005a85) 100%
+  );
+  background-repeat: no-repeat;
+  background-position: left 100%;
+  background-size: 0% 1.5px;
+  transition: background-size var(--kracht-trans-slow, 320ms) cubic-bezier(0.22, 0.61, 0.36, 1),
+              color var(--kracht-trans, 200ms) ease;
 }
-.kracht-footer__link:hover { color: var(--kracht-blauw); }
-
-.kracht-footer__col--socials .kracht-footer__link {
-  display: block;
-  margin-bottom: 0.4rem;
+.kracht-footer__link:hover,
+.kracht-footer__link:focus-visible {
+  color: var(--kft-fg, #ffffff);
+  background-size: 100% 1.5px;
+  outline: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kracht-footer__link { transition: none; }
 }
 
+/* Socials */
 .kracht-footer__socials {
   display: flex;
-  gap: 0.85rem;
+  gap: 1.1rem;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -113,49 +125,93 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  transition: color var(--kracht-trans);
+  width: 26px;
+  height: 26px;
+  transition: color var(--kracht-trans), transform var(--kracht-trans);
 }
-.kracht-footer__social:hover { color: var(--kracht-blauw); }
+.kracht-footer__social:hover {
+  color: var(--kracht-blauw);
+  transform: translateY(-1px);
+}
+.kracht-footer__social svg { display: block; }
 
+/* Certificates */
 .kracht-footer__certs {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 }
+.kracht-footer__cert-link {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity var(--kracht-trans);
+}
+.kracht-footer__cert-link:hover { opacity: 0.7; }
 .kracht-footer__cert {
   display: block;
-  height: 36px;
+  height: 56px;
   width: auto;
   filter: brightness(0) invert(1);
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
-.kracht-footer__hr {
-  border: 0;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.12);
-  margin: 3rem 0 1.25rem;
-}
+/* ==========================================================================
+   Bottom bar
+   ========================================================================== */
 .kracht-footer__bottom {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  padding-block: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
 }
-.kracht-footer__bottom p { margin: 0; }
+.kracht-footer__copyright { margin: 0; }
+.kracht-footer__legal {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.kracht-footer__link--small { font-size: 0.85rem; }
 
+/* ==========================================================================
+   Responsive — tablet collapses to 2 columns; phone stacks fully, left-aligned
+   ========================================================================== */
 @media (max-width: 1024px) {
   .kracht-footer__grid {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem;
   }
   .kracht-footer__col--brand { grid-column: 1 / -1; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
+  .kracht-footer {
+    padding-block: 3rem 0;
+  }
   .kracht-footer__grid {
     grid-template-columns: 1fr;
-    row-gap: 1.75rem;
+    gap: 2rem;
+    text-align: left;
+    padding-bottom: 2rem;
+  }
+  .kracht-footer__col,
+  .kracht-footer__col--brand {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .kracht-footer__col-title { margin-bottom: 0.75rem; }
+  .kracht-footer__col-title--mt { margin-top: 1.5rem; }
+  .kracht-footer__logo-text { font-size: 1.85rem; }
+
+  .kracht-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding-block: 1.25rem;
   }
 }

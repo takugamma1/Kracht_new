@@ -1,130 +1,220 @@
 {{ 'kracht-footer.css' | asset_url | stylesheet_tag }}
 
+{%- assign quick_menu = linklists[section.settings.quick_menu] -%}
+{%- assign general_menu = linklists[section.settings.general_menu] -%}
+
+{%- comment -%}
+  Helper: render a list of "Label|URL" lines from a textarea. Falls back to # when no URL.
+{%- endcomment -%}
+
 <footer
   class="kracht-footer"
   style="
     --kft-bg: {{ section.settings.background_color }};
     --kft-fg: {{ section.settings.text_color }};
     --kft-muted: {{ section.settings.muted_color }};
+    --kft-hover-from: {{ section.settings.hover_color_from }};
+    --kft-hover-to:   {{ section.settings.hover_color_to }};
     --kft-pad-y: {{ section.settings.padding_y }}px;
   "
 >
   <div class="kracht-footer__inner kracht-container">
     <div class="kracht-footer__grid">
-      <!-- Brand -->
+
+      {%- comment -%} Column 1 — brand wordmark {%- endcomment -%}
       <div class="kracht-footer__col kracht-footer__col--brand">
-        {%- if section.settings.logo != blank -%}
-          <img
-            src="{{ section.settings.logo | image_url: width: 320 }}"
-            alt="{{ shop.name }}"
-            width="160"
-            height="auto"
-            class="kracht-footer__logo"
-            loading="lazy"
-          >
-        {%- else -%}
-          <div class="kracht-footer__logo-text">
-            {{ section.settings.logo_text }}<span class="kracht-footer__logo-plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
+        <a href="{{ routes.root_url }}" class="kracht-footer__brand" aria-label="{{ shop.name }}">
+          {%- if section.settings.logo != blank -%}
+            <img
+              src="{{ section.settings.logo | image_url: width: 360 }}"
+              alt="{{ shop.name }}"
+              width="160"
+              height="auto"
+              class="kracht-footer__logo"
+              loading="lazy"
+            >
+          {%- else -%}
+            <span class="kracht-footer__logo-text">
+              {{ section.settings.logo_text }}<span class="kracht-footer__logo-plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
+            </span>
             {%- if section.settings.logo_subtitle != blank -%}
               <span class="kracht-footer__logo-sub">{{ section.settings.logo_subtitle }}</span>
             {%- endif -%}
+          {%- endif -%}
+        </a>
+      </div>
+
+      {%- comment -%} Column 2 — Snel naar + Contactgegevens {%- endcomment -%}
+      <div class="kracht-footer__col">
+        {%- if section.settings.quick_heading != blank -%}
+          <h3 class="kracht-footer__col-title">{{ section.settings.quick_heading }}</h3>
+          {%- if quick_menu != blank -%}
+            <ul class="kracht-footer__list">
+              {%- for link in quick_menu.links -%}
+                <li><a href="{{ link.url }}" class="kracht-footer__link">{{ link.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          {%- elsif section.settings.quick_links_text != blank -%}
+            <ul class="kracht-footer__list">
+              {%- assign lines = section.settings.quick_links_text | newline_to_br | split: '<br />' -%}
+              {%- for line in lines -%}
+                {%- assign trimmed = line | strip -%}
+                {%- if trimmed != blank -%}
+                  {%- assign parts = trimmed | split: '|' -%}
+                  {%- assign lbl = parts[0] | strip -%}
+                  {%- assign url = parts[1] | default: '#' | strip -%}
+                  <li><a href="{{ url }}" class="kracht-footer__link">{{ lbl }}</a></li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.contact_heading != blank and section.settings.phone != blank or section.settings.email != blank -%}
+          <h3 class="kracht-footer__col-title kracht-footer__col-title--mt">{{ section.settings.contact_heading }}</h3>
+          <ul class="kracht-footer__list">
+            {%- if section.settings.phone != blank -%}
+              <li><a href="tel:{{ section.settings.phone | replace: ' ', '' }}" class="kracht-footer__link">{{ section.settings.phone }}</a></li>
+            {%- endif -%}
+            {%- if section.settings.email != blank -%}
+              <li><a href="mailto:{{ section.settings.email }}" class="kracht-footer__link">{{ section.settings.email }}</a></li>
+            {%- endif -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Column 3 — Algemeen + Niet gevonden wat je zocht? {%- endcomment -%}
+      <div class="kracht-footer__col">
+        {%- if section.settings.general_heading != blank -%}
+          <h3 class="kracht-footer__col-title">{{ section.settings.general_heading }}</h3>
+          {%- if general_menu != blank -%}
+            <ul class="kracht-footer__list">
+              {%- for link in general_menu.links -%}
+                <li><a href="{{ link.url }}" class="kracht-footer__link">{{ link.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          {%- elsif section.settings.general_links_text != blank -%}
+            <ul class="kracht-footer__list">
+              {%- assign lines2 = section.settings.general_links_text | newline_to_br | split: '<br />' -%}
+              {%- for line in lines2 -%}
+                {%- assign trimmed2 = line | strip -%}
+                {%- if trimmed2 != blank -%}
+                  {%- assign parts2 = trimmed2 | split: '|' -%}
+                  {%- assign lbl2 = parts2[0] | strip -%}
+                  {%- assign url2 = parts2[1] | default: '#' | strip -%}
+                  <li><a href="{{ url2 }}" class="kracht-footer__link">{{ lbl2 }}</a></li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.lost_heading != blank -%}
+          <h3 class="kracht-footer__col-title kracht-footer__col-title--mt">{{ section.settings.lost_heading }}</h3>
+          <ul class="kracht-footer__list">
+            {%- if section.settings.lost_link_1_label != blank -%}
+              <li><a href="{{ section.settings.lost_link_1_url | default: '#' }}" class="kracht-footer__link">{{ section.settings.lost_link_1_label }}</a></li>
+            {%- endif -%}
+            {%- if section.settings.lost_link_2_label != blank -%}
+              <li><a href="{{ section.settings.lost_link_2_url | default: '#' }}" class="kracht-footer__link">{{ section.settings.lost_link_2_label }}</a></li>
+            {%- endif -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Column 4 — Socials + Certificaten {%- endcomment -%}
+      <div class="kracht-footer__col">
+        {%- if section.settings.socials_heading != blank -%}
+          <h3 class="kracht-footer__col-title">{{ section.settings.socials_heading }}</h3>
+          <div class="kracht-footer__socials">
+            {%- if section.settings.linkedin != blank -%}
+              <a href="{{ section.settings.linkedin }}" aria-label="LinkedIn" class="kracht-footer__social" target="_blank" rel="noopener">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3v-11zM10 9.5h3.8v1.6h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V20.5h-4v-4.7c0-1.12-.02-2.57-1.57-2.57-1.57 0-1.81 1.22-1.81 2.49V20.5H10v-11z"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.instagram != blank -%}
+              <a href="{{ section.settings.instagram }}" aria-label="Instagram" class="kracht-footer__social" target="_blank" rel="noopener">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.facebook != blank -%}
+              <a href="{{ section.settings.facebook }}" aria-label="Facebook" class="kracht-footer__social" target="_blank" rel="noopener">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H8v-2.9h2.4v-2.2c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.6.7-1.6 1.5v1.9h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.spotify != blank -%}
+              <a href="{{ section.settings.spotify }}" aria-label="Spotify" class="kracht-footer__social" target="_blank" rel="noopener">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.7.7 0 0 1-1 .2c-2.7-1.7-6.2-2-10.3-1.1a.7.7 0 0 1-.3-1.4c4.4-1 8.2-.6 11.2 1.3.3.2.4.6.2 1zm1.2-2.6a.9.9 0 0 1-1.2.3c-3.1-1.9-7.8-2.4-11.5-1.3a.9.9 0 1 1-.5-1.7c4.2-1.3 9.4-.7 13 1.5.4.3.5.8.2 1.2zm.1-2.7c-3.7-2.2-9.8-2.4-13.3-1.3a1 1 0 1 1-.6-2c4.1-1.2 10.7-1 15 1.6a1 1 0 0 1-1 1.7z"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.youtube != blank -%}
+              <a href="{{ section.settings.youtube }}" aria-label="YouTube" class="kracht-footer__social" target="_blank" rel="noopener">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.7-.9-2.2-1C16.6 4 12 4 12 4s-4.6 0-7.9.2c-.5 0-1.4 0-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.4v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.6 0 7.9-.2c.5 0 1.4 0 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-2-.2-3.9-.2-3.9zM9.7 14.7v-5.4l5.6 2.7-5.6 2.7z"/></svg>
+              </a>
+            {%- endif -%}
+            {%- if section.settings.tiktok != blank -%}
+              <a href="{{ section.settings.tiktok }}" aria-label="TikTok" class="kracht-footer__social" target="_blank" rel="noopener">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.6 6.6a4.6 4.6 0 0 1-3.4-1.5 4.6 4.6 0 0 1-1.2-2.6h-3.3v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .6.1.9.2v-3.4a6 6 0 1 0 5 5.9V8.5a8 8 0 0 0 4.6 1.4V6.6z"/></svg>
+              </a>
+            {%- endif -%}
           </div>
         {%- endif -%}
-        {%- if section.settings.brand_text != blank -%}
-          <p class="kracht-footer__brand-text">{{ section.settings.brand_text }}</p>
+
+        {%- if section.settings.cert_heading != blank -%}
+          <h3 class="kracht-footer__col-title kracht-footer__col-title--mt">{{ section.settings.cert_heading }}</h3>
+          <div class="kracht-footer__certs">
+            {%- if section.settings.cert_image_1 != blank -%}
+              {%- if section.settings.cert_link_1 != blank -%}
+                <a href="{{ section.settings.cert_link_1 }}" target="_blank" rel="noopener" class="kracht-footer__cert-link">
+                  <img src="{{ section.settings.cert_image_1 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
+                </a>
+              {%- else -%}
+                <img src="{{ section.settings.cert_image_1 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
+              {%- endif -%}
+            {%- endif -%}
+            {%- if section.settings.cert_image_2 != blank -%}
+              {%- if section.settings.cert_link_2 != blank -%}
+                <a href="{{ section.settings.cert_link_2 }}" target="_blank" rel="noopener" class="kracht-footer__cert-link">
+                  <img src="{{ section.settings.cert_image_2 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
+                </a>
+              {%- else -%}
+                <img src="{{ section.settings.cert_image_2 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
+              {%- endif -%}
+            {%- endif -%}
+            {%- if section.settings.cert_image_3 != blank -%}
+              {%- if section.settings.cert_link_3 != blank -%}
+                <a href="{{ section.settings.cert_link_3 }}" target="_blank" rel="noopener" class="kracht-footer__cert-link">
+                  <img src="{{ section.settings.cert_image_3 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
+                </a>
+              {%- else -%}
+                <img src="{{ section.settings.cert_image_3 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
+              {%- endif -%}
+            {%- endif -%}
+          </div>
         {%- endif -%}
       </div>
 
-      <!-- Menu blocks -->
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'menu' -%}
-            <div class="kracht-footer__col" {{ block.shopify_attributes }}>
-              <h3 class="kracht-footer__col-title">{{ block.settings.heading }}</h3>
-              {%- assign blk_menu = linklists[block.settings.menu] -%}
-              {%- if blk_menu != blank -%}
-                <ul class="kracht-footer__list">
-                  {%- for link in blk_menu.links -%}
-                    <li><a href="{{ link.url }}" class="kracht-footer__link">{{ link.title }}</a></li>
-                  {%- endfor -%}
-                </ul>
-              {%- elsif block.settings.links_text != blank -%}
-                <ul class="kracht-footer__list">
-                  {%- assign lines = block.settings.links_text | newline_to_br | split: '<br />' -%}
-                  {%- for line in lines -%}
-                    {%- assign trimmed = line | strip -%}
-                    {%- if trimmed != blank -%}
-                      <li><a href="#" class="kracht-footer__link">{{ trimmed }}</a></li>
-                    {%- endif -%}
-                  {%- endfor -%}
-                </ul>
-              {%- endif -%}
-            </div>
-
-          {%- when 'contact' -%}
-            <div class="kracht-footer__col" {{ block.shopify_attributes }}>
-              <h3 class="kracht-footer__col-title">{{ block.settings.heading }}</h3>
-              {%- if block.settings.phone != blank -%}
-                <a href="tel:{{ block.settings.phone | replace: ' ', '' }}" class="kracht-footer__link">
-                  {{ block.settings.phone }}
-                </a>
-              {%- endif -%}
-              {%- if block.settings.email != blank -%}
-                <a href="mailto:{{ block.settings.email }}" class="kracht-footer__link">
-                  {{ block.settings.email }}
-                </a>
-              {%- endif -%}
-            </div>
-
-          {%- when 'socials' -%}
-            <div class="kracht-footer__col kracht-footer__col--socials" {{ block.shopify_attributes }}>
-              <h3 class="kracht-footer__col-title">{{ block.settings.heading }}</h3>
-              <div class="kracht-footer__socials">
-                {%- if block.settings.linkedin != blank -%}
-                  <a href="{{ block.settings.linkedin }}" aria-label="LinkedIn" class="kracht-footer__social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3v-11zM10 9.5h3.8v1.6h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V20.5h-4v-4.7c0-1.12-.02-2.57-1.57-2.57-1.57 0-1.81 1.22-1.81 2.49V20.5H10v-11z"/></svg></a>
-                {%- endif -%}
-                {%- if block.settings.instagram != blank -%}
-                  <a href="{{ block.settings.instagram }}" aria-label="Instagram" class="kracht-footer__social"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
-                {%- endif -%}
-                {%- if block.settings.facebook != blank -%}
-                  <a href="{{ block.settings.facebook }}" aria-label="Facebook" class="kracht-footer__social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H8v-2.9h2.4v-2.2c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.6.7-1.6 1.5v1.9h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
-                {%- endif -%}
-                {%- if block.settings.spotify != blank -%}
-                  <a href="{{ block.settings.spotify }}" aria-label="Spotify" class="kracht-footer__social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.7.7 0 0 1-1 .2c-2.7-1.7-6.2-2-10.3-1.1a.7.7 0 0 1-.3-1.4c4.4-1 8.2-.6 11.2 1.3.3.2.4.6.2 1zm1.2-2.6a.9.9 0 0 1-1.2.3c-3.1-1.9-7.8-2.4-11.5-1.3a.9.9 0 1 1-.5-1.7c4.2-1.3 9.4-.7 13 1.5.4.3.5.8.2 1.2zm.1-2.7c-3.7-2.2-9.8-2.4-13.3-1.3a1 1 0 1 1-.6-2c4.1-1.2 10.7-1 15 1.6a1 1 0 0 1-1 1.7z"/></svg></a>
-                {%- endif -%}
-                {%- if block.settings.youtube != blank -%}
-                  <a href="{{ block.settings.youtube }}" aria-label="YouTube" class="kracht-footer__social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.7-.9-2.2-1C16.6 4 12 4 12 4s-4.6 0-7.9.2c-.5 0-1.4 0-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.4v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.6 0 7.9-.2c.5 0 1.4 0 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-2-.2-3.9-.2-3.9zM9.7 14.7v-5.4l5.6 2.7-5.6 2.7z"/></svg></a>
-                {%- endif -%}
-                {%- if block.settings.tiktok != blank -%}
-                  <a href="{{ block.settings.tiktok }}" aria-label="TikTok" class="kracht-footer__social"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.6a4.6 4.6 0 0 1-3.4-1.5 4.6 4.6 0 0 1-1.2-2.6h-3.3v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .6.1.9.2v-3.4a6 6 0 1 0 5 5.9V8.5a8 8 0 0 0 4.6 1.4V6.6z"/></svg></a>
-                {%- endif -%}
-              </div>
-
-              {%- if block.settings.cert_heading != blank -%}
-                <h3 class="kracht-footer__col-title kracht-footer__col-title--mt">{{ block.settings.cert_heading }}</h3>
-                <div class="kracht-footer__certs">
-                  {%- if block.settings.cert_image_1 != blank -%}
-                    <img src="{{ block.settings.cert_image_1 | image_url: width: 100 }}" alt="" class="kracht-footer__cert" loading="lazy">
-                  {%- endif -%}
-                  {%- if block.settings.cert_image_2 != blank -%}
-                    <img src="{{ block.settings.cert_image_2 | image_url: width: 100 }}" alt="" class="kracht-footer__cert" loading="lazy">
-                  {%- endif -%}
-                  {%- if block.settings.cert_image_3 != blank -%}
-                    <img src="{{ block.settings.cert_image_3 | image_url: width: 100 }}" alt="" class="kracht-footer__cert" loading="lazy">
-                  {%- endif -%}
-                </div>
-              {%- endif -%}
-            </div>
-        {%- endcase -%}
-      {%- endfor -%}
     </div>
 
-    {% if section.settings.show_bottom_bar %}
-      <hr class="kracht-footer__hr" />
+    {%- if section.settings.show_bottom_bar -%}
       <div class="kracht-footer__bottom">
-        <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}{% if section.settings.bottom_text != blank %} · {{ section.settings.bottom_text }}{% endif %}</p>
+        <p class="kracht-footer__copyright">
+          {%- if section.settings.copyright_text != blank -%}
+            {{ section.settings.copyright_text }}
+          {%- else -%}
+            {{ shop.name }} © {{ 'now' | date: '%Y' }}
+          {%- endif -%}
+        </p>
+        <div class="kracht-footer__legal">
+          {%- if section.settings.privacy_label != blank -%}
+            <a href="{{ section.settings.privacy_url | default: '#' }}" class="kracht-footer__link kracht-footer__link--small">{{ section.settings.privacy_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.cookie_label != blank -%}
+            <a href="{{ section.settings.cookie_url | default: '#' }}" class="kracht-footer__link kracht-footer__link--small">{{ section.settings.cookie_label }}</a>
+          {%- endif -%}
+        </div>
       </div>
-    {% endif %}
+    {%- endif -%}
   </div>
 </footer>
 
@@ -133,174 +223,67 @@
   "name": "Kracht — Footer",
   "tag": "section",
   "class": "kracht-footer-section",
-  "enabled_on": {
-    "groups": ["footer"]
-  },
+  "enabled_on": { "groups": ["footer"] },
   "settings": [
-    {
-      "type": "header",
-      "content": "Brand"
-    },
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo image"
-    },
-    {
-      "type": "text",
-      "id": "logo_text",
-      "label": "Logo text",
-      "default": "kracht"
-    },
-    {
-      "type": "text",
-      "id": "logo_subtitle",
-      "label": "Logo subtitle",
-      "default": "recruitment"
-    },
-    {
-      "type": "textarea",
-      "id": "brand_text",
-      "label": "Brand description"
-    },
-    {
-      "type": "header",
-      "content": "Appearance"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "muted_color",
-      "label": "Muted/heading color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "range",
-      "id": "padding_y",
-      "label": "Vertical padding",
-      "min": 32,
-      "max": 120,
-      "step": 4,
-      "unit": "px",
-      "default": 64
-    },
-    {
-      "type": "header",
-      "content": "Bottom bar"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_bottom_bar",
-      "label": "Show bottom copyright bar",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "bottom_text",
-      "label": "Extra text",
-      "default": "Alle rechten voorbehouden"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "menu",
-      "name": "Menu column",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Snel naar"
-        },
-        {
-          "type": "link_list",
-          "id": "menu",
-          "label": "Menu (preferred)"
-        },
-        {
-          "type": "textarea",
-          "id": "links_text",
-          "label": "Or: text links (one per line)",
-          "info": "Used only if no menu is set."
-        }
-      ]
-    },
-    {
-      "type": "contact",
-      "name": "Contact column",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Contactgegevens"
-        },
-        {
-          "type": "text",
-          "id": "phone",
-          "label": "Phone"
-        },
-        {
-          "type": "text",
-          "id": "email",
-          "label": "Email"
-        }
-      ]
-    },
-    {
-      "type": "socials",
-      "name": "Socials + Certs",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Socials"
-        },
-        { "type": "url", "id": "linkedin", "label": "LinkedIn URL" },
-        { "type": "url", "id": "instagram", "label": "Instagram URL" },
-        { "type": "url", "id": "facebook", "label": "Facebook URL" },
-        { "type": "url", "id": "spotify", "label": "Spotify URL" },
-        { "type": "url", "id": "youtube", "label": "YouTube URL" },
-        { "type": "url", "id": "tiktok", "label": "TikTok URL" },
-        {
-          "type": "header",
-          "content": "Certificates"
-        },
-        {
-          "type": "text",
-          "id": "cert_heading",
-          "label": "Certificates heading",
-          "default": "Certificaten"
-        },
-        { "type": "image_picker", "id": "cert_image_1", "label": "Certificate 1" },
-        { "type": "image_picker", "id": "cert_image_2", "label": "Certificate 2" },
-        { "type": "image_picker", "id": "cert_image_3", "label": "Certificate 3" }
-      ]
-    }
+    { "type": "header", "content": "Brand (column 1)" },
+    { "type": "image_picker", "id": "logo", "label": "Logo image" },
+    { "type": "text", "id": "logo_text", "label": "Logo text", "default": "kracht" },
+    { "type": "text", "id": "logo_subtitle", "label": "Logo subtitle", "default": "recruitment" },
+
+    { "type": "header", "content": "Column 2 — Snel naar + Contact" },
+    { "type": "text", "id": "quick_heading", "label": "Quick links heading", "default": "Snel naar" },
+    { "type": "link_list", "id": "quick_menu", "label": "Quick links menu (preferred)", "info": "Build the menu in Online Store → Navigation, then pick it here. Falls back to the text field below if blank." },
+    { "type": "textarea", "id": "quick_links_text", "label": "Quick links (fallback)", "info": "One per line. Format: Label | URL", "default": "Vacatures | https://vanuitkracht.nl/vacatures\nVoor professionals | https://vanuitkracht.nl/professionals\nVoor werkgevers | https://vanuitkracht.nl/werkgevers\nOver ons | https://vanuitkracht.nl/over-ons\nBlogs & kennisartikelen | https://vanuitkracht.nl/blogs\nContact | https://vanuitkracht.nl/contact" },
+    { "type": "text", "id": "contact_heading", "label": "Contact heading", "default": "Contactgegevens" },
+    { "type": "text", "id": "phone", "label": "Phone", "default": "026 702 44 90" },
+    { "type": "text", "id": "email", "label": "Email", "default": "werken@vanuitkracht.nl" },
+
+    { "type": "header", "content": "Column 3 — Algemeen + Niet gevonden" },
+    { "type": "text", "id": "general_heading", "label": "General heading", "default": "Algemeen" },
+    { "type": "link_list", "id": "general_menu", "label": "General menu (preferred)", "info": "Same fallback rule as Quick links." },
+    { "type": "textarea", "id": "general_links_text", "label": "General links (fallback)", "info": "One per line. Format: Label | URL", "default": "Algemene voorwaarden | https://vanuitkracht.nl/algemene-voorwaarden\nAntidiscriminatiebeleid | https://vanuitkracht.nl/anti-discriminatie-beleid\nCertificaten | https://vanuitkracht.nl/certificeringen\nDisclaimer | https://vanuitkracht.nl/disclaimer\nDownloads | https://vanuitkracht.nl/downloads" },
+    { "type": "text", "id": "lost_heading", "label": "\"Niet gevonden\" heading", "default": "Niet gevonden wat je zocht?" },
+    { "type": "text", "id": "lost_link_1_label", "label": "Lost link 1 label", "default": "werken.vanuitkracht.nl" },
+    { "type": "url",  "id": "lost_link_1_url",   "label": "Lost link 1 URL" },
+    { "type": "text", "id": "lost_link_2_label", "label": "Lost link 2 label", "default": "Kracht portal" },
+    { "type": "url",  "id": "lost_link_2_url",   "label": "Lost link 2 URL" },
+
+    { "type": "header", "content": "Column 4 — Socials" },
+    { "type": "text", "id": "socials_heading", "label": "Socials heading", "default": "Socials" },
+    { "type": "url", "id": "linkedin",  "label": "LinkedIn URL" },
+    { "type": "url", "id": "instagram", "label": "Instagram URL" },
+    { "type": "url", "id": "facebook",  "label": "Facebook URL" },
+    { "type": "url", "id": "spotify",   "label": "Spotify URL" },
+    { "type": "url", "id": "youtube",   "label": "YouTube URL" },
+    { "type": "url", "id": "tiktok",    "label": "TikTok URL" },
+
+    { "type": "header", "content": "Column 4 — Certificaten" },
+    { "type": "text", "id": "cert_heading", "label": "Certificates heading", "default": "Certificaten" },
+    { "type": "image_picker", "id": "cert_image_1", "label": "Certificate 1" },
+    { "type": "url",          "id": "cert_link_1",  "label": "Certificate 1 link" },
+    { "type": "image_picker", "id": "cert_image_2", "label": "Certificate 2" },
+    { "type": "url",          "id": "cert_link_2",  "label": "Certificate 2 link" },
+    { "type": "image_picker", "id": "cert_image_3", "label": "Certificate 3" },
+    { "type": "url",          "id": "cert_link_3",  "label": "Certificate 3 link" },
+
+    { "type": "header", "content": "Appearance" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#000000" },
+    { "type": "color", "id": "text_color",       "label": "Link / body color", "default": "#ffffff" },
+    { "type": "color", "id": "muted_color",      "label": "Heading color",   "default": "#ffffff" },
+    { "type": "color", "id": "hover_color_from", "label": "Hover underline — light blue",  "default": "#2bb1ec" },
+    { "type": "color", "id": "hover_color_to",   "label": "Hover underline — ocean blue",  "default": "#005a85" },
+    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 32, "max": 160, "step": 4, "unit": "px", "default": 80 },
+
+    { "type": "header", "content": "Bottom bar" },
+    { "type": "checkbox", "id": "show_bottom_bar", "label": "Show bottom bar", "default": true },
+    { "type": "text", "id": "copyright_text", "label": "Copyright text", "default": "Kracht Recruitment © 2026" },
+    { "type": "text", "id": "privacy_label",  "label": "Privacy label",  "default": "Privacy policy" },
+    { "type": "url",  "id": "privacy_url",    "label": "Privacy URL" },
+    { "type": "text", "id": "cookie_label",   "label": "Cookie label",   "default": "Cookiebeleid" },
+    { "type": "url",  "id": "cookie_url",     "label": "Cookie URL" }
   ],
   "presets": [
-    {
-      "name": "Kracht — Footer",
-      "blocks": [
-        { "type": "menu", "settings": { "heading": "Snel naar" } },
-        { "type": "menu", "settings": { "heading": "Algemeen" } },
-        { "type": "contact", "settings": { "heading": "Contactgegevens", "phone": "026 702 44 90", "email": "werken@vanuitkracht.nl" } },
-        { "type": "socials", "settings": { "heading": "Socials" } }
-      ]
-    }
+    { "name": "Kracht — Footer" }
   ]
 }
 {% endschema %}
