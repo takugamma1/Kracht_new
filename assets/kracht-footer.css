@@ -91,35 +91,48 @@
   font-size: 0.92rem;
   font-weight: 400;
   line-height: 1.4;
-  padding: 0.05rem 0 0.2rem;
-  /* TWO background layers stacked at the bottom of the link:
-       1. Brand-coloured "fill"  — animates from 0%→100% width on hover
-       2. Static "track"         — always visible, faint */
-  background-image:
-    linear-gradient(
-      to right,
-      var(--kft-hover-from, #2bb1ec) 0%,
-      var(--kft-hover-to,   #005a85) 100%
-    ),
-    linear-gradient(
-      to right,
-      var(--kft-track, rgba(255, 255, 255, 0.22)),
-      var(--kft-track, rgba(255, 255, 255, 0.22))
-    );
-  background-repeat: no-repeat;
-  background-position: left 100%, left 100%;
-  background-size: 0% 1.5px, 100% 1.5px;
-  transition: background-size var(--kracht-trans-slow, 320ms) cubic-bezier(0.22, 0.61, 0.36, 1),
-              color var(--kracht-trans, 200ms) ease;
+  padding: 0.05rem 0 0.35rem;
+  transition: color var(--kracht-trans, 200ms) ease;
 }
-.kracht-footer__link:hover,
-.kracht-footer__link:focus-visible {
-  color: var(--kft-fg, #ffffff);
-  background-size: 100% 1.5px, 100% 1.5px;
-  outline: none;
+/* Track — always visible (the empty progress bar) */
+.kracht-footer__link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--kft-track, #3a3a3c);
+  border-radius: 2px;
+  pointer-events: none;
 }
+/* Fill — brand-coloured progress that slides in on hover */
+.kracht-footer__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--kft-hover-from, #2bb1ec) 0%,
+    var(--kft-hover-to,   #005a85) 100%
+  );
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--kracht-trans-slow, 320ms) cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
+}
+.kracht-footer__link:hover::after,
+.kracht-footer__link:focus-visible::after {
+  transform: scaleX(1);
+}
+.kracht-footer__link:focus-visible { outline: none; }
 @media (prefers-reduced-motion: reduce) {
-  .kracht-footer__link { transition: none; }
+  .kracht-footer__link,
+  .kracht-footer__link::after { transition: none; }
 }
 
 /* Socials */
