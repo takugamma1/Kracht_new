@@ -14,8 +14,8 @@
       "name": "Kracht — Home Hero",
       "settings": {
         "image": "shopify://shop_images/model-in-neutral-colors-by-window.jpg",
-        "min_height": 640,
-        "overlay_opacity": 30,
+        "min_height": 700,
+        "overlay_opacity": 0,
         "text_color": "#ffffff",
         "tag": "Nieuwe collectie 2026",
         "heading": "<p>Draag je Kracht <em>met trots.</em></p>",
