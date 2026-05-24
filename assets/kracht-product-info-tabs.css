@@ -141,16 +141,32 @@
 
 @media (max-width: 900px) {
   .kracht-pinfo__layout { grid-template-columns: 1fr; gap: 2rem; }
+
+  /* Tabs become a clean horizontal carousel that scrolls inside the container —
+     no margin-inline breakout (that gets clipped by body's overflow-x:clip and
+     made the first tab look "half cut"). A subtle right-edge mask hints that
+     more tabs sit off-screen. */
+  .kracht-pinfo__tabs-wrap { position: relative; }
   .kracht-pinfo__tabs {
-    gap: 1.25rem;
+    gap: 1.5rem;
     overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     flex-wrap: nowrap;
-    margin-inline: calc(-1 * clamp(1rem, 4vw, 2.5rem));
-    padding-inline: clamp(1rem, 4vw, 2.5rem);
+    /* Fade the trailing edge so the user sees there's more to scroll. */
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 1.25rem), transparent 100%);
+            mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 1.25rem), transparent 100%);
+    /* Pad the right side so the active tab's underline isn't lost in the fade. */
+    padding-right: 1rem;
   }
   .kracht-pinfo__tabs::-webkit-scrollbar { display: none; }
-  .kracht-pinfo__tab { white-space: nowrap; flex-shrink: 0; }
+  .kracht-pinfo__tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.65rem 0;
+    font-size: 0.68rem;
+  }
 }
 @media (max-width: 600px) {
   .kracht-pinfo { padding-block: 2.5rem; }
