@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Footer",
@@ -6,30 +15,34 @@
       "type": "kracht-footer",
       "name": "Kracht — Footer",
       "settings": {
+        "logo": "shopify://shop_images/Kracht_Recruitment_Zwart.png",
         "logo_text": "kracht",
         "logo_subtitle": "recruitment",
         "quick_heading": "Snel naar",
-        "quick_menu": "footer-snel-naar",
+        "quick_menu": "",
         "quick_links_text": "Vacatures | https://vanuitkracht.nl/vacatures\nVoor professionals | https://vanuitkracht.nl/professionals\nVoor werkgevers | https://vanuitkracht.nl/werkgevers\nOver ons | https://vanuitkracht.nl/over-ons\nBlogs & kennisartikelen | https://vanuitkracht.nl/blogs\nContact | https://vanuitkracht.nl/contact",
         "contact_heading": "Contactgegevens",
         "phone": "026 702 44 90",
         "email": "werken@vanuitkracht.nl",
         "general_heading": "Algemeen",
-        "general_menu": "footer-algemeen",
+        "general_menu": "",
         "general_links_text": "Algemene voorwaarden | https://vanuitkracht.nl/algemene-voorwaarden\nAntidiscriminatiebeleid | https://vanuitkracht.nl/anti-discriminatie-beleid\nCertificaten | https://vanuitkracht.nl/certificeringen\nDisclaimer | https://vanuitkracht.nl/disclaimer\nDownloads | https://vanuitkracht.nl/downloads",
         "lost_heading": "Niet gevonden wat je zocht?",
         "lost_link_1_label": "werken.vanuitkracht.nl",
-        "lost_link_1_url": "https://werken.vanuitkracht.nl",
+        "lost_link_1_url": "",
         "lost_link_2_label": "Kracht portal",
-        "lost_link_2_url": "https://uren.vanuitkracht.nl/user/login",
+        "lost_link_2_url": "",
         "socials_heading": "Socials",
-        "linkedin": "https://www.linkedin.com/company/kracht-recruitment/",
-        "instagram": "https://www.instagram.com/vanuitkracht/",
-        "facebook": "https://www.facebook.com/krachtrecruitment/",
-        "spotify": "https://open.spotify.com/show/5b0O49QyqDSLpSeeJpWxID",
-        "youtube": "https://www.youtube.com/@KrachtRecruitment",
-        "tiktok": "https://www.tiktok.com/@vanuitkracht",
+        "linkedin": "",
+        "instagram": "",
+        "facebook": "",
+        "spotify": "",
+        "youtube": "",
+        "tiktok": "",
         "cert_heading": "Certificaten",
+        "cert_link_1": "",
+        "cert_link_2": "",
+        "cert_link_3": "",
         "background_color": "#000000",
         "text_color": "#ffffff",
         "muted_color": "#ffffff",
@@ -39,11 +52,13 @@
         "show_bottom_bar": true,
         "copyright_text": "Kracht Recruitment © 2026",
         "privacy_label": "Privacy policy",
-        "privacy_url": "/policies/privacy-policy",
+        "privacy_url": "",
         "cookie_label": "Cookiebeleid",
-        "cookie_url": "/policies/cookie-policy"
+        "cookie_url": ""
       }
     }
   },
-  "order": ["kracht_footer"]
+  "order": [
+    "kracht_footer"
+  ]
 }
