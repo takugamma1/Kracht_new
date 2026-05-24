@@ -101,7 +101,6 @@
   color: var(--kracht-blauw);
   margin: 0;
 }
-.kracht-frow-card__eyebrow::before { content: none; }
 .kracht-frow-card__title {
   font-family: var(--kracht-font-heading);
   font-weight: 400;

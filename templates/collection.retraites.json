@@ -54,7 +54,7 @@
             "meta3_label": "Plekken",
             "meta3_value": "Max. 8",
             "button_label": "Bekijk retraite",
-            "button_link": "",
+            "button_link": "/collections/retraites",
             "price": "<p>Vanaf <strong>€1.850</strong> p.p.</p>"
           }
         },
@@ -73,7 +73,7 @@
             "meta3_label": "Plekken",
             "meta3_value": "Max. 12",
             "button_label": "Bekijk retraite",
-            "button_link": "",
+            "button_link": "/products/reset-in-spanje",
             "price": "<p>Vanaf <strong>€3.450</strong> p.p.</p>"
           }
         }

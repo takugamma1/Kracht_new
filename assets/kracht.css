@@ -101,21 +101,27 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--kracht-blauw);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  display: inline-block;
   margin: 0 0 1rem;
 }
-.kracht-eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 0.95em;
-  height: calc(0.95em * 229 / 252);
-  background-color: currentColor;
-  -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
-          mask: var(--kracht-plus-mask) center / contain no-repeat;
-  flex: none;
-}
+
+/* ==========================================================================
+   Kracht brandbook type ramp (for reference — per-section rules should match):
+
+     H1     Work Sans 800   ~ 65 px  (clamp on web, 4rem-ish max)
+     H2     Work Sans 900   ~ 45 px  (clamp, 2.5–2.75rem max)
+     H3     Work Sans 700   ~ 26 px  (1.625rem)
+     H4     Work Sans 700   ~ 26 px  + brand blue (sub-of-H2 accent)
+     Body   Raleway 300     ~ 16 px  (1rem)
+     Small  Raleway 700     ~ 14 px  grijs / blauw
+     Buttons Raleway 600    ~ 16 px
+     Links   Raleway 600    ~ 16 px  underlined blauw
+
+   Italics are forbidden by the brandbook — em / i must always render upright.
+   Per-section rules can re-style em to bold + brand blue for emphasis.
+   ========================================================================== */
+[class*="kracht-"] em,
+[class*="kracht-"] i { font-style: normal; }
 
 /* ==========================================================================
    Headings

@@ -55,7 +55,8 @@
 .kracht-hero__title {
   font-family: var(--kracht-font-heading);
   font-weight: 400;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  /* Brandbook H1 = 65 px Work Sans 800 — clamp scales down on mobile */
+  font-size: clamp(2.25rem, 5.5vw, 4.0625rem);
   line-height: 1.02;
   letter-spacing: -0.02em;
   margin: 0;

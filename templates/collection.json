@@ -17,9 +17,9 @@
         "heading": "",
         "subheading": "<p><strong>Premium kleding</strong> voor het team dat altijd wint. Van werkkleding tot lifestyle — <strong>met trots gedragen</strong> door het hele Kracht team.</p>",
         "button1_label": "Bekijk de collectie",
-        "button1_link": "",
+        "button1_link": "/collections/all",
         "button2_label": "Nieuwe items",
-        "button2_link": "",
+        "button2_link": "/collections/all?sort_by=created-descending",
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 80
@@ -34,7 +34,7 @@
             "icon": "all",
             "label": "Alle kleding",
             "count": "48",
-            "link": ""
+            "link": "/collections/all"
           }
         },
         "t2": {
@@ -43,7 +43,7 @@
             "icon": "tshirt",
             "label": "T-shirts",
             "count": "14",
-            "link": ""
+            "link": "/collections/all"
           }
         },
         "t3": {
@@ -52,7 +52,7 @@
             "icon": "polo",
             "label": "Polo's",
             "count": "8",
-            "link": ""
+            "link": "/collections/all"
           }
         },
         "t4": {
@@ -61,7 +61,7 @@
             "icon": "hoodie",
             "label": "Hoodies",
             "count": "6",
-            "link": ""
+            "link": "/collections/all"
           }
         },
         "t5": {
@@ -70,7 +70,7 @@
             "icon": "jacket",
             "label": "Jassen",
             "count": "5",
-            "link": ""
+            "link": "/collections/all"
           }
         },
         "t6": {
@@ -79,7 +79,7 @@
             "icon": "workwear",
             "label": "Werkkleding",
             "count": "9",
-            "link": ""
+            "link": "/collections/all"
           }
         },
         "t7": {
@@ -88,7 +88,7 @@
             "icon": "pants",
             "label": "Broeken",
             "count": "4",
-            "link": ""
+            "link": "/collections/all"
           }
         },
         "t8": {
@@ -97,7 +97,7 @@
             "icon": "sport",
             "label": "Sport",
             "count": "7",
-            "link": ""
+            "link": "/collections/all"
           }
         },
         "t9": {
@@ -106,7 +106,7 @@
             "icon": "cap",
             "label": "Petten",
             "count": "3",
-            "link": ""
+            "link": "/collections/all"
           }
         }
       },
@@ -188,9 +188,9 @@
         "heading": "<p>Jouw team, <strong>jouw Kracht.</strong></p>",
         "subheading": "Op zoek naar gepersonaliseerde merchandise voor jouw team of bedrijfsevent? Wij regelen het voor je. Vraag vrijblijvend een offerte aan!",
         "button1_label": "Offerte aanvragen",
-        "button1_link": "",
+        "button1_link": "/pages/contact",
         "button2_label": "Onze consultants",
-        "button2_link": "",
+        "button2_link": "/pages/contact",
         "show_stats": true,
         "theme": "dark",
         "background_color": "#000000",

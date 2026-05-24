@@ -48,7 +48,6 @@
 .kracht-qintro__title b { font-weight: 800; color: var(--kracht-zwart); }
 
 .kracht-qintro__eyebrow { color: var(--kqi-fg); }
-.kracht-qintro__eyebrow::before { color: var(--kqi-fg); }
 
 .kracht-qintro__body {
   display: flex;

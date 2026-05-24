@@ -71,7 +71,6 @@
 }
 .kracht-cta__eyebrow { color: var(--kracht-blauw); }
 .kracht-cta--blue .kracht-cta__eyebrow { color: var(--kracht-wit); }
-.kracht-cta--blue .kracht-cta__eyebrow::before { color: var(--kracht-wit); }
 
 .kracht-cta__title {
   font-family: var(--kracht-font-heading);

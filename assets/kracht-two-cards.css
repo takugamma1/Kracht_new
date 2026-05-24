@@ -39,8 +39,7 @@
   gap: 0.75rem;
 }
 .kracht-tcard__eyebrow { color: var(--kracht-blauw); }
-.kracht-tcard--dark .kracht-tcard__eyebrow,
-.kracht-tcard--dark .kracht-tcard__eyebrow::before { color: var(--kracht-blauw); }
+.kracht-tcard--dark .kracht-tcard__eyebrow { color: var(--kracht-blauw); }
 
 .kracht-tcard__title {
   font-family: var(--kracht-font-heading);

@@ -32,7 +32,7 @@
         "link_label": "+ geen match voor jou?",
         "link_url": "",
         "button_label": "Reserveer plek",
-        "button_link": "",
+        "button_link": "/pages/contact",
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 72,
@@ -408,7 +408,7 @@
             "heading": "Past deze retraite bij jou?",
             "body": "<p>Twee weken voorafgaand aan vertrek begeleiden we je verder. Geen verkooppraatje — wel een match check.</p>",
             "button_label": "Plan kennismaking",
-            "button_link": "",
+            "button_link": "/pages/contact",
             "open_in_new_tab": true
           }
         }
@@ -473,7 +473,7 @@
         "date_label": "12 — 18 oktober 2026",
         "fallback_label": "Vanaf",
         "button_label": "Plan kennismakingsgesprek",
-        "button_link": "",
+        "button_link": "/pages/contact",
         "fineprint": "Vrijblijvend gesprek — kan ook per video chat",
         "background_color": "#000000",
         "text_color": "#ffffff",
