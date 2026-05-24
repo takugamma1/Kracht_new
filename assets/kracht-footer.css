@@ -91,22 +91,31 @@
   font-size: 0.92rem;
   font-weight: 400;
   line-height: 1.4;
-  padding: 0.05rem 0 0.15rem;
-  background-image: linear-gradient(
-    to right,
-    var(--kft-hover-from, #2bb1ec) 0%,
-    var(--kft-hover-to,   #005a85) 100%
-  );
+  padding: 0.05rem 0 0.2rem;
+  /* TWO background layers stacked at the bottom of the link:
+       1. Brand-coloured "fill"  — animates from 0%→100% width on hover
+       2. Static "track"         — always visible, faint */
+  background-image:
+    linear-gradient(
+      to right,
+      var(--kft-hover-from, #2bb1ec) 0%,
+      var(--kft-hover-to,   #005a85) 100%
+    ),
+    linear-gradient(
+      to right,
+      var(--kft-track, rgba(255, 255, 255, 0.22)),
+      var(--kft-track, rgba(255, 255, 255, 0.22))
+    );
   background-repeat: no-repeat;
-  background-position: left 100%;
-  background-size: 0% 1.5px;
+  background-position: left 100%, left 100%;
+  background-size: 0% 1.5px, 100% 1.5px;
   transition: background-size var(--kracht-trans-slow, 320ms) cubic-bezier(0.22, 0.61, 0.36, 1),
               color var(--kracht-trans, 200ms) ease;
 }
 .kracht-footer__link:hover,
 .kracht-footer__link:focus-visible {
   color: var(--kft-fg, #ffffff);
-  background-size: 100% 1.5px;
+  background-size: 100% 1.5px, 100% 1.5px;
   outline: none;
 }
 @media (prefers-reduced-motion: reduce) {

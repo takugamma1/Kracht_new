@@ -15,6 +15,7 @@
     --kft-muted: {{ section.settings.muted_color }};
     --kft-hover-from: {{ section.settings.hover_color_from }};
     --kft-hover-to:   {{ section.settings.hover_color_to }};
+    --kft-track:      {{ section.settings.track_color }};
     --kft-pad-y: {{ section.settings.padding_y }}px;
   "
 >
@@ -270,8 +271,9 @@
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#000000" },
     { "type": "color", "id": "text_color",       "label": "Link / body color", "default": "#ffffff" },
     { "type": "color", "id": "muted_color",      "label": "Heading color",   "default": "#ffffff" },
-    { "type": "color", "id": "hover_color_from", "label": "Hover underline — light blue",  "default": "#2bb1ec" },
-    { "type": "color", "id": "hover_color_to",   "label": "Hover underline — ocean blue",  "default": "#005a85" },
+    { "type": "color", "id": "track_color",      "label": "Link underline — track (idle)", "default": "#3a3a3c" },
+    { "type": "color", "id": "hover_color_from", "label": "Link underline — fill start",   "default": "#2bb1ec" },
+    { "type": "color", "id": "hover_color_to",   "label": "Link underline — fill end",     "default": "#005a85" },
     { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 32, "max": 160, "step": 4, "unit": "px", "default": 80 },
 
     { "type": "header", "content": "Bottom bar" },
