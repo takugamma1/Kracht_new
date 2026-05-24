@@ -77,6 +77,23 @@
 }
 
 /* ==========================================================================
+   Page-level horizontal-scroll guard.
+
+   Several sections use absolutely-positioned decorations (large +'s, glow
+   gradients, plus marks at negative offsets) anchored to a containing block
+   that's `position: relative` but not necessarily `overflow: hidden`. When
+   the viewport is narrow, those decorations can push past the section edge
+   and leak onto the page — which the browser renders as a horizontal
+   scrollbar / drag.
+
+   `overflow-x: clip` on the body silently truncates anything that escapes
+   while still allowing `position: sticky` and `position: fixed` to work
+   normally (which `overflow: hidden` would break).
+   ========================================================================== */
+html { overflow-x: clip; }
+body { overflow-x: clip; }
+
+/* ==========================================================================
    Container
    ========================================================================== */
 .kracht-container {

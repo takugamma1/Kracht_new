@@ -224,6 +224,24 @@
   .kracht-pstep__head { align-self: start; padding-bottom: 0; }
   .kracht-pstep__intro { max-width: none; }
   .kracht-pstep__labels { gap: 0.25rem; }
-  .kracht-pstep__label-text { font-size: 0.75rem; }
+  .kracht-pstep__label-text { font-size: 0.7rem; }
+  .kracht-pstep__label { padding: 0.25rem 0.2rem; }
   .kracht-pstep__plus { font-size: 8rem; }
+}
+
+@media (max-width: 600px) {
+  /* On phones the four labels can't share a 1fr row without wrapping each
+     text onto two lines — which throws the dots out of alignment. Hide the
+     label text and rely on the numbered "01 / 02 / 03 / 04" badge above
+     each dot. The active step's full title is already shown in the
+     panel content below the rail. */
+  .kracht-pstep__label-text { display: none; }
+  .kracht-pstep__label-num { font-size: 0.7rem; opacity: 0.85; }
+  .kracht-pstep__labels { margin-bottom: 1rem; gap: 0.4rem; }
+
+  /* Slightly smaller dots so the rail doesn't dominate the card */
+  .kracht-pstep__dot { width: 12px; height: 12px; }
+
+  /* Pull the decorative + further off-canvas so it can't push width */
+  .kracht-pstep__plus { font-size: 6rem; right: -2rem; bottom: -3rem; }
 }
