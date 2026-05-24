@@ -134,13 +134,6 @@
             "body": "<p>Wasbaar op 30 °C, niet bleken, lage temp strijken. Binnenstebuiten wassen voor de beste levensduur van het logo.</p>"
           }
         },
-        "tab4": {
-          "type": "tab",
-          "settings": {
-            "label": "Verzending",
-            "body": "<p>Binnen 2-3 werkdagen geleverd in heel Nederland. Gratis verzending vanaf €50.</p>"
-          }
-        },
         "s1": {
           "type": "spec",
           "settings": {
@@ -195,7 +188,6 @@
         "tab1",
         "tab2",
         "tab3",
-        "tab4",
         "s1",
         "s2",
         "s3",
@@ -238,7 +230,6 @@
         "s1": {
           "type": "story",
           "settings": {
-            "image": "shopify://shop_images/6_groep_mensen_luisteren_naar_uitleg.webp",
             "tag_label": "Team",
             "tag_date": "12 mei 2026",
             "title": "Hoe het Kracht team samen wint.",
@@ -249,7 +240,6 @@
         "s2": {
           "type": "story",
           "settings": {
-            "image": "shopify://shop_images/01JRAD3FS025H5Q4SJKQGWDXRA.webp",
             "tag_label": "Cultuur",
             "tag_date": "28 apr 2026",
             "title": "Werken vanuit Kracht — wat dat écht betekent.",
@@ -271,7 +261,6 @@
         "s4": {
           "type": "story",
           "settings": {
-            "image": "shopify://shop_images/1_man-in-industriele-omgeving.webp",
             "tag_label": "Kandidaten",
             "tag_date": "",
             "title": "Van een goede naar een betere baan.",
