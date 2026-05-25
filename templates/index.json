@@ -141,7 +141,7 @@
       "settings": {
         "heading": "Populaire producten",
         "subheading": "",
-        "collection": "all",
+        "collection": "frontpage",
         "max_products": 8,
         "link_label": "Alle producten",
         "link_url": "",
