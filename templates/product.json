@@ -230,6 +230,7 @@
         "s1": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/pexels-bymuratisikofficial-31112196.jpg",
             "tag_label": "Team",
             "tag_date": "12 mei 2026",
             "title": "Hoe het Kracht team samen wint.",
@@ -240,6 +241,7 @@
         "s2": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/pexels-polina-zimmerman-3747441.jpg",
             "tag_label": "Cultuur",
             "tag_date": "28 apr 2026",
             "title": "Werken vanuit Kracht — wat dat écht betekent.",
@@ -285,7 +287,7 @@
         "text_color": "#000000",
         "padding_y": 64,
         "radius": 0,
-        "gradient_strength": 100
+        "gradient_strength": 60
       }
     },
     "newsletter": {
