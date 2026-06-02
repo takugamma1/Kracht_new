@@ -111,7 +111,7 @@
    CTA card
    ========================================================================== */
 .kracht-team__card--cta {
-  background: linear-gradient(160deg, var(--ktg-cta-bg-from, #2bb1ec) 0%, var(--ktg-cta-bg-to, #009de1) 100%);
+  background: var(--kracht-blauw-gradient);
   color: var(--kracht-wit);
   padding: 1.5rem;
   justify-content: space-between;

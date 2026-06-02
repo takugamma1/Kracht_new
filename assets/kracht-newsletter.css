@@ -1,5 +1,5 @@
 .kracht-newsletter {
-  background: linear-gradient(90deg, var(--knl-bg, #009de1) 63%, var(--knl-bg-grad, #1763f8) 100%);
+  background: var(--kracht-blauw-gradient);
   color: var(--knl-fg, #ffffff);
   padding-block: var(--knl-pad-y, 48px);
   font-family: var(--kracht-font-body);

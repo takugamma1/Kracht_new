@@ -19,8 +19,8 @@
 
 .kracht-cta--dark .kracht-cta__card { background: #000; }
 .kracht-cta--blue .kracht-cta__card {
-  /* Diagonal gradient from light cyan-blue (top-left) to deeper saturated blue (bottom-right) */
-  background: linear-gradient(135deg, #2bb1ec 0%, #009de1 55%, #1763f8 100%);
+  /* Brand blue gradient (matches vanuitkracht.nl .bg-blue) */
+  background: var(--kracht-blauw-gradient);
   /* Leave room on the left for the big "+" decoration */
   padding-left: clamp(7rem, 16vw, 13rem);
 }

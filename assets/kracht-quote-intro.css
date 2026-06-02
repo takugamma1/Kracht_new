@@ -1,6 +1,6 @@
 .kracht-qintro {
   position: relative;
-  background: var(--kqi-bg, var(--kracht-blauw));
+  background: var(--kqi-bg, var(--kracht-blauw-gradient));
   color: var(--kqi-fg, #ffffff);
   padding-block: var(--kqi-pad-y, 96px);
   font-family: var(--kracht-font-body);

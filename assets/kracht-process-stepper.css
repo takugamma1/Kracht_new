@@ -41,7 +41,7 @@
    ========================================================================== */
 .kracht-pstep__card {
   position: relative;
-  background: var(--kps-card-bg, var(--kracht-blauw));
+  background: var(--kps-card-bg, var(--kracht-blauw-gradient));
   color: var(--kps-card-fg, #ffffff);
   border-radius: var(--kps-radius, 20px);
   padding: clamp(1.5rem, 3vw, 2.5rem);
@@ -84,7 +84,7 @@
   width: 14px;
   height: 14px;
   border: 2px solid rgba(255, 255, 255, 0.6);
-  background: var(--kps-card-bg, var(--kracht-blauw));
+  background: var(--kracht-blauw);
   border-radius: 3px;
   display: block;
   justify-self: center;

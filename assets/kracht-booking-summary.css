@@ -40,7 +40,7 @@
 
 /* Right pricing card */
 .kracht-book__card {
-  background: var(--kb-card-bg, var(--kracht-blauw));
+  background: var(--kb-card-bg, var(--kracht-blauw-gradient));
   color: var(--kb-card-fg, #fff);
   border-radius: var(--kb-radius, 20px);
   padding: clamp(1.5rem, 3vw, 2.25rem);

@@ -9,6 +9,9 @@
   --kracht-blauw: #009de1;
   --kracht-blauw-dark: #0089c4;
   --kracht-blauw-light: #2bb1ec;
+  /* Brand blue gradient — mirrors vanuitkracht.nl's .bg-blue. Used for blue
+     box / panel / CTA surfaces only (never text, borders, icons, small accents). */
+  --kracht-blauw-gradient: linear-gradient(116deg, #00a4eb 39.38%, #233dff 127.02%);
   --kracht-zwart: #000000;
   --kracht-zwart-soft: #0a0a0a;
   --kracht-zwart-card: #111111;
@@ -343,7 +346,7 @@ body { overflow-x: clip; }
   color: var(--kracht-wit);
 }
 .kracht-section--blue {
-  background: var(--kracht-blauw);
+  background: var(--kracht-blauw-gradient);
   color: var(--kracht-wit);
 }
 .kracht-section--soft {
