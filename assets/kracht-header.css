@@ -36,7 +36,10 @@
 }
 .kracht-header__logo-img {
   display: block;
-  height: auto;
+  width: auto;
+  /* Sized by height (matches vanuitkracht.nl ~52px). Overrides the small
+     "Logo width" setting, whose value lives in un-pushable header-group.json. */
+  height: clamp(42px, 4.5vw, 56px);
   max-width: 240px;
 }
 .kracht-header__logo-text {
@@ -277,7 +280,6 @@
 @media (max-width: 480px) {
   .kracht-header__logo-text { font-size: 1.45rem; }
   .kracht-header__logo-sub { display: none; }
-  .kracht-header__logo-img { max-width: 160px; }
   .kracht-header__icon-btn { width: 36px; height: 36px; }
 }
 
