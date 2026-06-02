@@ -39,6 +39,7 @@
         "text_color": "#ffffff",
         "padding_y": 12,
         "font_size": 13,
+        "scroll_speed": 30,
         "show_dashed_border": true
       }
     },
@@ -47,7 +48,7 @@
       "name": "Kracht — Header",
       "settings": {
         "logo": "shopify://shop_images/kracht-logo-black_1.png",
-        "logo_width": 80,
+        "logo_width": 155,
         "logo_text": "",
         "logo_subtitle": "",
         "menu": "main-menu",
