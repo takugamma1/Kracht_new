@@ -425,11 +425,6 @@
   user-select: none;
 }
 .kracht-drawer__link--toggle::-webkit-details-marker { display: none; }
-.kracht-drawer__caret {
-  transition: transform var(--kracht-trans);
-  opacity: 0.55;
-}
-.kracht-drawer__group[open] .kracht-drawer__caret { transform: rotate(180deg); }
 
 .kracht-drawer__sub {
   padding: 0 0 0.85rem 0.25rem;
