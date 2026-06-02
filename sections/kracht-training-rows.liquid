@@ -6,7 +6,7 @@
     --ktr-bg: {{ section.settings.background_color }};
     --ktr-fg: {{ section.settings.text_color }};
     --ktr-card-bg: {{ section.settings.card_color }};
-    --ktr-pad-y: {{ section.settings.padding_y }}px;
+    --ktr-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --ktr-radius: {{ section.settings.radius }}px;
   "
 >

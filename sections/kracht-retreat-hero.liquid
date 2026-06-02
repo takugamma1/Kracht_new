@@ -13,7 +13,7 @@
   style="
     --krh-bg: {{ section.settings.background_color }};
     --krh-fg: {{ section.settings.text_color }};
-    --krh-pad-y: {{ section.settings.padding_y }}px;
+    --krh-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --krh-radius: {{ section.settings.image_radius }}px;
   "
 >

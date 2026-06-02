@@ -7,7 +7,7 @@
   style="
     --kpd-bg: {{ section.settings.background_color }};
     --kpd-fg: {{ section.settings.text_color }};
-    --kpd-pad-y: {{ section.settings.padding_y }}px;
+    --kpd-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
   "
 >
   <div class="kracht-pdetail__inner kracht-container">

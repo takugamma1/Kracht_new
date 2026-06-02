@@ -5,7 +5,7 @@
   style="
     --klb-bg: {{ section.settings.background_color }};
     --klb-fg: {{ section.settings.text_color }};
-    --klb-pad-y: {{ section.settings.padding_y }}px;
+    --klb-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --klb-radius: {{ section.settings.radius }}px;
     --klb-grad: {{ section.settings.gradient_strength | divided_by: 100.0 }};
   "

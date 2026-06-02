@@ -9,7 +9,7 @@
     --ktg-card-fg: {{ section.settings.card_text_color }};
     --ktg-cta-bg-from: {{ section.settings.cta_color_from }};
     --ktg-cta-bg-to: {{ section.settings.cta_color_to }};
-    --ktg-pad-y: {{ section.settings.padding_y }}px;
+    --ktg-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --ktg-radius: {{ section.settings.radius }}px;
   "
 >

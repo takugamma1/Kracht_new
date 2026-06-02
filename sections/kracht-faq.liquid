@@ -9,7 +9,7 @@
     --kf-card-bg: {{ section.settings.card_color }};
     --kf-card-open-bg: {{ section.settings.card_open_color }};
     --kf-accent: {{ section.settings.accent_color }};
-    --kf-pad-y: {{ section.settings.padding_y }}px;
+    --kf-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
   "
 >
   <div class="kracht-faq__inner kracht-container">

@@ -5,7 +5,7 @@
   style="
     --kpi-bg: {{ section.settings.background_color }};
     --kpi-fg: {{ section.settings.text_color }};
-    --kpi-pad-y: {{ section.settings.padding_y }}px;
+    --kpi-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
   "
 >
   <div class="kracht-pinfo__inner kracht-container">

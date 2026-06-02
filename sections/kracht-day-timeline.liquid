@@ -6,7 +6,7 @@
     --kdt-bg: {{ section.settings.background_color }};
     --kdt-fg: {{ section.settings.text_color }};
     --kdt-card-bg: {{ section.settings.card_color }};
-    --kdt-pad-y: {{ section.settings.padding_y }}px;
+    --kdt-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kdt-radius: {{ section.settings.radius }}px;
     --kdt-grad: {{ section.settings.gradient_strength | divided_by: 100.0 }};
   "

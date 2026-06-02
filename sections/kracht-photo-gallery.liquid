@@ -5,7 +5,7 @@
   style="
     --kpg2-bg: {{ section.settings.background_color }};
     --kpg2-fg: {{ section.settings.text_color }};
-    --kpg2-pad-y: {{ section.settings.padding_y }}px;
+    --kpg2-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kpg2-radius: {{ section.settings.radius }}px;
     --kpg2-gap: {{ section.settings.gap }}px;
   "

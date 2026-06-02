@@ -5,7 +5,7 @@
   style="
     --kfr-bg: {{ section.settings.background_color }};
     --kfr-fg: {{ section.settings.text_color }};
-    --kfr-pad-y: {{ section.settings.padding_y }}px;
+    --kfr-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kfr-radius: {{ section.settings.image_radius }}px;
   "
 >

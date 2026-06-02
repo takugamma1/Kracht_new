@@ -10,7 +10,7 @@
   style="
     --kcg-bg: {{ section.settings.background_color }};
     --kcg-fg: {{ section.settings.text_color }};
-    --kcg-pad-y: {{ section.settings.padding_y }}px;
+    --kcg-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kcg-cols: {{ columns_d }};
     --kcg-cols-tablet: {{ columns_t }};
   "

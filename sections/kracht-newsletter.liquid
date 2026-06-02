@@ -6,7 +6,7 @@
     --knl-bg: {{ section.settings.background_color }};
     --knl-bg-grad: {{ section.settings.background_gradient_color }};
     --knl-fg: {{ section.settings.text_color }};
-    --knl-pad-y: {{ section.settings.padding_y }}px;
+    --knl-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
   "
 >
   <div class="kracht-newsletter__inner kracht-container">

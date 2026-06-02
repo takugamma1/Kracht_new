@@ -5,7 +5,7 @@
   style="
     --kp-bg: {{ section.settings.background_color }};
     --kp-fg: {{ section.settings.text_color }};
-    --kp-pad-y: {{ section.settings.padding_y }}px;
+    --kp-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
   "
 >
   <div class="kracht-prog__inner kracht-container">

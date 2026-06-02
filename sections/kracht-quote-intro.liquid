@@ -5,7 +5,7 @@
   style="
     --kqi-bg: {{ section.settings.background_color }};
     --kqi-fg: {{ section.settings.text_color }};
-    --kqi-pad-y: {{ section.settings.padding_y }}px;
+    --kqi-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
   "
 >
   <div class="kracht-qintro__inner kracht-container">

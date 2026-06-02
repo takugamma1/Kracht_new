@@ -9,7 +9,7 @@
   style="
     --kch-bg: {{ section.settings.background_color }};
     --kch-fg: {{ section.settings.text_color }};
-    --kch-pad-y: {{ section.settings.padding_y }}px;
+    --kch-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
   "
 >
   <div class="kracht-coll-hero__inner kracht-container">

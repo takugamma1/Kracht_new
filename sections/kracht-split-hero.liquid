@@ -5,7 +5,7 @@
   style="
     --ksh-bg: {{ section.settings.background_color }};
     --ksh-fg: {{ section.settings.text_color }};
-    --ksh-pad-y: {{ section.settings.padding_y }}px;
+    --ksh-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --ksh-radius: {{ section.settings.image_radius }}px;
   "
 >

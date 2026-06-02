@@ -13,7 +13,7 @@
     --kps-fg: {{ section.settings.text_color }};
     --kps-card-bg: {{ section.settings.card_color }};
     --kps-card-fg: {{ section.settings.card_text_color }};
-    --kps-pad-y: {{ section.settings.padding_y }}px;
+    --kps-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kps-radius: {{ section.settings.card_radius }}px;
   "
 >

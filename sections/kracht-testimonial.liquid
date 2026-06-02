@@ -5,7 +5,7 @@
   style="
     --kt-bg: {{ section.settings.background_color }};
     --kt-fg: {{ section.settings.text_color }};
-    --kt-pad-y: {{ section.settings.padding_y }}px;
+    --kt-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kt-radius: {{ section.settings.image_radius }}px;
   "
 >

@@ -7,7 +7,7 @@
     --kb-fg: {{ section.settings.text_color }};
     --kb-card-bg: {{ section.settings.card_color }};
     --kb-card-fg: {{ section.settings.card_text_color }};
-    --kb-pad-y: {{ section.settings.padding_y }}px;
+    --kb-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kb-radius: {{ section.settings.card_radius }}px;
   "
 >

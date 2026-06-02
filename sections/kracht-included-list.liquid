@@ -5,7 +5,7 @@
   style="
     --kil-bg: {{ section.settings.background_color }};
     --kil-fg: {{ section.settings.text_color }};
-    --kil-pad-y: {{ section.settings.padding_y }}px;
+    --kil-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kil-radius: {{ section.settings.radius }}px;
   "
 >

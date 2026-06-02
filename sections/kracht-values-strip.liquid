@@ -6,7 +6,7 @@
     --kvs-bg: {{ section.settings.background_color }};
     --kvs-fg: {{ section.settings.text_color }};
     --kvs-icon: {{ section.settings.icon_color }};
-    --kvs-pad-y: {{ section.settings.padding_y }}px;
+    --kvs-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
   "
 >
   <div class="kracht-values__inner kracht-container">

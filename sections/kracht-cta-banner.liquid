@@ -5,7 +5,7 @@
   style="
     --kc-bg: {{ section.settings.background_color }};
     --kc-fg: {{ section.settings.text_color }};
-    --kc-pad-y: {{ section.settings.padding_y }}px;
+    --kc-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kc-radius: {{ section.settings.radius }}px;
   "
 >

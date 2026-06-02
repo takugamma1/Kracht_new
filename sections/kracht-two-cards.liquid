@@ -5,7 +5,7 @@
   style="
     --ktc-bg: {{ section.settings.background_color }};
     --ktc-fg: {{ section.settings.text_color }};
-    --ktc-pad-y: {{ section.settings.padding_y }}px;
+    --ktc-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --ktc-radius: {{ section.settings.card_radius }}px;
   "
 >

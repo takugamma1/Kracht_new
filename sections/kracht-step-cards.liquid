@@ -6,7 +6,7 @@
     --kst-bg: {{ section.settings.background_color }};
     --kst-fg: {{ section.settings.text_color }};
     --kst-card-bg: {{ section.settings.card_color }};
-    --kst-pad-y: {{ section.settings.padding_y }}px;
+    --kst-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kst-radius: {{ section.settings.card_radius }}px;
   "
 >
