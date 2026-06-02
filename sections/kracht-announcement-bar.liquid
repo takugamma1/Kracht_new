@@ -1,24 +1,29 @@
 {{ 'kracht-announcement-bar.css' | asset_url | stylesheet_tag }}
 
 <div
-  class="kracht-announcement-bar"
+  class="kracht-announcement-bar{% if request.design_mode %} kracht-announcement-bar--static{% endif %}"
   style="
     --kab-bg: {{ section.settings.background_color }};
     --kab-fg: {{ section.settings.text_color }};
     --kab-pad-y: {{ section.settings.padding_y }}px;
     --kab-font-size: {{ section.settings.font_size }}px;
+    --kab-speed: {{ section.settings.scroll_speed | default: 30 }}s;
   "
 >
   <div class="kracht-announcement-bar__track">
-    {%- for block in section.blocks -%}
-      {%- if block.settings.link != blank -%}
-        <a class="kracht-announcement-bar__item" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</a>
-      {%- else -%}
-        <span class="kracht-announcement-bar__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
-      {%- endif -%}
-      {%- unless forloop.last -%}
-        <span class="kracht-announcement-bar__sep" aria-hidden="true">·</span>
-      {%- endunless -%}
+    {%- comment -%} Two identical groups so the CSS -50% loop is seamless. The clone is aria-hidden and carries no editor attributes. {%- endcomment -%}
+    {%- for copy in (1..2) -%}
+      {%- assign is_real = forloop.first -%}
+      <div class="kracht-announcement-bar__group"{% unless is_real %} aria-hidden="true"{% endunless %}>
+        {%- for block in section.blocks -%}
+          {%- if block.settings.link != blank -%}
+            <a class="kracht-announcement-bar__item" href="{{ block.settings.link }}"{% if is_real %} {{ block.shopify_attributes }}{% endif %}>{{ block.settings.text }}</a>
+          {%- else -%}
+            <span class="kracht-announcement-bar__item"{% if is_real %} {{ block.shopify_attributes }}{% endif %}>{{ block.settings.text }}</span>
+          {%- endif -%}
+          <span class="kracht-announcement-bar__sep" aria-hidden="true">·</span>
+        {%- endfor -%}
+      </div>
     {%- endfor -%}
   </div>
 
@@ -73,11 +78,21 @@
       "default": 13
     },
     {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Marquee speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "default": 30
+    },
+    {
       "type": "checkbox",
       "id": "show_dashed_border",
       "label": "Show dashed bottom border",
       "default": true
-    },
+    }
   ],
   "blocks": [
     {

@@ -8,17 +8,39 @@
   font-weight: 400;
   letter-spacing: 0.02em;
   width: 100%;
+  padding-block: var(--kab-pad-y, 12px);
 }
 
+/* ==========================================================================
+   Marquee. Two identical groups sit side by side in a max-content track.
+   Animating the track to -50% shifts it left by exactly one group width, so
+   the second group lands where the first began — a seamless infinite loop.
+   The trailing separator on each group keeps the "·" rhythm across the seam.
+   ========================================================================== */
 .kracht-announcement-bar__track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
-  padding: var(--kab-pad-y, 12px) clamp(1rem, 4vw, 2.5rem);
   flex-wrap: nowrap;
+  align-items: center;
+  width: max-content;
+  animation: kracht-kab-marquee var(--kab-speed, 30s) linear infinite;
+  will-change: transform;
+}
+.kracht-announcement-bar:hover .kracht-announcement-bar__track {
+  animation-play-state: paused;
+}
+
+@keyframes kracht-kab-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.kracht-announcement-bar__group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex: none;
+  padding-left: 1.25rem;
   white-space: nowrap;
-  text-align: center;
 }
 
 .kracht-announcement-bar__item {
@@ -53,18 +75,37 @@
 
 @media (max-width: 640px) {
   .kracht-announcement-bar { font-size: 11px; }
-  .kracht-announcement-bar__track {
-    gap: 0.6rem;
-    padding-inline: 0.75rem;
+  .kracht-announcement-bar__group {
+    gap: 0.9rem;
+    padding-left: 0.9rem;
   }
 }
 
-@media (max-width: 420px) {
+/* Theme editor + reduced motion: stop the scroll and show one centered,
+   static row (no moving target to click, no motion for sensitive users). */
+.kracht-announcement-bar--static .kracht-announcement-bar__track,
+.kracht-announcement-bar__track.is-static {
+  animation: none;
+  width: 100%;
+  justify-content: center;
+}
+.kracht-announcement-bar--static .kracht-announcement-bar__group {
+  padding-left: 0;
+}
+.kracht-announcement-bar--static .kracht-announcement-bar__group[aria-hidden="true"] {
+  display: none;
+}
+.kracht-announcement-bar--static .kracht-announcement-bar__sep:last-child {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
   .kracht-announcement-bar__track {
-    overflow: hidden;
-    text-overflow: ellipsis;
+    animation: none;
+    width: 100%;
     justify-content: center;
   }
-  .kracht-announcement-bar__sep { display: none; }
-  .kracht-announcement-bar__item + .kracht-announcement-bar__item { display: none; }
+  .kracht-announcement-bar__group { padding-left: 0; }
+  .kracht-announcement-bar__group[aria-hidden="true"] { display: none; }
+  .kracht-announcement-bar__sep:last-child { display: none; }
 }
