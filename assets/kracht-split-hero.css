@@ -7,6 +7,19 @@
   overflow: hidden;
 }
 
+/* Brand diagonal angular shape — a faceted dark wedge behind the content,
+   echoing the angular black motif on vanuitkracht.nl's hero. Decorative only. */
+.kracht-shero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(118deg, #1f1f1f 0%, #0b0b0b 62%);
+  clip-path: polygon(0 0, 50% 0, 28% 100%, 0 100%);
+}
+.kracht-shero__inner { position: relative; z-index: 1; }
+
 .kracht-shero__crumbs {
   font-size: 0.7rem;
   letter-spacing: 0.3em;

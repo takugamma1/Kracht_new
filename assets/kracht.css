@@ -333,6 +333,14 @@ body { overflow-x: clip; }
   margin: 0;
 }
 
+/* Brand dashed dividers as section separators on the light content sections
+   (uses the 1px dashed motif in more places). */
+.kracht-values,
+.kracht-pgrid,
+.kracht-lookbook {
+  border-top: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
 /* ==========================================================================
    Section wrappers — light + dark
    ========================================================================== */
