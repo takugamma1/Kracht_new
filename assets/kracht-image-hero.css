@@ -76,6 +76,7 @@
   letter-spacing: -0.01em;
   margin: 0 0 1rem;
   color: var(--kih-fg);
+  text-shadow: 1px 1px 0 #000;
 }
 .kracht-img-hero__title p { margin: 0; }
 .kracht-img-hero__title strong,

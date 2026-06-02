@@ -118,6 +118,21 @@
   line-height: 0.7;
 }
 
+/* Edge-to-edge: bleed the image to the viewport's right edge on desktop while
+   the text stays in the container. The negative margin equals the gap from the
+   container's right content edge to the viewport edge (centering offset +
+   container padding, which mirrors .kracht-container's padding-inline). */
+@media (min-width: 901px) {
+  .kracht-shero__media {
+    margin-right: calc(-1 * (max((100vw - var(--kracht-container)) / 2, 0px) + clamp(1rem, 4vw, 2.5rem)));
+  }
+  .kracht-shero__media,
+  .kracht-shero__img {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
 @media (max-width: 900px) {
   .kracht-shero__grid {
     grid-template-columns: 1fr;
