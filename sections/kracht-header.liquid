@@ -49,9 +49,6 @@
               <a href="{{ link.url }}" class="kracht-header__menu-link"
                  {% if has_children %}aria-haspopup="true" aria-expanded="false"{% endif %}>
                 {{ link.title }}
-                {%- if has_children -%}
-                  <svg class="kracht-header__menu-caret" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 4l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                {%- endif -%}
               </a>
             </li>
           {%- endfor -%}

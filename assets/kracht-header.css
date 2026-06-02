@@ -37,7 +37,7 @@
 .kracht-header__logo-img {
   display: block;
   height: auto;
-  max-width: 130px;
+  max-width: 240px;
 }
 .kracht-header__logo-text {
   font-family: var(--kracht-font-heading);
@@ -85,14 +85,6 @@
   position: relative;
   padding: 0.4rem 0;
   transition: color var(--kracht-trans);
-}
-.kracht-header__menu-caret {
-  transition: transform var(--kracht-trans);
-  opacity: 0.65;
-}
-.kracht-header__menu-item.is-open .kracht-header__menu-caret {
-  transform: rotate(180deg);
-  opacity: 1;
 }
 .kracht-header__menu-item.is-open .kracht-header__menu-link {
   color: var(--kracht-blauw);
@@ -285,6 +277,7 @@
 @media (max-width: 480px) {
   .kracht-header__logo-text { font-size: 1.45rem; }
   .kracht-header__logo-sub { display: none; }
+  .kracht-header__logo-img { max-width: 160px; }
   .kracht-header__icon-btn { width: 36px; height: 36px; }
 }
 
