@@ -24,7 +24,7 @@
   --kracht-font-body: 'Raleway', system-ui, sans-serif;
 
   /* Layout */
-  --kracht-container: 1280px;
+  --kracht-container: 1440px;
   --kracht-container-narrow: 1100px;
   --kracht-radius-sm: 6px;
   --kracht-radius-md: 12px;
@@ -122,6 +122,25 @@ body { overflow-x: clip; }
   margin: 0 0 1rem;
 }
 
+/* Branded "+" glyph in front of every eyebrow label. Most eyebrows carry the
+   shared .kracht-eyebrow class; the three standalone card eyebrows are listed
+   explicitly. currentColor makes the "+" inherit each eyebrow's text color. */
+.kracht-eyebrow::before,
+.kracht-cat-card__eyebrow::before,
+.kracht-lb-card__eyebrow::before,
+.kracht-pstep__active-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: calc(0.9em * 229 / 252);
+  margin-right: 0.4em;
+  background-color: currentColor;
+  -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
+          mask: var(--kracht-plus-mask) center / contain no-repeat;
+  vertical-align: middle;
+  flex: none;
+}
+
 /* ==========================================================================
    Kracht brandbook type ramp (for reference — per-section rules should match):
 
@@ -176,7 +195,7 @@ body { overflow-x: clip; }
   justify-content: center;
   gap: 0.5rem;
   font-family: var(--kracht-font-body);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   padding: 0.85rem 1.4rem;
@@ -276,6 +295,15 @@ body { overflow-x: clip; }
           mask: var(--kracht-plus-mask) center / contain no-repeat;
   margin-right: 0.15rem;
   flex: none;
+}
+
+/* Brand pill badges squared to read as mini-buttons, matching .kracht-btn.
+   Yellow pills are intentionally left as pills per brand call. */
+.kracht-tag:not(.kracht-tag--yellow) {
+  border-radius: var(--kracht-radius-sm);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  padding: 0.5rem 0.95rem;
 }
 
 /* ==========================================================================
@@ -388,6 +416,28 @@ body { overflow-x: clip; }
 }
 [class*="kracht-section"] :is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--kracht-font-heading);
+}
+
+/* Brand body weight: Raleway 300 for running text inside kracht content
+   sections. Emphasis stays readable at 600 (UA "bolder" would only reach
+   ~400 against a 300 base). */
+[class*="kracht-section"] :is(p, li, dd, dt, blockquote, figcaption) {
+  font-weight: 300;
+}
+[class*="kracht-section"] :is(p, li) :is(strong, b) {
+  font-weight: 600;
+}
+
+/* Inline body links: brand blue, underlined, weight 600. Buttons opt out.
+   On blue-background sections the link flips to white so it stays visible. */
+[class*="kracht-section"] :is(p, li) a:not(.kracht-btn) {
+  color: var(--kracht-blauw);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.kracht-section--blue :is(p, li) a:not(.kracht-btn) {
+  color: var(--kracht-wit);
 }
 
 /* ==========================================================================
