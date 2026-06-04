@@ -29,7 +29,7 @@
 .kracht-book__title p { margin: 0; }
 .kracht-book__title strong { font-weight: 800; }
 .kracht-book__body {
-  font-size: 0.92rem;
+  font-size: 1rem;
   line-height: 1.55;
   max-width: 38ch;
 }

@@ -342,6 +342,24 @@ body { overflow-x: clip; }
 }
 
 /* ==========================================================================
+   Typography consistency (store-wide)
+   Section headings are <h2 ...__title> and share one size/weight; hero titles
+   are <h1> and keep their larger scale. Subtitles share one 16px size.
+   The [class*][class$] selectors out-rank each section's own .__title/.__sub
+   rule (which is a single class), so this wins without !important.
+   ========================================================================== */
+h2[class*="kracht-"][class$="__title"] {
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: 900;
+}
+h2[class*="kracht-"][class$="__title"] :is(strong, b) {
+  font-weight: 900;
+}
+[class*="kracht-"][class$="__sub"]:not(.kracht-values__sub) {
+  font-size: 1rem;
+}
+
+/* ==========================================================================
    Section wrappers — light + dark
    ========================================================================== */
 .kracht-section {
