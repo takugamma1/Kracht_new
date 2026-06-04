@@ -355,7 +355,11 @@ h2[class*="kracht-"][class$="__title"] {
 h2[class*="kracht-"][class$="__title"] :is(strong, b) {
   font-weight: 900;
 }
-[class*="kracht-"][class$="__sub"]:not(.kracht-values__sub) {
+[class*="kracht-"]:is(
+  [class$="sub"], [class$="intro"], [class$="desc"], [class$="body"],
+  [class$="panel"], [class$="bio"], [class$="aside"], [class$="cta-text"], [class$="__q"]
+):not(.kracht-values__sub),
+[class*="kracht-"][class$="list"] li {
   font-size: 1rem;
 }
 
