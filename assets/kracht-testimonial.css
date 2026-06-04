@@ -72,8 +72,7 @@
   width: min(440px, 82%);
   background: var(--kracht-zwart);
   color: var(--kracht-wit);
-  border-radius: 18px;
-  overflow: hidden;
+  border-radius: 10px;
   padding: clamp(1.5rem, 2.4vw, 2.5rem);
   display: flex;
   flex-direction: column;
@@ -81,22 +80,6 @@
   gap: 1.1rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
-/* Card content sits above the decorative folded corner. */
-.kracht-test__card > * { position: relative; z-index: 1; }
-/* Angular "folded" bottom-right corner — the Kracht brand motif. */
-.kracht-test__card::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: clamp(72px, 26%, 132px);
-  height: clamp(72px, 26%, 132px);
-  background: linear-gradient(135deg, transparent 0 49%, #1a1a1a 49%);
-  z-index: 0;
-  pointer-events: none;
-}
-/* Rounded pill here to match the reference (overrides the squared global tag). */
-.kracht-test__card .kracht-tag { border-radius: var(--kracht-radius-pill); }
 .kracht-test__meta {
   font-size: 0.85rem;
   letter-spacing: 0.04em;
