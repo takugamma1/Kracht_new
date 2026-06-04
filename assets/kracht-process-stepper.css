@@ -207,7 +207,6 @@
 .kracht-pstep__active-body {
   font-size: 0.9rem;
   line-height: 1.55;
-  opacity: 0.95;
 }
 .kracht-pstep__active-body p { margin: 0 0 0.5rem; }
 .kracht-pstep__active-body p:last-child { margin: 0; }
