@@ -1,5 +1,5 @@
 .kracht-cta {
-  padding-block: var(--kc-pad-y, 64px);
+  padding-block: 0;
   font-family: var(--kracht-font-body);
   background: transparent;
   color: inherit;
