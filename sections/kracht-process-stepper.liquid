@@ -15,6 +15,7 @@
     --kps-card-fg: {{ section.settings.card_text_color }};
     --kps-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kps-radius: {{ section.settings.card_radius }}px;
+    --kps-shape: url('{{ 'kracht-pstep-shape.svg' | asset_url }}');
   "
 >
   <div class="kracht-pstep__inner kracht-container">
@@ -32,8 +33,6 @@
       </div>
 
       <div class="kracht-pstep__card" data-stepper data-current="{{ default_index }}">
-        <div class="kracht-pstep__plus" aria-hidden="true">{% render 'kracht-plus' %}</div>
-
         <div class="kracht-pstep__rail" role="tablist" aria-label="Stappen">
           <span class="kracht-pstep__rail-line" aria-hidden="true"></span>
           {%- for block in section.blocks -%}
