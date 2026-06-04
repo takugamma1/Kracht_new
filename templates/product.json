@@ -287,7 +287,7 @@
         "text_color": "#000000",
         "padding_y": 64,
         "radius": 20,
-        "gradient_strength": 60
+        "gradient_strength": 100
       }
     },
     "newsletter": {
