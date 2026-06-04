@@ -49,14 +49,9 @@
             {%- endif -%}
             <div class="kracht-story-card__overlay" aria-hidden="true"></div>
             <div class="kracht-story-card__body">
-              {%- if block.settings.tag_label != blank or block.settings.tag_date != blank -%}
+              {%- if block.settings.tag_date != blank -%}
                 <div class="kracht-story-card__meta">
-                  {%- if block.settings.tag_label != blank -%}
-                    <span class="kracht-tag kracht-tag--with-plus">{{ block.settings.tag_label }}</span>
-                  {%- endif -%}
-                  {%- if block.settings.tag_date != blank -%}
-                    <span class="kracht-story-card__date">{{ block.settings.tag_date }}</span>
-                  {%- endif -%}
+                  <span class="kracht-story-card__date">{{ block.settings.tag_date }}</span>
                 </div>
               {%- endif -%}
               {%- if block.settings.title != blank -%}

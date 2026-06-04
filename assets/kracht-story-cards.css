@@ -38,26 +38,20 @@
 .kracht-stories__arrow:hover { background: var(--kracht-zwart); color: var(--kracht-wit); border-color: var(--kracht-zwart); }
 
 .kracht-stories__rail {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding-block: 0.25rem 1rem;
+  padding-block: 0.25rem 0;
 }
-.kracht-stories__rail::-webkit-scrollbar { display: none; }
+/* Bento: two columns with the right column staggered down. */
 .kracht-stories__track {
   display: grid;
-  grid-auto-flow: column;
-  /* Show ~3 cards per viewport on desktop; remaining cards live to the right
-     and the rail scrolls horizontally with snap. */
-  grid-auto-columns: calc((100% - 2rem) / 3);
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
 }
+.kracht-story-card:nth-child(2n) { margin-top: clamp(2rem, 6vw, 5rem); }
 
 .kracht-story-card {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   border-radius: var(--kst-radius, 0);
   overflow: hidden;
   text-decoration: none;
@@ -80,12 +74,13 @@
 .kracht-story-card__overlay {
   position: absolute;
   inset: 0;
+  /* Solid black rectangle along the bottom, fading up into the photo. */
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, calc(0.97 * var(--kst-grad, 1))) 0%,
-    rgba(0, 0, 0, calc(0.92 * var(--kst-grad, 1))) 28%,
-    rgba(0, 0, 0, calc(0.55 * var(--kst-grad, 1))) 55%,
-    rgba(0, 0, 0, 0) 85%
+    rgba(0, 0, 0, calc(1 * var(--kst-grad, 1))) 0%,
+    rgba(0, 0, 0, calc(1 * var(--kst-grad, 1))) 34%,
+    rgba(0, 0, 0, calc(0.55 * var(--kst-grad, 1))) 62%,
+    rgba(0, 0, 0, 0) 90%
   );
 }
 
@@ -171,8 +166,8 @@
   .kracht-stories__track { grid-auto-columns: calc((100% - 1rem) / 2); }
 }
 @media (max-width: 720px) {
-  /* 1 card with a small peek on phone */
-  .kracht-stories__track { grid-auto-columns: 80%; }
+  .kracht-stories__track { grid-template-columns: 1fr; }
+  .kracht-story-card:nth-child(2n) { margin-top: 0; }
   .kracht-stories__nav { display: none; }
 }
 @media (max-width: 480px) {
