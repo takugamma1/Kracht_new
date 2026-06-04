@@ -5,6 +5,9 @@
   font-family: var(--kracht-font-body);
 }
 
+/* ==========================================================================
+   Optional header
+   ========================================================================== */
 .kracht-test__head {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -14,7 +17,6 @@
 }
 .kracht-test__title {
   font-family: var(--kracht-font-heading);
-  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
   font-weight: 400;
   line-height: 1.05;
   letter-spacing: -0.01em;
@@ -25,18 +27,31 @@
 .kracht-test__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
 .kracht-test__title p { margin: 0; }
 .kracht-test__intro {
-  font-size: 0.9rem;
   line-height: 1.55;
   color: var(--kracht-grijs);
   max-width: 380px;
 }
 .kracht-test__intro p { margin: 0; }
 
-.kracht-test__feature {
+/* ==========================================================================
+   Carousel — full-width photo slides with an overlaid black quote card.
+   The track holds the slides side by side; JS translates it by index*100%.
+   ========================================================================== */
+.kracht-test__carousel {
   position: relative;
-  border-radius: var(--kt-radius, 4px);
+  width: 100%;
   overflow: hidden;
-  aspect-ratio: 16 / 8;
+}
+.kracht-test__track {
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.kracht-test__slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-height: clamp(420px, 46vw, 620px);
   background: #1a1a1a;
 }
 .kracht-test__img {
@@ -45,92 +60,106 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .kracht-test__img--ph { background: linear-gradient(135deg, #2c2c2c, #555); }
 
 .kracht-test__card {
   position: absolute;
-  right: 5%;
+  right: clamp(1rem, 5vw, 5rem);
   top: 50%;
   transform: translateY(-50%);
+  width: min(440px, 82%);
   background: var(--kracht-zwart);
   color: var(--kracht-wit);
-  padding: 1.5rem 1.5rem 1.25rem;
-  border-radius: 8px;
-  width: min(360px, 80%);
+  border-radius: 18px;
+  padding: clamp(1.5rem, 2.4vw, 2.5rem);
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
   align-items: flex-start;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  gap: 1.1rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 .kracht-test__meta {
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 .kracht-test__quote {
   font-family: var(--kracht-font-heading);
-  font-weight: 400;
-  font-size: 1.1rem;
-  line-height: 1.3;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
   margin: 0;
-  letter-spacing: -0.005em;
+  color: var(--kracht-wit);
 }
-.kracht-test__quote strong { color: var(--kracht-blauw); font-weight: 700; }
+.kracht-test__quote strong,
+.kracht-test__quote em { font-style: normal; font-weight: 700; color: var(--kracht-blauw); }
 .kracht-test__quote p { margin: 0; }
 .kracht-test__cta {
   font-family: var(--kracht-font-body);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--kracht-blauw);
+  color: var(--kracht-wit);
   text-decoration: none;
-  margin-top: 0.25rem;
   display: inline-flex;
-  gap: 0.3rem;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+  transition: gap var(--kracht-trans);
 }
+.kracht-test__cta:hover { gap: 0.7rem; }
 
+/* ==========================================================================
+   Dots
+   ========================================================================== */
 .kracht-test__dots {
   display: flex;
-  gap: 6px;
+  gap: 0.6rem;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
 }
 .kracht-test__dot {
-  width: 32px;
-  height: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
   background: var(--kracht-grijs-border);
-  border-radius: 2px;
-  display: inline-block;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--kracht-trans), transform var(--kracht-trans);
 }
+.kracht-test__dot:hover { transform: scale(1.2); }
 .kracht-test__dot.is-active { background: var(--kracht-blauw); }
 
-@media (max-width: 900px) {
+@media (prefers-reduced-motion: reduce) {
+  .kracht-test__track { transition: none; }
+}
+
+@media (max-width: 768px) {
   .kracht-test__head { grid-template-columns: 1fr; gap: 1rem; align-items: flex-start; }
   .kracht-test__intro { max-width: none; }
-  .kracht-test__feature {
-    aspect-ratio: auto;
-    overflow: visible;
-    background: transparent;
+  .kracht-test__slide {
+    min-height: 0;
     display: flex;
     flex-direction: column;
+    background: transparent;
   }
   .kracht-test__img {
-    position: static;
-    width: 100%;
+    position: relative;
     aspect-ratio: 4 / 3;
-    border-radius: var(--kt-radius, 4px);
+    height: auto;
   }
   .kracht-test__card {
     position: relative;
+    right: auto;
     top: auto;
     transform: none;
     width: calc(100% - 2rem);
-    margin: -2.5rem auto 0;
+    margin: -3rem auto 0;
     z-index: 2;
   }
 }
