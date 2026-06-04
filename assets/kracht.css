@@ -15,6 +15,10 @@
   --kracht-zwart: #000000;
   --kracht-zwart-soft: #0a0a0a;
   --kracht-zwart-card: #111111;
+  /* Brand "thekey-black" gradient — subtle dark-navy, near-black at the top
+     and slightly bluer at the bottom. Mirrors vanuitkracht.nl's
+     --color-thekey-black-gradient. For dark panels/cards. */
+  --kracht-zwart-gradient: linear-gradient(0deg, #001a2e 0%, #000a0e 100%);
   --kracht-wit: #ffffff;
   --kracht-geel: #FAB725;
   --kracht-grijs: #727272;

@@ -57,7 +57,7 @@
   color: var(--kracht-wit);
   display: flex;
   flex-direction: column;
-  background: var(--kracht-zwart, #000);
+  background: #000a0e;
 }
 
 /* Photo sits on top; the black panel below holds the text + button. */
@@ -77,22 +77,23 @@
 .kracht-story-card:hover .kracht-story-card__img { transform: scale(1.04); }
 .kracht-story-card__img--ph { background: linear-gradient(135deg, #2c2c2c, #555); }
 
-/* Gradient melts the bottom of the photo into the black panel. */
+/* Gradient melts the bottom of the photo into the dark panel below
+   (fades to the same near-black the panel starts at, so the seam is invisible). */
 .kracht-story-card__fade {
   position: absolute;
   inset: auto 0 -1px 0;
   height: 55%;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, calc(1 * var(--kst-grad, 1))) 0%,
-    rgba(0, 0, 0, calc(0.6 * var(--kst-grad, 1))) 45%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 10, 14, calc(1 * var(--kst-grad, 1))) 0%,
+    rgba(0, 10, 14, calc(0.6 * var(--kst-grad, 1))) 45%,
+    rgba(0, 10, 14, 0) 100%
   );
   pointer-events: none;
 }
 
 .kracht-story-card__panel {
-  background: var(--kracht-zwart, #000);
+  background: var(--kracht-zwart-gradient);
   padding: clamp(1.25rem, 2.2vw, 1.75rem);
   display: flex;
   flex-direction: column;
