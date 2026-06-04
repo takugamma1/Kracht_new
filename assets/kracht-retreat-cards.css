@@ -78,7 +78,8 @@
 /* Info panel */
 .kracht-rcard__panel {
   position: relative;
-  background: var(--krc-card-bg, #f4f4f5);
+  /* Subtle lighter "stripe" that holds the text (not a heavy grey card). */
+  background: var(--kracht-grijs-soft);
   border-radius: var(--krc-radius, 16px);
   padding: clamp(1.5rem, 3vw, 2.25rem);
   display: flex;
@@ -165,35 +166,6 @@
 }
 .kracht-rcard__price p { margin: 0; display: inline; }
 .kracht-rcard__price strong { font-weight: 800; color: var(--krc-fg); font-size: 0.95rem; }
-
-/* Desktop: each card breaks out to full width so the image and the grey panel
-   each bleed to their outer screen edge (rounded on the inner side only),
-   attached to the screen rather than floating as a contained card. */
-@media (min-width: 901px) {
-  .kracht-rcard {
-    --krc-edge: calc(max((100vw - var(--kracht-container)) / 2, 0px) + clamp(1rem, 4vw, 2.5rem));
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    gap: clamp(1.5rem, 4vw, 3rem);
-  }
-  /* Default order: media left (bleeds left), panel right (bleeds right). */
-  .kracht-rcard__media {
-    border-radius: 0 var(--krc-radius, 16px) var(--krc-radius, 16px) 0;
-  }
-  .kracht-rcard__panel {
-    border-radius: var(--krc-radius, 16px) 0 0 var(--krc-radius, 16px);
-    padding-right: var(--krc-edge);
-  }
-  /* Reverse: panel left (bleeds left), media right (bleeds right). */
-  .kracht-rcard--reverse .kracht-rcard__media {
-    border-radius: var(--krc-radius, 16px) 0 0 var(--krc-radius, 16px);
-  }
-  .kracht-rcard--reverse .kracht-rcard__panel {
-    border-radius: 0 var(--krc-radius, 16px) var(--krc-radius, 16px) 0;
-    padding-right: clamp(1.5rem, 3vw, 2.25rem);
-    padding-left: var(--krc-edge);
-  }
-}
 
 @media (max-width: 900px) {
   .kracht-rcard {
