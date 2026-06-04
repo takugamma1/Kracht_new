@@ -48,7 +48,7 @@
             {%- endif -%}
             <article class="kracht-test__card">
               {%- if block.settings.tag != blank -%}
-                <span class="kracht-tag kracht-tag--with-plus">{{ block.settings.tag }}</span>
+                <span class="kracht-tag kracht-test__pill">{{ block.settings.tag }}</span>
               {%- endif -%}
               {%- if block.settings.meta != blank -%}
                 <p class="kracht-test__meta">{{ block.settings.meta }}</p>
@@ -81,7 +81,7 @@
           {%- endif -%}
           <article class="kracht-test__card">
             {%- if section.settings.card_tag != blank -%}
-              <span class="kracht-tag kracht-tag--with-plus">{{ section.settings.card_tag }}</span>
+              <span class="kracht-tag kracht-test__pill">{{ section.settings.card_tag }}</span>
             {%- endif -%}
             {%- if section.settings.card_meta != blank -%}
               <p class="kracht-test__meta">{{ section.settings.card_meta }}</p>
