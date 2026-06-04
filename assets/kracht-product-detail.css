@@ -235,7 +235,7 @@
   display: inline-flex;
   align-items: center;
   border: 1px solid var(--kracht-grijs-border);
-  border-radius: var(--kracht-radius-pill);
+  border-radius: var(--kracht-radius-sm);
   padding: 0 0.4rem;
   background: var(--kracht-grijs-soft);
 }
@@ -267,7 +267,7 @@
   width: 44px;
   height: 44px;
   border: 0;
-  border-radius: var(--kracht-radius-pill);
+  border-radius: var(--kracht-radius-sm);
   background: var(--kracht-zwart);
   color: var(--kracht-wit);
   cursor: pointer;

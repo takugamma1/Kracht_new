@@ -90,7 +90,7 @@
   background: transparent;
   color: var(--ktc-card-fg);
   border: 1px solid currentColor;
-  border-radius: var(--kracht-radius-pill);
+  border-radius: var(--kracht-radius-sm);
 }
 .kracht-tcard__secondary:hover {
   background: rgba(255, 255, 255, 0.06);

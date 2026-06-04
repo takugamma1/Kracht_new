@@ -124,7 +124,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border-radius: var(--kracht-radius-pill);
+  border-radius: var(--kracht-radius-sm);
   color: inherit;
   text-decoration: none;
   transition: background var(--kracht-trans);
@@ -145,7 +145,7 @@
   background: var(--kracht-zwart);
   color: var(--kracht-wit);
   padding: 0.55rem 0.85rem;
-  border-radius: var(--kracht-radius-pill);
+  border-radius: var(--kracht-radius-sm);
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 500;
@@ -166,7 +166,7 @@
   padding-inline: 6px;
   background: var(--kracht-geel);
   color: var(--kracht-zwart);
-  border-radius: var(--kracht-radius-pill);
+  border-radius: var(--kracht-radius-sm);
   font-size: 0.7rem;
   font-weight: 700;
   font-family: var(--kracht-font-body);

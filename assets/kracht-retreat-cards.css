@@ -61,7 +61,7 @@
   background: var(--kracht-wit);
   color: var(--kracht-zwart);
   padding: 0.4rem 0.7rem;
-  border-radius: var(--kracht-radius-pill);
+  border-radius: var(--kracht-radius-sm);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.06em;

@@ -279,7 +279,7 @@ body { overflow-x: clip; }
   font-weight: 600;
   letter-spacing: 0.05em;
   padding: 0.35rem 0.7rem;
-  border-radius: var(--kracht-radius-pill);
+  border-radius: var(--kracht-radius-sm);
   background: var(--kracht-blauw);
   color: var(--kracht-wit);
 }
