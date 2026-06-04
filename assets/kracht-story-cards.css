@@ -51,14 +51,20 @@
 
 .kracht-story-card {
   position: relative;
-  aspect-ratio: 4 / 3;
   border-radius: var(--kst-radius, 0);
   overflow: hidden;
   text-decoration: none;
   color: var(--kracht-wit);
-  scroll-snap-align: start;
-  display: block;
-  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  background: var(--kracht-zwart, #000);
+}
+
+/* Photo sits on top; the black panel below holds the text + button. */
+.kracht-story-card__media {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
 }
 .kracht-story-card__img {
   position: absolute;
@@ -71,60 +77,53 @@
 .kracht-story-card:hover .kracht-story-card__img { transform: scale(1.04); }
 .kracht-story-card__img--ph { background: linear-gradient(135deg, #2c2c2c, #555); }
 
-.kracht-story-card__overlay {
+/* Gradient melts the bottom of the photo into the black panel. */
+.kracht-story-card__fade {
   position: absolute;
-  inset: 0;
-  /* Solid black rectangle along the bottom, fading up into the photo. */
+  inset: auto 0 -1px 0;
+  height: 55%;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, calc(1 * var(--kst-grad, 1))) 0%,
-    rgba(0, 0, 0, calc(1 * var(--kst-grad, 1))) 34%,
-    rgba(0, 0, 0, calc(0.55 * var(--kst-grad, 1))) 62%,
-    rgba(0, 0, 0, 0) 90%
+    rgba(0, 0, 0, calc(0.6 * var(--kst-grad, 1))) 45%,
+    rgba(0, 0, 0, 0) 100%
   );
+  pointer-events: none;
 }
 
+.kracht-story-card__panel {
+  background: var(--kracht-zwart, #000);
+  padding: clamp(1.25rem, 2.2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+}
 .kracht-story-card__body {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  z-index: 1;
-}
-.kracht-story-card__meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
 }
 .kracht-story-card__date {
   font-size: 0.65rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
 .kracht-story-card__title {
   font-family: var(--kracht-font-heading);
   font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.25;
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.2;
   margin: 0;
   color: var(--kracht-wit);
 }
 .kracht-story-card__cta {
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--kracht-wit);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
+  margin-top: 0.25rem;
 }
+.kracht-story-card:hover .kracht-btn__arrow { transform: translateX(3px); }
 
 /* Progress */
 .kracht-stories__progress {

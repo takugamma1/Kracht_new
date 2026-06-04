@@ -35,30 +35,32 @@
       <div class="kracht-stories__track">
         {%- for block in section.blocks -%}
           <a class="kracht-story-card" href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
-            {%- if block.settings.image != blank -%}
-              <img
-                src="{{ block.settings.image | image_url: width: 800 }}"
-                srcset="{{ block.settings.image | image_url: width: 480 }} 480w, {{ block.settings.image | image_url: width: 800 }} 800w"
-                sizes="(max-width: 768px) 80vw, 33vw"
-                alt="{{ block.settings.image.alt | default: block.settings.title }}"
-                class="kracht-story-card__img"
-                loading="lazy"
-              >
-            {%- else -%}
-              <div class="kracht-story-card__img kracht-story-card__img--ph"></div>
-            {%- endif -%}
-            <div class="kracht-story-card__overlay" aria-hidden="true"></div>
-            <div class="kracht-story-card__body">
-              {%- if block.settings.tag_date != blank -%}
-                <div class="kracht-story-card__meta">
+            <div class="kracht-story-card__media">
+              {%- if block.settings.image != blank -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 800 }}"
+                  srcset="{{ block.settings.image | image_url: width: 480 }} 480w, {{ block.settings.image | image_url: width: 800 }} 800w"
+                  sizes="(max-width: 768px) 90vw, 45vw"
+                  alt="{{ block.settings.image.alt | default: block.settings.title }}"
+                  class="kracht-story-card__img"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <div class="kracht-story-card__img kracht-story-card__img--ph"></div>
+              {%- endif -%}
+              <div class="kracht-story-card__fade" aria-hidden="true"></div>
+            </div>
+            <div class="kracht-story-card__panel">
+              <div class="kracht-story-card__body">
+                {%- if block.settings.tag_date != blank -%}
                   <span class="kracht-story-card__date">{{ block.settings.tag_date }}</span>
-                </div>
-              {%- endif -%}
-              {%- if block.settings.title != blank -%}
-                <p class="kracht-story-card__title">{{ block.settings.title }}</p>
-              {%- endif -%}
+                {%- endif -%}
+                {%- if block.settings.title != blank -%}
+                  <p class="kracht-story-card__title">{{ block.settings.title }}</p>
+                {%- endif -%}
+              </div>
               {%- if block.settings.cta != blank -%}
-                <span class="kracht-story-card__cta">{{ block.settings.cta }} <span aria-hidden="true">→</span></span>
+                <span class="kracht-story-card__cta kracht-btn kracht-btn--primary">{{ block.settings.cta }} <span class="kracht-btn__arrow" aria-hidden="true">→</span></span>
               {%- endif -%}
             </div>
           </a>
