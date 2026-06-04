@@ -10,11 +10,15 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  border-radius: var(--kc-radius, 24px);
+  border-radius: 0;
   overflow: hidden;
   background: var(--kc-bg);
   color: var(--kc-fg);
-  padding: clamp(1.5rem, 4vw, 3rem);
+  /* Full-bleed band: span the viewport, content padded to the container edge. */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-block: clamp(2rem, 4vw, 3.25rem);
+  padding-inline: calc(max((100vw - var(--kracht-container)) / 2, 0px) + clamp(1rem, 4vw, 2.5rem));
 }
 
 .kracht-cta--dark .kracht-cta__card { background: #000; }
