@@ -46,6 +46,7 @@
         "background_color": "#000000",
         "text_color": "#ffffff",
         "muted_color": "#ffffff",
+        "track_color": "#3a3a3c",
         "hover_color_from": "#33b5e7",
         "hover_color_to": "#009de1",
         "padding_y": 80,

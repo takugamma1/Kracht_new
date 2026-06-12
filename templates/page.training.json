@@ -302,6 +302,10 @@
         "heading": "<p>Goed om te <strong>weten.</strong></p>",
         "background_color": "#000000",
         "text_color": "#ffffff",
+        "answer_color": "#cfcfd1",
+        "card_color": "#141416",
+        "card_open_color": "#0f1418",
+        "accent_color": "#009de1",
         "padding_y": 80
       }
     },
@@ -330,7 +334,7 @@
         "story_RCJPWm": {
           "type": "story",
           "settings": {
-            "image": "shopify://shop_images/pexels-rovshan-nazirli-691066883-17984670.jpg",
+            "image": "shopify://shop_images/pexels-ai25studioai-7163356.jpg",
             "tag_label": "Team",
             "tag_date": "12 mei 2026",
             "title": "Hoe het Kracht team samen wint.",
@@ -363,7 +367,7 @@
         "story_NQ8KX8": {
           "type": "story",
           "settings": {
-            "image": "shopify://shop_images/de-kracht-van-samenwerken.webp",
+            "image": "shopify://shop_images/pexels-jack-redgate-333633-2929206.jpg",
             "tag_label": "Kandidaten",
             "tag_date": "12 mei 2026",
             "title": "Van een goede naar een betere baan.",
@@ -386,8 +390,9 @@
         "show_progress": true,
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "padding_y": 64,
-        "radius": 10
+        "padding_y": 120,
+        "radius": 10,
+        "gradient_strength": 100
       }
     }
   },
