@@ -144,6 +144,21 @@
         "padding_y": 56
       }
     },
+    "newsletter": {
+      "type": "kracht-newsletter",
+      "name": "Kracht — Newsletter",
+      "settings": {
+        "heading": "<p>Blijf op de <strong>hoogte!</strong></p>",
+        "subheading": "Ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve Kracht+ merchandise.",
+        "placeholder": "Jouw e-mailadres",
+        "button_label": "Aanmelden",
+        "success_message": "Bedankt! Je staat op de lijst.",
+        "background_color": "#009de1",
+        "background_gradient_color": "#1763f8",
+        "text_color": "#ffffff",
+        "padding_y": 48
+      }
+    },
     "cta": {
       "type": "kracht-cta-banner",
       "blocks": {
@@ -198,28 +213,13 @@
         "padding_y": 64,
         "radius": 24
       }
-    },
-    "newsletter": {
-      "type": "kracht-newsletter",
-      "name": "Kracht — Newsletter",
-      "settings": {
-        "heading": "<p>Blijf op de <strong>hoogte!</strong></p>",
-        "subheading": "Ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve Kracht+ merchandise.",
-        "placeholder": "Jouw e-mailadres",
-        "button_label": "Aanmelden",
-        "success_message": "Bedankt! Je staat op de lijst.",
-        "background_color": "#009de1",
-        "background_gradient_color": "#1763f8",
-        "text_color": "#ffffff",
-        "padding_y": 48
-      }
     }
   },
   "order": [
     "hero",
     "tabs",
     "grid",
-    "cta",
-    "newsletter"
+    "newsletter",
+    "cta"
   ]
 }
