@@ -4,7 +4,11 @@
 .kracht-header {
   background: var(--khdr-bg, #ffffff);
   color: var(--khdr-fg, #000000);
-  border-bottom: 1px solid var(--khdr-border, transparent);
+  /* Reference nav has no border — just the soft double shadow below. */
+  border-bottom: 0;
+  box-shadow:
+    0 25px 12px -30px rgba(0, 0, 0, 0.17),
+    0 49px 20px -54px rgba(0, 0, 0, 0.08);
   width: 100%;
   z-index: 50;
   position: relative;
@@ -19,9 +23,10 @@
 .kracht-header__inner {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  min-height: 72px;
-  padding-block: 0.75rem;
+  gap: 1rem;
+  /* Reference main nav bar is exactly 84px tall. */
+  min-height: 84px;
+  padding-block: 0;
 }
 .kracht-header__brand { margin-right: auto; }
 
@@ -36,10 +41,10 @@
 }
 .kracht-header__logo-img {
   display: block;
-  width: auto;
-  /* Sized by height (matches vanuitkracht.nl ~52px). Overrides the small
-     "Logo width" setting, whose value lives in un-pushable header-group.json. */
-  height: clamp(42px, 4.5vw, 56px);
+  /* Reference logo is 158px wide. Overrides the "Logo width" setting, whose
+     value lives in un-pushable header-group.json. */
+  width: 158px;
+  height: auto;
   max-width: 240px;
 }
 .kracht-header__logo-text {
@@ -74,41 +79,34 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 1.6rem;
+  gap: 10px;
 }
+/* Reference menu links: 15px Raleway 400, full bar height (84px), 12px side
+   padding, 4px bottom border (transparent → blue + bold when active). */
 .kracht-header__menu-link {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   color: inherit;
   text-decoration: none;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: normal;
   position: relative;
-  padding: 0.4rem 0;
-  transition: color var(--kracht-trans);
+  height: 84px;
+  padding: 0 12px;
+  border-bottom: 4px solid transparent;
+  transition: color 200ms ease-out, border-color 200ms ease-out;
+  white-space: nowrap;
 }
-.kracht-header__menu-item.is-open .kracht-header__menu-link {
+.kracht-header__menu-item.is-open .kracht-header__menu-link,
+.kracht-header__menu-link:hover {
   color: var(--kracht-blauw);
 }
-.kracht-header__menu-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 100%;
-  bottom: 0;
-  height: 2px;
-  background: var(--kracht-blauw);
-  transition: right var(--kracht-trans);
-}
-.kracht-header__menu-link:hover,
 .kracht-header__menu-item.is-active .kracht-header__menu-link {
   color: var(--kracht-blauw);
-}
-.kracht-header__menu-link:hover::after,
-.kracht-header__menu-item.is-active .kracht-header__menu-link::after {
-  right: 0;
+  border-color: var(--kracht-blauw);
+  font-weight: 700;
 }
 
 /* Actions */
@@ -137,26 +135,28 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* Cart pill */
+/* Cart pill — styled like the reference's blue nav CTA ("Adviesgesprek
+   aanvragen"): blue button, Work Sans 600 15px, hover lighter blue. */
 .kracht-header__cart-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background: var(--kracht-zwart);
+  background: var(--kracht-blauw);
   color: var(--kracht-wit);
-  padding: 0.55rem 0.85rem;
-  border-radius: var(--kracht-radius-sm);
+  padding: 10px 20px;
+  border-radius: 6px;
   text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: background var(--kracht-trans);
+  font-family: var(--kracht-font-heading);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background 200ms ease-out;
   white-space: nowrap;
 }
 .kracht-header__cart-pill:hover {
-  background: var(--kracht-zwart-card);
+  background: #05b3ff;
   color: var(--kracht-wit);
 }
-.kracht-header__cart-pill svg { color: var(--kracht-blauw); }
+.kracht-header__cart-pill svg { color: var(--kracht-wit); }
 .kracht-header__cart-count {
   display: inline-flex;
   align-items: center;

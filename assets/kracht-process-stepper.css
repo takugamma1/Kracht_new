@@ -65,7 +65,7 @@
    only), echoing vanuitkracht.nl's full-bleed gradient panel. */
 @media (min-width: 901px) {
   .kracht-pstep__card {
-    margin-right: calc(-1 * (max((100vw - var(--kracht-container)) / 2, 0px) + clamp(1rem, 4vw, 2.5rem)));
+    margin-right: calc(-1 * (max((100vw - var(--kracht-container)) / 2, 0px) + var(--kracht-page-pad)));
     border-radius: var(--kps-radius, 20px) 0 0 var(--kps-radius, 20px);
   }
 }

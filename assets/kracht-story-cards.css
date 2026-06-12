@@ -37,10 +37,8 @@
 }
 .kracht-stories__arrow:hover { background: var(--kracht-zwart); color: var(--kracht-wit); border-color: var(--kracht-zwart); }
 
-/* Match vanuitkracht.nl: ~1180px card grid so the 2-up cards land ~570px
-   wide ((1180 − 40 gap) / 2). 1260px box − ~40px padding each side ≈ 1180. */
-.kracht-stories .kracht-stories__inner { max-width: 1260px; }
-
+/* The global 1240px container (30px padding) yields the reference's exact
+   1180px grid → 2-up cards land at 570px with the 40px gap. */
 .kracht-stories__rail {
   padding-block: 0.25rem 0;
 }

@@ -5,9 +5,8 @@
   font-family: var(--kracht-font-body);
 }
 
-/* Cap the team content so four cards land at ~265px with a 40px gap (matches
-   vanuitkracht.nl), with the header staying aligned to the grid. */
-.kracht-team__inner { max-width: 1260px; }
+/* The global 1240px container (30px padding) gives the reference's 1180px
+   content area, so four cards land at exactly 265px with a 40px gap. */
 
 .kracht-team__head { margin-bottom: 2rem; }
 .kracht-team__title {

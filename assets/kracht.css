@@ -18,21 +18,28 @@
   /* Brand "thekey-black" gradient — subtle dark-navy, near-black at the top
      and slightly bluer at the bottom. Mirrors vanuitkracht.nl's
      --color-thekey-black-gradient. For dark panels/cards. */
-  --kracht-zwart-gradient: linear-gradient(0deg, #001a2e 0%, #000a0e 100%);
+  --kracht-zwart-gradient: linear-gradient(0deg, #001a23 0%, #000a0e 100%);
   --kracht-wit: #ffffff;
   --kracht-geel: #FAB725;
   --kracht-grijs: #727272;
-  --kracht-grijs-licht: #f4f4f5;
+  --kracht-grijs-licht: #f8f8f8;
   --kracht-grijs-border: #e5e5e5;
   --kracht-grijs-soft: #fafafa;
+  /* Inline-link underline system — mirrors vanuitkracht.nl's --underline-color /
+     --underline-hover-color. Dark/blue sections override --kracht-underline
+     to white. */
+  --kracht-underline: #000000;
+  --kracht-underline-hover: linear-gradient(90deg, #01a4eb, #1763f8);
 
   /* Typography */
   --kracht-font-heading: 'Work Sans', system-ui, sans-serif;
   --kracht-font-body: 'Raleway', system-ui, sans-serif;
 
-  /* Layout */
-  --kracht-container: 1440px;
+  /* Layout — mirrors vanuitkracht.nl (--content-width: 1240px, --page-padding:
+     30px → 1180px effective content area). */
+  --kracht-container: 1240px;
   --kracht-container-narrow: 1100px;
+  --kracht-page-pad: 30px;
   --kracht-radius-sm: 6px;
   --kracht-radius-md: 12px;
   --kracht-radius-lg: 20px;
@@ -107,7 +114,7 @@ body { overflow-x: clip; }
   width: 100%;
   max-width: var(--kracht-container);
   margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  padding-inline: var(--kracht-page-pad);
   box-sizing: border-box;
 }
 
@@ -149,16 +156,16 @@ body { overflow-x: clip; }
 }
 
 /* ==========================================================================
-   Kracht brandbook type ramp (for reference — per-section rules should match):
+   Type ramp — mirrors vanuitkracht.nl exactly (their root is 62.5%, so the
+   reference rem values below are converted at 1rem = 10px):
 
-     H1     Work Sans 800   ~ 65 px  (clamp on web, 4rem-ish max)
-     H2     Work Sans 900   ~ 45 px  (clamp, 2.5–2.75rem max)
-     H3     Work Sans 700   ~ 26 px  (1.625rem)
-     H4     Work Sans 700   ~ 26 px  + brand blue (sub-of-H2 accent)
-     Body   Raleway 300     ~ 16 px  (1rem)
-     Small  Raleway 700     ~ 14 px  grijs / blauw
-     Buttons Raleway 600    ~ 16 px
-     Links   Raleway 600    ~ 16 px  underlined blauw
+     H1     Work Sans 500 + strong 700   50 px   letter-spacing -1px
+     H2     Work Sans 500 + strong 700   38 px   letter-spacing -1px
+     H3     Work Sans 500                30 px
+     Body   Raleway 400                  15 px / 25 px line-height
+     Small  Raleway                      14 px (nav top-bar, meta)
+     Buttons Work Sans 600               15 px
+     Links   inherit + 1.5px underline → gradient underline on hover
 
    Italics are forbidden by the brandbook — em / i must always render upright.
    Per-section rules can re-style em to bold + brand blue for emphasis.
@@ -173,53 +180,56 @@ body { overflow-x: clip; }
 .kracht-h2,
 .kracht-h3 {
   font-family: var(--kracht-font-heading);
-  font-weight: 400;
+  font-weight: 500;
   color: inherit;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  line-height: 1.1;
+  letter-spacing: -1px;
   margin: 0;
 }
-.kracht-h1 { font-size: clamp(2.25rem, 5.5vw, 4rem); }
-.kracht-h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
-.kracht-h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 500; }
+.kracht-h1 { font-size: clamp(2.5rem, 4.5vw, 3.125rem); }
+.kracht-h2 { font-size: clamp(1.9rem, 3.4vw, 2.375rem); }
+.kracht-h3 { font-size: clamp(1.5rem, 2.7vw, 1.875rem); letter-spacing: normal; }
 
 .kracht-h1 strong,
 .kracht-h2 strong,
 .kracht-h3 strong {
-  font-weight: 800;
+  font-weight: 700;
+  letter-spacing: normal;
 }
 .kracht-accent {
   color: var(--kracht-blauw);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 /* ==========================================================================
    Buttons
    ========================================================================== */
+/* Buttons — mirror vanuitkracht.nl's a.button: Work Sans 600 15px, 10/20px
+   padding, 2px border, radius 6px; primary hover goes LIGHTER (#05b3ff). */
 .kracht-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: var(--kracht-font-body);
-  font-size: 1rem;
+  font-family: var(--kracht-font-heading);
+  font-size: 0.9375rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  padding: 0.85rem 1.4rem;
+  letter-spacing: normal;
+  padding: 10px 20px;
   border-radius: 6px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   cursor: pointer;
   text-decoration: none;
-  transition: var(--kracht-trans);
+  transition: background 200ms ease-out, border 200ms ease-out, color 200ms ease-out;
   white-space: nowrap;
-  line-height: 1;
+  line-height: 1.4;
 }
 .kracht-btn--primary {
   background: var(--kracht-blauw);
   color: var(--kracht-wit);
 }
 .kracht-btn--primary:hover {
-  background: var(--kracht-blauw-dark);
+  background: #05b3ff;
   color: var(--kracht-wit);
 }
 .kracht-btn--dark {
@@ -227,7 +237,7 @@ body { overflow-x: clip; }
   color: var(--kracht-wit);
 }
 .kracht-btn--dark:hover {
-  background: var(--kracht-zwart-card);
+  background: #2d2d2d;
   color: var(--kracht-wit);
 }
 .kracht-btn--light {
@@ -240,20 +250,21 @@ body { overflow-x: clip; }
 .kracht-btn--outline-dark {
   background: transparent;
   color: var(--kracht-wit);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--kracht-wit);
 }
 .kracht-btn--outline-dark:hover {
+  background: var(--kracht-wit);
   border-color: var(--kracht-wit);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--kracht-wit);
+  color: var(--kracht-zwart);
 }
 .kracht-btn--outline-light {
   background: transparent;
   color: var(--kracht-zwart);
-  border-color: var(--kracht-grijs-border);
+  border-color: var(--kracht-zwart);
 }
 .kracht-btn--outline-light:hover {
-  border-color: var(--kracht-zwart);
+  background: var(--kracht-zwart);
+  color: var(--kracht-wit);
 }
 .kracht-btn--ghost {
   background: transparent;
@@ -352,19 +363,34 @@ body { overflow-x: clip; }
    The [class*][class$] selectors out-rank each section's own .__title/.__sub
    rule (which is a single class), so this wins without !important.
    ========================================================================== */
-h2[class*="kracht-"][class$="__title"] {
-  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
-  font-weight: 900;
+h1[class*="kracht-"][class$="__title"] {
+  font-size: clamp(2.5rem, 4.5vw, 3.125rem);
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1.1;
 }
-h2[class*="kracht-"][class$="__title"] :is(strong, b) {
-  font-weight: 900;
+h2[class*="kracht-"][class$="__title"] {
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+h3[class*="kracht-"][class$="__title"] {
+  font-size: clamp(1.5rem, 2.7vw, 1.875rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+:is(h1, h2, h3)[class*="kracht-"][class$="__title"] :is(strong, b) {
+  font-weight: 700;
+  letter-spacing: normal;
 }
 [class*="kracht-"]:is(
   [class$="sub"], [class$="intro"], [class$="desc"], [class$="body"],
   [class$="panel"], [class$="bio"], [class$="aside"], [class$="cta-text"], [class$="__q"]
 ):not(.kracht-values__sub),
 [class*="kracht-"][class$="list"] li {
-  font-size: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
 }
 
 /* ==========================================================================
@@ -455,26 +481,61 @@ h2[class*="kracht-"][class$="__title"] :is(strong, b) {
   font-family: var(--kracht-font-heading);
 }
 
-/* Brand body weight: Raleway 300 for running text inside kracht content
-   sections. Emphasis stays readable at 600 (UA "bolder" would only reach
-   ~400 against a 300 base). */
+/* Body text — matches vanuitkracht.nl: Raleway 400, 15px / 25px. */
 [class*="kracht-section"] :is(p, li, dd, dt, blockquote, figcaption) {
-  font-weight: 300;
+  font-weight: 400;
 }
 [class*="kracht-section"] :is(p, li) :is(strong, b) {
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* Inline body links: brand blue, underlined, weight 600. Buttons opt out.
-   On blue-background sections the link flips to white so it stays visible. */
+/* Inline body links — vanuitkracht.nl's underline system: text inherits its
+   color and carries a 1.5px solid underline; on hover the underline swaps to
+   a blue gradient that sweeps in from the left. Buttons opt out. */
 [class*="kracht-section"] :is(p, li) a:not(.kracht-btn) {
-  color: var(--kracht-blauw);
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
 }
-.kracht-section--blue :is(p, li) a:not(.kracht-btn) {
-  color: var(--kracht-wit);
+[class*="kracht-section"] :is(p, li) a:not(.kracht-btn)::before,
+[class*="kracht-section"] :is(p, li) a:not(.kracht-btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  height: 1.5px;
+  width: 100%;
+}
+[class*="kracht-section"] :is(p, li) a:not(.kracht-btn)::before {
+  background: var(--kracht-underline);
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+[class*="kracht-section"] :is(p, li) a:not(.kracht-btn)::after {
+  background: var(--kracht-underline-hover);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s 0.3s ease;
+}
+[class*="kracht-section"] :is(p, li) a:not(.kracht-btn):hover::before {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+[class*="kracht-section"] :is(p, li) a:not(.kracht-btn):hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+  transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0s ease;
+}
+/* Dark/blue surfaces: white underline; on blue the hover sweep goes dark
+   (mirrors their .bg-blue override). */
+.kracht-section--dark,
+.kracht-section--blue {
+  --kracht-underline: #ffffff;
+}
+.kracht-section--blue {
+  --kracht-underline-hover: linear-gradient(90deg, #000000, #626262);
 }
 
 /* ==========================================================================

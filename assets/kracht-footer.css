@@ -12,14 +12,16 @@
 }
 
 /* ==========================================================================
-   4-column desktop grid — matches vanuitkracht.nl
+   Columns — matches vanuitkracht.nl (flex, space-between, 20px gap; the top
+   band has 60px vertical padding).
    ========================================================================== */
 .kracht-footer__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-  gap: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
   align-items: flex-start;
-  padding-bottom: 3rem;
+  padding-bottom: 3.75rem;
 }
 
 .kracht-footer__col {
@@ -36,7 +38,7 @@
   text-decoration: none;
   color: inherit;
 }
-.kracht-footer__logo { display: block; max-width: 200px; height: auto; }
+.kracht-footer__logo { display: block; width: 158px; height: auto; }
 .kracht-footer__logo-text {
   font-family: var(--kracht-font-heading);
   font-weight: 900;
@@ -59,90 +61,86 @@
   align-self: center;
 }
 
-/* Section column headings */
+/* Section column headings — reference uses plain <p><strong>: Raleway 700
+   15px, 4px above the list; a second heading sits 40px below the prior list. */
 .kracht-footer__col-title {
-  font-family: var(--kracht-font-heading);
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: -0.005em;
-  margin: 0 0 1.25rem;
+  font-family: var(--kracht-font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 1.5625rem;
+  margin: 0 0 4px;
   color: var(--kft-muted, #ffffff);
 }
-.kracht-footer__col-title--mt { margin-top: 2.25rem; }
+.kracht-footer__col-title--mt { margin-top: 40px; }
 
-/* Links list */
+/* Links list — reference stacks bare 15px/25px lines with no extra gap. */
 .kracht-footer__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0;
 }
 
 /* ==========================================================================
-   Animated underline on hover — fills from light blue to ocean blue
+   Footer links — reference underline system: always-visible 1.5px white
+   underline; hover sweeps in a blue gradient from the left.
    ========================================================================== */
 .kracht-footer__link {
   position: relative;
   display: inline-block;
   color: var(--kft-fg, #ffffff);
   text-decoration: none;
-  font-size: 0.92rem;
+  font-size: 0.9375rem;
   font-weight: 400;
-  line-height: 1.4;
-  padding: 0.05rem 0 0.35rem;
-  transition: color var(--kracht-trans, 200ms) ease;
+  line-height: 1.5625rem;
+  padding: 0;
 }
-/* Track — always visible (the empty progress bar) */
-.kracht-footer__link::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: var(--kft-track, #3a3a3c);
-  border-radius: 2px;
-  pointer-events: none;
-}
-/* Fill — brand-coloured progress that slides in on hover */
+.kracht-footer__link::before,
 .kracht-footer__link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0;
-  width: 0;
-  max-width: 100%;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(
-    to right,
-    var(--kft-hover-from, #2bb1ec) 0%,
-    var(--kft-hover-to,   #005a85) 100%
-  );
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  transition-property: width;
-  transition-duration: 520ms;
-  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  bottom: 3px;
+  height: 1.5px;
+  width: 100%;
   pointer-events: none;
-  will-change: width;
+}
+.kracht-footer__link::before {
+  background: #ffffff;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+.kracht-footer__link::after {
+  background: linear-gradient(90deg, #01a4eb, #1763f8);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s 0.3s ease;
+}
+.kracht-footer__link:hover::before,
+.kracht-footer__link:focus-visible::before {
+  opacity: 0;
 }
 .kracht-footer__link:hover::after,
 .kracht-footer__link:focus-visible::after {
-  width: 100%;
+  transform: scaleX(1);
+  opacity: 1;
+  transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0s ease;
 }
 .kracht-footer__link:focus-visible { outline: none; }
 @media (prefers-reduced-motion: reduce) {
   .kracht-footer__link,
+  .kracht-footer__link::before,
   .kracht-footer__link::after { transition: none; }
 }
 
-/* Socials */
+/* Socials — reference: 20px icons, 10px gap, hover scales up 1.1. */
 .kracht-footer__socials {
   display: flex;
-  gap: 1.1rem;
+  gap: 10px;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -151,68 +149,75 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
-  transition: color var(--kracht-trans), transform var(--kracht-trans);
+  width: 20px;
+  height: 20px;
+  transition: scale 200ms ease-out;
 }
 .kracht-footer__social:hover {
-  color: var(--kracht-blauw);
-  transform: translateY(-1px);
+  scale: 1.1;
 }
-.kracht-footer__social svg { display: block; }
+.kracht-footer__social svg { display: block; width: 20px; height: 20px; }
 
-/* Certificates */
+/* Certificates — reference: 40px wide, 20px gap, hover scales up. */
 .kracht-footer__certs {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 20px;
   flex-wrap: wrap;
 }
 .kracht-footer__cert-link {
   display: inline-flex;
   align-items: center;
-  transition: opacity var(--kracht-trans);
+  transition: scale 200ms ease-out;
 }
-.kracht-footer__cert-link:hover { opacity: 0.7; }
+.kracht-footer__cert-link:hover { scale: 1.1; }
 .kracht-footer__cert {
   display: block;
-  height: 56px;
-  width: auto;
+  width: 40px;
+  height: auto;
   filter: brightness(0) invert(1);
   opacity: 0.95;
 }
 
 /* ==========================================================================
-   Bottom bar
+   Bottom bar — reference: full-width #727272 band, white text, 20px vertical
+   padding, content aligned to the container edges.
    ========================================================================== */
 .kracht-footer__bottom {
   margin: 0;
-  padding-block: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--kracht-grijs);
+  color: var(--kracht-wit);
+  /* Full-bleed band inside the container: span the viewport, pad content
+     back to the container edge. */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-block: 20px;
+  padding-inline: calc(max((100vw - var(--kracht-container)) / 2, 0px) + var(--kracht-page-pad));
+  border-top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
+  gap: 20px;
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
 }
 .kracht-footer__copyright { margin: 0; }
 .kracht-footer__legal {
   display: flex;
-  gap: 1.5rem;
+  gap: 20px;
   flex-wrap: wrap;
 }
-.kracht-footer__link--small { font-size: 0.85rem; }
+.kracht-footer__link--small { font-size: 0.9375rem; }
 
 /* ==========================================================================
    Responsive — tablet collapses to 2 columns; phone stacks fully, left-aligned
    ========================================================================== */
-@media (max-width: 1024px) {
+/* Reference stacks the footer columns below 1000px. */
+@media (max-width: 1000px) {
   .kracht-footer__grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 2.5rem;
+    flex-direction: column;
+    gap: 2rem;
   }
-  .kracht-footer__col--brand { grid-column: 1 / -1; }
 }
 
 @media (max-width: 720px) {
@@ -220,7 +225,6 @@
     padding-block: 3rem 0;
   }
   .kracht-footer__grid {
-    grid-template-columns: 1fr;
     gap: 2rem;
     text-align: left;
     padding-bottom: 2rem;
