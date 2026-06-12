@@ -264,6 +264,7 @@
         "s4": {
           "type": "story",
           "settings": {
+            "image": "shopify://shop_images/pexels-karolina-2031292-9629644.jpg",
             "tag_label": "Kandidaten",
             "tag_date": "",
             "title": "Van een goede naar een betere baan.",
