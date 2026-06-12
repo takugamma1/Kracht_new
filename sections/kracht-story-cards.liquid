@@ -7,6 +7,7 @@
     --kst-bg: {{ section.settings.background_color }};
     --kst-fg: {{ section.settings.text_color }};
     --kst-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
+    --kst-pad-b: {{ section.settings.padding_bottom | default: 160 }}px;
     --kst-radius: {{ section.settings.radius }}px;
     --kst-grad: {{ section.settings.gradient_strength | divided_by: 100.0 }};
   "
@@ -193,6 +194,17 @@
       "step": 4,
       "unit": "px",
       "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "info": "Needs ~100px extra: the staggered right column hangs below the grid.",
+      "min": 48,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 160
     },
     {
       "type": "range",

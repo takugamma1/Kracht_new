@@ -1,7 +1,8 @@
 .kracht-stories {
   background: var(--kst-bg, #ffffff);
   color: var(--kst-fg, #000000);
-  padding-block: var(--kst-pad-y, 64px);
+  /* Extra bottom padding absorbs the staggered column's 100px overhang. */
+  padding-block: var(--kst-pad-y, 64px) var(--kst-pad-b, 160px);
   font-family: var(--kracht-font-body);
 }
 
@@ -172,6 +173,10 @@
 .kracht-stories.is-static .kracht-stories__progress { display: none; }
 
 @media (max-width: 900px) {
+  .kracht-stories {
+    /* One column = no stagger overhang, so no extra bottom padding needed. */
+    padding-block: var(--kst-pad-y, 64px);
+  }
   .kracht-stories__track {
     grid-template-columns: 1fr;
     gap: 30px;
