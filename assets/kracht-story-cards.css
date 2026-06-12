@@ -42,32 +42,36 @@
 .kracht-stories__rail {
   padding-block: 0.25rem 0;
 }
-/* Two even columns, top-aligned with a uniform 40px gap both ways, like
-   the reference. */
+/* Two columns, 40px gaps, cards stretched to equal height per row; even
+   cards staggered down 100px (the -100px bottom margin keeps the container
+   height unchanged) — mirrors .info-holder.custom on vanuitkracht.nl. */
 .kracht-stories__track {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: clamp(1.5rem, 3vw, 2.5rem);
-  row-gap: clamp(1.5rem, 3vw, 2.5rem);
-  align-items: start;
+  gap: 40px;
 }
+.kracht-story-card:nth-child(2n) {
+  margin-top: 100px;
+  margin-bottom: -100px;
+}
+.kracht-story-card:last-child { align-self: start; }
 
+/* Card — mirrors .info-block: flat black, 10px radius, photo on top, the
+   content panel below with the button pinned to the bottom. */
 .kracht-story-card {
   position: relative;
-  border-radius: var(--kst-radius, 0);
+  border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
   color: var(--kracht-wit);
   display: flex;
   flex-direction: column;
-  background: #000a0e;
+  background: var(--kracht-zwart);
 }
 
-/* Photo sits on top; the black panel below holds the text + button.
-   ~1.9:1 like the reference (570 × 300 image). */
 .kracht-story-card__media {
   position: relative;
-  aspect-ratio: 19 / 10;
+  height: 300px;
   overflow: hidden;
 }
 .kracht-story-card__img {
@@ -76,39 +80,37 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 400ms ease;
+  object-position: top;
+  transition: scale 400ms ease;
 }
-.kracht-story-card:hover .kracht-story-card__img { transform: scale(1.04); }
+.kracht-story-card:hover .kracht-story-card__img { scale: 1.05; }
 .kracht-story-card__img--ph { background: linear-gradient(135deg, #2c2c2c, #555); }
 
-/* Gradient melts the bottom of the photo into the dark panel below
-   (fades to the same near-black the panel starts at, so the seam is invisible). */
+/* Bottom 45% of the photo fades into the black panel below. */
 .kracht-story-card__fade {
   position: absolute;
   inset: auto 0 -1px 0;
-  height: 55%;
+  height: 45%;
   background: linear-gradient(
-    to top,
-    rgba(0, 10, 14, calc(1 * var(--kst-grad, 1))) 0%,
-    rgba(0, 10, 14, calc(0.6 * var(--kst-grad, 1))) 45%,
-    rgba(0, 10, 14, 0) 100%
+    0deg,
+    rgba(0, 0, 0, var(--kst-grad, 1)),
+    rgba(0, 0, 0, 0)
   );
   pointer-events: none;
 }
 
 .kracht-story-card__panel {
-  background: var(--kracht-zwart-gradient);
-  padding: clamp(1.25rem, 2.2vw, 1.75rem);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
+  background: var(--kracht-zwart);
+  padding: 30px;
+  /* Room for the absolutely-positioned button (reference: 110px). */
+  padding-bottom: 110px;
   flex: 1;
+  position: relative;
 }
 .kracht-story-card__body {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 12px;
 }
 .kracht-story-card__date {
   font-size: 0.65rem;
@@ -120,13 +122,17 @@
 .kracht-story-card__title {
   font-family: var(--kracht-font-heading);
   font-weight: 700;
-  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-size: 1.25rem;
   line-height: 1.2;
   margin: 0;
   color: var(--kracht-wit);
+  text-wrap: balance;
 }
 .kracht-story-card__cta {
-  margin-top: 0.25rem;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  margin: 0;
 }
 .kracht-story-card:hover .kracht-btn__arrow { transform: translateX(3px); }
 
@@ -165,8 +171,15 @@
 .kracht-stories.is-static .kracht-stories__nav,
 .kracht-stories.is-static .kracht-stories__progress { display: none; }
 
-@media (max-width: 720px) {
-  .kracht-stories__track { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .kracht-stories__track {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .kracht-story-card:nth-child(2n) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
   .kracht-stories__nav { display: none; }
 }
 

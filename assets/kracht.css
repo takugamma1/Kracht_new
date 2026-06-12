@@ -282,6 +282,15 @@ body { overflow-x: clip; }
   transform: translateX(3px);
 }
 
+/* On blue surfaces the primary button goes black (reference: .bg-blue
+   a.button { background: black } → hover #2d2d2d). */
+.kracht-section--blue .kracht-btn--primary {
+  background: var(--kracht-zwart);
+}
+.kracht-section--blue .kracht-btn--primary:hover {
+  background: #2d2d2d;
+}
+
 /* ==========================================================================
    Pills / chips / tags
    ========================================================================== */
