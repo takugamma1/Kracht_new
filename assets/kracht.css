@@ -384,11 +384,8 @@ h2[class*="kracht-"][class$="__title"] {
   letter-spacing: -1px;
   line-height: 1.1;
 }
-h3[class*="kracht-"][class$="__title"] {
-  font-size: clamp(1.5rem, 2.7vw, 1.875rem);
-  font-weight: 500;
-  line-height: 1.1;
-}
+/* NOTE: deliberately no h3 rule here — every <h3 ...__title> in the theme is
+   a CARD title (product/retreat/feature cards) that keeps its own small size. */
 :is(h1, h2, h3)[class*="kracht-"][class$="__title"] :is(strong, b) {
   font-weight: 700;
   letter-spacing: normal;

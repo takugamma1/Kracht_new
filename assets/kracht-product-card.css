@@ -4,22 +4,26 @@
    Loaded by any section that uses that snippet (kracht-product-grid, kracht-collection-grid, ...).
    ========================================================================== */
 
+/* Bordered white card (matches the Kracht HTML prototype): photo on a light
+   panel up top, white info area below, thin border around the whole card. */
 .kracht-card {
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: inherit;
-  background: transparent;
+  background: var(--kracht-wit);
+  border: 1px solid var(--kracht-grijs-border);
+  border-radius: 4px;
+  overflow: hidden;
   transition: transform var(--kracht-trans);
 }
 .kracht-card:hover { color: inherit; }
 
 .kracht-card__media {
   position: relative;
-  aspect-ratio: 4 / 5;
-  background: var(--kracht-wit);
+  aspect-ratio: 1;
+  background: var(--kracht-grijs-licht);
   overflow: hidden;
-  border-radius: 4px;
 }
 .kracht-card__img {
   position: absolute;
@@ -55,28 +59,34 @@
   letter-spacing: 0.04em;
   gap: 0.2rem;
 }
+/* Prototype card badges are black with a blue plus (yellow discount stays). */
+.kracht-card__tags .kracht-tag--with-plus {
+  background: var(--kracht-zwart);
+  color: var(--kracht-wit);
+}
 .kracht-card__tags .kracht-tag--with-plus::before {
   width: 0.75em;
   height: calc(0.75em * 229 / 252);
+  background-color: var(--kracht-blauw);
 }
 
 .kracht-card__body {
-  padding: 0.85rem 0.1rem 0;
+  padding: 1rem 1.25rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 .kracht-card__cat {
-  font-size: 0.65rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.28em;
-  color: var(--kracht-blauw);
+  color: var(--kracht-grijs);
   margin: 0;
 }
 .kracht-card__title {
   font-family: var(--kracht-font-heading);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.3;
   margin: 0;
   color: inherit;
@@ -91,8 +101,8 @@
 .kracht-card__price {
   font-family: var(--kracht-font-heading);
   font-weight: 700;
-  font-size: 0.9rem;
-  color: inherit;
+  font-size: 0.9375rem;
+  color: var(--kracht-blauw);
 }
 .kracht-card__compare {
   color: var(--kracht-grijs);

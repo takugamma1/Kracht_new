@@ -12,9 +12,10 @@
 }
 
 /* ==========================================================================
-   Marquee. Two identical groups sit side by side in a max-content track.
-   Animating the track to -50% shifts it left by exactly one group width, so
-   the second group lands where the first began — a seamless infinite loop.
+   Marquee. Ten identical groups sit side by side in a max-content track.
+   Animating the track to -10% shifts it left by exactly one group width, so
+   the next group lands where the first began — a seamless infinite loop —
+   while the remaining nine groups keep even the widest viewport filled.
    The trailing separator on each group keeps the "·" rhythm across the seam.
    ========================================================================== */
 .kracht-announcement-bar__track {
@@ -31,7 +32,7 @@
 
 @keyframes kracht-kab-marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-10%); }
 }
 
 .kracht-announcement-bar__group {

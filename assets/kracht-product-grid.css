@@ -27,8 +27,8 @@
   gap: 1.5rem 1rem;
 }
 
-/* Card price uses the section's text color when nested under .kracht-pgrid */
-.kracht-pgrid .kracht-card__price { color: var(--kpg-fg); }
+/* Prototype card price is brand blue, also inside grid sections. */
+.kracht-pgrid .kracht-card__price { color: var(--kracht-blauw); }
 .kracht-pgrid .kracht-card__title { color: var(--kpg-fg); }
 
 @media (max-width: 1024px) {

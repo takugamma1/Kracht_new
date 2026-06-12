@@ -11,8 +11,13 @@
   "
 >
   <div class="kracht-announcement-bar__track">
-    {%- comment -%} Two identical groups so the CSS -50% loop is seamless. The clone is aria-hidden and carries no editor attributes. {%- endcomment -%}
-    {%- for copy in (1..2) -%}
+    {%- comment -%}
+      Ten identical groups; the CSS loop shifts exactly one group (-10%), so
+      the animation is seamless AND the track always out-spans wide viewports
+      (two copies of a short message left a visible gap sweeping through).
+      Clones are aria-hidden and carry no editor attributes.
+    {%- endcomment -%}
+    {%- for copy in (1..10) -%}
       {%- assign is_real = forloop.first -%}
       <div class="kracht-announcement-bar__group"{% unless is_real %} aria-hidden="true"{% endunless %}>
         {%- for block in section.blocks -%}
