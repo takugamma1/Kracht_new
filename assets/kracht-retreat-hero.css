@@ -186,3 +186,54 @@
   /* On phones go portrait so a tall subject reads at full height. */
   .kracht-rhero__media { aspect-ratio: 4 / 5; }
 }
+
+/* ── Full-bleed image mode: photo + bottom fade (matches the other heroes).
+   The product image becomes a full-bleed backdrop; content + booking strip
+   sit over the darkened bottom. Toggled by the "Full-bleed image hero" setting. */
+.kracht-rhero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.kracht-rhero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* This hero carries a taller content stack than the other heroes, so the
+     scrim never fully clears — it keeps a minimum darkening up top so the
+     breadcrumbs/tag stay legible even over a bright photo, and goes near-solid
+     at the bottom for the price + "Reserveer plek" strip. */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.8) 40%,
+    rgba(0, 0, 0, calc(0.32 + 0.4 * var(--krh-overlay, 0))) 100%
+  );
+}
+.kracht-rhero--image {
+  min-height: var(--krh-min-h, 640px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-block: 0;
+}
+.kracht-rhero--image .kracht-rhero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: 3.5rem 3rem;
+  /* Robust legibility over any photo, incl. bright/high-key images. */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+.kracht-rhero--image .kracht-rhero__grid {
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 0;
+}
+.kracht-rhero--image .kracht-rhero__content {
+  max-width: 620px;
+}

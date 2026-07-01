@@ -7,16 +7,33 @@
 {%- if p_subheading == blank and product != blank -%}
   {%- assign p_subheading = product.metafields.kracht.tagline | default: product.description | strip_html | truncatewords: 30 -%}
 {%- endif -%}
+{%- assign use_bg = false -%}
+{%- if section.settings.fullbleed and p_image != blank -%}{%- assign use_bg = true -%}{%- endif -%}
 
 <section
-  class="kracht-rhero"
+  class="kracht-rhero{% if use_bg %} kracht-rhero--image{% endif %}"
   style="
     --krh-bg: {{ section.settings.background_color }};
     --krh-fg: {{ section.settings.text_color }};
     --krh-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --krh-radius: {{ section.settings.image_radius }}px;
+    --krh-min-h: {{ section.settings.min_height }}px;
+    --krh-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
   "
 >
+  {%- if use_bg -%}
+    <img
+      src="{{ p_image | image_url: width: 2400 }}"
+      srcset="{{ p_image | image_url: width: 1000 }} 1000w, {{ p_image | image_url: width: 1600 }} 1600w, {{ p_image | image_url: width: 2400 }} 2400w"
+      sizes="100vw"
+      alt="{{ p_image.alt | default: product.title | escape }}"
+      class="kracht-rhero__bg"
+      loading="eager"
+      fetchpriority="high"
+    >
+    <div class="kracht-rhero__overlay" aria-hidden="true"></div>
+  {%- endif -%}
+
   <div class="kracht-rhero__inner kracht-container">
     {%- if section.settings.show_breadcrumbs -%}
       <nav class="kracht-rhero__crumbs" aria-label="Breadcrumb">
@@ -63,23 +80,25 @@
         {%- endif -%}
       </div>
 
-      <div class="kracht-rhero__media">
-        {%- if p_image != blank -%}
-          <img
-            src="{{ p_image | image_url: width: 1200 }}"
-            srcset="{{ p_image | image_url: width: 600 }} 600w, {{ p_image | image_url: width: 1200 }} 1200w"
-            sizes="(max-width: 900px) 100vw, 50vw"
-            alt="{{ p_image.alt | default: product.title | escape }}"
-            class="kracht-rhero__img"
-            loading="eager"
-          >
-        {%- else -%}
-          <div class="kracht-rhero__img kracht-rhero__img--ph"></div>
-        {%- endif -%}
-        {%- if section.settings.show_plus -%}
-          <span class="kracht-rhero__plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
-        {%- endif -%}
-      </div>
+      {%- unless use_bg -%}
+        <div class="kracht-rhero__media">
+          {%- if p_image != blank -%}
+            <img
+              src="{{ p_image | image_url: width: 1200 }}"
+              srcset="{{ p_image | image_url: width: 600 }} 600w, {{ p_image | image_url: width: 1200 }} 1200w"
+              sizes="(max-width: 900px) 100vw, 50vw"
+              alt="{{ p_image.alt | default: product.title | escape }}"
+              class="kracht-rhero__img"
+              loading="eager"
+            >
+          {%- else -%}
+            <div class="kracht-rhero__img kracht-rhero__img--ph"></div>
+          {%- endif -%}
+          {%- if section.settings.show_plus -%}
+            <span class="kracht-rhero__plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
+          {%- endif -%}
+        </div>
+      {%- endunless -%}
     </div>
 
     {%- comment -%} Bottom strip: dates / spots / price / CTA — pulls from product when possible. {%- endcomment -%}
@@ -139,6 +158,11 @@
     { "type": "url",  "id": "link_url",   "label": "Secondary link URL" },
     { "type": "text", "id": "button_label", "label": "Primary button", "default": "Reserveer plek" },
     { "type": "url",  "id": "button_link",  "label": "Primary button link" },
+
+    { "type": "header", "content": "Hero style" },
+    { "type": "checkbox", "id": "fullbleed", "label": "Full-bleed image hero", "info": "Show the image as a full-bleed background with a dark fade (matches the other pages). Uncheck for the split text + side-image layout.", "default": true },
+    { "type": "range", "id": "overlay_opacity", "label": "Bottom gradient darkness", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 0 },
+    { "type": "range", "id": "min_height", "label": "Min height (full-bleed)", "min": 360, "max": 900, "step": 20, "unit": "px", "default": 640 },
 
     { "type": "header", "content": "Appearance" },
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#000000" },
