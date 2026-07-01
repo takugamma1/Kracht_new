@@ -13,7 +13,10 @@
       "type": "kracht-collection-hero",
       "name": "Kracht — Collection Hero",
       "settings": {
+        "min_height": 640,
+        "overlay_opacity": 0,
         "show_breadcrumbs": false,
+        "tag": "Collectie",
         "heading": "<p>Alle kleding</p>",
         "subheading": "<p><strong>Premium kleding</strong> voor het team dat altijd wint. Van werkkleding tot lifestyle — <strong>met trots gedragen</strong> door het hele Kracht team.</p>",
         "button1_label": "",
