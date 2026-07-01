@@ -22,10 +22,10 @@
       </div>
     {%- endif -%}
 
+    {%- comment -%} Reference mosaic: blocks 1-4 form the 2x2 left grid, block 5 is the tall right feature (position-based, no size pickers). {%- endcomment -%}
     <div class="kracht-pgal__grid">
       {%- for block in section.blocks -%}
-        {%- assign span = block.settings.span | default: 'small' -%}
-        <figure class="kracht-pgal__item kracht-pgal__item--{{ span }}" {{ block.shopify_attributes }}>
+        <figure class="kracht-pgal__item" {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank -%}
             <img
               src="{{ block.settings.image | image_url: width: 1400 }}"
@@ -55,26 +55,18 @@
     { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Finca Las Encinas — <strong>een plek die vertraagt.</strong></p>" },
 
     { "type": "header", "content": "Appearance" },
-    { "type": "color", "id": "background_color", "label": "Background color", "default": "#000000" },
-    { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#ffffff" },
-    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 80 },
-    { "type": "range", "id": "radius",           "label": "Image radius",     "min": 0, "max": 32, "step": 1, "unit": "px", "default": 8 },
-    { "type": "range", "id": "gap",              "label": "Gap between photos", "min": 4, "max": 32, "step": 2, "unit": "px", "default": 12 }
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#000000" },
+    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 140 },
+    { "type": "range", "id": "radius",           "label": "Image radius",     "min": 0, "max": 32, "step": 1, "unit": "px", "default": 10 },
+    { "type": "range", "id": "gap",              "label": "Gap between photos", "min": 4, "max": 32, "step": 2, "unit": "px", "default": 10 }
   ],
   "blocks": [
     {
       "type": "photo",
       "name": "Photo",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Photo" },
-        { "type": "select", "id": "span", "label": "Size",
-          "options": [
-            { "value": "small",  "label": "Small"  },
-            { "value": "medium", "label": "Medium" },
-            { "value": "large",  "label": "Large (spans 2)" }
-          ],
-          "default": "medium"
-        }
+        { "type": "image_picker", "id": "image", "label": "Photo" }
       ]
     }
   ],
@@ -82,11 +74,11 @@
     {
       "name": "Kracht — Photo Gallery",
       "blocks": [
-        { "type": "photo", "settings": { "span": "large"  } },
-        { "type": "photo", "settings": { "span": "medium" } },
-        { "type": "photo", "settings": { "span": "small"  } },
-        { "type": "photo", "settings": { "span": "medium" } },
-        { "type": "photo", "settings": { "span": "small"  } }
+        { "type": "photo" },
+        { "type": "photo" },
+        { "type": "photo" },
+        { "type": "photo" },
+        { "type": "photo" }
       ]
     }
   ]

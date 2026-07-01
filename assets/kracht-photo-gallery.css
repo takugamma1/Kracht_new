@@ -1,35 +1,49 @@
+/* Kracht — Photo gallery: the reference mosaic — four photos in a 2x2 block
+   on the left, one large photo filling the right, tight gaps (their
+   --image-grid-gap: 10px), rounded corners, nothing on the images. */
 .kracht-pgal {
-  background: var(--kpg2-bg, #000);
-  color: var(--kpg2-fg, #fff);
+  background: var(--kpg2-bg, #ffffff);
+  color: var(--kpg2-fg, #000000);
   padding-block: var(--kpg2-pad-y, 80px);
   font-family: var(--kracht-font-body);
 }
 
-.kracht-pgal__head { margin-bottom: 2.5rem; }
+.kracht-pgal__head { margin-bottom: 2.25rem; }
 .kracht-pgal__title {
   font-family: var(--kracht-font-heading);
-  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-  font-weight: 400;
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
+  font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -1px;
   margin: 0;
   color: var(--kpg2-fg);
 }
 .kracht-pgal__title p { margin: 0; }
-.kracht-pgal__title strong { font-weight: 800; }
+.kracht-pgal__title strong { font-weight: 700; }
 
+/* Fixed mosaic: 2x2 left + tall feature right. */
 .kracht-pgal__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: minmax(160px, auto);
-  gap: var(--kpg2-gap, 12px);
+  grid-template-rows: repeat(2, clamp(180px, 20vw, 320px));
+  grid-template-areas:
+    "a b big big"
+    "c d big big";
+  gap: var(--kpg2-gap, 10px);
 }
+.kracht-pgal__grid > .kracht-pgal__item:nth-child(1) { grid-area: a; }
+.kracht-pgal__grid > .kracht-pgal__item:nth-child(2) { grid-area: b; }
+.kracht-pgal__grid > .kracht-pgal__item:nth-child(3) { grid-area: c; }
+.kracht-pgal__grid > .kracht-pgal__item:nth-child(4) { grid-area: d; }
+.kracht-pgal__grid > .kracht-pgal__item:nth-child(5) { grid-area: big; }
+/* Any photos beyond the fifth flow underneath, two columns wide each. */
+.kracht-pgal__grid > .kracht-pgal__item:nth-child(n + 6) { grid-column: span 2; }
 
 .kracht-pgal__item {
   margin: 0;
-  border-radius: var(--kpg2-radius, 8px);
+  border-radius: var(--kpg2-radius, 10px);
   overflow: hidden;
-  background: linear-gradient(135deg, #2c2c2e, #18181b);
+  background: var(--kracht-grijs-licht);
   position: relative;
 }
 .kracht-pgal__item img,
@@ -37,25 +51,22 @@
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 200px;
   object-fit: cover;
 }
 .kracht-pgal__placeholder { background: inherit; }
 
-.kracht-pgal__item--small  { grid-column: span 1; grid-row: span 1; }
-.kracht-pgal__item--medium { grid-column: span 2; grid-row: span 1; }
-.kracht-pgal__item--large  { grid-column: span 2; grid-row: span 2; }
-
+@media (max-width: 1000px) {
+  .kracht-pgal { padding-block: 60px; }
+}
 @media (max-width: 900px) {
+  /* Stacked: the feature photo goes full-width on top, smalls in 2 columns. */
   .kracht-pgal__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: minmax(140px, auto);
+    grid-template-rows: clamp(220px, 40vw, 360px) repeat(2, clamp(140px, 26vw, 220px));
+    grid-template-areas:
+      "big big"
+      "a b"
+      "c d";
   }
-  .kracht-pgal__item--small,
-  .kracht-pgal__item--medium,
-  .kracht-pgal__item--large {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  .kracht-pgal__item--large { grid-column: span 2; grid-row: span 1; }
+  .kracht-pgal__grid > .kracht-pgal__item:nth-child(n + 6) { grid-column: span 2; }
 }
