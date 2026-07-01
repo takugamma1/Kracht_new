@@ -453,6 +453,7 @@
         "q4",
         "q5"
       ],
+      "disabled": true,
       "name": "Kracht — FAQ",
       "settings": {
         "eyebrow": "",
