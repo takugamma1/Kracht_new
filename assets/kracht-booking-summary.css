@@ -1,73 +1,251 @@
+/* Kracht — Booking Summary · "Zet de eerste stap"
+   Blue brand-gradient band (background/text come from .kracht-section--blue):
+   contact form on the left, contact-person card + compact price card on the
+   right. Mirrors vanuitkracht.nl's contact section. */
+
 .kracht-book {
-  background: var(--kb-bg, #000);
-  color: var(--kb-fg, #fff);
-  padding-block: var(--kb-pad-y, 88px);
+  padding-block: var(--kb-pad-y, 66px);
   font-family: var(--kracht-font-body);
 }
 
 .kracht-book__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: center;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
 }
 
-.kracht-book__head {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.kracht-book__title {
-  font-family: var(--kracht-font-heading);
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-  margin: 0;
-  color: var(--kb-fg);
-}
+/* --------------------------------------------------------------------------
+   Left column — heading, intro, LinkedIn prefill, form
+   -------------------------------------------------------------------------- */
+.kracht-book__title { margin: 0 0 1.25rem; }
 .kracht-book__title p { margin: 0; }
-.kracht-book__title strong { font-weight: 800; }
-.kracht-book__body {
-  font-size: 1rem;
-  line-height: 1.55;
-  max-width: 38ch;
-}
-.kracht-book__body p { margin: 0 0 0.6rem; }
-.kracht-book__body p:last-child { margin: 0; }
-.kracht-book__body strong { font-weight: 700; }
 
-/* Right pricing card */
-.kracht-book__card {
-  background: var(--kb-card-bg, var(--kracht-blauw-gradient));
-  color: var(--kb-card-fg, #fff);
-  border-radius: var(--kb-radius, 20px);
-  padding: clamp(1.5rem, 3vw, 2.25rem);
+.kracht-book__intro {
+  max-width: 48ch;
+  margin: 0 0 1.75rem;
+}
+.kracht-book__intro p { margin: 0 0 0.6rem; }
+.kracht-book__intro p:last-child { margin: 0; }
+
+.kracht-book__linkedin { margin-bottom: 2.5rem; }
+
+.kracht-book__form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-.kracht-book__date {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.18);
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  align-self: flex-start;
-}
-.kracht-book__date-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--kb-card-fg, #fff);
-  display: inline-block;
+  gap: 1.25rem;
 }
 
+.kracht-book__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.kracht-book__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.kracht-book__label {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+.kracht-book__req {
+  font-size: 0.7em;
+  line-height: 0;
+}
+
+.kracht-book__input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--kracht-wit);
+  color: var(--kracht-zwart);
+  border: 0;
+  border-radius: var(--kracht-radius-sm);
+  padding: 0.8rem 1rem;
+  min-height: 48px;
+  font-family: var(--kracht-font-body);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+.kracht-book__input::placeholder { color: var(--kracht-grijs); }
+.kracht-book__input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+/* Select — custom blue chevron, matching the reference form */
+.kracht-book__select {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23009de1' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 18px;
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+.kracht-book__select:invalid { color: var(--kracht-zwart); }
+
+.kracht-book__textarea {
+  min-height: 200px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+/* Terms checkbox — white outline square on the blue surface */
+.kracht-book__terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+  cursor: pointer;
+}
+.kracht-book__terms input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 4px 0 0;
+  background: transparent;
+  border: 1.5px solid var(--kracht-wit);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.kracht-book__terms input:checked {
+  background-color: var(--kracht-wit);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+}
+.kracht-book__terms input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+}
+.kracht-book__terms p { margin: 0; }
+
+.kracht-book__submit { align-self: flex-start; }
+
+/* Form status boxes */
+.kracht-book__notice {
+  background: var(--kracht-wit);
+  color: var(--kracht-zwart);
+  border-radius: var(--kracht-radius-sm);
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+}
+.kracht-book__errors {
+  background: var(--kracht-wit);
+  color: var(--kracht-rood);
+  border-radius: var(--kracht-radius-sm);
+  padding: 1rem 1.25rem;
+}
+.kracht-book__errors ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Right column — contact-person card + compact price card
+   Both cards are white, so restore the black inline-link underline that
+   .kracht-section--blue flips to white.
+   -------------------------------------------------------------------------- */
+.kracht-book__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.kracht-book__person,
+.kracht-book__price {
+  --kracht-underline: #000000;
+  --kracht-underline-hover: linear-gradient(90deg, #01a4eb, #1763f8);
+  background: var(--kracht-wit);
+  color: var(--kracht-zwart);
+  border-radius: 10px;
+}
+
+.kracht-book__person {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  overflow: hidden;
+}
+.kracht-book__person-media {
+  position: relative;
+  min-height: 280px;
+}
+.kracht-book__person-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.kracht-book__person-media--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--kracht-grijs-licht);
+  color: var(--kracht-grijs-border);
+  font-size: 4rem;
+}
+
+.kracht-book__person-body {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.kracht-book__person-name {
+  font-family: var(--kracht-font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1.1rem;
+}
+.kracht-book__person-list {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.kracht-book__person-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+}
+.kracht-book__person-list svg {
+  width: 17px;
+  height: 17px;
+  color: var(--kracht-blauw);
+  flex: none;
+}
+.kracht-book__person-btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* Compact price card — carries the booking summary (date + room rows) */
+.kracht-book__price { padding: 30px; }
+.kracht-book__date {
+  display: inline-block;
+  background: var(--kracht-zwart);
+  color: var(--kracht-wit);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
 .kracht-book__rooms {
   list-style: none;
   margin: 0;
@@ -81,27 +259,44 @@
   align-items: baseline;
   gap: 1rem;
   padding: 0.65rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-  font-size: 0.92rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 0.9375rem;
 }
-.kracht-book__room:last-child { border-bottom: 0; }
+.kracht-book__room:last-child { border-bottom: 0; padding-bottom: 0; }
 .kracht-book__room-name { font-weight: 500; }
 .kracht-book__room-price p { margin: 0; display: inline; }
 .kracht-book__room-price strong {
   font-family: var(--kracht-font-heading);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.05rem;
 }
-
-.kracht-book__btn { align-self: stretch; }
 .kracht-book__fine {
-  font-size: 0.72rem;
-  opacity: 0.8;
-  margin: 0;
-  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--kracht-grijs);
+  margin: 0.85rem 0 0;
 }
 
-@media (max-width: 900px) {
-  .kracht-book__grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .kracht-book__body { max-width: none; }
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 1000px) {
+  .kracht-book__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .kracht-book__row { grid-template-columns: 1fr; gap: 1.25rem; }
+  .kracht-book__person { grid-template-columns: 1fr; }
+  .kracht-book__person-media {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+  .kracht-book__linkedin {
+    width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+  }
 }

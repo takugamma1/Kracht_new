@@ -1,62 +1,227 @@
 {{ 'kracht-booking-summary.css' | asset_url | stylesheet_tag }}
 
+{%- assign form_id = 'kracht-book-form-' | append: section.id -%}
+
 <section
-  class="kracht-book"
-  style="
-    --kb-bg: {{ section.settings.background_color }};
-    --kb-fg: {{ section.settings.text_color }};
-    --kb-card-bg: {{ section.settings.card_color }};
-    --kb-card-fg: {{ section.settings.card_text_color }};
-    --kb-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
-    --kb-radius: {{ section.settings.card_radius }}px;
-  "
+  class="kracht-book kracht-section--blue"
+  style="--kb-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;"
 >
   <div class="kracht-book__inner kracht-container">
     <div class="kracht-book__grid">
-      <div class="kracht-book__head">
-        {%- if section.settings.eyebrow != blank -%}
-          <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
+      <div class="kracht-book__main">
+        {%- if section.settings.form_heading != blank -%}
+          <h2 class="kracht-book__title">{{ section.settings.form_heading }}</h2>
         {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <h2 class="kracht-book__title">{{ section.settings.heading }}</h2>
-        {%- endif -%}
-        {%- if section.settings.body != blank -%}
-          <div class="kracht-book__body">{{ section.settings.body }}</div>
-        {%- endif -%}
-      </div>
-
-      <aside class="kracht-book__card">
-        {%- if section.settings.date_label != blank -%}
-          <div class="kracht-book__date">
-            <span class="kracht-book__date-dot" aria-hidden="true"></span>
-            {{ section.settings.date_label }}
-          </div>
+        {%- if section.settings.form_intro != blank -%}
+          <div class="kracht-book__intro">{{ section.settings.form_intro }}</div>
         {%- endif -%}
 
-        <ul class="kracht-book__rooms">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'room' -%}
-              <li class="kracht-book__room" {{ block.shopify_attributes }}>
-                <span class="kracht-book__room-name">{{ block.settings.name }}</span>
-                <span class="kracht-book__room-price">{{ block.settings.price }}</span>
-              </li>
-            {%- endif -%}
-          {%- endfor -%}
-          {%- if section.blocks.size == 0 and product != blank and product.price > 0 -%}
-            <li class="kracht-book__room">
-              <span class="kracht-book__room-name">{{ section.settings.fallback_label | default: 'Vanaf' }}</span>
-              <span class="kracht-book__room-price">{{ product.price | money }}</span>
-            </li>
-          {%- endif -%}
-        </ul>
-
-        {%- if section.settings.button_label != blank -%}
-          <a href="{{ section.settings.button_link | default: '#' }}" class="kracht-btn kracht-btn--light kracht-book__btn">
-            {{ section.settings.button_label }} <span class="kracht-btn__arrow">→</span>
+        {%- if section.settings.linkedin_label != blank -%}
+          <a
+            href="{{ section.settings.linkedin_link | default: '#' }}"
+            class="kracht-btn kracht-btn--outline-dark kracht-book__linkedin"
+          >
+            {{ section.settings.linkedin_label }}
           </a>
         {%- endif -%}
-        {%- if section.settings.fineprint != blank -%}
-          <p class="kracht-book__fine">{{ section.settings.fineprint }}</p>
+
+        {%- form 'contact', id: form_id, class: 'kracht-book__form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="kracht-book__notice" role="status">
+              {{ section.settings.success_text | default: 'Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.' }}
+            </div>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <div class="kracht-book__errors" role="alert">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          {%- if product != blank -%}
+            <input type="hidden" name="contact[Retraite]" value="{{ product.title | escape }}">
+          {%- endif -%}
+
+          <div class="kracht-book__row">
+            <div class="kracht-book__field">
+              <label class="kracht-book__label" for="kb-voornaam-{{ section.id }}">Voornaam<sup class="kracht-book__req" aria-hidden="true">*</sup></label>
+              <input
+                type="text"
+                id="kb-voornaam-{{ section.id }}"
+                name="contact[Voornaam]"
+                class="kracht-book__input"
+                autocomplete="given-name"
+                required
+              >
+            </div>
+            <div class="kracht-book__field">
+              <label class="kracht-book__label" for="kb-achternaam-{{ section.id }}">Achternaam<sup class="kracht-book__req" aria-hidden="true">*</sup></label>
+              <input
+                type="text"
+                id="kb-achternaam-{{ section.id }}"
+                name="contact[Achternaam]"
+                class="kracht-book__input"
+                autocomplete="family-name"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="kracht-book__row">
+            <div class="kracht-book__field">
+              <label class="kracht-book__label" for="kb-email-{{ section.id }}">E-mailadres<sup class="kracht-book__req" aria-hidden="true">*</sup></label>
+              <input
+                type="email"
+                id="kb-email-{{ section.id }}"
+                name="contact[email]"
+                class="kracht-book__input"
+                autocomplete="email"
+                required
+              >
+            </div>
+            <div class="kracht-book__field">
+              <label class="kracht-book__label" for="kb-telefoon-{{ section.id }}">Telefoonnummer<sup class="kracht-book__req" aria-hidden="true">*</sup></label>
+              <input
+                type="tel"
+                id="kb-telefoon-{{ section.id }}"
+                name="contact[Telefoonnummer]"
+                class="kracht-book__input"
+                autocomplete="tel"
+                required
+              >
+            </div>
+          </div>
+
+          {%- if section.settings.role_options != blank -%}
+            {%- assign role_opts = section.settings.role_options | strip | newline_to_br | split: '<br />' -%}
+            <div class="kracht-book__field">
+              <label class="kracht-book__label" for="kb-rol-{{ section.id }}">{{ section.settings.role_label | default: 'Ik ben een...' }}<sup class="kracht-book__req" aria-hidden="true">*</sup></label>
+              <select
+                id="kb-rol-{{ section.id }}"
+                name="contact[Ik ben een]"
+                class="kracht-book__input kracht-book__select"
+                required
+              >
+                <option value="" disabled selected>Maak een keuze</option>
+                {%- for opt in role_opts -%}
+                  {%- assign opt_clean = opt | strip -%}
+                  {%- if opt_clean != blank -%}
+                    <option value="{{ opt_clean | escape }}">{{ opt_clean }}</option>
+                  {%- endif -%}
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endif -%}
+
+          <div class="kracht-book__field">
+            <label class="kracht-book__label" for="kb-bericht-{{ section.id }}">Bericht</label>
+            <textarea
+              id="kb-bericht-{{ section.id }}"
+              name="contact[body]"
+              class="kracht-book__input kracht-book__textarea"
+            ></textarea>
+          </div>
+
+          {%- if section.settings.terms_text != blank -%}
+            <label class="kracht-book__terms">
+              <input type="checkbox" name="contact[Akkoord met voorwaarden]" value="Ja" required>
+              <span>{{ section.settings.terms_text }}</span>
+            </label>
+          {%- endif -%}
+
+          <button type="submit" class="kracht-btn kracht-btn--primary kracht-book__submit">
+            {{ section.settings.submit_label | default: 'Verstuur bericht' }} <span class="kracht-btn__arrow">→</span>
+          </button>
+        {%- endform -%}
+      </div>
+
+      <aside class="kracht-book__aside">
+        {%- if section.settings.contact_name != blank -%}
+          <article class="kracht-book__person">
+            <div class="kracht-book__person-media{% if section.settings.contact_image == blank %} kracht-book__person-media--empty{% endif %}">
+              {%- if section.settings.contact_image != blank -%}
+                {{
+                  section.settings.contact_image
+                  | image_url: width: 900
+                  | image_tag:
+                    widths: '450, 700, 900',
+                    sizes: '(min-width: 1001px) 280px, 100vw',
+                    class: 'kracht-book__person-img',
+                    alt: section.settings.contact_name
+                }}
+              {%- else -%}
+                <span class="kracht-plus-mark" aria-hidden="true"></span>
+              {%- endif -%}
+            </div>
+            <div class="kracht-book__person-body">
+              <h3 class="kracht-book__person-name">{{ section.settings.contact_name }}</h3>
+              <ul class="kracht-book__person-list">
+                {%- if section.settings.contact_phone != blank -%}
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <a href="tel:{{ section.settings.contact_phone | remove: ' ' }}">{{ section.settings.contact_phone }}</a>
+                  </li>
+                {%- endif -%}
+                {%- if section.settings.contact_whatsapp != blank -%}
+                  {%- assign wa_num = section.settings.contact_whatsapp | remove: ' ' | remove: '+' | remove: '-' -%}
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                      <path d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.5 0 .17 5.34.17 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.32-1.66a11.92 11.92 0 0 0 5.73 1.46h.01c6.56 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.17-3.43-8.42zM12.06 21.78h-.01a9.85 9.85 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.87 9.87 0 0 1-1.51-5.26c0-5.45 4.43-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 7c0 5.45-4.44 9.88-9.89 9.88zm5.4-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.88-.79-1.48-1.76-1.65-2.06-.18-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.66-1.6-.9-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.48.71.3 1.27.49 1.7.62.72.22 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.69.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35z"/>
+                    </svg>
+                    <a href="https://wa.me/{{ wa_num }}" target="_blank" rel="noopener">{{ section.settings.contact_whatsapp }}</a>
+                  </li>
+                {%- endif -%}
+                {%- if section.settings.contact_email != blank -%}
+                  <li>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                      <rect x="3" y="5" width="18" height="14" rx="2"/>
+                      <path d="M3 7l9 6 9-6"/>
+                    </svg>
+                    <a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a>
+                  </li>
+                {%- endif -%}
+              </ul>
+              {%- if section.settings.contact_button_label != blank -%}
+                <a href="{{ section.settings.contact_button_link | default: '#' }}" class="kracht-btn kracht-btn--dark kracht-book__person-btn">
+                  {{ section.settings.contact_button_label }}
+                </a>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endif -%}
+
+        {%- assign has_rooms = false -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'room' -%}{%- assign has_rooms = true -%}{%- endif -%}
+        {%- endfor -%}
+        {%- if has_rooms or product != blank and product.price > 0 -%}
+          <div class="kracht-book__price">
+            {%- if section.settings.date_label != blank -%}
+              <span class="kracht-book__date">{{ section.settings.date_label }}</span>
+            {%- endif -%}
+
+            <ul class="kracht-book__rooms">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'room' -%}
+                  <li class="kracht-book__room" {{ block.shopify_attributes }}>
+                    <span class="kracht-book__room-name">{{ block.settings.name }}</span>
+                    <span class="kracht-book__room-price">{{ block.settings.price }}</span>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if has_rooms == false and product != blank and product.price > 0 -%}
+                <li class="kracht-book__room">
+                  <span class="kracht-book__room-name">{{ section.settings.fallback_label | default: 'Vanaf' }}</span>
+                  <span class="kracht-book__room-price"><strong>{{ product.price | money }}</strong></span>
+                </li>
+              {%- endif -%}
+            </ul>
+
+            {%- if section.settings.fineprint != blank -%}
+              <p class="kracht-book__fine">{{ section.settings.fineprint }}</p>
+            {%- endif -%}
+          </div>
         {%- endif -%}
       </aside>
     </div>
@@ -70,25 +235,33 @@
   "class": "kracht-book-section",
   "max_blocks": 6,
   "settings": [
-    { "type": "header", "content": "Left column" },
-    { "type": "text",     "id": "eyebrow", "label": "Eyebrow" },
-    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Eén bedrag, <strong>alles erin van vlucht tot integratie.</strong></p>" },
-    { "type": "richtext", "id": "body",    "label": "Body",    "default": "<p>Onze prijs is <strong>all-inclusive</strong>. Geen verrassingen onderweg, geen toeslagen achteraf — onlangs is alles betaald. Je krijgt een <strong>kennismakingsgesprek</strong> en pas op vrije plek de match.</p>" },
+    { "type": "header", "content": "Left — contact form" },
+    { "type": "richtext", "id": "form_heading",   "label": "Heading", "default": "<p><strong>Zet de eerste stap</strong></p>" },
+    { "type": "richtext", "id": "form_intro",     "label": "Intro",   "default": "<p>Na het invullen van ons contactformulier nemen we zo snel mogelijk contact met je op.</p>" },
+    { "type": "text",     "id": "linkedin_label", "label": "LinkedIn button label (empty = hidden)", "default": "Automatisch invullen vanuit LinkedIn" },
+    { "type": "url",      "id": "linkedin_link",  "label": "LinkedIn button link" },
+    { "type": "text",     "id": "role_label",     "label": "Select label", "default": "Ik ben een..." },
+    { "type": "textarea", "id": "role_options",   "label": "Select options (one per line, empty = hidden)", "default": "Geïnteresseerde deelnemer\nBedrijf of team\nAnders" },
+    { "type": "richtext", "id": "terms_text",     "label": "Terms checkbox text", "default": "<p>Ik ga akkoord met de <a href=\"/policies/terms-of-service\">algemene voorwaarden</a> en <a href=\"/policies/privacy-policy\">privacy policy</a></p>" },
+    { "type": "text",     "id": "submit_label",   "label": "Submit button label", "default": "Verstuur bericht" },
+    { "type": "text",     "id": "success_text",   "label": "Success message", "default": "Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op." },
 
-    { "type": "header", "content": "Right card" },
-    { "type": "text",     "id": "date_label",    "label": "Date label", "default": "12 — 18 oktober 2026" },
-    { "type": "text",     "id": "fallback_label","label": "Fallback price label (used when no Room blocks)", "default": "Vanaf" },
-    { "type": "text",     "id": "button_label",  "label": "Button label", "default": "Plan kennismakingsgesprek" },
-    { "type": "url",      "id": "button_link",   "label": "Button link" },
-    { "type": "text",     "id": "fineprint",     "label": "Fine print",   "default": "Vrijblijvend gesprek — kan ook per video chat" },
+    { "type": "header", "content": "Right — contact person" },
+    { "type": "image_picker", "id": "contact_image",        "label": "Photo" },
+    { "type": "text",         "id": "contact_name",         "label": "Name",     "default": "Merel Bakkers" },
+    { "type": "text",         "id": "contact_phone",        "label": "Phone",    "default": "06 18 39 23 36" },
+    { "type": "text",         "id": "contact_whatsapp",     "label": "WhatsApp number", "default": "06 18 39 23 36" },
+    { "type": "text",         "id": "contact_email",        "label": "Email",    "default": "bakkers@vanuitkracht.nl" },
+    { "type": "text",         "id": "contact_button_label", "label": "Button label", "default": "Meer informatie" },
+    { "type": "url",          "id": "contact_button_link",  "label": "Button link" },
+
+    { "type": "header", "content": "Right — booking summary card" },
+    { "type": "text", "id": "date_label",     "label": "Date label", "default": "12 — 18 oktober 2026" },
+    { "type": "text", "id": "fallback_label", "label": "Fallback price label (used when no Room blocks)", "default": "Vanaf" },
+    { "type": "text", "id": "fineprint",      "label": "Fine print", "default": "Vrijblijvend gesprek — kan ook per video chat" },
 
     { "type": "header", "content": "Appearance" },
-    { "type": "color", "id": "background_color",  "label": "Background color", "default": "#000000" },
-    { "type": "color", "id": "text_color",        "label": "Text color",       "default": "#ffffff" },
-    { "type": "color", "id": "card_color",        "label": "Card background",  "default": "#009de1" },
-    { "type": "color", "id": "card_text_color",   "label": "Card text color",  "default": "#ffffff" },
-    { "type": "range", "id": "padding_y",         "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 88 },
-    { "type": "range", "id": "card_radius",       "label": "Card radius",      "min": 0, "max": 40, "step": 1, "unit": "px", "default": 20 }
+    { "type": "range", "id": "padding_y", "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 88 }
   ],
   "blocks": [
     {
