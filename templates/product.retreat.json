@@ -168,9 +168,9 @@
       ],
       "name": "Kracht — Day Timeline",
       "settings": {
-        "eyebrow": "Day timeline",
+        "eyebrow": "",
         "heading": "<p>Zeven dagen, <strong>zorgvuldig geritmeerd.</strong></p>",
-        "aside": "<p>Geen scherm afhetkt. <a href=\"#\">Oudtijdsmiddag schedule</a>.</p>",
+        "aside": "",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 80,
