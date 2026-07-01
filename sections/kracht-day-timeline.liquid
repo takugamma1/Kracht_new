@@ -1,14 +1,13 @@
 {{ 'kracht-day-timeline.css' | asset_url | stylesheet_tag }}
+{%- comment -%} Open image/text split per feedback: clean photo (no overlay text, no gradient), all content in the text column — sentence-case eyebrow, big title, bold lead, calendar-icon day row, body, '+' sublist, plain tags. {%- endcomment -%}
 
 <section
   class="kracht-dtime"
   style="
     --kdt-bg: {{ section.settings.background_color }};
     --kdt-fg: {{ section.settings.text_color }};
-    --kdt-card-bg: {{ section.settings.card_color }};
     --kdt-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --kdt-radius: {{ section.settings.radius }}px;
-    --kdt-grad: {{ section.settings.gradient_strength | divided_by: 100.0 }};
   "
 >
   <div class="kracht-dtime__inner kracht-container">
@@ -48,28 +47,33 @@
             {%- else -%}
               <div class="kracht-dtime__img kracht-dtime__img--ph"></div>
             {%- endif -%}
-            <div class="kracht-dtime__media-shade" aria-hidden="true"></div>
-
-            <div class="kracht-dtime__media-text">
-              {%- if block.settings.day_label != blank -%}
-                {%- comment -%} capitalize normalizes legacy ALL-CAPS content to sentence case. {%- endcomment -%}
-                <span class="kracht-dtime__day">{{ block.settings.day_label | capitalize }}</span>
-              {%- endif -%}
-              {%- if block.settings.image_title != blank -%}
-                <h3 class="kracht-dtime__media-title">{{ block.settings.image_title }}</h3>
-              {%- endif -%}
-            </div>
           </div>
 
           <div class="kracht-dtime__panel">
             {%- if block.settings.panel_eyebrow != blank -%}
-              <span class="kracht-eyebrow kracht-dtime__panel-eyebrow">{{ block.settings.panel_eyebrow }}</span>
+              {%- comment -%} capitalize keeps the eyebrow sentence case regardless of stored casing. {%- endcomment -%}
+              <span class="kracht-eyebrow kracht-dtime__panel-eyebrow">{{ block.settings.panel_eyebrow | capitalize }}</span>
             {%- endif -%}
+
+            {%- if block.settings.image_title != blank -%}
+              <h3 class="kracht-dtime__row-title">{{ block.settings.image_title }}</h3>
+            {%- endif -%}
+
             {%- if block.settings.panel_title != blank -%}
               <h4 class="kracht-dtime__panel-title">{{ block.settings.panel_title }}</h4>
             {%- endif -%}
+
             {%- if block.settings.panel_body != blank -%}
               <div class="kracht-dtime__panel-body">{{ block.settings.panel_body }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.day_label != blank -%}
+              <div class="kracht-dtime__meta">
+                <span class="kracht-dtime__meta-item">
+                  <span class="kracht-dtime__meta-icon">{% render 'kracht-hero-icon', icon: 'calendar' %}</span>
+                  <span>{{ block.settings.day_label | capitalize }}</span>
+                </span>
+              </div>
             {%- endif -%}
 
             {%- if block.settings.sublist_title != blank or block.settings.sublist_items != blank -%}
@@ -94,7 +98,7 @@
                 {%- assign tag_list = block.settings.tags | split: ',' -%}
                 {%- for t in tag_list -%}
                   {%- assign tt = t | strip -%}
-                  {%- if tt != blank -%}<span class="kracht-tag kracht-tag--ghost kracht-dtime__tag">{{ tt }}</span>{%- endif -%}
+                  {%- if tt != blank -%}<span class="kracht-dtime__tag">{{ tt }}</span>{%- endif -%}
                 {%- endfor -%}
               </div>
             {%- endif -%}
@@ -115,30 +119,25 @@
     { "type": "header", "content": "Section header" },
     { "type": "text",     "id": "eyebrow", "label": "Eyebrow", "default": "Het programma" },
     { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Zeven dagen, <strong>zorgvuldig geritmeerd.</strong></p>" },
-    { "type": "richtext", "id": "aside",   "label": "Aside (right column)" },
+    { "type": "richtext", "id": "aside",   "label": "Intro (below heading)" },
 
     { "type": "header", "content": "Appearance" },
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#ffffff" },
     { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#000000" },
-    { "type": "color", "id": "card_color",       "label": "Panel background", "default": "#F8F8F8" },
     { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 140 },
-    { "type": "range", "id": "radius",           "label": "Card radius",      "min": 0, "max": 32, "step": 1, "unit": "px", "default": 10 },
-    { "type": "range", "id": "gradient_strength","label": "Image gradient strength", "info": "How dark the bottom of each day's image becomes. 100 = full black panel, 0 = no overlay.", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 100 }
+    { "type": "range", "id": "radius",           "label": "Image radius",     "min": 0, "max": 32, "step": 1, "unit": "px", "default": 10 }
   ],
   "blocks": [
     {
       "type": "day",
       "name": "Day",
       "settings": [
-        { "type": "header", "content": "Image card (left side)" },
         { "type": "image_picker", "id": "image",       "label": "Image" },
-        { "type": "text",         "id": "day_label",   "label": "Day label (overlay)", "default": "Dag 01 — Zondag — Aankomst" },
-        { "type": "richtext",     "id": "image_title", "label": "Image title (overlay)", "default": "<p>Welkom in <strong>Andalusië.</strong></p>" },
-
-        { "type": "header", "content": "Info panel (right side)" },
-        { "type": "text",     "id": "panel_eyebrow", "label": "Panel eyebrow", "default": "Aankomst" },
-        { "type": "richtext", "id": "panel_title",   "label": "Panel title",   "default": "<p>Eerst <strong>aankomen.</strong></p>" },
-        { "type": "richtext", "id": "panel_body",    "label": "Panel body" },
+        { "type": "text",         "id": "day_label",   "label": "Day (calendar icon row)", "default": "Dag 01 — zondag — aankomst" },
+        { "type": "richtext",     "id": "image_title", "label": "Title", "default": "<p>Welkom in <strong>Andalusië.</strong></p>" },
+        { "type": "text",     "id": "panel_eyebrow", "label": "Eyebrow", "default": "Aankomst" },
+        { "type": "richtext", "id": "panel_title",   "label": "Bold lead line",   "default": "<p>Eerst <strong>aankomen.</strong></p>" },
+        { "type": "richtext", "id": "panel_body",    "label": "Body" },
         { "type": "text",     "id": "sublist_title", "label": "Sublist label", "default": "Programma" },
         { "type": "textarea", "id": "sublist_items", "label": "Sublist items (one per line)", "default": "Welkomsdiner & introborrel" },
         { "type": "text",     "id": "tags",          "label": "Tags (comma separated)", "default": "Aankomst, Welkomstoer" }
@@ -150,8 +149,8 @@
       "name": "Kracht — Day Timeline",
       "blocks": [
         { "type": "day" },
-        { "type": "day", "settings": { "day_label": "Dag 02 — Maandag — Verstilling", "image_title": "<p>Tijd om te <strong>landen.</strong></p>", "panel_eyebrow": "Verstilling", "panel_title": "<p>Eerst <strong>stil worden.</strong></p>" } },
-        { "type": "day", "settings": { "day_label": "Dag 03 — Dinsdag — Drijfveren",  "image_title": "<p>Wat drijft <strong>jou écht?</strong></p>", "panel_eyebrow": "Drijfveren", "panel_title": "<p>Naar de <strong>kern.</strong></p>" } }
+        { "type": "day", "settings": { "day_label": "Dag 02 — maandag — verstilling", "image_title": "<p>Tijd om te <strong>landen.</strong></p>", "panel_eyebrow": "Verstilling", "panel_title": "<p>Eerst <strong>stil worden.</strong></p>" } },
+        { "type": "day", "settings": { "day_label": "Dag 03 — dinsdag — drijfveren",  "image_title": "<p>Wat drijft <strong>jou écht?</strong></p>", "panel_eyebrow": "Drijfveren", "panel_title": "<p>Naar de <strong>kern.</strong></p>" } }
       ]
     }
   ]
