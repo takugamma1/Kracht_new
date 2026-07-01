@@ -33,6 +33,9 @@
         "image": "shopify://shop_images/Image_3.png",
         "show_plus": false,
         "image_radius": 4,
+        "bg_image": "shopify://shop_images/pexels-yankrukov-7793653.jpg",
+        "overlay_opacity": 0,
+        "min_height": 640,
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 72
@@ -76,6 +79,7 @@
         "s3",
         "s4"
       ],
+      "disabled": true,
       "name": "Kracht — Stats Strip",
       "settings": {
         "float_above_previous": true,
@@ -224,17 +228,16 @@
         "eyebrow": "",
         "heading": "<p>De resultaten <strong>spreken voor </strong><em><strong>zich.</strong></em></p>",
         "intro": "<p>Lees hoe teams en professionals groeiden met onze trainingen — vanuit hun eigen woorden.</p>",
+        "autoplay_seconds": 6,
         "image": "shopify://shop_images/pexels-kindelmedia-7651813.jpg",
         "card_tag": "Succesverhaal",
         "card_meta": "Ted Maters · Architect",
         "card_quote": "<p>\"Hoe Ted via Kracht terechtkwam bij het architectenbureau van zijn <strong>oud-docent.</strong>\"</p>",
         "card_cta": "",
         "card_cta_link": "shopify://pages/samenwerken-vanuit-kracht",
-        "show_dots": true,
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "padding_y": 80,
-        "image_radius": 4
+        "padding_y": 80
       }
     },
     "audiences": {
