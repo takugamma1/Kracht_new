@@ -1,5 +1,6 @@
-/* Kracht — Trainer profile: reference contact-card layout (flat black card,
-   portrait melting into the panel via a side gradient). */
+/* Kracht — Trainer profile: reference two-column layout — long text on the
+   left of the page; on the right an aside heading above a compact flat black
+   contact card (portrait melting into the panel via a side gradient). */
 .kracht-tprof {
   background: var(--ktp-bg, #ffffff);
   color: var(--ktp-fg, #000000);
@@ -7,13 +8,84 @@
   font-family: var(--kracht-font-body);
 }
 
-/* Reference contact card (.info-block, horizontal variant): ONE flat black
-   card, radius 10, photo filling the left half and melting into the panel
-   via a side gradient; white content on the right. */
 .kracht-tprof__grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 3.75rem);
+  align-items: start;
+}
+
+/* ── Left column: heading + bio on the page background ──────────────────── */
+.kracht-tprof__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.kracht-tprof__name {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0;
+  color: var(--ktp-fg);
+}
+.kracht-tprof__name strong { font-weight: 700; letter-spacing: normal; }
+.kracht-tprof__name p { margin: 0; }
+
+.kracht-tprof__bio {
+  font-size: 0.9375rem;
+  line-height: 1.6667;
+  color: var(--ktp-fg);
+}
+.kracht-tprof__bio p { margin: 0 0 0.75rem; }
+.kracht-tprof__bio p:last-child { margin: 0; }
+.kracht-tprof__bio strong { color: var(--ktp-fg); font-weight: 700; }
+
+.kracht-tprof__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
+.kracht-tprof__chip {
+  display: inline-flex;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--kracht-grijs-border);
+  border-radius: 6px;
+  background: var(--kracht-grijs-soft);
+  font-family: var(--kracht-font-heading);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--ktp-fg);
+}
+
+/* ── Right column: aside heading + the black contact card ───────────────── */
+.kracht-tprof__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.kracht-tprof__aside-title {
+  font-family: var(--kracht-font-heading);
+  font-size: clamp(1.5rem, 2.6vw, 2.375rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0;
+  color: var(--ktp-fg);
+}
+
+/* Reference contact card (.info-block horizontal): flat black, radius 10,
+   photo filling the left half and melting into the panel. */
+.kracht-tprof__card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: stretch;
   background: var(--kracht-zwart);
   color: var(--kracht-wit);
@@ -23,7 +95,7 @@
 
 .kracht-tprof__media {
   position: relative;
-  min-height: 340px;
+  min-height: 300px;
 }
 /* Photo melts into the black panel (their 35%-wide side gradient). */
 .kracht-tprof__media::after {
@@ -47,43 +119,25 @@
 .kracht-tprof__img--ph {
   background: linear-gradient(135deg, #ddd, #aaa);
 }
-/* Brand '+' sits INSIDE the photo's bottom-left corner (the card clips
-   overflow, so no negative offsets here). */
-.kracht-tprof__plus {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-family: var(--kracht-font-heading);
-  font-weight: 900;
-  color: var(--kracht-blauw);
-  font-size: 4.875rem;
-  line-height: 0;
-}
 
 .kracht-tprof__body {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.5rem;
   align-items: flex-start;
   padding: 1.875rem;
 }
 
-.kracht-tprof__name {
+.kracht-tprof__card-name {
   font-family: var(--kracht-font-heading);
-  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -1px;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
   margin: 0;
-  color: inherit;
 }
-.kracht-tprof__name strong { font-weight: 700; letter-spacing: normal; }
-.kracht-tprof__name p { margin: 0; }
 
-/* Reference role label (.info-block .subtitle): plain blue 16px text —
-   no uppercase, no tracking, no gray. */
 .kracht-tprof__sub {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   letter-spacing: normal;
   text-transform: none;
   color: var(--kracht-blauw);
@@ -91,60 +145,49 @@
   font-weight: 400;
 }
 
-/* Reference blockquote: the WHOLE quote is brand blue + bold in the body
-   font, with a light-gray 5px left rule — never per-word coloring. */
-.kracht-tprof__quote {
-  font-family: var(--kracht-font-body);
-  font-weight: 700;
-  font-size: 1.125rem;
-  line-height: 1.4;
-  letter-spacing: normal;
-  margin: 12px 0;
-  padding-left: 12px;
-  border-left: 5px solid var(--kracht-grijs-border);
-  color: var(--kracht-blauw);
-}
-.kracht-tprof__quote p { margin: 0; }
-
-.kracht-tprof__bio {
-  font-size: 0.9375rem;
-  line-height: 1.6667;
-  color: inherit;
-}
-.kracht-tprof__bio p { margin: 0; }
-.kracht-tprof__bio strong { color: inherit; font-weight: 700; }
-
-.kracht-tprof__chips {
+/* Contact rows: blue icon + white underlined link (their svg-list). */
+.kracht-tprof__contacts {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 0.5rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
 }
-.kracht-tprof__chip {
+.kracht-tprof__contact {
   display: inline-flex;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  font-family: var(--kracht-font-heading);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: normal;
-  text-transform: none;
+  align-items: center;
+  gap: 10px;
   color: inherit;
+  font-size: 0.9375rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.kracht-tprof__contact:hover { color: var(--kracht-blauw); }
+.kracht-tprof__contact-icon {
+  color: var(--kracht-blauw);
+  flex: none;
+  display: inline-flex;
+}
+.kracht-tprof__contact-icon svg {
+  display: block;
+  height: 16px;
+  width: auto;
 }
 
 .kracht-tprof__btn {
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   align-self: flex-start;
 }
 
+/* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 1000px) {
   .kracht-tprof { padding-block: 60px; }
 }
 @media (max-width: 900px) {
   .kracht-tprof__grid { grid-template-columns: 1fr; }
-  .kracht-tprof__media { min-height: 0; height: 300px; }
+}
+@media (max-width: 600px) {
+  .kracht-tprof__card { grid-template-columns: 1fr; }
+  .kracht-tprof__media { min-height: 0; height: 260px; }
   /* Stacked: the photo melts DOWN into the panel instead of sideways. */
   .kracht-tprof__media::after {
     inset: auto 0 0 0;
@@ -152,5 +195,4 @@
     height: 45%;
     background: linear-gradient(0deg, #000, rgba(0, 0, 0, 0));
   }
-  .kracht-tprof__plus { font-size: 3rem; }
 }

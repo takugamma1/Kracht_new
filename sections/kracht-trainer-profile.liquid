@@ -1,5 +1,5 @@
 {{ 'kracht-trainer-profile.css' | asset_url | stylesheet_tag }}
-{%- comment -%} Reference contact-card layout: one flat black card, photo left melting into the panel, content + blue button right. {%- endcomment -%}
+{%- comment -%} Reference layout: long text on the LEFT of the page; on the RIGHT an aside heading ("Meer weten?") above a compact black contact card — photo melting into the panel, name, phone/WhatsApp/email rows, blue button. {%- endcomment -%}
 
 <section
   class="kracht-tprof"
@@ -12,36 +12,12 @@
 >
   <div class="kracht-tprof__inner kracht-container">
     <div class="kracht-tprof__grid">
-      <div class="kracht-tprof__media">
-        {%- if section.settings.image != blank -%}
-          <img
-            src="{{ section.settings.image | image_url: width: 800 }}"
-            srcset="{{ section.settings.image | image_url: width: 400 }} 400w, {{ section.settings.image | image_url: width: 800 }} 800w"
-            sizes="(max-width: 900px) 100vw, 40vw"
-            alt="{{ section.settings.image.alt | default: section.settings.name | strip_html | escape }}"
-            class="kracht-tprof__img"
-            loading="lazy"
-          >
-        {%- else -%}
-          <div class="kracht-tprof__img kracht-tprof__img--ph"></div>
-        {%- endif -%}
-        {%- if section.settings.show_plus -%}
-          <span class="kracht-tprof__plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
-        {%- endif -%}
-      </div>
-
-      <div class="kracht-tprof__body">
+      <div class="kracht-tprof__main">
         {%- if section.settings.eyebrow != blank -%}
           <span class="kracht-eyebrow">{{ section.settings.eyebrow }}</span>
         {%- endif -%}
         {%- if section.settings.name != blank -%}
           <h2 class="kracht-tprof__name">{{ section.settings.name }}</h2>
-        {%- endif -%}
-        {%- if section.settings.subtitle != blank -%}
-          <p class="kracht-tprof__sub">{{ section.settings.subtitle }}</p>
-        {%- endif -%}
-        {%- if section.settings.quote != blank -%}
-          <blockquote class="kracht-tprof__quote">{{ section.settings.quote }}</blockquote>
         {%- endif -%}
         {%- if section.settings.bio != blank -%}
           <div class="kracht-tprof__bio">{{ section.settings.bio }}</div>
@@ -54,12 +30,68 @@
             {%- endfor -%}
           </div>
         {%- endif -%}
+      </div>
 
-        {%- if section.settings.button_label != blank -%}
-          <a href="{{ section.settings.button_link | default: '/pages/contact' }}" class="kracht-btn kracht-btn--primary kracht-tprof__btn">
-            {{ section.settings.button_label }} <span class="kracht-btn__arrow">→</span>
-          </a>
+      <div class="kracht-tprof__aside">
+        {%- if section.settings.aside_heading != blank -%}
+          <h2 class="kracht-tprof__aside-title">{{ section.settings.aside_heading }}</h2>
         {%- endif -%}
+
+        <div class="kracht-tprof__card">
+          <div class="kracht-tprof__media">
+            {%- if section.settings.image != blank -%}
+              <img
+                src="{{ section.settings.image | image_url: width: 800 }}"
+                srcset="{{ section.settings.image | image_url: width: 400 }} 400w, {{ section.settings.image | image_url: width: 800 }} 800w"
+                sizes="(max-width: 900px) 100vw, 30vw"
+                alt="{{ section.settings.image.alt | default: section.settings.card_name | escape }}"
+                class="kracht-tprof__img"
+                loading="lazy"
+              >
+            {%- else -%}
+              <div class="kracht-tprof__img kracht-tprof__img--ph"></div>
+            {%- endif -%}
+          </div>
+
+          <div class="kracht-tprof__body">
+            {%- if section.settings.card_name != blank -%}
+              <p class="kracht-tprof__card-name">{{ section.settings.card_name }}</p>
+            {%- endif -%}
+            {%- if section.settings.subtitle != blank -%}
+              <p class="kracht-tprof__sub">{{ section.settings.subtitle }}</p>
+            {%- endif -%}
+
+            {%- if section.settings.phone != blank or section.settings.whatsapp != blank or section.settings.email != blank -%}
+              <div class="kracht-tprof__contacts">
+                {%- if section.settings.phone != blank -%}
+                  <a class="kracht-tprof__contact" href="tel:{{ section.settings.phone | remove: ' ' }}">
+                    <span class="kracht-tprof__contact-icon">{% render 'kracht-hero-icon', icon: 'phone' %}</span>
+                    <span>{{ section.settings.phone }}</span>
+                  </a>
+                {%- endif -%}
+                {%- if section.settings.whatsapp != blank -%}
+                  {%- assign wa_digits = section.settings.whatsapp | remove: ' ' | remove: '+' | remove: '(' | remove: ')' | remove: '-' -%}
+                  <a class="kracht-tprof__contact" href="https://wa.me/{{ wa_digits }}" target="_blank" rel="noopener">
+                    <span class="kracht-tprof__contact-icon">{% render 'kracht-hero-icon', icon: 'whatsapp' %}</span>
+                    <span>{{ section.settings.whatsapp }}</span>
+                  </a>
+                {%- endif -%}
+                {%- if section.settings.email != blank -%}
+                  <a class="kracht-tprof__contact" href="mailto:{{ section.settings.email }}">
+                    <span class="kracht-tprof__contact-icon">{% render 'kracht-hero-icon', icon: 'mail' %}</span>
+                    <span>{{ section.settings.email }}</span>
+                  </a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.button_label != blank -%}
+              <a href="{{ section.settings.button_link | default: '/pages/contact' }}" class="kracht-btn kracht-btn--primary kracht-tprof__btn">
+                {{ section.settings.button_label }} <span class="kracht-btn__arrow">→</span>
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -74,18 +106,7 @@
   "settings": [
     {
       "type": "header",
-      "content": "Profile"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Portrait image"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_plus",
-      "label": "Show + brand mark on image",
-      "default": true
+      "content": "Left column (text)"
     },
     {
       "type": "text",
@@ -96,8 +117,35 @@
     {
       "type": "richtext",
       "id": "name",
-      "label": "Name heading",
+      "label": "Heading",
       "default": "<p>Maak kennis met <strong>Mark.</strong></p>"
+    },
+    {
+      "type": "richtext",
+      "id": "bio",
+      "label": "Bio paragraph",
+      "default": "<p>Mark traint al 14 jaar teams in de technische en bouwsector. Hij combineert een achtergrond in <strong>organisatiepsychologie</strong> met praktische ervaring als projectleider. Werkt eerder gedaan voor <strong>Heijmans, BAM en Witteveen+Bos</strong>.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Contact card (right column)"
+    },
+    {
+      "type": "text",
+      "id": "aside_heading",
+      "label": "Aside heading",
+      "default": "Meer weten?"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Portrait image"
+    },
+    {
+      "type": "text",
+      "id": "card_name",
+      "label": "Name on the card",
+      "default": "Mark"
     },
     {
       "type": "text",
@@ -106,16 +154,22 @@
       "default": "Senior Trainer & Teamcoach"
     },
     {
-      "type": "richtext",
-      "id": "quote",
-      "label": "Pull quote",
-      "default": "<p>\"Een team dat <strong>écht samenwerkt</strong> hoeft minder hard te werken. Dat klinkt tegenstrijdig — totdat je het zelf meemaakt.\"</p>"
+      "type": "text",
+      "id": "phone",
+      "label": "Phone number",
+      "info": "Shown with the phone icon; links via tel:."
     },
     {
-      "type": "richtext",
-      "id": "bio",
-      "label": "Bio paragraph",
-      "default": "<p>Mark traint al 14 jaar teams in de technische en bouwsector. Hij combineert een achtergrond in <strong>organisatiepsychologie</strong> met praktische ervaring als projectleider. Werkt eerder gedaan voor <strong>Heijmans, BAM en Witteveen+Bos</strong>.</p>"
+      "type": "text",
+      "id": "whatsapp",
+      "label": "WhatsApp number",
+      "info": "Shown with the WhatsApp icon; links via wa.me."
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "E-mail address",
+      "info": "Shown with the mail icon; links via mailto:."
     },
     {
       "type": "text",
