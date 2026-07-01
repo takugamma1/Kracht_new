@@ -13,10 +13,10 @@
       "type": "kracht-image-hero",
       "name": "Kracht — Image Hero",
       "settings": {
-        "show_breadcrumbs": true,
+        "show_breadcrumbs": false,
         "heading": "<p>Even <strong>stilstaan,</strong> om écht <em>vooruit</em> te komen.</p>",
         "subheading": "<p>Twee dagen, vijf dagen of zeven — onze retraites zijn <strong>geen vakantie en geen training</strong>. Het is de plek waar leiders, teams en professionals tot rust komen, scherp nadenken en met <strong>nieuwe richting</strong> terugkomen.</p>",
-        "tag": "Kracht+ Retraites",
+        "tag": "",
         "button1_label": "Plan een gesprek",
         "button1_link": "",
         "button2_label": "",
