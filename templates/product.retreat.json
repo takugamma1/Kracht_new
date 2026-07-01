@@ -13,7 +13,7 @@
       "type": "kracht-retreat-hero",
       "name": "Kracht — Retreat Hero",
       "settings": {
-        "show_breadcrumbs": true,
+        "show_breadcrumbs": false,
         "tag": "",
         "heading": "",
         "subheading": "",
