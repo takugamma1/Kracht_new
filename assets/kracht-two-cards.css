@@ -39,8 +39,29 @@
   flex-direction: column;
   gap: 0.75rem;
 }
-.kracht-tcard__eyebrow { color: var(--kracht-blauw); }
-.kracht-tcard--dark .kracht-tcard__eyebrow { color: var(--kracht-blauw); }
+/* Reference card label tab (.cta .label): squared 4px, 6/14px padding, bold,
+   overhanging the card's left edge by 12px. Black tab with the blue '+' on
+   the light card; flips to a blue tab with a white '+' on the dark card. */
+.kracht-tcard__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  background: var(--kracht-zwart);
+  color: var(--kracht-wit);
+  border-radius: 4px;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+  margin: 0 0 0.25rem calc(-1.875rem - 12px);
+}
+.kracht-tcard__eyebrow::before { color: var(--kracht-blauw); }
+.kracht-tcard--dark .kracht-tcard__eyebrow {
+  background: var(--kracht-blauw);
+  color: var(--kracht-wit);
+}
+.kracht-tcard--dark .kracht-tcard__eyebrow::before { color: var(--kracht-wit); }
 
 .kracht-tcard__title {
   font-family: var(--kracht-font-heading);
