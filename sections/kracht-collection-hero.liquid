@@ -3,15 +3,38 @@
 {%- assign current_collection = collection -%}
 {%- assign hero_title = section.settings.heading | default: current_collection.title -%}
 {%- assign hero_text = section.settings.subheading | default: current_collection.description -%}
+{%- assign hero_image = section.settings.image | default: current_collection.image -%}
+{%- assign b1_label = section.settings.button1_label | default: 'Bekijk de collectie' -%}
+{%- assign b2_label = section.settings.button2_label | default: 'Nieuwste eerst' -%}
 
 <section
-  class="kracht-coll-hero"
+  class="kracht-coll-hero{% if hero_image != blank %} kracht-coll-hero--image{% endif %}"
   style="
     --kch-bg: {{ section.settings.background_color }};
     --kch-fg: {{ section.settings.text_color }};
     --kch-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
+    --kch-min-height: {{ section.settings.min_height }}px;
+    --kch-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
   "
 >
+  {%- if hero_image != blank -%}
+    <img
+      src="{{ hero_image | image_url: width: 2400 }}"
+      srcset="
+        {{ hero_image | image_url: width: 800 }} 800w,
+        {{ hero_image | image_url: width: 1200 }} 1200w,
+        {{ hero_image | image_url: width: 1600 }} 1600w,
+        {{ hero_image | image_url: width: 2400 }} 2400w
+      "
+      sizes="100vw"
+      alt="{{ hero_image.alt | default: hero_title | strip_html }}"
+      class="kracht-coll-hero__bg"
+      loading="eager"
+      fetchpriority="high"
+    >
+    <div class="kracht-coll-hero__overlay" aria-hidden="true"></div>
+  {%- endif -%}
+
   <div class="kracht-coll-hero__inner kracht-container">
     {%- if section.settings.show_breadcrumbs -%}
       <nav class="kracht-coll-hero__crumbs" aria-label="Breadcrumb">
@@ -26,22 +49,25 @@
     {%- endif -%}
 
     <div class="kracht-coll-hero__content">
+      {%- if section.settings.tag != blank -%}
+        <span class="kracht-tag kracht-coll-hero__tag">{{ section.settings.tag }}</span>
+      {%- endif -%}
       {%- if hero_title != blank -%}
         <h1 class="kracht-coll-hero__title">{{ hero_title }}</h1>
       {%- endif -%}
       {%- if hero_text != blank -%}
         <p class="kracht-coll-hero__sub">{{ hero_text }}</p>
       {%- endif -%}
-      {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
+      {%- if b1_label != blank or b2_label != blank -%}
         <div class="kracht-coll-hero__cta">
-          {%- if section.settings.button1_label != blank -%}
+          {%- if b1_label != blank -%}
             <a href="{{ section.settings.button1_link | default: '#' }}" class="kracht-btn kracht-btn--primary">
-              {{ section.settings.button1_label }} <span class="kracht-btn__arrow">→</span>
+              {{ b1_label }} <span class="kracht-btn__arrow">→</span>
             </a>
           {%- endif -%}
-          {%- if section.settings.button2_label != blank -%}
-            <a href="{{ section.settings.button2_link | default: '#' }}" class="kracht-btn kracht-btn--dark">
-              {{ section.settings.button2_label }}
+          {%- if b2_label != blank -%}
+            <a href="{{ section.settings.button2_link | default: '#' }}" class="kracht-btn kracht-btn--outline-dark">
+              {{ b2_label }}
             </a>
           {%- endif -%}
         </div>
@@ -58,6 +84,37 @@
   "settings": [
     {
       "type": "header",
+      "content": "Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image",
+      "info": "If empty, uses the collection image. If neither is set, the hero stays a solid color."
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Min height (with image)",
+      "min": 360,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 640
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Bottom gradient darkness",
+      "info": "Darkens the bottom of the image so the heading + buttons stay readable. Fades to clear towards the top.",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "header",
       "content": "Content"
     },
     {
@@ -65,6 +122,12 @@
       "id": "show_breadcrumbs",
       "label": "Show breadcrumbs",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag pill",
+      "default": "Kracht+ Collectie"
     },
     {
       "type": "richtext",
@@ -94,7 +157,7 @@
       "type": "text",
       "id": "button2_label",
       "label": "Secondary button label",
-      "default": "Nieuwe items"
+      "default": "Nieuwste eerst"
     },
     {
       "type": "url",
@@ -120,7 +183,7 @@
     {
       "type": "range",
       "id": "padding_y",
-      "label": "Vertical padding",
+      "label": "Vertical padding (no image)",
       "min": 32,
       "max": 160,
       "step": 4,
