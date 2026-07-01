@@ -86,7 +86,7 @@
         "intro": "<p>Geen vrijblijvende inzichten — maar concrete vaardigheden, afspraken en gedragsverandering die je team direct in de praktijk toepast.</p>",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "card_color": "#f4f4f5",
+        "card_color": "#FFFFFF",
         "padding_y": 80,
         "card_radius": 8
       }
@@ -141,7 +141,7 @@
       "settings": {
         "eyebrow": "Het programma",
         "heading": "<p>Twee dagen, <strong>vier modules, </strong><em><strong>één team.</strong></em></p>",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 80
       }
