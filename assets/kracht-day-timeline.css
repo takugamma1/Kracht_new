@@ -188,19 +188,6 @@
           mask: var(--kracht-plus-mask) center / contain no-repeat;
 }
 
-/* Tags — plain text, no chip rectangles. */
-.kracht-dtime__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem 1.25rem;
-  margin-top: 0.25rem;
-}
-.kracht-dtime__tag {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--kdt-fg);
-}
-
 @media (max-width: 1000px) {
   .kracht-dtime { padding-block: 60px; }
 }

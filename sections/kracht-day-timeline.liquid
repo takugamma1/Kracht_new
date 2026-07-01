@@ -93,15 +93,6 @@
               </div>
             {%- endif -%}
 
-            {%- if block.settings.tags != blank -%}
-              <div class="kracht-dtime__tags">
-                {%- assign tag_list = block.settings.tags | split: ',' -%}
-                {%- for t in tag_list -%}
-                  {%- assign tt = t | strip -%}
-                  {%- if tt != blank -%}<span class="kracht-dtime__tag">{{ tt }}</span>{%- endif -%}
-                {%- endfor -%}
-              </div>
-            {%- endif -%}
           </div>
         </article>
       {%- endfor -%}
@@ -139,8 +130,7 @@
         { "type": "richtext", "id": "panel_title",   "label": "Bold lead line",   "default": "<p>Eerst <strong>aankomen.</strong></p>" },
         { "type": "richtext", "id": "panel_body",    "label": "Body" },
         { "type": "text",     "id": "sublist_title", "label": "Sublist label", "default": "Programma" },
-        { "type": "textarea", "id": "sublist_items", "label": "Sublist items (one per line)", "default": "Welkomsdiner & introborrel" },
-        { "type": "text",     "id": "tags",          "label": "Tags (comma separated)", "default": "Aankomst, Welkomstoer" }
+        { "type": "textarea", "id": "sublist_items", "label": "Sublist items (one per line)", "default": "Welkomsdiner & introborrel" }
       ]
     }
   ],
