@@ -65,18 +65,27 @@
           <div class="kracht-rhero__sub">{{ p_subheading }}</div>
         {%- endif -%}
 
-        {%- if section.settings.meta1_label != blank or section.settings.meta2_label != blank or section.settings.meta3_label != blank -%}
-          <dl class="kracht-rhero__meta">
-            {%- if section.settings.meta1_label != blank -%}
-              <div class="kracht-rhero__meta-item"><dt>{{ section.settings.meta1_label }}</dt><dd>{{ section.settings.meta1_value }}</dd></div>
+        {%- if section.settings.meta1_value != blank or section.settings.meta2_value != blank or section.settings.meta3_value != blank -%}
+          <div class="kracht-rhero__meta">
+            {%- if section.settings.meta1_value != blank -%}
+              <span class="kracht-rhero__meta-item"{% if section.settings.meta1_label != blank %} title="{{ section.settings.meta1_label | escape }}"{% endif %}>
+                {%- if section.settings.meta1_icon != blank and section.settings.meta1_icon != 'none' -%}<span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.meta1_icon %}</span>{%- endif -%}
+                <span>{{ section.settings.meta1_value }}</span>
+              </span>
             {%- endif -%}
-            {%- if section.settings.meta2_label != blank -%}
-              <div class="kracht-rhero__meta-item"><dt>{{ section.settings.meta2_label }}</dt><dd>{{ section.settings.meta2_value }}</dd></div>
+            {%- if section.settings.meta2_value != blank -%}
+              <span class="kracht-rhero__meta-item"{% if section.settings.meta2_label != blank %} title="{{ section.settings.meta2_label | escape }}"{% endif %}>
+                {%- if section.settings.meta2_icon != blank and section.settings.meta2_icon != 'none' -%}<span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.meta2_icon %}</span>{%- endif -%}
+                <span>{{ section.settings.meta2_value }}</span>
+              </span>
             {%- endif -%}
-            {%- if section.settings.meta3_label != blank -%}
-              <div class="kracht-rhero__meta-item"><dt>{{ section.settings.meta3_label }}</dt><dd>{{ section.settings.meta3_value }}</dd></div>
+            {%- if section.settings.meta3_value != blank -%}
+              <span class="kracht-rhero__meta-item"{% if section.settings.meta3_label != blank %} title="{{ section.settings.meta3_label | escape }}"{% endif %}>
+                {%- if section.settings.meta3_icon != blank and section.settings.meta3_icon != 'none' -%}<span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.meta3_icon %}</span>{%- endif -%}
+                <span>{{ section.settings.meta3_value }}</span>
+              </span>
             {%- endif -%}
-          </dl>
+          </div>
         {%- endif -%}
       </div>
 
@@ -104,11 +113,29 @@
     {%- comment -%} Bottom strip: dates / spots / price / CTA — pulls from product when possible. {%- endcomment -%}
     <div class="kracht-rhero__strip">
       <div class="kracht-rhero__strip-meta">
-        {%- if section.settings.strip_meta1 != blank -%}<span>{{ section.settings.strip_meta1 }}</span>{%- endif -%}
-        {%- if section.settings.strip_meta2 != blank -%}<span>{{ section.settings.strip_meta2 }}</span>{%- endif -%}
-        {%- if section.settings.strip_meta3 != blank -%}<span>{{ section.settings.strip_meta3 }}</span>{%- endif -%}
+        {%- if section.settings.strip_meta1 != blank -%}
+          <span class="kracht-rhero__meta-item">
+            {%- if section.settings.strip1_icon != blank and section.settings.strip1_icon != 'none' -%}<span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.strip1_icon %}</span>{%- endif -%}
+            <span>{{ section.settings.strip_meta1 }}</span>
+          </span>
+        {%- endif -%}
+        {%- if section.settings.strip_meta2 != blank -%}
+          <span class="kracht-rhero__meta-item">
+            {%- if section.settings.strip2_icon != blank and section.settings.strip2_icon != 'none' -%}<span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.strip2_icon %}</span>{%- endif -%}
+            <span>{{ section.settings.strip_meta2 }}</span>
+          </span>
+        {%- endif -%}
+        {%- if section.settings.strip_meta3 != blank -%}
+          <span class="kracht-rhero__meta-item">
+            {%- if section.settings.strip3_icon != blank and section.settings.strip3_icon != 'none' -%}<span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.strip3_icon %}</span>{%- endif -%}
+            <span>{{ section.settings.strip_meta3 }}</span>
+          </span>
+        {%- endif -%}
         {%- if product != blank and product.price > 0 -%}
-          <span class="kracht-rhero__price"><strong>{{ product.price | money }}</strong>{%- if section.settings.price_suffix != blank %} {{ section.settings.price_suffix }}{%- endif -%}</span>
+          <span class="kracht-rhero__meta-item kracht-rhero__price">
+            <span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: 'euro' %}</span>
+            <span><strong>{{ product.price | money }}</strong>{%- if section.settings.price_suffix != blank %} {{ section.settings.price_suffix }}{%- endif -%}</span>
+          </span>
         {%- endif -%}
       </div>
 
@@ -141,18 +168,30 @@
     { "type": "image_picker", "id": "image", "label": "Hero image override", "info": "Leave blank to use product featured image." },
     { "type": "checkbox", "id": "show_plus", "label": "Show large + accent between content and image", "default": true },
 
-    { "type": "header", "content": "Meta block (left column)" },
-    { "type": "text", "id": "meta1_label", "label": "Label 1", "default": "Begeleid door" },
+    { "type": "header", "content": "Meta (icon + value)", "info": "Bold value with a blue icon; the label shows as a tooltip." },
+    { "type": "text", "id": "meta1_label", "label": "Label 1 (tooltip)", "default": "Begeleid door" },
     { "type": "text", "id": "meta1_value", "label": "Value 1", "default": "Anouk & Rob van Houten" },
-    { "type": "text", "id": "meta2_label", "label": "Label 2", "default": "Vertrekt" },
+    { "type": "select", "id": "meta1_icon", "label": "Icon 1", "default": "users", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "calendar", "label": "Calendar (date)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" } ] },
+    { "type": "text", "id": "meta2_label", "label": "Label 2 (tooltip)", "default": "Vertrekt" },
     { "type": "text", "id": "meta2_value", "label": "Value 2", "default": "12 — 18 oktober 2026" },
-    { "type": "text", "id": "meta3_label", "label": "Label 3", "default": "Duur" },
+    { "type": "select", "id": "meta2_icon", "label": "Icon 2", "default": "calendar", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "calendar", "label": "Calendar (date)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" } ] },
+    { "type": "text", "id": "meta3_label", "label": "Label 3 (tooltip)", "default": "Duur" },
     { "type": "text", "id": "meta3_value", "label": "Value 3", "default": "7 dagen, 6 nachten" },
+    { "type": "select", "id": "meta3_icon", "label": "Icon 3", "default": "clock", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "calendar", "label": "Calendar (date)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" } ] },
 
     { "type": "header", "content": "Bottom strip" },
     { "type": "text", "id": "strip_meta1", "label": "Strip text 1", "default": "12 — 18 oktober 2026" },
+    { "type": "select", "id": "strip1_icon", "label": "Strip icon 1", "default": "calendar", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "calendar", "label": "Calendar (date)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "location", "label": "Location" } ] },
     { "type": "text", "id": "strip_meta2", "label": "Strip text 2", "default": "7 dagen, 6 nachten" },
+    { "type": "select", "id": "strip2_icon", "label": "Strip icon 2", "default": "clock", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "calendar", "label": "Calendar (date)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "location", "label": "Location" } ] },
     { "type": "text", "id": "strip_meta3", "label": "Strip text 3", "default": "Max. 12 deelnemers" },
+    { "type": "select", "id": "strip3_icon", "label": "Strip icon 3", "default": "users", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "calendar", "label": "Calendar (date)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "location", "label": "Location" } ] },
     { "type": "text", "id": "price_suffix", "label": "Price suffix", "default": "p.p." },
     { "type": "text", "id": "link_label", "label": "Secondary link", "default": "+ geen match voor jou?" },
     { "type": "url",  "id": "link_url",   "label": "Secondary link URL" },

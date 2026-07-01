@@ -59,29 +59,34 @@
 .kracht-rhero__sub p { margin: 0 0 0.5rem; }
 .kracht-rhero__sub p:last-child { margin: 0; }
 
+/* Meta: blue icon + bold text rows (matches the training hero) — no
+   dividers, no uppercase labels; labels live on as tooltips. */
 .kracht-rhero__meta {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1.25rem;
-  margin: 0.5rem 0 0;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  max-width: 540px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.75rem;
+  margin: 0.35rem 0 0;
+  padding: 0;
 }
-.kracht-rhero__meta-item dt {
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin: 0;
-  font-weight: 500;
-  opacity: 0.65;
-}
-.kracht-rhero__meta-item dd {
-  margin: 0.25rem 0 0;
-  font-size: 0.92rem;
+.kracht-rhero__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--kracht-font-heading);
   font-weight: 700;
+  font-size: 0.9375rem;
   color: var(--krh-fg);
-  line-height: 1.25;
+  line-height: 1.2;
+}
+.kracht-rhero__meta-icon {
+  color: var(--kracht-blauw);
+  flex: none;
+  display: inline-flex;
+}
+.kracht-rhero__meta-icon svg {
+  display: block;
+  height: 17px;
+  width: auto;
 }
 
 .kracht-rhero__media {
@@ -120,33 +125,19 @@
    ========================================================================== */
 .kracht-rhero__strip {
   margin-top: 1.75rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
-  font-size: 0.85rem;
 }
 .kracht-rhero__strip-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.5rem;
-  opacity: 0.95;
+  gap: 0.65rem 1.75rem;
 }
-.kracht-rhero__strip-meta > span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.kracht-rhero__strip-meta > span + span::before {
-  content: "·";
-  margin-right: 1rem;
-  opacity: 0.6;
-}
-.kracht-rhero__price strong { font-weight: 800; font-size: 1rem; }
+.kracht-rhero__price strong { font-weight: 700; font-size: 1rem; }
 .kracht-rhero__strip-cta {
   display: flex;
   align-items: center;
@@ -179,7 +170,6 @@
      vertical cropping (16/11 was effectively letterboxing portrait shots
      like the pyramid into a thin band). */
   .kracht-rhero__media { aspect-ratio: 1 / 1; }
-  .kracht-rhero__strip-meta > span + span::before { display: none; }
   .kracht-rhero__strip-meta { gap: 0.75rem 1rem; }
 }
 @media (max-width: 600px) {
