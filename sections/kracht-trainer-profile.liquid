@@ -53,6 +53,12 @@
             {%- endfor -%}
           </div>
         {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '/pages/contact' }}" class="kracht-btn kracht-btn--primary kracht-tprof__btn">
+            {{ section.settings.button_label }} <span class="kracht-btn__arrow">→</span>
+          </a>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -109,6 +115,18 @@
       "id": "bio",
       "label": "Bio paragraph",
       "default": "<p>Mark traint al 14 jaar teams in de technische en bouwsector. Hij combineert een achtergrond in <strong>organisatiepsychologie</strong> met praktische ervaring als projectleider. Werkt eerder gedaan voor <strong>Heijmans, BAM en Witteveen+Bos</strong>.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Meer informatie"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "info": "Falls back to /pages/contact when empty."
     },
     {
       "type": "header",

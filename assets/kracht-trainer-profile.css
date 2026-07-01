@@ -5,35 +5,52 @@
   font-family: var(--kracht-font-body);
 }
 
+/* Reference contact card (.info-block, horizontal variant): ONE flat black
+   card, radius 10, photo filling the left half and melting into the panel
+   via a side gradient; white content on the right. */
 .kracht-tprof__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: 2.5rem;
-  align-items: center;
+  gap: 0;
+  align-items: stretch;
+  background: var(--kracht-zwart);
+  color: var(--kracht-wit);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .kracht-tprof__media {
   position: relative;
-  aspect-ratio: 1;
-  overflow: visible;
+  min-height: 340px;
+}
+/* Photo melts into the black panel (their 35%-wide side gradient). */
+.kracht-tprof__media::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 35%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0), #000);
+  pointer-events: none;
 }
 .kracht-tprof__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--ktp-radius, 10px);
+  object-position: top;
+  border-radius: 0;
   display: block;
 }
 .kracht-tprof__img--ph {
   background: linear-gradient(135deg, #ddd, #aaa);
 }
-/* Reference: a 78px brand '+' pinned to the image's bottom-LEFT edge,
-   half hanging outside (their header.sub .image-holder:after). */
+/* Brand '+' sits INSIDE the photo's bottom-left corner (the card clips
+   overflow, so no negative offsets here). */
 .kracht-tprof__plus {
   position: absolute;
-  bottom: 30px;
-  left: -37px;
-  right: auto;
+  bottom: 20px;
+  left: 20px;
   font-family: var(--kracht-font-heading);
   font-weight: 900;
   color: var(--kracht-blauw);
@@ -46,6 +63,7 @@
   flex-direction: column;
   gap: 0.85rem;
   align-items: flex-start;
+  padding: 1.875rem;
 }
 
 .kracht-tprof__name {
@@ -55,7 +73,7 @@
   line-height: 1.1;
   letter-spacing: -1px;
   margin: 0;
-  color: var(--ktp-fg);
+  color: inherit;
 }
 .kracht-tprof__name strong { font-weight: 700; letter-spacing: normal; }
 .kracht-tprof__name p { margin: 0; }
@@ -89,10 +107,10 @@
 .kracht-tprof__bio {
   font-size: 0.9375rem;
   line-height: 1.6667;
-  color: var(--ktp-fg);
+  color: inherit;
 }
 .kracht-tprof__bio p { margin: 0; }
-.kracht-tprof__bio strong { color: var(--ktp-fg); font-weight: 700; }
+.kracht-tprof__bio strong { color: inherit; font-weight: 700; }
 
 .kracht-tprof__chips {
   display: flex;
@@ -103,22 +121,34 @@
 .kracht-tprof__chip {
   display: inline-flex;
   padding: 0.45rem 0.7rem;
-  border: 1px solid var(--kracht-grijs-border);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 6px;
-  background: var(--kracht-grijs-soft);
+  background: rgba(255, 255, 255, 0.06);
   font-family: var(--kracht-font-heading);
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: normal;
   text-transform: none;
-  color: var(--ktp-fg);
+  color: inherit;
+}
+
+.kracht-tprof__btn {
+  margin-top: 0.5rem;
+  align-self: flex-start;
 }
 
 @media (max-width: 1000px) {
   .kracht-tprof { padding-block: 60px; }
 }
 @media (max-width: 900px) {
-  .kracht-tprof__grid { grid-template-columns: 1fr; gap: 1.875rem; }
-  .kracht-tprof__media { aspect-ratio: 4 / 3; max-width: 360px; }
-  .kracht-tprof__plus { font-size: 3rem; bottom: 20px; left: -24px; }
+  .kracht-tprof__grid { grid-template-columns: 1fr; }
+  .kracht-tprof__media { min-height: 0; height: 300px; }
+  /* Stacked: the photo melts DOWN into the panel instead of sideways. */
+  .kracht-tprof__media::after {
+    inset: auto 0 0 0;
+    width: auto;
+    height: 45%;
+    background: linear-gradient(0deg, #000, rgba(0, 0, 0, 0));
+  }
+  .kracht-tprof__plus { font-size: 3rem; }
 }
