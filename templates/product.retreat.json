@@ -222,7 +222,7 @@
       "settings": {
         "eyebrow": "",
         "heading": "",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "text_color": "#ffffff",
         "padding_y": 80,
         "radius": 8,
@@ -361,50 +361,28 @@
     },
     "booking": {
       "type": "kracht-booking-summary",
-      "blocks": {
-        "r1": {
-          "type": "room",
-          "settings": {
-            "name": "Gedeelde kamer",
-            "price": "<p><strong>€3.450</strong></p>"
-          }
-        },
-        "r2": {
-          "type": "room",
-          "settings": {
-            "name": "Eigen kamer",
-            "price": "<p><strong>€4.150</strong></p>"
-          }
-        },
-        "r3": {
-          "type": "room",
-          "settings": {
-            "name": "Suite met balkon",
-            "price": "<p><strong>€4.850</strong></p>"
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3"
-      ],
       "name": "Kracht — Booking Summary",
       "settings": {
-        "eyebrow": "",
-        "heading": "<p>Eén bedrag, <strong>alles erin van vlucht tot integratie.</strong></p>",
-        "body": "<p>Onze prijs is <strong>all-inclusive</strong>. Geen verrassingen onderweg, geen toeslagen achteraf — alles is betaald. Je krijgt een <strong>kennismakingsgesprek</strong> en pas op vrije plek de match.</p>",
+        "form_heading": "<p><strong>Zet de eerste stap</strong></p>",
+        "form_intro": "<p>Na het invullen van ons contactformulier nemen we zo snel mogelijk contact met je op.</p>",
+        "linkedin_label": "Automatisch invullen vanuit LinkedIn",
+        "linkedin_link": "",
+        "role_label": "Ik ben een...",
+        "role_options": "Geïnteresseerde deelnemer\nBedrijf of team\nAnders",
+        "terms_text": "<p>Ik ga akkoord met de <a href=\"/policies/terms-of-service\">algemene voorwaarden</a> en <a href=\"/policies/privacy-policy\">privacy policy</a></p>",
+        "submit_label": "Verstuur bericht",
+        "success_text": "Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.",
+        "contact_image": "shopify://shop_images/pexels-rovshan-nazirli-691066883-17984670.jpg",
+        "contact_name": "Merel Bakkers",
+        "contact_phone": "06 18 39 23 36",
+        "contact_whatsapp": "06 18 39 23 36",
+        "contact_email": "bakkers@vanuitkracht.nl",
+        "contact_button_label": "Meer informatie",
+        "contact_button_link": "",
         "date_label": "12 — 18 oktober 2026",
         "fallback_label": "Vanaf",
-        "button_label": "Plan kennismakingsgesprek",
-        "button_link": "/pages/contact",
         "fineprint": "Vrijblijvend gesprek — kan ook per video chat",
-        "background_color": "#000000",
-        "text_color": "#ffffff",
-        "card_color": "#009de1",
-        "card_text_color": "#ffffff",
-        "padding_y": 88,
-        "card_radius": 20
+        "padding_y": 88
       }
     },
     "faq": {
