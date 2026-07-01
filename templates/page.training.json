@@ -13,6 +13,7 @@
       "type": "kracht-split-hero",
       "name": "Kracht — Split Hero",
       "settings": {
+        "hero_style": "default",
         "show_breadcrumbs": false,
         "breadcrumbs": "Home / Collecties / Trainingen / Samenwerken vanuit Kracht",
         "tag": "",
@@ -22,14 +23,18 @@
         "button1_link": "/pages/contact",
         "button2_label": "Download brochure",
         "button2_link": "/pages/contact",
-        "meta1_label": "Duur",
         "meta1_value": "2 dagen",
-        "meta2_label": "Format",
+        "meta1_label": "Duur",
+        "meta1_icon": "clock",
         "meta2_value": "Klassikaal",
-        "meta3_label": "Voor",
+        "meta2_label": "Format",
+        "meta2_icon": "briefcase",
         "meta3_value": "6 — 15 pers.",
-        "meta4_label": "Investering",
+        "meta3_label": "Voor",
+        "meta3_icon": "users",
         "meta4_value": "€1.250 p.p.",
+        "meta4_label": "Investering",
+        "meta4_icon": "euro",
         "image": "shopify://shop_images/pexels-mizunokozuki-12903273.jpg",
         "show_plus": false,
         "image_radius": 4,
@@ -39,56 +44,6 @@
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 72
-      }
-    },
-    "results": {
-      "type": "kracht-step-cards",
-      "blocks": {
-        "r1": {
-          "type": "step",
-          "settings": {
-            "title": "Sterker onderling vertrouwen",
-            "description": "Een team dat elkaar écht kent — drijfveren, valkuilen, kwaliteiten en grenzen."
-          }
-        },
-        "r2": {
-          "type": "step",
-          "settings": {
-            "title": "Heldere teamdoelen",
-            "description": "Gedeelde focus en meetbare doelstellingen waar iedereen zich aan committeert."
-          }
-        },
-        "r3": {
-          "type": "step",
-          "settings": {
-            "title": "Open feedbackcultuur",
-            "description": "Leer feedback geven die écht aankomt — en feedback ontvangen zonder verdediging."
-          }
-        },
-        "r4": {
-          "type": "step",
-          "settings": {
-            "title": "Direct toepasbaar",
-            "description": "Een concreet 30/60/90-actieplan per teamlid — geen theorie, maar werk dat je morgen oppakt."
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4"
-      ],
-      "name": "Kracht — Step Cards",
-      "settings": {
-        "eyebrow": "",
-        "heading": "<p>Resultaten die <strong>blijven </strong><em><strong>hangen.</strong></em></p>",
-        "intro": "<p>Geen vrijblijvende inzichten — maar concrete vaardigheden, afspraken en gedragsverandering die je team direct in de praktijk toepast.</p>",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "card_color": "#FFFFFF",
-        "padding_y": 80,
-        "card_radius": 8
       }
     },
     "modules": {
@@ -402,7 +357,6 @@
   },
   "order": [
     "hero",
-    "results",
     "modules",
     "trainer",
     "schedule",
