@@ -112,23 +112,30 @@
 
     {%- comment -%} Bottom strip: dates / spots / price / CTA — pulls from product when possible. {%- endcomment -%}
     <div class="kracht-rhero__strip">
+      {%- comment -%} Strip items that repeat a value already shown in the meta row above are skipped, so the same date/duration never renders twice. {%- endcomment -%}
+      {%- assign m1 = section.settings.meta1_value | strip -%}
+      {%- assign m2 = section.settings.meta2_value | strip -%}
+      {%- assign m3 = section.settings.meta3_value | strip -%}
+      {%- assign s1 = section.settings.strip_meta1 | strip -%}
+      {%- assign s2 = section.settings.strip_meta2 | strip -%}
+      {%- assign s3 = section.settings.strip_meta3 | strip -%}
       <div class="kracht-rhero__strip-meta">
-        {%- if section.settings.strip_meta1 != blank -%}
+        {%- if s1 != blank and s1 != m1 and s1 != m2 and s1 != m3 -%}
           <span class="kracht-rhero__meta-item">
             {%- if section.settings.strip1_icon != blank and section.settings.strip1_icon != 'none' -%}<span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.strip1_icon %}</span>{%- endif -%}
-            <span>{{ section.settings.strip_meta1 }}</span>
+            <span>{{ s1 }}</span>
           </span>
         {%- endif -%}
-        {%- if section.settings.strip_meta2 != blank -%}
+        {%- if s2 != blank and s2 != m1 and s2 != m2 and s2 != m3 -%}
           <span class="kracht-rhero__meta-item">
             {%- if section.settings.strip2_icon != blank and section.settings.strip2_icon != 'none' -%}<span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.strip2_icon %}</span>{%- endif -%}
-            <span>{{ section.settings.strip_meta2 }}</span>
+            <span>{{ s2 }}</span>
           </span>
         {%- endif -%}
-        {%- if section.settings.strip_meta3 != blank -%}
+        {%- if s3 != blank and s3 != m1 and s3 != m2 and s3 != m3 -%}
           <span class="kracht-rhero__meta-item">
             {%- if section.settings.strip3_icon != blank and section.settings.strip3_icon != 'none' -%}<span class="kracht-rhero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.strip3_icon %}</span>{%- endif -%}
-            <span>{{ section.settings.strip_meta3 }}</span>
+            <span>{{ s3 }}</span>
           </span>
         {%- endif -%}
         {%- if product != blank and product.price > 0 -%}
