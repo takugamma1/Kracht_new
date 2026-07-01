@@ -44,10 +44,7 @@
               {%- for item in items -%}
                 {%- assign trimmed = item | strip -%}
                 {%- if trimmed != blank -%}
-                  <li>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    {{ trimmed }}
-                  </li>
+                  <li>{{ trimmed }}</li>
                 {%- endif -%}
               {%- endfor -%}
             </ul>
@@ -61,7 +58,7 @@
                 </a>
               {%- endif -%}
               {%- if block.settings.button2_label != blank -%}
-                <a href="{{ block.settings.button2_link | default: '#' }}" class="kracht-btn kracht-tcard__secondary">
+                <a href="{{ block.settings.button2_link | default: '#' }}" class="kracht-btn {% if block.settings.theme == 'dark' %}kracht-btn--outline-dark{% else %}kracht-btn--outline-light{% endif %}">
                   {{ block.settings.button2_label }}
                 </a>
               {%- endif -%}
@@ -120,7 +117,7 @@
       "max": 160,
       "step": 4,
       "unit": "px",
-      "default": 80
+      "default": 140
     },
     {
       "type": "range",
@@ -130,7 +127,7 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "default": 8
+      "default": 10
     }
   ],
   "blocks": [
@@ -148,7 +145,7 @@
           ],
           "default": "light"
         },
-        { "type": "color", "id": "background_color", "label": "Background color", "default": "#f4f4f5" },
+        { "type": "color", "id": "background_color", "label": "Background color", "default": "#F8F8F8" },
         { "type": "color", "id": "text_color", "label": "Text color", "default": "#000000" },
         { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Voor professionals" },
         { "type": "text", "id": "title", "label": "Title", "default": "Versterk je eigen Kracht." },
@@ -166,7 +163,7 @@
     {
       "name": "Kracht — Two Cards",
       "blocks": [
-        { "type": "card", "settings": { "theme": "light", "background_color": "#f4f4f5", "text_color": "#000000", "eyebrow": "Voor professionals", "title": "Versterk je eigen Kracht.", "description": "Investeer in jezelf en zet de volgende stap in je carrière. Onze trainingen sluiten aan bij wat je écht nodig hebt — geen ballast, alleen wat werkt.", "checklist": "Vergroot je impact in de praktijk\nOntwikkel concrete vaardigheden direct toepasbaar\nBouw aan een krachtig persoonlijk profiel\nWerk met specialisten uit de technische sector", "button1_label": "Bekijk individuele trainingen" } },
+        { "type": "card", "settings": { "theme": "light", "background_color": "#F8F8F8", "text_color": "#000000", "eyebrow": "Voor professionals", "title": "Versterk je eigen Kracht.", "description": "Investeer in jezelf en zet de volgende stap in je carrière. Onze trainingen sluiten aan bij wat je écht nodig hebt — geen ballast, alleen wat werkt.", "checklist": "Vergroot je impact in de praktijk\nOntwikkel concrete vaardigheden direct toepasbaar\nBouw aan een krachtig persoonlijk profiel\nWerk met specialisten uit de technische sector", "button1_label": "Bekijk individuele trainingen" } },
         { "type": "card", "settings": { "theme": "dark",  "background_color": "#000000", "text_color": "#ffffff", "eyebrow": "Voor werkgevers", "title": "Investeer in je team.", "description": "Een sterk team begint bij investeren in mensen. Vergroot productiviteit, behoud talent en bouw aan een cultuur waarin iedereen wint — vanuit Kracht.", "checklist": "Meetbare resultaten en duidelijke ROI\nVerhoog medewerkertevredenheid en retentie\nIn-company, flexibel in te plannen\nMaatwerk programma's voor jouw organisatie", "button1_label": "Vraag een offerte aan" } }
       ]
     }

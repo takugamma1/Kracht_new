@@ -6,34 +6,35 @@
 }
 
 .kracht-tcards__head {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.25rem;
   max-width: 720px;
 }
 .kracht-tcards__title {
   font-family: var(--kracht-font-heading);
-  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1px;
   margin: 0;
   color: var(--ktc-fg);
 }
-.kracht-tcards__title strong { font-weight: 800; }
-.kracht-tcards__title em { font-style: normal; font-weight: 800; }
+.kracht-tcards__title strong { font-weight: 700; }
+.kracht-tcards__title em { font-style: normal; font-weight: 700; }
 .kracht-tcards__title p { margin: 0; }
 
 .kracht-tcards__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  /* Reference two-column split gap: 40px desktop, 30px mobile. */
+  gap: 2.5rem;
   align-items: stretch;
 }
 
 .kracht-tcard {
-  background: var(--ktc-card-bg, #f4f4f5);
+  background: var(--ktc-card-bg, var(--kracht-grijs-licht));
   color: var(--ktc-card-fg, #000000);
-  border-radius: var(--ktc-radius, 8px);
-  padding: 1.5rem 1.5rem 1.5rem;
+  border-radius: var(--ktc-radius, 10px);
+  padding: 1.875rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -43,40 +44,47 @@
 
 .kracht-tcard__title {
   font-family: var(--kracht-font-heading);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: normal;
   margin: 0;
   color: var(--ktc-card-fg);
 }
 .kracht-tcard__desc {
-  font-size: 1rem;
-  line-height: 1.55;
+  font-size: 0.9375rem;
+  line-height: 1.6667;
   color: var(--ktc-card-fg);
   margin: 0;
 }
 
+/* Reference ul.list: the brand '+' is the list marker — 13px glyph in the
+   text color (black on the light card, white on the dark card), 14px gap. */
 .kracht-tcard__list {
   list-style: none;
   margin: 0.25rem 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.85rem;
+  gap: 4px;
+  font-size: 0.9375rem;
   color: var(--ktc-card-fg);
 }
 .kracht-tcard__list li {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
-  line-height: 1.4;
+  gap: 14px;
+  line-height: 1.6667;
 }
-.kracht-tcard__list svg {
-  color: var(--kracht-blauw);
-  flex-shrink: 0;
-  margin-top: 3px;
+.kracht-tcard__list li::before {
+  content: "";
+  width: 13px;
+  height: calc(13px * 229 / 252);
+  flex: none;
+  margin-top: 7px;
+  background-color: currentColor;
+  -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
+          mask: var(--kracht-plus-mask) center / contain no-repeat;
 }
 
 .kracht-tcard__cta {
@@ -86,23 +94,13 @@
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-.kracht-tcard__secondary {
-  background: transparent;
-  color: var(--ktc-card-fg);
-  border: 1px solid currentColor;
-  border-radius: var(--kracht-radius-sm);
+@media (max-width: 1000px) {
+  .kracht-tcards { padding-block: 60px; }
 }
-.kracht-tcard__secondary:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--ktc-card-fg);
-}
-.kracht-tcard--light .kracht-tcard__secondary:hover { background: rgba(0, 0, 0, 0.04); }
-
 @media (max-width: 768px) {
-  .kracht-tcards__grid { grid-template-columns: 1fr; }
+  .kracht-tcards__grid { grid-template-columns: 1fr; gap: 1.875rem; }
 }
 @media (max-width: 480px) {
-  .kracht-tcard { padding: 1.25rem; }
   .kracht-tcard__cta { width: 100%; }
   .kracht-tcard__cta .kracht-btn { flex: 1; justify-content: center; }
 }

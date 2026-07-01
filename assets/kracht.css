@@ -391,7 +391,7 @@ h2[class*="kracht-"][class$="__title"] {
 }
 /* NOTE: deliberately no h3 rule here — every <h3 ...__title> in the theme is
    a CARD title (product/retreat/feature cards) that keeps its own small size. */
-:is(h1, h2, h3)[class*="kracht-"][class$="__title"] :is(strong, b) {
+:is(h1, h2, h3)[class*="kracht-"][class$="__title"] :is(strong, b, em) {
   font-weight: 700;
   letter-spacing: normal;
 }

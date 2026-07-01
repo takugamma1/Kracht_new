@@ -28,7 +28,7 @@
     <div class="kracht-steps__grid" style="--kst-cols: {{ section.blocks.size | at_most: 4 }};">
       {%- for block in section.blocks -%}
         <div class="kracht-steps__card" {{ block.shopify_attributes }}>
-          <span class="kracht-steps__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          <span class="kracht-steps__num"><span class="kracht-steps__num-plus" aria-hidden="true">{% render 'kracht-plus' %}</span>{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
           {%- if block.settings.title != blank -%}
             <p class="kracht-steps__card-title">{{ block.settings.title }}</p>
           {%- endif -%}
@@ -78,7 +78,7 @@
       "type": "color",
       "id": "background_color",
       "label": "Section background",
-      "default": "#f4f4f5"
+      "default": "#F8F8F8"
     },
     {
       "type": "color",
@@ -100,7 +100,7 @@
       "max": 160,
       "step": 4,
       "unit": "px",
-      "default": 80
+      "default": 140
     },
     {
       "type": "range",
@@ -110,7 +110,7 @@
       "max": 24,
       "step": 1,
       "unit": "px",
-      "default": 8
+      "default": 10
     }
   ],
   "blocks": [

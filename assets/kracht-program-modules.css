@@ -8,15 +8,15 @@
 .kracht-prog__head { margin-bottom: 2.5rem; max-width: 720px; }
 .kracht-prog__title {
   font-family: var(--kracht-font-heading);
-  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1px;
   margin: 0;
   color: var(--kp-fg);
 }
-.kracht-prog__title strong { font-weight: 800; }
-.kracht-prog__title em { font-style: normal; font-weight: 800; }
+.kracht-prog__title strong { font-weight: 700; }
+.kracht-prog__title em { font-style: normal; font-weight: 700; }
 .kracht-prog__title p { margin: 0; }
 
 .kracht-prog__list {
@@ -26,12 +26,18 @@
 }
 
 .kracht-prog__module {
-  background: rgba(255, 255, 255, 0.04);
+  /* Row surface derives from the section foreground so it reads on BOTH the
+     dark default (white 4%) and a light background (near #f5f5f5). */
+  background: color-mix(in srgb, var(--kp-fg, #ffffff) 4%, transparent);
   border-radius: 8px;
   overflow: hidden;
   transition: background var(--kracht-trans);
 }
-.kracht-prog__module[open] { background: rgba(0, 157, 225, 0.08); }
+/* Reference accordion open state: no color wash — the open question row
+   carries a 3px brand-blue underline (mirrors their FAQ active state). */
+.kracht-prog__module[open] > .kracht-prog__summary {
+  box-shadow: inset 0 -3px 0 var(--kracht-blauw);
+}
 
 .kracht-prog__summary {
   list-style: none;
@@ -47,12 +53,12 @@
 .kracht-prog__day {
   background: var(--kracht-blauw);
   color: var(--kracht-wit);
-  padding: 0.35rem 0.6rem;
-  border-radius: 6px;
+  padding: 0.375rem 0.875rem;
+  border-radius: 4px;
   font-family: var(--kracht-font-body);
-  font-size: 0.65rem;
+  font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: normal;
   white-space: nowrap;
 }
 
@@ -75,7 +81,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform var(--kracht-trans-slow, 320ms) cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform var(--kracht-trans-slow);
 }
 .kracht-prog__module[open] .kracht-prog__chev {
   transform: rotate(45deg);
@@ -85,16 +91,15 @@
   padding: 0 1.1rem 1.25rem 1.1rem;
 }
 .kracht-prog__module[open] .kracht-prog__panel {
-  animation: kracht-fade-in var(--kracht-trans-slow, 320ms) ease-out both;
+  animation: kracht-fade-in var(--kracht-trans-slow) both;
 }
 @media (prefers-reduced-motion: reduce) {
   .kracht-prog__module[open] .kracht-prog__panel,
   .kracht-prog__chev { animation: none; transition: none; }
 }
 .kracht-prog__body {
-  font-size: 1rem;
-  line-height: 1.55;
-  color: var(--kracht-wit);
+  font-size: 0.9375rem;
+  line-height: 1.6667;
   margin-bottom: 0.75rem;
 }
 .kracht-prog__body p { margin: 0 0 0.6rem; }
@@ -109,18 +114,18 @@
 }
 .kracht-prog__bullets li {
   position: relative;
-  padding-left: 1.25rem;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: var(--kracht-wit);
+  /* Reference ul.list: 13px '+' marker + 14px gap to the text. */
+  padding-left: 27px;
+  font-size: 0.9375rem;
+  line-height: 1.6667;
 }
 .kracht-prog__bullets li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.35em;
-  width: 0.7em;
-  height: calc(0.7em * 229 / 252);
+  top: 0.4em;
+  width: 13px;
+  height: calc(13px * 229 / 252);
   background-color: var(--kracht-blauw);
   -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
           mask: var(--kracht-plus-mask) center / contain no-repeat;

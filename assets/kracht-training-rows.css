@@ -5,30 +5,29 @@
   font-family: var(--kracht-font-body);
 }
 
+/* Reference head: full-width h2 with the intro flowing below it in body
+   black — vanuitkracht.nl has no heading/intro split and no gray copy. */
 .kracht-trrows__head {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: flex-end;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.25rem;
 }
 .kracht-trrows__title {
   font-family: var(--kracht-font-heading);
-  font-size: clamp(1.75rem, 3vw, 2.4rem);
-  font-weight: 400;
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
+  font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -1px;
   margin: 0;
   color: var(--ktr-fg);
 }
 .kracht-trrows__title p { margin: 0; }
-.kracht-trrows__title strong { font-weight: 800; }
-.kracht-trrows__title em { font-style: normal; font-weight: 800; }
+.kracht-trrows__title strong { font-weight: 700; }
+.kracht-trrows__title em { font-style: normal; font-weight: 700; }
 .kracht-trrows__intro {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--kracht-grijs);
-  max-width: 360px;
+  font-size: 0.9375rem;
+  line-height: 1.6667;
+  color: var(--ktr-fg);
+  max-width: 640px;
+  margin-top: 1rem;
 }
 .kracht-trrows__intro p { margin: 0; }
 
@@ -44,10 +43,11 @@
 .kracht-trrow {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  background: var(--ktr-card-bg, #ffffff);
-  border-radius: var(--ktr-radius, 12px);
+  /* Reference cards are flat: separation comes from a gray-light card fill
+     on white, never a border or shadow. */
+  background: var(--ktr-card-bg, var(--kracht-grijs-licht));
+  border-radius: var(--ktr-radius, 10px);
   overflow: hidden;
-  border: 1px solid var(--kracht-grijs-border);
 }
 .kracht-trrow--reverse { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
 .kracht-trrow--reverse .kracht-trrow__media { order: 2; }
@@ -56,7 +56,7 @@
 .kracht-trrow__media {
   position: relative;
   aspect-ratio: 5 / 4;
-  background: linear-gradient(135deg, #e8e8eb, #cfcfd3);
+  background: var(--kracht-grijs-licht);
   overflow: hidden;
 }
 .kracht-trrow__img {
@@ -78,7 +78,7 @@
 }
 
 .kracht-trrow__body {
-  padding: clamp(1.5rem, 3vw, 2.25rem);
+  padding: clamp(1.5rem, 3vw, 1.875rem);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -92,7 +92,7 @@
 
 .kracht-trrow__title {
   font-family: var(--kracht-font-heading);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   line-height: 1.15;
   letter-spacing: -0.01em;
@@ -100,9 +100,9 @@
   color: var(--ktr-fg);
 }
 .kracht-trrow__desc {
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: #2a2a2a;
+  font-size: 0.9375rem;
+  line-height: 1.6667;
+  color: var(--ktr-fg);
   margin: 0;
 }
 
@@ -114,20 +114,23 @@
   margin: 0;
   padding-top: 1rem;
   padding-bottom: 0.25rem;
-  border-top: 1px dashed var(--kracht-grijs-border);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
+/* Reference metadata rows: small blue Work Sans label (sentence case) over a
+   regular-weight value — mirrors their .landingpage-metadata dt/dd. */
 .kracht-trrow__meta-item dt {
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--kracht-grijs);
-  margin: 0;
+  font-family: var(--kracht-font-heading);
+  font-size: 0.875rem;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--kracht-blauw);
+  margin: 0 0 6px;
   font-weight: 500;
 }
 .kracht-trrow__meta-item dd {
-  margin: 0.25rem 0 0;
-  font-size: 0.88rem;
-  font-weight: 700;
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
   color: var(--ktr-fg);
   line-height: 1.2;
 }
@@ -139,19 +142,50 @@
   gap: 0.75rem 1.25rem;
   margin-top: 0.75rem;
 }
+/* Brand inline-link underline: 1.5px solid line that swaps to the blue
+   gradient sweeping in from the left on hover (shared system in kracht.css
+   doesn't reach this link because it sits in a div, not a p/li). */
 .kracht-trrow__link {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--ktr-fg);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  opacity: 0.85;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
 }
-.kracht-trrow__link:hover { opacity: 1; color: var(--ktr-fg); }
+.kracht-trrow__link::before,
+.kracht-trrow__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  height: 1.5px;
+  width: 100%;
+}
+.kracht-trrow__link::before {
+  background: var(--kracht-underline);
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+.kracht-trrow__link::after {
+  background: var(--kracht-underline-hover);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s 0.3s ease;
+}
+.kracht-trrow__link:hover::before { opacity: 0; }
+.kracht-trrow__link:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+  transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0s ease;
+}
 
+@media (max-width: 1000px) {
+  .kracht-trrows { padding-block: 60px; }
+}
 @media (max-width: 900px) {
-  .kracht-trrows__head { grid-template-columns: 1fr; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; }
-  .kracht-trrows__intro { max-width: none; }
+  .kracht-trrows__head { margin-bottom: 1.5rem; }
   .kracht-trrow,
   .kracht-trrow--reverse { grid-template-columns: 1fr; }
   .kracht-trrow--reverse .kracht-trrow__media,
