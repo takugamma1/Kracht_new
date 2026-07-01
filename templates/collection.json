@@ -13,7 +13,8 @@
       "type": "kracht-collection-hero",
       "name": "Kracht — Collection Hero",
       "settings": {
-        "min_height": 640,
+        "image": "shopify://shop_images/pexels-kindelmedia-7651813.jpg",
+        "min_height": 400,
         "overlay_opacity": 0,
         "show_breadcrumbs": false,
         "tag": "Collectie",
@@ -127,10 +128,10 @@
       "name": "Kracht — Category Tabs",
       "settings": {
         "first_active": true,
-        "background_color": "#ffffff",
-        "text_color": "#000000",
+        "background_color": "#000000",
+        "text_color": "#FFFFFF",
         "active_color": "#009de1",
-        "active_text_color": "#ffffff",
+        "active_text_color": "#009DE1",
         "padding_y": 24
       }
     },
