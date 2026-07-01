@@ -78,7 +78,7 @@
 }
 .kracht-faq__chev,
 .kracht-faq__item[open] .kracht-faq__chev {
-  transition: transform var(--kracht-trans-slow, 320ms) cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform var(--kracht-trans-slow);
 }
 .kracht-faq__item[open] .kracht-faq__chev { transform: rotate(45deg); }
 
@@ -95,7 +95,7 @@
 }
 .kracht-faq__panel strong { color: inherit; font-weight: 700; }
 .kracht-faq__item[open] .kracht-faq__panel {
-  animation: kracht-fade-in var(--kracht-trans-slow, 320ms) ease-out both;
+  animation: kracht-fade-in var(--kracht-trans-slow) both;
 }
 @media (prefers-reduced-motion: reduce) {
   .kracht-faq__item[open] .kracht-faq__panel,

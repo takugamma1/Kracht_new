@@ -302,8 +302,8 @@
   opacity: 0;
   transform: translateY(-8px);
   transition:
-    opacity var(--kracht-trans-slow, 320ms) ease,
-    transform var(--kracht-trans-slow, 320ms) ease;
+    opacity var(--kracht-trans-slow),
+    transform var(--kracht-trans-slow);
   pointer-events: none;
 }
 .kracht-mega.is-open {

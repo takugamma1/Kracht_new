@@ -158,7 +158,7 @@
   width: var(--kst-progress, 33%);
   background: var(--kracht-blauw);
   border-radius: 2px;
-  transition: width var(--kracht-trans-slow, 280ms) ease-out;
+  transition: width var(--kracht-trans-slow);
 }
 .kracht-stories__count {
   font-size: 0.75rem;

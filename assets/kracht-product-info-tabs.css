@@ -65,7 +65,7 @@
 }
 .kracht-pinfo__panel.is-active {
   display: block;
-  animation: kracht-fade-in var(--kracht-trans-slow, 320ms) ease-out both;
+  animation: kracht-fade-in var(--kracht-trans-slow) both;
 }
 @media (prefers-reduced-motion: reduce) {
   .kracht-pinfo__panel.is-active { animation: none; }
