@@ -183,36 +183,31 @@
         "g1": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_10_07fb56a2-92c1-49d5-ae68-2226ed0f9aee.png",
-            "span": "large"
+            "image": "shopify://shop_images/Untitled_design_10_07fb56a2-92c1-49d5-ae68-2226ed0f9aee.png"
           }
         },
         "g2": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Image_1_b1dda74c-8131-4c92-93f4-3ffdcd8d26e5.png",
-            "span": "medium"
+            "image": "shopify://shop_images/Image_1_b1dda74c-8131-4c92-93f4-3ffdcd8d26e5.png"
           }
         },
         "g3": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Image_2_7ef89068-326e-4d9d-8a79-c6d876a83002.png",
-            "span": "small"
+            "image": "shopify://shop_images/Image_2_7ef89068-326e-4d9d-8a79-c6d876a83002.png"
           }
         },
         "g4": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/Image_3_372183ee-d577-4f39-a380-37b7b414440f.png",
-            "span": "medium"
+            "image": "shopify://shop_images/Image_3_372183ee-d577-4f39-a380-37b7b414440f.png"
           }
         },
         "g5": {
           "type": "photo",
           "settings": {
-            "image": "shopify://shop_images/pexels-anastasiakasina-20259101.jpg",
-            "span": "small"
+            "image": "shopify://shop_images/pexels-anastasiakasina-20259101.jpg"
           }
         }
       },
@@ -226,8 +221,8 @@
       "name": "Kracht — Photo Gallery",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>Finca Las Encinas — <strong>een plek die vertraagt.</strong></p>",
-        "background_color": "#000000",
+        "heading": "",
+        "background_color": "#FFFFFF",
         "text_color": "#ffffff",
         "padding_y": 80,
         "radius": 8,
