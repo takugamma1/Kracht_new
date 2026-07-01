@@ -16,6 +16,11 @@
         "show_breadcrumbs": true,
         "heading": "<p>Even <strong>stilstaan,</strong> om écht <em>vooruit</em> te komen.</p>",
         "subheading": "<p>Twee dagen, vijf dagen of zeven — onze retraites zijn <strong>geen vakantie en geen training</strong>. Het is de plek waar leiders, teams en professionals tot rust komen, scherp nadenken en met <strong>nieuwe richting</strong> terugkomen.</p>",
+        "tag": "Kracht+ Retraites",
+        "button1_label": "Plan een gesprek",
+        "button1_link": "",
+        "button2_label": "",
+        "button2_link": "",
         "image": "shopify://shop_images/pexels-tolgaaslanturk-13695885.jpg",
         "overlay_opacity": 35,
         "text_color": "#ffffff",
@@ -31,8 +36,8 @@
         "body_top": "<p>Een retraite is geen luxe. Het is <strong>noodzakelijke afstand</strong> — van je inbox, je rol, je dagdagelijkse ritme. Pas wanneer je fysiek én mentaal even loskomt, kun je écht zien wat er ligt en waar je naartoe wilt.</p>",
         "quote": "<p>De stap die je niet zet in vier weken, zet je in <strong>vier dagen.</strong></p>",
         "body_bottom": "<p>Onze retraites combineren <strong>begeleide reflectie</strong>, beweging, goede gesprekken en stilte — op locaties die uitnodigen om dieper te kijken. Voor leiders die richting zoeken, teams die opnieuw afstemmen, en <strong>mensen die durven kijken</strong>.</p>",
-        "background_color": "#009de1",
-        "text_color": "#ffffff",
+        "background_color": "#FFFFFF",
+        "text_color": "#000000",
         "padding_y": 96
       }
     },
