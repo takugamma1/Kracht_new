@@ -66,18 +66,27 @@
               <p class="kracht-trrow__desc">{{ block.settings.description }}</p>
             {%- endif -%}
 
-            {%- if block.settings.meta1_label != blank or block.settings.meta2_label != blank or block.settings.meta3_label != blank -%}
-              <dl class="kracht-trrow__meta">
-                {%- if block.settings.meta1_label != blank -%}
-                  <div class="kracht-trrow__meta-item"><dt>{{ block.settings.meta1_label }}</dt><dd>{{ block.settings.meta1_value }}</dd></div>
+            {%- if block.settings.meta1_value != blank or block.settings.meta2_value != blank or block.settings.meta3_value != blank -%}
+              <div class="kracht-trrow__meta">
+                {%- if block.settings.meta1_value != blank -%}
+                  <span class="kracht-trrow__meta-item"{% if block.settings.meta1_label != blank %} title="{{ block.settings.meta1_label | escape }}"{% endif %}>
+                    {%- if block.settings.meta1_icon != blank and block.settings.meta1_icon != 'none' -%}<span class="kracht-trrow__meta-icon">{% render 'kracht-hero-icon', icon: block.settings.meta1_icon %}</span>{%- endif -%}
+                    <span>{{ block.settings.meta1_value }}</span>
+                  </span>
                 {%- endif -%}
-                {%- if block.settings.meta2_label != blank -%}
-                  <div class="kracht-trrow__meta-item"><dt>{{ block.settings.meta2_label }}</dt><dd>{{ block.settings.meta2_value }}</dd></div>
+                {%- if block.settings.meta2_value != blank -%}
+                  <span class="kracht-trrow__meta-item"{% if block.settings.meta2_label != blank %} title="{{ block.settings.meta2_label | escape }}"{% endif %}>
+                    {%- if block.settings.meta2_icon != blank and block.settings.meta2_icon != 'none' -%}<span class="kracht-trrow__meta-icon">{% render 'kracht-hero-icon', icon: block.settings.meta2_icon %}</span>{%- endif -%}
+                    <span>{{ block.settings.meta2_value }}</span>
+                  </span>
                 {%- endif -%}
-                {%- if block.settings.meta3_label != blank -%}
-                  <div class="kracht-trrow__meta-item"><dt>{{ block.settings.meta3_label }}</dt><dd>{{ block.settings.meta3_value }}</dd></div>
+                {%- if block.settings.meta3_value != blank -%}
+                  <span class="kracht-trrow__meta-item"{% if block.settings.meta3_label != blank %} title="{{ block.settings.meta3_label | escape }}"{% endif %}>
+                    {%- if block.settings.meta3_icon != blank and block.settings.meta3_icon != 'none' -%}<span class="kracht-trrow__meta-icon">{% render 'kracht-hero-icon', icon: block.settings.meta3_icon %}</span>{%- endif -%}
+                    <span>{{ block.settings.meta3_value }}</span>
+                  </span>
                 {%- endif -%}
-              </dl>
+              </div>
             {%- endif -%}
 
             {%- if block.settings.button1_label != blank or block.settings.button2_label != blank -%}
@@ -130,13 +139,19 @@
         { "type": "text",         "id": "eyebrow",     "label": "Eyebrow (e.g. 2.1.1 — Teamontwikkeling)", "default": "2.1.1 — Teamontwikkeling" },
         { "type": "text",         "id": "title",       "label": "Title", "default": "Samenwerken vanuit Kracht." },
         { "type": "textarea",     "id": "description", "label": "Description", "default": "Bouw een team dat écht samenwerkt. Van vertrouwen tot gedeelde verantwoordelijkheid — krachtiger als groep dan als optelsom van individuen." },
-        { "type": "header", "content": "Metadata (3 columns)" },
-        { "type": "text", "id": "meta1_label", "label": "Label 1", "default": "Duur" },
+        { "type": "header", "content": "Metadata (icon + value)", "info": "Bold value with a blue icon; the label shows as a tooltip." },
+        { "type": "text", "id": "meta1_label", "label": "Label 1 (tooltip)", "default": "Duur" },
         { "type": "text", "id": "meta1_value", "label": "Value 1", "default": "2 dagen" },
-        { "type": "text", "id": "meta2_label", "label": "Label 2", "default": "Format" },
+        { "type": "select", "id": "meta1_icon", "label": "Icon 1", "default": "clock", "options": [
+          { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" } ] },
+        { "type": "text", "id": "meta2_label", "label": "Label 2 (tooltip)", "default": "Format" },
         { "type": "text", "id": "meta2_value", "label": "Value 2", "default": "Klassikaal" },
-        { "type": "text", "id": "meta3_label", "label": "Label 3", "default": "Voor" },
+        { "type": "select", "id": "meta2_icon", "label": "Icon 2", "default": "briefcase", "options": [
+          { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" } ] },
+        { "type": "text", "id": "meta3_label", "label": "Label 3 (tooltip)", "default": "Voor" },
         { "type": "text", "id": "meta3_value", "label": "Value 3", "default": "Teams 6 — 15 pers." },
+        { "type": "select", "id": "meta3_icon", "label": "Icon 3", "default": "users", "options": [
+          { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" } ] },
         { "type": "header", "content": "Buttons" },
         { "type": "text", "id": "button1_label", "label": "Primary button label", "default": "Meer informatie" },
         { "type": "url",  "id": "button1_link",  "label": "Primary button link" },

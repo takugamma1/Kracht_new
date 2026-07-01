@@ -34,20 +34,18 @@
 .kracht-trrows__list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(3rem, 6vw, 5rem);
 }
 
 /* ==========================================================================
-   One row = a single rounded card with image on one side + content on the other
+   One row = the reference open image/text split (their content-splitter):
+   no card box at all — a rounded photo beside free-standing text.
    ========================================================================== */
 .kracht-trrow {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  /* Reference cards are flat: separation comes from a gray-light card fill
-     on white, never a border or shadow. */
-  background: var(--ktr-card-bg, var(--kracht-grijs-licht));
-  border-radius: var(--ktr-radius, 10px);
-  overflow: hidden;
+  gap: 2.5rem;
+  align-items: center;
 }
 .kracht-trrow--reverse { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
 .kracht-trrow--reverse .kracht-trrow__media { order: 2; }
@@ -58,6 +56,7 @@
   aspect-ratio: 5 / 4;
   background: var(--kracht-grijs-licht);
   overflow: hidden;
+  border-radius: var(--ktr-radius, 10px);
 }
 .kracht-trrow__img {
   position: absolute;
@@ -78,7 +77,6 @@
 }
 
 .kracht-trrow__body {
-  padding: clamp(1.5rem, 3vw, 1.875rem);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -90,12 +88,13 @@
   color: var(--kracht-blauw);
 }
 
+/* Reference row headings sit on the h2 scale (38px, bold, -1px). */
 .kracht-trrow__title {
   font-family: var(--kracht-font-heading);
   font-weight: 700;
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
+  line-height: 1.1;
+  letter-spacing: -1px;
   margin: 0;
   color: var(--ktr-fg);
 }
@@ -106,33 +105,35 @@
   margin: 0;
 }
 
+/* Meta: blue icon + bold text rows (the vacancy pattern) — no divider,
+   no blue text; only the icons carry blue. */
 .kracht-trrow__meta {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.75rem;
   width: 100%;
-  margin: 0;
-  padding-top: 1rem;
-  padding-bottom: 0.25rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 0.25rem 0 0;
+  padding: 0;
 }
-/* Reference metadata rows: small blue Work Sans label (sentence case) over a
-   regular-weight value — mirrors their .landingpage-metadata dt/dd. */
-.kracht-trrow__meta-item dt {
+.kracht-trrow__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--kracht-font-heading);
-  font-size: 0.875rem;
-  letter-spacing: normal;
-  text-transform: none;
-  color: var(--kracht-blauw);
-  margin: 0 0 6px;
-  font-weight: 500;
-}
-.kracht-trrow__meta-item dd {
-  margin: 0;
+  font-weight: 700;
   font-size: 0.9375rem;
-  font-weight: 400;
   color: var(--ktr-fg);
   line-height: 1.2;
+}
+.kracht-trrow__meta-icon {
+  color: var(--kracht-blauw);
+  flex: none;
+  display: inline-flex;
+}
+.kracht-trrow__meta-icon svg {
+  display: block;
+  height: 17px;
+  width: auto;
 }
 
 .kracht-trrow__cta {
@@ -187,7 +188,7 @@
 @media (max-width: 900px) {
   .kracht-trrows__head { margin-bottom: 1.5rem; }
   .kracht-trrow,
-  .kracht-trrow--reverse { grid-template-columns: 1fr; }
+  .kracht-trrow--reverse { grid-template-columns: 1fr; gap: 1.25rem; }
   .kracht-trrow--reverse .kracht-trrow__media,
   .kracht-trrow--reverse .kracht-trrow__body { order: initial; }
   .kracht-trrow__media { aspect-ratio: 16 / 11; }
