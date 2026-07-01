@@ -71,7 +71,7 @@
             "image": "shopify://shop_images/Untitled_design_10_07fb56a2-92c1-49d5-ae68-2226ed0f9aee.png",
             "day_label": "",
             "image_title": "<p>Welkom in <strong>Andalusië.</strong></p>",
-            "panel_eyebrow": "Day 1",
+            "panel_eyebrow": "",
             "panel_title": "<p>Eerst <strong>aankomen.</strong></p>",
             "panel_body": "<p>Aankomst op Málaga Airport, transfer naar de finca. Wij zorgen voor alle koffers en boodschappen — een rustige eerste avond met <strong>welkomsdiner</strong> in de open lucht.</p>",
             "sublist_title": "Programma",
@@ -86,7 +86,7 @@
             "image_title": "<p>Tijd om te <strong>landen.</strong></p>",
             "panel_eyebrow": "DAY 2",
             "panel_title": "<p>Eerst <strong>stil worden.</strong></p>",
-            "panel_body": "<p>We openen met <strong>yoga en ademhaling</strong>, gevolgd door een lange ochtend journaling in Málaga's olijfgaard rondom de finca. Op stille middag uitloop.</p>",
+            "panel_body": "<p>We openen met yoga en ademhaling, gevolgd door een lange ochtend journaling in Málaga's olijfgaard rondom de finca. Op stille middag uitloop.</p>",
             "sublist_title": "Highlights",
             "sublist_items": "Yoga & ademwerk · 3 uur\nJournaling · 2 uur"
           }
@@ -99,7 +99,7 @@
             "image_title": "<p>Wat drijft <strong>jou écht?</strong></p>",
             "panel_eyebrow": "DAY 3",
             "panel_title": "<p>Naar de <strong>kern.</strong></p>",
-            "panel_body": "<p>Een diepe duik in jouw drijfveren — wat je <strong>écht</strong> wil, wat je tegenhoudt, en wat je nodig hebt. Begeleide reflectie en op pijn-gesprekken met hulp van een tijd-tijd-tijdeel in de natuur.</p>",
+            "panel_body": "<p>Een diepe duik in jouw drijfveren — wat je écht wil, wat je tegenhoudt, en wat je nodig hebt. Begeleide reflectie en op pijn-gesprekken met hulp van een tijd-tijd-tijdeel in de natuur.</p>",
             "sublist_title": "Highlights",
             "sublist_items": "1-op-1 coaching met host"
           }
@@ -108,9 +108,9 @@
           "type": "day",
           "settings": {
             "image": "shopify://shop_images/pexels-karolina-2031292-9629644.jpg",
-            "day_label": "Dag 04 — Woensdag — Drijfveren",
+            "day_label": "",
             "image_title": "<p>Een dag in de <strong>bergen.</strong></p>",
-            "panel_eyebrow": "DAY 3",
+            "panel_eyebrow": "DAY 4",
             "panel_title": "<p>Beweging maakt <strong>los.</strong></p>",
             "panel_body": "<p>Vroege dagwandeling naar de top van de Sierra Nevada. Talenten, de wandeling werken zodat de persoonlijke vragen — beweging maakt los van het denkenhuid.</p>",
             "sublist_title": "Highlights",
@@ -121,9 +121,9 @@
           "type": "day",
           "settings": {
             "image": "shopify://shop_images/Image_3_372183ee-d577-4f39-a380-37b7b414440f.png",
-            "day_label": "Dag 05 — Donderdag — Keuzes",
+            "day_label": "",
             "image_title": "<p>Van inzicht naar <strong>richting.</strong></p>",
-            "panel_eyebrow": "DAY 4",
+            "panel_eyebrow": "DAY 5",
             "panel_title": "<p>Beslissingen <strong>durven nemen.</strong></p>",
             "panel_body": "<p>De zoektocht uit de afgelopen dagen vertalen we naar concrete keuzes. Wat ligt je te liggen, wat laat je los? Werken in persoonlijke pijler-positie, en met loslaatmiddag rond elkaar de elke afsluiting.</p>",
             "sublist_title": "Sublist",
@@ -134,9 +134,9 @@
           "type": "day",
           "settings": {
             "image": "shopify://shop_images/pexels-danieljschwarz-34257471.jpg",
-            "day_label": "Dag 06 — Vrijdag — Verbinding",
+            "day_label": "",
             "image_title": "<p>Het lokale <strong>leven in.</strong></p>",
-            "panel_eyebrow": "DAY 5",
+            "panel_eyebrow": "DAY 6",
             "panel_title": "<p>Leven is <strong>óók een doel.</strong></p>",
             "panel_body": "<p>Vandaag bezoeken we een nabijgelegen pueblo voor een markt bezoek, een korte lunch in een familierestaurant en een flamenco-avond. Een dag die het programma af haalt — en herinnert dat genieten doors-ook een doel kan zijn.</p>",
             "sublist_title": "Sublist",
@@ -147,11 +147,11 @@
           "type": "day",
           "settings": {
             "image": "shopify://shop_images/pexels-migsg-2421020.jpg",
-            "day_label": "Dag 07 — Vrijdag — Vertrek",
+            "day_label": "",
             "image_title": "<p>Mee naar <strong>huis.</strong></p>",
-            "panel_eyebrow": "DAY 6",
+            "panel_eyebrow": "DAY 7",
             "panel_title": "<p>Niet het einde, <strong>het begin.</strong></p>",
-            "panel_body": "<p>We sluiten af met een <strong>closing circle</strong> en eenvoudige integratietijd. Integratiequit via de vluchten naar Nederland zorgt straling. Brunch, koffies, een laatste hide op de bergen — en transfer naar het vliegveld.</p>",
+            "panel_body": "<p>We sluiten af met een closing circle en eenvoudige integratietijd. Integratiequit via de vluchten naar Nederland zorgt straling. Brunch, koffies, een laatste hide op de bergen — en transfer naar het vliegveld.</p>",
             "sublist_title": "Sublist",
             "sublist_items": "Closing circle & integratie"
           }
