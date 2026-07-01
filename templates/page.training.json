@@ -33,6 +33,9 @@
         "image": "shopify://shop_images/pexels-mizunokozuki-12903273.jpg",
         "show_plus": false,
         "image_radius": 4,
+        "bg_image": "shopify://shop_images/pexels-mizunokozuki-12903273.jpg",
+        "overlay_opacity": 0,
+        "min_height": 640,
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 72
@@ -391,6 +394,7 @@
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 120,
+        "padding_bottom": 160,
         "radius": 10,
         "gradient_strength": 100
       }
