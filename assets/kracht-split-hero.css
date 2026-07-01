@@ -158,3 +158,45 @@
   .kracht-shero__cta { width: 100%; }
   .kracht-shero__cta .kracht-btn { flex: 1; justify-content: center; }
 }
+
+/* ── Full-bleed image mode: photo + bottom fade (homepage-style) ──────────
+   Activated by a background image. Hides the decorative wedge and the split
+   side-image, and bottom-anchors the content over the photo. */
+.kracht-shero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.kracht-shero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.97) 0%,
+    rgba(0, 0, 0, 0.92) 30%,
+    rgba(0, 0, 0, calc(0.55 * (var(--ksh-overlay, 0) + 0.4))) 55%,
+    rgba(0, 0, 0, 0) 85%
+  );
+}
+.kracht-shero--image {
+  min-height: var(--ksh-min-h, 640px);
+  display: flex;
+  align-items: flex-end;
+  padding-block: 0;
+}
+.kracht-shero--image::before { display: none; }
+.kracht-shero--image .kracht-shero__inner {
+  width: 100%;
+  padding-block: 4rem 5rem;
+}
+.kracht-shero--image .kracht-shero__grid {
+  grid-template-columns: 1fr;
+}
+.kracht-shero--image .kracht-shero__content {
+  max-width: 640px;
+}

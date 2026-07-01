@@ -1,14 +1,29 @@
 {{ 'kracht-split-hero.css' | asset_url | stylesheet_tag }}
 
 <section
-  class="kracht-shero"
+  class="kracht-shero{% if section.settings.bg_image != blank %} kracht-shero--image{% endif %}"
   style="
     --ksh-bg: {{ section.settings.background_color }};
     --ksh-fg: {{ section.settings.text_color }};
     --ksh-pad-y: {{ section.settings.padding_y | times: 0.75 | round }}px;
     --ksh-radius: {{ section.settings.image_radius }}px;
+    --ksh-min-h: {{ section.settings.min_height }}px;
+    --ksh-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
   "
 >
+  {%- if section.settings.bg_image != blank -%}
+    <img
+      src="{{ section.settings.bg_image | image_url: width: 2400 }}"
+      srcset="{{ section.settings.bg_image | image_url: width: 1000 }} 1000w, {{ section.settings.bg_image | image_url: width: 1600 }} 1600w, {{ section.settings.bg_image | image_url: width: 2400 }} 2400w"
+      sizes="100vw"
+      alt="{{ section.settings.bg_image.alt | escape }}"
+      class="kracht-shero__bg"
+      loading="eager"
+      fetchpriority="high"
+    >
+    <div class="kracht-shero__overlay" aria-hidden="true"></div>
+  {%- endif -%}
+
   <div class="kracht-shero__inner kracht-container">
     {%- if section.settings.show_breadcrumbs -%}
       <nav class="kracht-shero__crumbs" aria-label="Breadcrumb">
@@ -72,23 +87,25 @@
         {%- endif -%}
       </div>
 
-      <div class="kracht-shero__media">
-        {%- if section.settings.image != blank -%}
-          <img
-            src="{{ section.settings.image | image_url: width: 1200 }}"
-            srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
-            sizes="(max-width: 900px) 100vw, 50vw"
-            alt="{{ section.settings.image.alt | escape }}"
-            class="kracht-shero__img"
-            loading="eager"
-          >
-        {%- else -%}
-          <div class="kracht-shero__img kracht-shero__img--ph"></div>
-        {%- endif -%}
-        {%- if section.settings.show_plus -%}
-          <span class="kracht-shero__plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
-        {%- endif -%}
-      </div>
+      {%- if section.settings.bg_image == blank -%}
+        <div class="kracht-shero__media">
+          {%- if section.settings.image != blank -%}
+            <img
+              src="{{ section.settings.image | image_url: width: 1200 }}"
+              srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
+              sizes="(max-width: 900px) 100vw, 50vw"
+              alt="{{ section.settings.image.alt | escape }}"
+              class="kracht-shero__img"
+              loading="eager"
+            >
+          {%- else -%}
+            <div class="kracht-shero__img kracht-shero__img--ph"></div>
+          {%- endif -%}
+          {%- if section.settings.show_plus -%}
+            <span class="kracht-shero__plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -192,6 +209,36 @@
       "step": 1,
       "unit": "px",
       "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Full-bleed background (optional)",
+      "info": "Set a background image to switch this hero to the full-bleed image style (matches the homepage). When set, the split side image is hidden."
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Bottom gradient darkness",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Min height (full-bleed)",
+      "min": 360,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 640
     },
     {
       "type": "header",

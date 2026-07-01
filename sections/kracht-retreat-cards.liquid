@@ -82,7 +82,7 @@
               {%- if block.settings.button_label != blank or block.settings.price != blank -%}
                 <div class="kracht-rcard__cta">
                   {%- if block.settings.button_label != blank -%}
-                    <a href="{{ block.settings.button_link | default: '#' }}" class="kracht-btn kracht-btn--dark">
+                    <a href="{{ block.settings.button_link | default: '#' }}" class="kracht-btn kracht-btn--primary">
                       {{ block.settings.button_label }} <span class="kracht-btn__arrow">→</span>
                     </a>
                   {%- endif -%}

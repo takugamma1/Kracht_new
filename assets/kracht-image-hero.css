@@ -82,10 +82,25 @@
 .kracht-img-hero__title b { font-weight: 800; }
 .kracht-img-hero__title em { font-style: normal; font-weight: 800; }
 
+.kracht-img-hero__tag {
+  margin-bottom: 0.75rem;
+}
+
 .kracht-img-hero__sub {
   font-size: 0.92rem;
   line-height: 1.55;
   max-width: 540px;
+}
+
+.kracht-img-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+@media (max-width: 480px) {
+  .kracht-img-hero__cta { width: 100%; }
+  .kracht-img-hero__cta .kracht-btn { flex: 1; justify-content: center; }
 }
 .kracht-img-hero__sub p { margin: 0 0 0.75rem; }
 .kracht-img-hero__sub p:last-child { margin: 0; }

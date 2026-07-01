@@ -42,11 +42,28 @@
     {%- endif -%}
 
     <div class="kracht-img-hero__content">
+      {%- if section.settings.tag != blank -%}
+        <span class="kracht-tag kracht-img-hero__tag">{{ section.settings.tag }}</span>
+      {%- endif -%}
       {%- if hero_title != blank -%}
         <h1 class="kracht-img-hero__title">{{ hero_title }}</h1>
       {%- endif -%}
       {%- if hero_text != blank -%}
         <div class="kracht-img-hero__sub">{{ hero_text }}</div>
+      {%- endif -%}
+      {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
+        <div class="kracht-img-hero__cta">
+          {%- if section.settings.button1_label != blank -%}
+            <a href="{{ section.settings.button1_link | default: '/pages/contact' }}" class="kracht-btn kracht-btn--primary">
+              {{ section.settings.button1_label }} <span class="kracht-btn__arrow">→</span>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.button2_label != blank -%}
+            <a href="{{ section.settings.button2_link | default: '#' }}" class="kracht-btn kracht-btn--outline-dark">
+              {{ section.settings.button2_label }}
+            </a>
+          {%- endif -%}
+        </div>
       {%- endif -%}
     </div>
   </div>
@@ -80,6 +97,33 @@
       "id": "subheading",
       "label": "Subheading",
       "default": "<p>Twee dagen, vijf dagen of zeven — onze retraites zijn <strong>geen vakantie en geen training</strong>. Het is de plek waar leiders, teams en professionals tot rust komen, scherp nadenken en met <strong>nieuwe richting</strong> terugkomen.</p>"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag pill",
+      "default": "Kracht+ Retraites"
+    },
+    {
+      "type": "text",
+      "id": "button1_label",
+      "label": "Primary button label",
+      "default": "Plan een gesprek"
+    },
+    {
+      "type": "url",
+      "id": "button1_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "button2_label",
+      "label": "Secondary button label"
+    },
+    {
+      "type": "url",
+      "id": "button2_link",
+      "label": "Secondary button link"
     },
     {
       "type": "header",
