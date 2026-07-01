@@ -161,42 +161,6 @@
     },
     "cta": {
       "type": "kracht-cta-banner",
-      "blocks": {
-        "s1": {
-          "type": "stat",
-          "settings": {
-            "value": "48+",
-            "label": "Items in collectie"
-          }
-        },
-        "s2": {
-          "type": "stat",
-          "settings": {
-            "value": "100%",
-            "label": "Premium kwaliteit"
-          }
-        },
-        "s3": {
-          "type": "stat",
-          "settings": {
-            "value": "2-3",
-            "label": "Werkdagen levering"
-          }
-        },
-        "s4": {
-          "type": "stat",
-          "settings": {
-            "value": "€50",
-            "label": "Gratis verzending vanaf"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
-      ],
       "name": "Kracht — CTA Banner",
       "settings": {
         "eyebrow": "",
