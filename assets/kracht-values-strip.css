@@ -21,7 +21,7 @@
 }
 
 .kracht-values__icon {
-  color: var(--kvs-icon, #009de1);
+  color: var(--kvs-icon, var(--kracht-blauw));
   display: inline-flex;
   align-items: center;
   justify-content: center;

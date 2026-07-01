@@ -47,7 +47,7 @@
   background: var(--kf-accent, var(--kracht-blauw));
   color: var(--kracht-wit);
   padding: 0.35rem 0.55rem;
-  border-radius: 5px;
+  border-radius: var(--kracht-radius-sm);
   font-family: var(--kracht-font-body);
   font-size: 0.7rem;
   font-weight: 700;

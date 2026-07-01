@@ -20,7 +20,7 @@
     repeating-linear-gradient(90deg, transparent 0 24px, rgba(255,255,255,0.05) 24px 25px);
   pointer-events: none;
   z-index: 0;
-  border-radius: 24px;
+  border-radius: var(--kracht-radius-lg);
   transform: rotate(8deg);
   opacity: 0.7;
 }

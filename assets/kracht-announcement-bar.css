@@ -1,5 +1,5 @@
 .kracht-announcement-bar {
-  background: var(--kab-bg, #009de1);
+  background: var(--kab-bg, var(--kracht-blauw));
   color: var(--kab-fg, #ffffff);
   position: relative;
   overflow: hidden;
@@ -74,7 +74,7 @@
   );
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .kracht-announcement-bar { font-size: 11px; }
   .kracht-announcement-bar__group {
     gap: 0.9rem;

@@ -9,6 +9,7 @@
   --kracht-blauw: #009de1;
   --kracht-blauw-dark: #0089c4;
   --kracht-blauw-light: #2bb1ec;
+  --kracht-blauw-hover: #05b3ff;   /* primary-button hover tint (lighter blue, per vanuitkracht.nl) */
   /* Brand blue gradient — mirrors vanuitkracht.nl's .bg-blue. Used for blue
      box / panel / CTA surfaces only (never text, borders, icons, small accents). */
   --kracht-blauw-gradient: linear-gradient(116deg, #00a4eb 39.38%, #233dff 127.02%);
@@ -25,6 +26,10 @@
   --kracht-grijs-licht: #f8f8f8;
   --kracht-grijs-border: #e5e5e5;
   --kracht-grijs-soft: #fafafa;
+  /* Status reds — design-system palette (for form / error states) */
+  --kracht-rood: #d92200;
+  --kracht-rood-dark: #a70000;
+  --kracht-rood-light: #ff5656;
   /* Inline-link underline system — mirrors vanuitkracht.nl's --underline-color /
      --underline-hover-color. Dark/blue sections override --kracht-underline
      to white. */
@@ -229,7 +234,7 @@ body { overflow-x: clip; }
   color: var(--kracht-wit);
 }
 .kracht-btn--primary:hover {
-  background: #05b3ff;
+  background: var(--kracht-blauw-hover);
   color: var(--kracht-wit);
 }
 .kracht-btn--dark {
