@@ -33,7 +33,8 @@
               <span class="kracht-tag kracht-tag--yellow kracht-sched__status">{{ block.settings.status }}</span>
             {%- endif -%}
             {%- if block.settings.month != blank -%}
-              <p class="kracht-sched__month">{{ block.settings.month }}</p>
+              {%- comment -%} capitalize normalizes legacy ALL-CAPS content to sentence case. {%- endcomment -%}
+              <p class="kracht-sched__month">{{ block.settings.month | capitalize }}</p>
             {%- endif -%}
             {%- if block.settings.dates != blank -%}
               <p class="kracht-sched__dates">{{ block.settings.dates }}</p>

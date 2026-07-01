@@ -63,7 +63,7 @@
   /* Card text stays single-color (black) — no blue/black mixing. */
   color: var(--ksc-fg);
   margin: 0;
-  font-weight: 500;
+  font-weight: 700;
 }
 .kracht-sched__dates {
   font-family: var(--kracht-font-heading);
