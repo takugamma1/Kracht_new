@@ -1,3 +1,5 @@
+/* Kracht — Trainer profile: reference contact-card layout (flat black card,
+   portrait melting into the panel via a side gradient). */
 .kracht-tprof {
   background: var(--ktp-bg, #ffffff);
   color: var(--ktp-fg, #000000);
