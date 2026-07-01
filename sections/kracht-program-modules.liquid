@@ -23,10 +23,10 @@
         <details class="kracht-prog__module" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
           <summary class="kracht-prog__summary">
             {%- if block.settings.day_label != blank -%}
-              <span class="kracht-prog__day">{{ block.settings.day_label }}</span>
+              {%- comment -%} capitalize normalizes legacy ALL-CAPS content to sentence case. {%- endcomment -%}
+              <span class="kracht-prog__day">{{ block.settings.day_label | capitalize }}</span>
             {%- endif -%}
             <span class="kracht-prog__title-row">{{ block.settings.title }}</span>
-            <span class="kracht-prog__chev" aria-hidden="true">{% render 'kracht-plus' %}</span>
           </summary>
           <div class="kracht-prog__panel">
             {%- if block.settings.body != blank -%}

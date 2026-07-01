@@ -43,7 +43,7 @@
   list-style: none;
   cursor: pointer;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.1rem;
@@ -70,23 +70,6 @@
   color: var(--kp-fg);
 }
 
-.kracht-prog__chev {
-  font-family: var(--kracht-font-heading);
-  font-weight: 900;
-  font-size: 1.4rem;
-  color: var(--kracht-blauw);
-  line-height: 0.7;
-  width: 28px;
-  height: 28px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform var(--kracht-trans-slow);
-}
-.kracht-prog__module[open] .kracht-prog__chev {
-  transform: rotate(45deg);
-}
-
 .kracht-prog__panel {
   padding: 0 1.1rem 1.25rem 1.1rem;
 }
@@ -94,8 +77,7 @@
   animation: kracht-fade-in var(--kracht-trans-slow) both;
 }
 @media (prefers-reduced-motion: reduce) {
-  .kracht-prog__module[open] .kracht-prog__panel,
-  .kracht-prog__chev { animation: none; transition: none; }
+  .kracht-prog__module[open] .kracht-prog__panel { animation: none; }
 }
 .kracht-prog__body {
   font-size: 0.9375rem;
@@ -133,14 +115,10 @@
 
 @media (max-width: 600px) {
   .kracht-prog__summary {
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "day chev"
-      "title chev";
+    grid-template-columns: 1fr;
     gap: 0.4rem;
     padding: 0.85rem 1rem;
   }
-  .kracht-prog__day { grid-area: day; justify-self: start; }
-  .kracht-prog__title-row { grid-area: title; font-size: 0.88rem; }
-  .kracht-prog__chev { grid-area: chev; align-self: center; }
+  .kracht-prog__day { justify-self: start; }
+  .kracht-prog__title-row { font-size: 0.88rem; }
 }
