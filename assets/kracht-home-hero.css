@@ -20,14 +20,16 @@
 .kracht-hero__overlay {
   position: absolute;
   inset: 0;
-  /* The bottom of the hero reads as a solid black "panel" that the
-     headline + buttons sit on, with the image fading down into it. */
+  /* The bottom of the hero reads as a solid dark "panel" that the headline +
+     buttons sit on, with the image fading down into it. Uses the brand
+     navy-black gradient (#001a23 -> #000a0e, "NOT flat black") so the photo
+     melts into the brand dark rather than pure black. */
   background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.97) 0%,
-    rgba(0, 0, 0, 0.92) 30%,
-    rgba(0, 0, 0, calc(0.55 * (var(--khh-overlay, 0.65) + 0.4))) 55%,
-    rgba(0, 0, 0, 0) 85%
+    0deg,
+    rgba(0, 26, 35, 0.97) 0%,
+    rgba(0, 10, 14, 0.92) 30%,
+    rgba(0, 10, 14, calc(0.55 * (var(--khh-overlay, 0.65) + 0.4))) 55%,
+    rgba(0, 10, 14, 0) 85%
   );
   z-index: 1;
   pointer-events: none;
