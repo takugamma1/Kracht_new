@@ -21,17 +21,18 @@
 .kracht-rcards__list {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: clamp(3rem, 6vw, 5rem);
 }
 
 /* ==========================================================================
-   Single retreat card (image + info panel)
+   One retreat = the reference open image/text split (same as the training
+   rows): no panel box — a rounded photo beside free-standing text.
    ========================================================================== */
 .kracht-rcard {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 1.5rem;
-  align-items: stretch;
+  gap: 2.5rem;
+  align-items: center;
 }
 .kracht-rcard--reverse .kracht-rcard__media { order: 2; }
 .kracht-rcard--reverse .kracht-rcard__panel { order: 1; }
@@ -39,9 +40,9 @@
 .kracht-rcard__media {
   position: relative;
   aspect-ratio: 4 / 3;
-  border-radius: var(--krc-radius, 16px);
+  border-radius: var(--krc-radius, 10px);
   overflow: hidden;
-  background: linear-gradient(135deg, #d9e7f0, #b9c8d3);
+  background: var(--kracht-grijs-licht);
 }
 .kracht-rcard__img {
   width: 100%;
@@ -51,16 +52,11 @@
 }
 .kracht-rcard__img--ph { background: inherit; }
 
-/* Info panel */
+/* Text column — free-standing on the page, no box. */
 .kracht-rcard__panel {
   position: relative;
-  /* Subtle lighter "stripe" that holds the text (not a heavy grey card). */
-  background: var(--kracht-grijs-soft);
-  border-radius: var(--krc-radius, 16px);
-  padding: clamp(1.5rem, 3vw, 2.25rem);
   display: flex;
   align-items: center;
-  overflow: hidden;
 }
 .kracht-rcard__code {
   position: absolute;
@@ -84,23 +80,24 @@
   position: relative;
   z-index: 1;
 }
+/* Same heading scale as the training rows (reference h2: 38px, -1px). */
 .kracht-rcard__title {
   font-family: var(--kracht-font-heading);
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
-  font-weight: 400;
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
+  font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -1px;
   margin: 0;
   color: var(--krc-fg);
 }
 .kracht-rcard__title p { margin: 0; }
-.kracht-rcard__title strong { font-weight: 800; }
+.kracht-rcard__title strong { font-weight: 700; }
 .kracht-rcard__desc {
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: #2a2a2a;
+  font-size: 0.9375rem;
+  line-height: 1.6667;
+  color: var(--krc-fg);
   margin: 0;
-  max-width: 46ch;
+  max-width: 52ch;
 }
 
 /* Meta: blue icon + bold text rows (the vacancy pattern) — no divider,
@@ -142,16 +139,16 @@
   margin-top: 0.25rem;
 }
 .kracht-rcard__price {
-  font-size: 0.85rem;
-  color: #2a2a2a;
+  font-size: 0.9375rem;
+  color: var(--krc-fg);
 }
 .kracht-rcard__price p { margin: 0; display: inline; }
-.kracht-rcard__price strong { font-weight: 800; color: var(--krc-fg); font-size: 0.95rem; }
+.kracht-rcard__price strong { font-weight: 700; color: var(--krc-fg); font-size: 1rem; }
 
 @media (max-width: 900px) {
   .kracht-rcard {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.25rem;
   }
   .kracht-rcard--reverse .kracht-rcard__media,
   .kracht-rcard--reverse .kracht-rcard__panel { order: initial; }
