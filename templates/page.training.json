@@ -208,65 +208,6 @@
         "card_radius": 8
       }
     },
-    "faq": {
-      "type": "kracht-faq",
-      "blocks": {
-        "q1": {
-          "type": "qa",
-          "settings": {
-            "question": "Voor wie is deze training bedoeld?",
-            "answer": "<p>Voor teams en professionals in de technische sector die hun samenwerking willen verdiepen. Geschikt voor zowel ervaren teams als pas opgestarte projectgroepen.</p>"
-          }
-        },
-        "q2": {
-          "type": "qa",
-          "settings": {
-            "question": "Wat is er inbegrepen in de prijs?",
-            "answer": "<p>Twee dagen training, alle materialen, lunch en drankjes, een persoonlijk drijfverenrapport en een follow-up sessie van 2 uur na 6 weken.</p>"
-          }
-        },
-        "q3": {
-          "type": "qa",
-          "settings": {
-            "question": "Kan dit ook in-company?",
-            "answer": "<p>Ja — vanaf 6 deelnemers organiseren we de training graag bij jullie op locatie. Vraag een offerte aan.</p>"
-          }
-        },
-        "q4": {
-          "type": "qa",
-          "settings": {
-            "question": "Wat als ik niet tevreden ben?",
-            "answer": "<p>Niet goed? Geld terug — zonder gedoe. Zo simpel is het.</p>"
-          }
-        },
-        "q5": {
-          "type": "qa",
-          "settings": {
-            "question": "Komt deze training in aanmerking voor STAP/SLIM?",
-            "answer": "<p>Ja, deze training is STAP-erkend en SLIM-subsidiabel. We helpen je graag bij de aanvraag.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5"
-      ],
-      "name": "Kracht — FAQ",
-      "settings": {
-        "eyebrow": "",
-        "heading": "<p>Goed om te <strong>weten.</strong></p>",
-        "background_color": "#000000",
-        "text_color": "#ffffff",
-        "answer_color": "#cfcfd1",
-        "card_color": "#141416",
-        "card_open_color": "#0f1418",
-        "accent_color": "#009de1",
-        "padding_y": 80
-      }
-    },
     "kracht_story_cards_VdTCdj": {
       "type": "kracht-story-cards",
       "blocks": {
@@ -360,7 +301,6 @@
     "modules",
     "trainer",
     "schedule",
-    "faq",
     "kracht_story_cards_VdTCdj",
     "cta"
   ]
