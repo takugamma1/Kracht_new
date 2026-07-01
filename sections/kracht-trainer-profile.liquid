@@ -22,13 +22,8 @@
         {%- if section.settings.bio != blank -%}
           <div class="kracht-tprof__bio">{{ section.settings.bio }}</div>
         {%- endif -%}
-
-        {%- if section.blocks.size > 0 -%}
-          <div class="kracht-tprof__chips">
-            {%- for block in section.blocks -%}
-              <span class="kracht-tprof__chip" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
-            {%- endfor -%}
-          </div>
+        {%- if section.settings.bio2 != blank -%}
+          <div class="kracht-tprof__bio">{{ section.settings.bio2 }}</div>
         {%- endif -%}
       </div>
 
@@ -61,8 +56,14 @@
               <p class="kracht-tprof__sub">{{ section.settings.subtitle }}</p>
             {%- endif -%}
 
-            {%- if section.settings.phone != blank or section.settings.whatsapp != blank or section.settings.email != blank -%}
+            {%- if section.settings.location != blank or section.settings.phone != blank or section.settings.whatsapp != blank or section.settings.email != blank -%}
               <div class="kracht-tprof__contacts">
+                {%- if section.settings.location != blank -%}
+                  <span class="kracht-tprof__contact kracht-tprof__contact--plain">
+                    <span class="kracht-tprof__contact-icon">{% render 'kracht-hero-icon', icon: 'location' %}</span>
+                    <span>{{ section.settings.location }}</span>
+                  </span>
+                {%- endif -%}
                 {%- if section.settings.phone != blank -%}
                   <a class="kracht-tprof__contact" href="tel:{{ section.settings.phone | remove: ' ' }}">
                     <span class="kracht-tprof__contact-icon">{% render 'kracht-hero-icon', icon: 'phone' %}</span>
@@ -127,6 +128,12 @@
       "default": "<p>Mark traint al 14 jaar teams in de technische en bouwsector. Hij combineert een achtergrond in <strong>organisatiepsychologie</strong> met praktische ervaring als projectleider. Werkt eerder gedaan voor <strong>Heijmans, BAM en Witteveen+Bos</strong>.</p>"
     },
     {
+      "type": "richtext",
+      "id": "bio2",
+      "label": "Extra bio paragraphs",
+      "default": "<p>Zijn aanpak is praktisch en persoonlijk: geen standaardverhaal, maar oefenen met situaties uit jullie eigen werkpraktijk. Mark is <strong>Lencioni-gecertificeerd</strong> en geeft trainingen in het <strong>Nederlands, Engels en Duits</strong>.</p><p>Deelnemers omschrijven hem als direct, betrokken en scherp — iemand die benoemt wat er speelt en het team daarna zélf aan het werk zet.</p>"
+    },
+    {
       "type": "header",
       "content": "Contact card (right column)"
     },
@@ -155,20 +162,30 @@
     },
     {
       "type": "text",
+      "id": "location",
+      "label": "Location",
+      "default": "Arnhem · Hoofdkantoor Kracht",
+      "info": "Shown with the location icon."
+    },
+    {
+      "type": "text",
       "id": "phone",
       "label": "Phone number",
+      "default": "06 12 34 56 78",
       "info": "Shown with the phone icon; links via tel:."
     },
     {
       "type": "text",
       "id": "whatsapp",
       "label": "WhatsApp number",
+      "default": "06 12 34 56 78",
       "info": "Shown with the WhatsApp icon; links via wa.me."
     },
     {
       "type": "text",
       "id": "email",
       "label": "E-mail address",
+      "default": "mark@vanuitkracht.nl",
       "info": "Shown with the mail icon; links via mailto:."
     },
     {
@@ -231,13 +248,7 @@
   ],
   "presets": [
     {
-      "name": "Kracht — Trainer Profile",
-      "blocks": [
-        { "type": "chip", "settings": { "label": "Org. Psychologie" } },
-        { "type": "chip", "settings": { "label": "Lencioni Certified" } },
-        { "type": "chip", "settings": { "label": "14+ jaar ervaring" } },
-        { "type": "chip", "settings": { "label": "NL/EN/DE" } }
-      ]
+      "name": "Kracht — Trainer Profile"
     }
   ]
 }

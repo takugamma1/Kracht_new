@@ -44,26 +44,6 @@
 .kracht-tprof__bio p:last-child { margin: 0; }
 .kracht-tprof__bio strong { color: var(--ktp-fg); font-weight: 700; }
 
-.kracht-tprof__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 0.5rem;
-}
-.kracht-tprof__chip {
-  display: inline-flex;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid var(--kracht-grijs-border);
-  border-radius: 6px;
-  background: var(--kracht-grijs-soft);
-  font-family: var(--kracht-font-heading);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: normal;
-  text-transform: none;
-  color: var(--ktp-fg);
-}
-
 /* ── Right column: aside heading + the black contact card ───────────────── */
 .kracht-tprof__aside {
   display: flex;
@@ -162,6 +142,8 @@
   text-underline-offset: 3px;
 }
 .kracht-tprof__contact:hover { color: var(--kracht-blauw); }
+.kracht-tprof__contact--plain { text-decoration: none; }
+.kracht-tprof__contact--plain:hover { color: inherit; }
 .kracht-tprof__contact-icon {
   color: var(--kracht-blauw);
   flex: none;
