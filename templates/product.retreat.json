@@ -21,13 +21,19 @@
         "show_plus": false,
         "meta1_label": "Begeleid door",
         "meta1_value": "Anouk & Rob van Houten",
+        "meta1_icon": "users",
         "meta2_label": "Vertrekt",
         "meta2_value": "12 — 18 oktober 2026",
+        "meta2_icon": "calendar",
         "meta3_label": "Duur",
         "meta3_value": "7 dagen, 6 nachten",
+        "meta3_icon": "clock",
         "strip_meta1": "12 — 18 oktober 2026",
+        "strip1_icon": "calendar",
         "strip_meta2": "7 dagen, 6 nachten",
+        "strip2_icon": "clock",
         "strip_meta3": "Max. 12 deelnemers",
+        "strip3_icon": "users",
         "price_suffix": "p.p.",
         "link_label": "+ geen match voor jou?",
         "link_url": "",
@@ -367,78 +373,6 @@
         "radius": 12
       }
     },
-    "team": {
-      "type": "kracht-team-grid",
-      "blocks": {
-        "t1": {
-          "type": "trainer",
-          "settings": {
-            "image": "shopify://shop_images/pexels-rovshan-nazirli-691066883-17984670.jpg",
-            "name": "Anouk de Wit",
-            "role": "Lead Host",
-            "subline": "Org. Psychologie · 14+ jaar",
-            "email": "",
-            "phone": "",
-            "whatsapp": ""
-          }
-        },
-        "t2": {
-          "type": "trainer",
-          "settings": {
-            "image": "shopify://shop_images/pexels-helenalopes-27086922.jpg",
-            "name": "Rob van Houten",
-            "role": "Body & Breath",
-            "subline": "Yogadocent",
-            "email": "",
-            "phone": "",
-            "whatsapp": ""
-          }
-        },
-        "t3": {
-          "type": "trainer",
-          "settings": {
-            "image": "shopify://shop_images/pexels-bymuratisikofficial-31112196.jpg",
-            "name": "Mark Janssen",
-            "role": "Local Host",
-            "subline": "Specialist Andalusië · 9+ jaar",
-            "email": "",
-            "phone": "",
-            "whatsapp": ""
-          }
-        },
-        "cta": {
-          "type": "cta",
-          "settings": {
-            "heading": "Past deze retraite bij jou?",
-            "body": "<p>Twee weken voorafgaand aan vertrek begeleiden we je verder. Geen verkooppraatje — wel een match check.</p>",
-            "button_label": "Plan kennismaking",
-            "button_link": "/pages/contact",
-            "open_in_new_tab": true
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "cta"
-      ],
-      "name": "Kracht — Team Grid",
-      "settings": {
-        "eyebrow": "",
-        "heading": "<p>Begeleid door <strong>Anouk & Rob.</strong></p>",
-        "bottom_button_label": "Maak kennis met ons team",
-        "bottom_button_link": "",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "card_color": "#000000",
-        "card_text_color": "#ffffff",
-        "cta_color_from": "#2bb1ec",
-        "cta_color_to": "#009de1",
-        "padding_y": 80,
-        "radius": 12
-      }
-    },
     "booking": {
       "type": "kracht-booking-summary",
       "blocks": {
@@ -545,6 +479,78 @@
         "accent_color": "#009de1",
         "padding_y": 80
       }
+    },
+    "team": {
+      "type": "kracht-team-grid",
+      "blocks": {
+        "t1": {
+          "type": "trainer",
+          "settings": {
+            "image": "shopify://shop_images/pexels-rovshan-nazirli-691066883-17984670.jpg",
+            "name": "Anouk de Wit",
+            "role": "Lead Host",
+            "subline": "Org. Psychologie · 14+ jaar",
+            "email": "",
+            "phone": "",
+            "whatsapp": ""
+          }
+        },
+        "t2": {
+          "type": "trainer",
+          "settings": {
+            "image": "shopify://shop_images/pexels-helenalopes-27086922.jpg",
+            "name": "Rob van Houten",
+            "role": "Body & Breath",
+            "subline": "Yogadocent",
+            "email": "",
+            "phone": "",
+            "whatsapp": ""
+          }
+        },
+        "t3": {
+          "type": "trainer",
+          "settings": {
+            "image": "shopify://shop_images/pexels-bymuratisikofficial-31112196.jpg",
+            "name": "Mark Janssen",
+            "role": "Local Host",
+            "subline": "Specialist Andalusië · 9+ jaar",
+            "email": "",
+            "phone": "",
+            "whatsapp": ""
+          }
+        },
+        "cta": {
+          "type": "cta",
+          "settings": {
+            "heading": "Past deze retraite bij jou?",
+            "body": "<p>Twee weken voorafgaand aan vertrek begeleiden we je verder. Geen verkooppraatje — wel een match check.</p>",
+            "button_label": "Plan kennismaking",
+            "button_link": "/pages/contact",
+            "open_in_new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "cta"
+      ],
+      "name": "Kracht — Team Grid",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Begeleid door <strong>Anouk & Rob.</strong></p>",
+        "bottom_button_label": "Maak kennis met ons team",
+        "bottom_button_link": "",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "card_color": "#000000",
+        "card_text_color": "#ffffff",
+        "cta_color_from": "#2bb1ec",
+        "cta_color_to": "#009de1",
+        "padding_y": 80,
+        "radius": 12
+      }
     }
   },
   "order": [
@@ -553,8 +559,8 @@
     "program",
     "gallery",
     "included",
-    "team",
     "booking",
-    "faq"
+    "faq",
+    "team"
   ]
 }
