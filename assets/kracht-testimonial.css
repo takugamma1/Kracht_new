@@ -25,7 +25,7 @@
   color: var(--kt-fg);
 }
 .kracht-test__title strong { font-weight: 800; }
-.kracht-test__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-test__title em { font-style: normal; font-weight: 800; }
 .kracht-test__title p { margin: 0; }
 .kracht-test__intro {
   line-height: 1.55;

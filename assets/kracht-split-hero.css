@@ -59,7 +59,7 @@
   color: var(--ksh-fg);
 }
 .kracht-shero__title strong { font-weight: 800; }
-.kracht-shero__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-shero__title em { font-style: normal; font-weight: 800; }
 .kracht-shero__title p { margin: 0; }
 
 .kracht-shero__sub {

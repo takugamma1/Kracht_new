@@ -80,7 +80,7 @@
 .kracht-img-hero__title p { margin: 0; }
 .kracht-img-hero__title strong,
 .kracht-img-hero__title b { font-weight: 800; }
-.kracht-img-hero__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-img-hero__title em { font-style: normal; font-weight: 800; }
 
 .kracht-img-hero__sub {
   font-size: 0.92rem;

@@ -19,7 +19,7 @@
   color: var(--ktc-fg);
 }
 .kracht-tcards__title strong { font-weight: 800; }
-.kracht-tcards__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-tcards__title em { font-style: normal; font-weight: 800; }
 .kracht-tcards__title p { margin: 0; }
 
 .kracht-tcards__grid {

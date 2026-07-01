@@ -45,7 +45,7 @@
 }
 .kracht-qintro__title p { margin: 0; }
 .kracht-qintro__title strong,
-.kracht-qintro__title b { font-weight: 800; color: var(--kracht-zwart); }
+.kracht-qintro__title b { font-weight: 800; }
 
 .kracht-qintro__eyebrow { color: var(--kqi-fg); }
 

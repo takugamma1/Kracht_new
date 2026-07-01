@@ -22,7 +22,7 @@
   color: var(--kfr-fg);
 }
 .kracht-frows__title strong { font-weight: 800; }
-.kracht-frows__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-frows__title em { font-style: normal; font-weight: 800; }
 .kracht-frows__title p { margin: 0; }
 .kracht-frows__intro {
   font-size: 0.9rem;

@@ -23,7 +23,7 @@
 }
 .kracht-trrows__title p { margin: 0; }
 .kracht-trrows__title strong { font-weight: 800; }
-.kracht-trrows__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-trrows__title em { font-style: normal; font-weight: 800; }
 .kracht-trrows__intro {
   font-size: 0.9rem;
   line-height: 1.55;

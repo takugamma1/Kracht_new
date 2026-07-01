@@ -90,7 +90,7 @@
             <strong>
               {%- assign title_split = product.title | split: ' — ' -%}
               {%- if title_split.size > 1 -%}
-                {{ title_split[0] }} <span class="kracht-accent">— {{ title_split[1] }}</span>
+                {{ title_split[0] }} <span>— {{ title_split[1] }}</span>
               {%- else -%}
                 {{ product.title }}
               {%- endif -%}
@@ -153,7 +153,7 @@
 
         {%- else -%}
           <h1 class="kracht-pdetail__title">
-            Kracht+<br><strong>Team Tee <span class="kracht-accent">— Zwart</span></strong>
+            Kracht+<br><strong>Team Tee <span>— Zwart</span></strong>
           </h1>
           <div class="kracht-pdetail__price-row">
             <span class="kracht-pdetail__price">€39,95</span>

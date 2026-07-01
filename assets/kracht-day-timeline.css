@@ -108,7 +108,7 @@
 }
 .kracht-dtime__media-title p { margin: 0; }
 .kracht-dtime__media-title strong { font-weight: 800; }
-.kracht-dtime__media-title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-dtime__media-title em { font-style: normal; font-weight: 800; }
 
 /* Info panel */
 .kracht-dtime__panel {

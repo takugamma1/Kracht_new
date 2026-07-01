@@ -49,7 +49,7 @@
 }
 .kracht-rhero__title p { margin: 0; }
 .kracht-rhero__title strong { font-weight: 800; }
-.kracht-rhero__title em { font-style: normal; font-weight: 800; color: var(--kracht-blauw); }
+.kracht-rhero__title em { font-style: normal; font-weight: 800; }
 
 .kracht-rhero__sub {
   font-size: 0.95rem;
