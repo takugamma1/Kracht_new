@@ -267,25 +267,6 @@
         "padding_y": 80
       }
     },
-    "cta": {
-      "type": "kracht-cta-banner",
-      "name": "Kracht — CTA Banner",
-      "settings": {
-        "eyebrow": "",
-        "heading": "<p>Klaar om je team te <strong>versterken?</strong></p>",
-        "subheading": "Plan een vrijblijvend adviesgesprek van 30 minuten. We luisteren naar jullie uitdaging, delen onze aanpak en kijken samen of deze training de juiste match is. Geen verkoopgesprek — beloofd.",
-        "button1_label": "Plan adviesgesprek",
-        "button1_link": "",
-        "button2_label": "Download brochure",
-        "button2_link": "",
-        "show_stats": false,
-        "theme": "blue",
-        "background_color": "#009de1",
-        "text_color": "#ffffff",
-        "padding_y": 64,
-        "radius": 24
-      }
-    },
     "kracht_story_cards_VdTCdj": {
       "type": "kracht-story-cards",
       "blocks": {
@@ -353,6 +334,25 @@
         "radius": 10,
         "gradient_strength": 100
       }
+    },
+    "cta": {
+      "type": "kracht-cta-banner",
+      "name": "Kracht — CTA Banner",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Klaar om je team te <strong>versterken?</strong></p>",
+        "subheading": "Plan een vrijblijvend adviesgesprek van 30 minuten. We luisteren naar jullie uitdaging, delen onze aanpak en kijken samen of deze training de juiste match is. Geen verkoopgesprek — beloofd.",
+        "button1_label": "Plan adviesgesprek",
+        "button1_link": "",
+        "button2_label": "Download brochure",
+        "button2_link": "",
+        "show_stats": false,
+        "theme": "blue",
+        "background_color": "#009de1",
+        "text_color": "#ffffff",
+        "padding_y": 64,
+        "radius": 24
+      }
     }
   },
   "order": [
@@ -361,7 +361,7 @@
     "trainer",
     "schedule",
     "faq",
-    "cta",
-    "kracht_story_cards_VdTCdj"
+    "kracht_story_cards_VdTCdj",
+    "cta"
   ]
 }
