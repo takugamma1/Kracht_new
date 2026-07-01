@@ -71,12 +71,11 @@
             "image": "shopify://shop_images/Untitled_design_10_07fb56a2-92c1-49d5-ae68-2226ed0f9aee.png",
             "day_label": "",
             "image_title": "<p>Welkom in <strong>Andalusië.</strong></p>",
-            "panel_eyebrow": "",
+            "panel_eyebrow": "Day 1",
             "panel_title": "<p>Eerst <strong>aankomen.</strong></p>",
             "panel_body": "<p>Aankomst op Málaga Airport, transfer naar de finca. Wij zorgen voor alle koffers en boodschappen — een rustige eerste avond met <strong>welkomsdiner</strong> in de open lucht.</p>",
             "sublist_title": "Programma",
-            "sublist_items": "Welkomsdiner & introborrel",
-            "tags": "Aankomst, Welkomstoer"
+            "sublist_items": "Welkomsdiner & introborrel"
           }
         },
         "d2": {
@@ -89,8 +88,7 @@
             "panel_title": "<p>Eerst <strong>stil worden.</strong></p>",
             "panel_body": "<p>We openen met <strong>yoga en ademhaling</strong>, gevolgd door een lange ochtend journaling in Málaga's olijfgaard rondom de finca. Op stille middag uitloop.</p>",
             "sublist_title": "Highlights",
-            "sublist_items": "Yoga & ademwerk · 3 uur\nJournaling · 2 uur",
-            "tags": "Yoga, Ademwerk, Journaling, Ruime Stilte"
+            "sublist_items": "Yoga & ademwerk · 3 uur\nJournaling · 2 uur"
           }
         },
         "d3": {
@@ -103,8 +101,7 @@
             "panel_title": "<p>Naar de <strong>kern.</strong></p>",
             "panel_body": "<p>Een diepe duik in jouw drijfveren — wat je <strong>écht</strong> wil, wat je tegenhoudt, en wat je nodig hebt. Begeleide reflectie en op pijn-gesprekken met hulp van een tijd-tijd-tijdeel in de natuur.</p>",
             "sublist_title": "Highlights",
-            "sublist_items": "1-op-1 coaching met host",
-            "tags": "Drijfveren, 1-op-1 coaching, Reflectie"
+            "sublist_items": "1-op-1 coaching met host"
           }
         },
         "d4": {
@@ -117,8 +114,7 @@
             "panel_title": "<p>Beweging maakt <strong>los.</strong></p>",
             "panel_body": "<p>Vroege dagwandeling naar de top van de Sierra Nevada. Talenten, de wandeling werken zodat de persoonlijke vragen — beweging maakt los van het denkenhuid.</p>",
             "sublist_title": "Highlights",
-            "sublist_items": "Bergwandeling Sierra Nevada",
-            "tags": "Bergwandeling, Lokale gids, Picknick"
+            "sublist_items": "Bergwandeling Sierra Nevada"
           }
         },
         "d5": {
@@ -131,8 +127,7 @@
             "panel_title": "<p>Beslissingen <strong>durven nemen.</strong></p>",
             "panel_body": "<p>De zoektocht uit de afgelopen dagen vertalen we naar concrete keuzes. Wat ligt je te liggen, wat laat je los? Werken in persoonlijke pijler-positie, en met loslaatmiddag rond elkaar de elke afsluiting.</p>",
             "sublist_title": "Sublist",
-            "sublist_items": "Persoonlijk plan & dnoor",
-            "tags": "Keuzes maken, Scenario mapping, Werk"
+            "sublist_items": "Persoonlijk plan & dnoor"
           }
         },
         "d6": {
@@ -145,8 +140,7 @@
             "panel_title": "<p>Leven is <strong>óók een doel.</strong></p>",
             "panel_body": "<p>Vandaag bezoeken we een nabijgelegen pueblo voor een markt bezoek, een korte lunch in een familierestaurant en een flamenco-avond. Een dag die het programma af haalt — en herinnert dat genieten doors-ook een doel kan zijn.</p>",
             "sublist_title": "Sublist",
-            "sublist_items": "Puebla & flamenco",
-            "tags": "Markt, Lokaal eten, Flamenco"
+            "sublist_items": "Puebla & flamenco"
           }
         },
         "d7": {
@@ -159,8 +153,7 @@
             "panel_title": "<p>Niet het einde, <strong>het begin.</strong></p>",
             "panel_body": "<p>We sluiten af met een <strong>closing circle</strong> en eenvoudige integratietijd. Integratiequit via de vluchten naar Nederland zorgt straling. Brunch, koffies, een laatste hide op de bergen — en transfer naar het vliegveld.</p>",
             "sublist_title": "Sublist",
-            "sublist_items": "Closing circle & integratie",
-            "tags": "Closing circle, Integratiegesprek, Transfer"
+            "sublist_items": "Closing circle & integratie"
           }
         }
       },
