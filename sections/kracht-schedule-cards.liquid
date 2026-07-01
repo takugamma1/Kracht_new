@@ -44,19 +44,19 @@
             <div class="kracht-sched__rows">
               {%- if block.settings.location != blank -%}
                 <div class="kracht-sched__row">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  {% render 'kracht-hero-icon', icon: 'location' %}
                   <span>{{ block.settings.location }}</span>
                 </div>
               {%- endif -%}
               {%- if block.settings.price != blank -%}
                 <div class="kracht-sched__row">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M16 8H9.5a2.5 2.5 0 0 0 0 5h5a2.5 2.5 0 0 1 0 5H8"/><path d="M12 6v2M12 18v-2"/></svg>
+                  {% render 'kracht-hero-icon', icon: 'euro' %}
                   <span>{{ block.settings.price }}</span>
                 </div>
               {%- endif -%}
               {%- if block.settings.spots != blank -%}
                 <div class="kracht-sched__row">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 21v-1a6 6 0 0 1 12 0v1"/><path d="M16 11h6M19 8v6"/></svg>
+                  {% render 'kracht-hero-icon', icon: 'users' %}
                   <span>{{ block.settings.spots }}</span>
                 </div>
               {%- endif -%}

@@ -95,6 +95,8 @@
 .kracht-sched__row svg {
   color: var(--kracht-blauw);
   flex-shrink: 0;
+  height: 14px;
+  width: auto;
 }
 
 .kracht-sched__btn {
