@@ -142,7 +142,7 @@
         "eyebrow": "Het programma",
         "heading": "<p>Twee dagen, <strong>vier modules, </strong><em><strong>één team.</strong></em></p>",
         "background_color": "#FFFFFF",
-        "text_color": "#009DE1",
+        "text_color": "#000000",
         "padding_y": 80
       }
     },
