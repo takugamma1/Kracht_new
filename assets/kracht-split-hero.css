@@ -98,8 +98,8 @@
 }
 .kracht-shero__meta-icon svg {
   display: block;
-  width: 18px;
-  height: 18px;
+  height: 17px;
+  width: auto;
 }
 
 .kracht-shero__cta {

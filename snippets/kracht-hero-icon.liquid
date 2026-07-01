@@ -1,21 +1,19 @@
 {%- comment -%}
-  Small line icon for hero meta rows. Inherits currentColor (blue on the meta row).
+  Hero meta-row icons — the real vanuitkracht.nl vacancy icons.
+  They inherit currentColor (blue on the meta row) and are sized by CSS
+  (height + auto width) so each keeps its own proportions.
   Usage: {% render 'kracht-hero-icon', icon: 'clock' %}
-  Options: clock, euro, users, format, location, briefcase, calendar, hours
+  Options: location, clock (alias: hours), briefcase, euro, users (alias: people)
 {%- endcomment -%}
 {%- case icon -%}
-  {%- when 'clock', 'hours' -%}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>
-  {%- when 'euro' -%}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 6.2A6.5 6.5 0 1 0 17.5 17.8"/><path d="M4 10.2h9"/><path d="M4 13.8h9"/></svg>
-  {%- when 'users' -%}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 6.4"/><path d="M18.5 20a5.5 5.5 0 0 0-2.7-4.7"/></svg>
-  {%- when 'format', 'grid' -%}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.2"/></svg>
   {%- when 'location' -%}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+    <svg viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5.11617 14.8991C0.80098 8.64331 0 8.00128 0 5.70219C0 2.55295 2.55295 0 5.70219 0C8.85144 0 11.4044 2.55295 11.4044 5.70219C11.4044 8.00128 10.6034 8.64331 6.28821 14.8991C6.00503 15.3081 5.39932 15.3081 5.11617 14.8991ZM5.70219 8.07811C7.01438 8.07811 8.07811 7.01438 8.07811 5.70219C8.07811 4.39001 7.01438 3.32628 5.70219 3.32628C4.39001 3.32628 3.32628 4.39001 3.32628 5.70219C3.32628 7.01438 4.39001 8.07811 5.70219 8.07811Z" fill="currentColor"/></svg>
+  {%- when 'clock', 'hours' -%}
+    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 0C10.1217 0 12.1566 0.842855 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0ZM7.25 3.75V8C7.25 8.25 7.375 8.48438 7.58437 8.625L10.5844 10.625C10.9281 10.8562 11.3938 10.7625 11.625 10.4156C11.8562 10.0687 11.7625 9.60625 11.4156 9.375L8.75 7.6V3.75C8.75 3.33437 8.41562 3 8 3C7.58437 3 7.25 3.33437 7.25 3.75Z" fill="currentColor"/></svg>
   {%- when 'briefcase' -%}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12.5" rx="2"/><path d="M8.5 7.5V5.5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"/><path d="M3 12.5h18"/></svg>
-  {%- when 'calendar' -%}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="16" rx="2"/><path d="M3.5 9.5h17M8.5 2.5v4M15.5 2.5v4"/></svg>
+    <svg viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5.5 1.63333V2.8H10.5V1.63333C10.5 1.505 10.3875 1.4 10.25 1.4H5.75C5.6125 1.4 5.5 1.505 5.5 1.63333ZM4 2.8V1.63333C4 0.732083 4.78438 0 5.75 0H10.25C11.2156 0 12 0.732083 12 1.63333V2.8V3.73333V14H4V3.73333V2.8ZM2 2.8H3V14H2C0.896875 14 0 13.1629 0 12.1333V4.66667C0 3.63708 0.896875 2.8 2 2.8ZM14 14H13V2.8H14C15.1031 2.8 16 3.63708 16 4.66667V12.1333C16 13.1629 15.1031 14 14 14Z" fill="currentColor"/></svg>
+  {%- when 'euro' -%}
+    <svg viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15.1113 18.673C15.0474 18.3506 14.7303 18.1443 14.4098 18.2174C13.8898 18.336 13.0761 18.4806 12.2005 18.4806C9.4398 18.4806 7.24313 16.7886 6.29319 14.3248H11.8225C11.9551 14.3248 12.0837 14.2797 12.1872 14.1968C12.2906 14.114 12.3629 13.9984 12.3919 13.8691L12.7019 12.4898C12.7839 12.1249 12.5064 11.7782 12.1325 11.7782H5.60378C5.54493 11.0814 5.53501 10.4025 5.61044 9.72362H12.7401C12.8732 9.72363 13.0023 9.67813 13.106 9.59468C13.2097 9.51122 13.2818 9.39483 13.3102 9.26479L13.6269 7.81764C13.7066 7.45366 13.4294 7.10922 13.0568 7.10922H6.33156C7.33506 4.92106 9.38052 3.4601 12.052 3.4601C12.7565 3.4601 13.4412 3.56953 13.8929 3.6617C14.1952 3.72337 14.4934 3.5402 14.5739 3.24231L15.1571 1.08445C15.2457 0.756601 15.0372 0.422233 14.7035 0.358958C14.1148 0.247339 13.1661 0.105713 12.1411 0.105713C7.41453 0.105713 3.60048 3.0361 2.19224 7.10922H0.583626C0.261318 7.10922 0 7.37054 0 7.69285V9.14C0 9.4623 0.261318 9.72362 0.583626 9.72362H1.63264C1.58357 10.3854 1.57521 11.148 1.62384 11.7782H0.583626C0.261318 11.7782 0 12.0395 0 12.3619V13.7412C0 14.0635 0.261318 14.3248 0.583626 14.3248H2.04823C3.26534 18.7181 7.06498 21.8944 12.1411 21.8944C13.4203 21.8944 14.503 21.6734 15.1128 21.5156C15.4127 21.4381 15.6005 21.1407 15.5402 20.8368L15.1113 18.673Z" fill="currentColor"/></svg>
+  {%- when 'users', 'people' -%}
+    <svg viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 17V15.3333C16 14.4493 15.6049 13.6014 14.9016 12.9763C14.1984 12.3512 13.2446 12 12.25 12H4.75C3.75544 12 2.80161 12.3512 2.09835 12.9763C1.39509 13.6014 1 14.4493 1 15.3333V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 8C10.433 8 12 6.433 12 4.5C12 2.567 10.433 1 8.5 1C6.567 1 5 2.567 5 4.5C5 6.433 6.567 8 8.5 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 {%- endcase -%}
