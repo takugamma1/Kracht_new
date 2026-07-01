@@ -1,7 +1,18 @@
 {{ 'kracht-split-hero.css' | asset_url | stylesheet_tag }}
 
+{%- assign hero_style = section.settings.hero_style | default: 'default' -%}
+{%- assign use_bg = false -%}
+{%- assign use_flat = false -%}
+{%- if hero_style == 'flat' -%}
+  {%- assign use_flat = true -%}
+{%- elsif section.settings.bg_image != blank -%}
+  {%- assign use_bg = true -%}
+{%- endif -%}
+{%- assign show_media = false -%}
+{%- if use_bg == false and use_flat == false and section.settings.image != blank -%}{%- assign show_media = true -%}{%- endif -%}
+
 <section
-  class="kracht-shero{% if section.settings.bg_image != blank %} kracht-shero--image{% endif %}"
+  class="kracht-shero{% if use_bg %} kracht-shero--image{% elsif use_flat %} kracht-shero--flat{% endif %}"
   style="
     --ksh-bg: {{ section.settings.background_color }};
     --ksh-fg: {{ section.settings.text_color }};
@@ -11,7 +22,7 @@
     --ksh-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
   "
 >
-  {%- if section.settings.bg_image != blank -%}
+  {%- if use_bg -%}
     <img
       src="{{ section.settings.bg_image | image_url: width: 2400 }}"
       srcset="{{ section.settings.bg_image | image_url: width: 1000 }} 1000w, {{ section.settings.bg_image | image_url: width: 1600 }} 1600w, {{ section.settings.bg_image | image_url: width: 2400 }} 2400w"
@@ -50,25 +61,37 @@
           <h1 class="kracht-shero__title">{{ section.settings.heading }}</h1>
         {%- endif -%}
 
-        {%- if section.settings.subheading != blank -%}
-          <div class="kracht-shero__sub">{{ section.settings.subheading }}</div>
+        {%- if section.settings.meta1_value != blank or section.settings.meta1_label != blank or section.settings.meta2_value != blank or section.settings.meta2_label != blank or section.settings.meta3_value != blank or section.settings.meta3_label != blank or section.settings.meta4_value != blank or section.settings.meta4_label != blank -%}
+          <div class="kracht-shero__meta">
+            {%- if section.settings.meta1_value != blank or section.settings.meta1_label != blank -%}
+              <span class="kracht-shero__meta-item"{% if section.settings.meta1_label != blank %} title="{{ section.settings.meta1_label | escape }}"{% endif %}>
+                {%- if section.settings.meta1_icon != blank and section.settings.meta1_icon != 'none' -%}<span class="kracht-shero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.meta1_icon %}</span>{%- endif -%}
+                <span class="kracht-shero__meta-val">{{ section.settings.meta1_value | default: section.settings.meta1_label }}</span>
+              </span>
+            {%- endif -%}
+            {%- if section.settings.meta2_value != blank or section.settings.meta2_label != blank -%}
+              <span class="kracht-shero__meta-item"{% if section.settings.meta2_label != blank %} title="{{ section.settings.meta2_label | escape }}"{% endif %}>
+                {%- if section.settings.meta2_icon != blank and section.settings.meta2_icon != 'none' -%}<span class="kracht-shero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.meta2_icon %}</span>{%- endif -%}
+                <span class="kracht-shero__meta-val">{{ section.settings.meta2_value | default: section.settings.meta2_label }}</span>
+              </span>
+            {%- endif -%}
+            {%- if section.settings.meta3_value != blank or section.settings.meta3_label != blank -%}
+              <span class="kracht-shero__meta-item"{% if section.settings.meta3_label != blank %} title="{{ section.settings.meta3_label | escape }}"{% endif %}>
+                {%- if section.settings.meta3_icon != blank and section.settings.meta3_icon != 'none' -%}<span class="kracht-shero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.meta3_icon %}</span>{%- endif -%}
+                <span class="kracht-shero__meta-val">{{ section.settings.meta3_value | default: section.settings.meta3_label }}</span>
+              </span>
+            {%- endif -%}
+            {%- if section.settings.meta4_value != blank or section.settings.meta4_label != blank -%}
+              <span class="kracht-shero__meta-item"{% if section.settings.meta4_label != blank %} title="{{ section.settings.meta4_label | escape }}"{% endif %}>
+                {%- if section.settings.meta4_icon != blank and section.settings.meta4_icon != 'none' -%}<span class="kracht-shero__meta-icon">{% render 'kracht-hero-icon', icon: section.settings.meta4_icon %}</span>{%- endif -%}
+                <span class="kracht-shero__meta-val">{{ section.settings.meta4_value | default: section.settings.meta4_label }}</span>
+              </span>
+            {%- endif -%}
+          </div>
         {%- endif -%}
 
-        {%- if section.settings.meta1_label != blank or section.settings.meta2_label != blank or section.settings.meta3_label != blank or section.settings.meta4_label != blank -%}
-          <dl class="kracht-shero__meta">
-            {%- if section.settings.meta1_label != blank -%}
-              <div class="kracht-shero__meta-item"><dt>{{ section.settings.meta1_label }}</dt><dd>{{ section.settings.meta1_value }}</dd></div>
-            {%- endif -%}
-            {%- if section.settings.meta2_label != blank -%}
-              <div class="kracht-shero__meta-item"><dt>{{ section.settings.meta2_label }}</dt><dd>{{ section.settings.meta2_value }}</dd></div>
-            {%- endif -%}
-            {%- if section.settings.meta3_label != blank -%}
-              <div class="kracht-shero__meta-item"><dt>{{ section.settings.meta3_label }}</dt><dd>{{ section.settings.meta3_value }}</dd></div>
-            {%- endif -%}
-            {%- if section.settings.meta4_label != blank -%}
-              <div class="kracht-shero__meta-item"><dt>{{ section.settings.meta4_label }}</dt><dd>{{ section.settings.meta4_value }}</dd></div>
-            {%- endif -%}
-          </dl>
+        {%- if section.settings.subheading != blank -%}
+          <div class="kracht-shero__sub">{{ section.settings.subheading }}</div>
         {%- endif -%}
 
         {%- if section.settings.button1_label != blank or section.settings.button2_label != blank -%}
@@ -87,20 +110,16 @@
         {%- endif -%}
       </div>
 
-      {%- if section.settings.bg_image == blank -%}
+      {%- if show_media -%}
         <div class="kracht-shero__media">
-          {%- if section.settings.image != blank -%}
-            <img
-              src="{{ section.settings.image | image_url: width: 1200 }}"
-              srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
-              sizes="(max-width: 900px) 100vw, 50vw"
-              alt="{{ section.settings.image.alt | escape }}"
-              class="kracht-shero__img"
-              loading="eager"
-            >
-          {%- else -%}
-            <div class="kracht-shero__img kracht-shero__img--ph"></div>
-          {%- endif -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            srcset="{{ section.settings.image | image_url: width: 600 }} 600w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
+            sizes="(max-width: 900px) 100vw, 50vw"
+            alt="{{ section.settings.image.alt | escape }}"
+            class="kracht-shero__img"
+            loading="eager"
+          >
           {%- if section.settings.show_plus -%}
             <span class="kracht-shero__plus" aria-hidden="true">{% render 'kracht-plus' %}</span>
           {%- endif -%}
@@ -116,6 +135,21 @@
   "tag": "section",
   "class": "kracht-shero-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Hero style"
+    },
+    {
+      "type": "select",
+      "id": "hero_style",
+      "label": "Layout",
+      "options": [
+        { "value": "default", "label": "Default (image → full-bleed, else split)" },
+        { "value": "flat", "label": "Flat — dark + diagonal (no photo)" }
+      ],
+      "default": "default",
+      "info": "Choose 'Flat' for the vacancy-style dark hero: diagonal shape, an icon meta row and no photo."
+    },
     {
       "type": "header",
       "content": "Header"
@@ -174,20 +208,28 @@
     },
     {
       "type": "header",
-      "content": "Metadata strip (optional)",
-      "info": "Up to 4 columns shown between the description and the buttons. Leave label empty to hide a column."
+      "content": "Meta row (icon + value)",
+      "info": "An inline row shown under the heading. Each item = an icon + a value (the label is used as a tooltip). Leave a value empty to hide it."
     },
-    { "type": "text", "id": "meta1_label", "label": "Label 1" },
-    { "type": "text", "id": "meta1_value", "label": "Value 1" },
-    { "type": "text", "id": "meta2_label", "label": "Label 2" },
-    { "type": "text", "id": "meta2_value", "label": "Value 2" },
-    { "type": "text", "id": "meta3_label", "label": "Label 3" },
-    { "type": "text", "id": "meta3_value", "label": "Value 3" },
-    { "type": "text", "id": "meta4_label", "label": "Label 4" },
-    { "type": "text", "id": "meta4_value", "label": "Value 4" },
+    { "type": "text", "id": "meta1_value", "label": "Value 1", "default": "" },
+    { "type": "text", "id": "meta1_label", "label": "Label 1 (tooltip)" },
+    { "type": "select", "id": "meta1_icon", "label": "Icon 1", "default": "clock", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "format", "label": "Format" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" }, { "value": "briefcase", "label": "Employment" }, { "value": "calendar", "label": "Calendar" } ] },
+    { "type": "text", "id": "meta2_value", "label": "Value 2", "default": "" },
+    { "type": "text", "id": "meta2_label", "label": "Label 2 (tooltip)" },
+    { "type": "select", "id": "meta2_icon", "label": "Icon 2", "default": "format", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "format", "label": "Format" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" }, { "value": "briefcase", "label": "Employment" }, { "value": "calendar", "label": "Calendar" } ] },
+    { "type": "text", "id": "meta3_value", "label": "Value 3", "default": "" },
+    { "type": "text", "id": "meta3_label", "label": "Label 3 (tooltip)" },
+    { "type": "select", "id": "meta3_icon", "label": "Icon 3", "default": "users", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "format", "label": "Format" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" }, { "value": "briefcase", "label": "Employment" }, { "value": "calendar", "label": "Calendar" } ] },
+    { "type": "text", "id": "meta4_value", "label": "Value 4", "default": "" },
+    { "type": "text", "id": "meta4_label", "label": "Label 4 (tooltip)" },
+    { "type": "select", "id": "meta4_icon", "label": "Icon 4", "default": "euro", "options": [
+      { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "format", "label": "Format" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" }, { "value": "briefcase", "label": "Employment" }, { "value": "calendar", "label": "Calendar" } ] },
     {
       "type": "header",
-      "content": "Media"
+      "content": "Side image (Default/Split layout only)"
     },
     {
       "type": "image_picker",
@@ -213,7 +255,7 @@
     {
       "type": "header",
       "content": "Full-bleed background (optional)",
-      "info": "Set a background image to switch this hero to the full-bleed image style (matches the homepage). When set, the split side image is hidden."
+      "info": "Set a background image to switch this hero to the full-bleed image style (matches the homepage). Ignored when Layout is 'Flat'."
     },
     {
       "type": "image_picker",
