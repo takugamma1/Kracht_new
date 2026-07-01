@@ -83,7 +83,7 @@
           "type": "day",
           "settings": {
             "image": "shopify://shop_images/pexels-anastasiakasina-20259101.jpg",
-            "day_label": "Dag 02 — Maandag — Verstilling",
+            "day_label": "",
             "image_title": "<p>Tijd om te <strong>landen.</strong></p>",
             "panel_eyebrow": "DAY 2",
             "panel_title": "<p>Eerst <strong>stil worden.</strong></p>",
@@ -97,7 +97,7 @@
           "type": "day",
           "settings": {
             "image": "shopify://shop_images/pexels-gangansidd-16735431.jpg",
-            "day_label": "Dag 03 — Dinsdag — Drijfveren",
+            "day_label": "",
             "image_title": "<p>Wat drijft <strong>jou écht?</strong></p>",
             "panel_eyebrow": "DAY 3",
             "panel_title": "<p>Naar de <strong>kern.</strong></p>",
@@ -180,10 +180,8 @@
         "aside": "<p>Geen scherm afhetkt. <a href=\"#\">Oudtijdsmiddag schedule</a>.</p>",
         "background_color": "#ffffff",
         "text_color": "#000000",
-        "card_color": "#f4f4f5",
         "padding_y": 80,
-        "radius": 12,
-        "gradient_strength": 100
+        "radius": 12
       }
     },
     "gallery": {
