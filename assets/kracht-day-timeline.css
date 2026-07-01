@@ -5,29 +5,27 @@
   font-family: var(--kracht-font-body);
 }
 
+/* Reference head: full-width h2, aside copy flows below in body black. */
 .kracht-dtime__head {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: flex-end;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.25rem;
 }
 .kracht-dtime__title {
   font-family: var(--kracht-font-heading);
-  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-  font-weight: 400;
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
+  font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -1px;
   margin: 0;
   color: var(--kdt-fg);
 }
 .kracht-dtime__title p { margin: 0; }
-.kracht-dtime__title strong { font-weight: 800; }
+.kracht-dtime__title strong { font-weight: 700; }
 .kracht-dtime__aside {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--kracht-grijs);
-  max-width: 360px;
+  font-size: 0.9375rem;
+  line-height: 1.6667;
+  color: var(--kdt-fg);
+  max-width: 640px;
+  margin-top: 1rem;
 }
 .kracht-dtime__aside p { margin: 0; }
 .kracht-dtime__aside a { color: var(--kracht-blauw); }
@@ -86,16 +84,18 @@
   bottom: 1.1rem;
   color: #fff;
 }
+/* Day label: the house label tab — solid blue, squared 4px, bold sentence
+   case (same spec as the program-modules day pills). */
 .kracht-dtime__day {
   display: inline-block;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 0.3rem 0.55rem;
-  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+  background: var(--kracht-blauw);
+  color: var(--kracht-wit);
+  padding: 0.375rem 0.875rem;
+  border-radius: 4px;
   margin-bottom: 0.6rem;
 }
 .kracht-dtime__media-title {
@@ -107,14 +107,15 @@
   color: #fff;
 }
 .kracht-dtime__media-title p { margin: 0; }
-.kracht-dtime__media-title strong { font-weight: 800; }
-.kracht-dtime__media-title em { font-style: normal; font-weight: 800; }
+.kracht-dtime__media-title strong { font-weight: 700; }
+.kracht-dtime__media-title em { font-style: normal; font-weight: 700; }
 
-/* Info panel */
+/* Info panel — flat card per the reference: gray-light fill, 10px radius,
+   30px padding, no border/shadow. */
 .kracht-dtime__panel {
-  background: var(--kdt-card-bg, #f4f4f5);
-  border-radius: var(--kdt-radius, 12px);
-  padding: clamp(1.25rem, 2.5vw, 2rem);
+  background: var(--kdt-card-bg, var(--kracht-grijs-licht));
+  border-radius: var(--kdt-radius, 10px);
+  padding: 1.875rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -123,34 +124,34 @@
 .kracht-dtime__panel-eyebrow::before { color: var(--kracht-blauw); }
 .kracht-dtime__panel-title {
   font-family: var(--kracht-font-heading);
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: normal;
   margin: 0;
   color: var(--kdt-fg);
 }
 .kracht-dtime__panel-title p { margin: 0; }
-.kracht-dtime__panel-title strong { font-weight: 800; }
+.kracht-dtime__panel-title strong { font-weight: 700; }
 .kracht-dtime__panel-body {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: #2a2a2a;
+  font-size: 0.9375rem;
+  line-height: 1.6667;
+  color: var(--kdt-fg);
 }
 .kracht-dtime__panel-body p { margin: 0 0 0.5rem; }
 .kracht-dtime__panel-body p:last-child { margin: 0; }
 
+/* Sublist — no divider, bold sentence-case label, reference '+' markers
+   (13px glyph, 14px gap, body-size text). */
 .kracht-dtime__sublist {
-  padding-top: 0.5rem;
   margin-top: 0.25rem;
-  border-top: 1px dashed var(--kracht-grijs-border);
 }
 .kracht-dtime__sublist-title {
-  font-size: 0.6rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--kracht-grijs);
-  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--kdt-fg);
+  font-weight: 700;
   margin: 0 0 0.45rem;
 }
 .kracht-dtime__sublist ul {
@@ -159,21 +160,21 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 4px;
 }
 .kracht-dtime__sublist li {
   position: relative;
-  padding-left: 1.1rem;
-  font-size: 0.88rem;
-  line-height: 1.4;
+  padding-left: 27px;
+  font-size: 0.9375rem;
+  line-height: 1.6667;
 }
 .kracht-dtime__sublist li::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0.4em;
-  width: 0.65em;
-  height: calc(0.65em * 229 / 252);
+  width: 13px;
+  height: calc(13px * 229 / 252);
   background-color: var(--kracht-blauw);
   -webkit-mask: var(--kracht-plus-mask) center / contain no-repeat;
           mask: var(--kracht-plus-mask) center / contain no-repeat;
@@ -190,9 +191,11 @@
   padding: 0.22rem 0.55rem;
 }
 
+@media (max-width: 1000px) {
+  .kracht-dtime { padding-block: 60px; }
+}
 @media (max-width: 900px) {
-  .kracht-dtime__head { grid-template-columns: 1fr; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; }
-  .kracht-dtime__aside { max-width: none; }
+  .kracht-dtime__head { margin-bottom: 1.5rem; }
   .kracht-dtime__row { grid-template-columns: 1fr; gap: 0.75rem; }
   .kracht-dtime__row--reverse .kracht-dtime__media,
   .kracht-dtime__row--reverse .kracht-dtime__panel { order: initial; }

@@ -52,7 +52,8 @@
 
             <div class="kracht-dtime__media-text">
               {%- if block.settings.day_label != blank -%}
-                <span class="kracht-dtime__day">{{ block.settings.day_label }}</span>
+                {%- comment -%} capitalize normalizes legacy ALL-CAPS content to sentence case. {%- endcomment -%}
+                <span class="kracht-dtime__day">{{ block.settings.day_label | capitalize }}</span>
               {%- endif -%}
               {%- if block.settings.image_title != blank -%}
                 <h3 class="kracht-dtime__media-title">{{ block.settings.image_title }}</h3>
@@ -119,9 +120,9 @@
     { "type": "header", "content": "Appearance" },
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#ffffff" },
     { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#000000" },
-    { "type": "color", "id": "card_color",       "label": "Panel background", "default": "#f4f4f5" },
-    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 80 },
-    { "type": "range", "id": "radius",           "label": "Card radius",      "min": 0, "max": 32, "step": 1, "unit": "px", "default": 12 },
+    { "type": "color", "id": "card_color",       "label": "Panel background", "default": "#F8F8F8" },
+    { "type": "range", "id": "padding_y",        "label": "Vertical padding", "min": 24, "max": 160, "step": 4, "unit": "px", "default": 140 },
+    { "type": "range", "id": "radius",           "label": "Card radius",      "min": 0, "max": 32, "step": 1, "unit": "px", "default": 10 },
     { "type": "range", "id": "gradient_strength","label": "Image gradient strength", "info": "How dark the bottom of each day's image becomes. 100 = full black panel, 0 = no overlay.", "min": 0, "max": 100, "step": 5, "unit": "%", "default": 100 }
   ],
   "blocks": [
