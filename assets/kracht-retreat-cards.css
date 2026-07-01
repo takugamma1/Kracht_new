@@ -51,30 +51,6 @@
 }
 .kracht-rcard__img--ph { background: inherit; }
 
-.kracht-rcard__loc {
-  position: absolute;
-  top: 0.85rem;
-  left: 0.85rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--kracht-wit);
-  color: var(--kracht-zwart);
-  padding: 0.4rem 0.7rem;
-  border-radius: var(--kracht-radius-sm);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.kracht-rcard__loc-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--kracht-blauw);
-  display: inline-block;
-}
-
 /* Info panel */
 .kracht-rcard__panel {
   position: relative;
@@ -127,30 +103,35 @@
   max-width: 46ch;
 }
 
+/* Meta: blue icon + bold text rows (the vacancy pattern) — no divider,
+   no uppercase labels; only the icons carry blue. */
 .kracht-rcard__meta {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.75rem;
   width: 100%;
   margin: 0;
-  padding-top: 1rem;
-  padding-bottom: 0.25rem;
-  border-top: 1px dashed var(--kracht-grijs-border);
+  padding: 0;
 }
-.kracht-rcard__meta-item dt {
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--kracht-grijs);
-  margin: 0;
-  font-weight: 500;
-}
-.kracht-rcard__meta-item dd {
-  margin: 0.2rem 0 0;
-  font-size: 0.88rem;
+.kracht-rcard__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--kracht-font-heading);
   font-weight: 700;
+  font-size: 0.9375rem;
   color: var(--krc-fg);
   line-height: 1.2;
+}
+.kracht-rcard__meta-icon {
+  color: var(--kracht-blauw);
+  flex: none;
+  display: inline-flex;
+}
+.kracht-rcard__meta-icon svg {
+  display: block;
+  height: 17px;
+  width: auto;
 }
 
 .kracht-rcard__cta {

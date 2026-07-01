@@ -43,12 +43,6 @@
               <div class="kracht-rcard__img kracht-rcard__img--ph"></div>
             {%- endif -%}
 
-            {%- if block.settings.location != blank -%}
-              <span class="kracht-rcard__loc">
-                <span class="kracht-rcard__loc-dot" aria-hidden="true"></span>
-                {{ block.settings.location }}
-              </span>
-            {%- endif -%}
           </div>
 
           <div class="kracht-rcard__panel">
@@ -65,18 +59,33 @@
                 <p class="kracht-rcard__desc">{{ block.settings.description }}</p>
               {%- endif -%}
 
-              {%- if block.settings.meta1_label != blank or block.settings.meta2_label != blank or block.settings.meta3_label != blank -%}
-                <dl class="kracht-rcard__meta">
-                  {%- if block.settings.meta1_label != blank -%}
-                    <div class="kracht-rcard__meta-item"><dt>{{ block.settings.meta1_label }}</dt><dd>{{ block.settings.meta1_value }}</dd></div>
+              {%- if block.settings.location != blank or block.settings.meta1_value != blank or block.settings.meta2_value != blank or block.settings.meta3_value != blank -%}
+                <div class="kracht-rcard__meta">
+                  {%- if block.settings.location != blank -%}
+                    <span class="kracht-rcard__meta-item">
+                      <span class="kracht-rcard__meta-icon">{% render 'kracht-hero-icon', icon: 'location' %}</span>
+                      <span>{{ block.settings.location }}</span>
+                    </span>
                   {%- endif -%}
-                  {%- if block.settings.meta2_label != blank -%}
-                    <div class="kracht-rcard__meta-item"><dt>{{ block.settings.meta2_label }}</dt><dd>{{ block.settings.meta2_value }}</dd></div>
+                  {%- if block.settings.meta1_value != blank -%}
+                    <span class="kracht-rcard__meta-item"{% if block.settings.meta1_label != blank %} title="{{ block.settings.meta1_label | escape }}"{% endif %}>
+                      {%- if block.settings.meta1_icon != blank and block.settings.meta1_icon != 'none' -%}<span class="kracht-rcard__meta-icon">{% render 'kracht-hero-icon', icon: block.settings.meta1_icon %}</span>{%- endif -%}
+                      <span>{{ block.settings.meta1_value }}</span>
+                    </span>
                   {%- endif -%}
-                  {%- if block.settings.meta3_label != blank -%}
-                    <div class="kracht-rcard__meta-item"><dt>{{ block.settings.meta3_label }}</dt><dd>{{ block.settings.meta3_value }}</dd></div>
+                  {%- if block.settings.meta2_value != blank -%}
+                    <span class="kracht-rcard__meta-item"{% if block.settings.meta2_label != blank %} title="{{ block.settings.meta2_label | escape }}"{% endif %}>
+                      {%- if block.settings.meta2_icon != blank and block.settings.meta2_icon != 'none' -%}<span class="kracht-rcard__meta-icon">{% render 'kracht-hero-icon', icon: block.settings.meta2_icon %}</span>{%- endif -%}
+                      <span>{{ block.settings.meta2_value }}</span>
+                    </span>
                   {%- endif -%}
-                </dl>
+                  {%- if block.settings.meta3_value != blank -%}
+                    <span class="kracht-rcard__meta-item"{% if block.settings.meta3_label != blank %} title="{{ block.settings.meta3_label | escape }}"{% endif %}>
+                      {%- if block.settings.meta3_icon != blank and block.settings.meta3_icon != 'none' -%}<span class="kracht-rcard__meta-icon">{% render 'kracht-hero-icon', icon: block.settings.meta3_icon %}</span>{%- endif -%}
+                      <span>{{ block.settings.meta3_value }}</span>
+                    </span>
+                  {%- endif -%}
+                </div>
               {%- endif -%}
 
               {%- if block.settings.button_label != blank or block.settings.price != blank -%}
@@ -173,13 +182,19 @@
         { "type": "text", "id": "code", "label": "Code (faded number, e.g. 3.1.1)", "default": "3.1.1" },
         { "type": "richtext", "id": "title", "label": "Title", "default": "<p>Op <strong>Koers.</strong></p>", "info": "Use <strong> for the bold portion." },
         { "type": "textarea", "id": "description", "label": "Description", "default": "Vier dagen aan boord van een klassiek tjalkschip over het IJsselmeer. Geen wifi, geen agenda — wel open water, goede gesprekken en de tijd om je richting te herijken." },
-        { "type": "header", "content": "Metadata (3 columns)" },
-        { "type": "text", "id": "meta1_label", "label": "Label 1", "default": "Duur" },
+        { "type": "header", "content": "Metadata (icon + value)", "info": "Bold value with a blue icon; the label shows as a tooltip. The location renders as the first row with the location icon." },
+        { "type": "text", "id": "meta1_label", "label": "Label 1 (tooltip)", "default": "Duur" },
         { "type": "text", "id": "meta1_value", "label": "Value 1", "default": "4 dagen" },
-        { "type": "text", "id": "meta2_label", "label": "Label 2", "default": "Volgende" },
+        { "type": "select", "id": "meta1_icon", "label": "Icon 1", "default": "clock", "options": [
+          { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "calendar", "label": "Calendar (date)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" } ] },
+        { "type": "text", "id": "meta2_label", "label": "Label 2 (tooltip)", "default": "Volgende" },
         { "type": "text", "id": "meta2_value", "label": "Value 2", "default": "22 — 25 juni 2026" },
-        { "type": "text", "id": "meta3_label", "label": "Label 3", "default": "Plekken" },
+        { "type": "select", "id": "meta2_icon", "label": "Icon 2", "default": "calendar", "options": [
+          { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "calendar", "label": "Calendar (date)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" } ] },
+        { "type": "text", "id": "meta3_label", "label": "Label 3 (tooltip)", "default": "Plekken" },
         { "type": "text", "id": "meta3_value", "label": "Value 3", "default": "Max. 8" },
+        { "type": "select", "id": "meta3_icon", "label": "Icon 3", "default": "users", "options": [
+          { "value": "none", "label": "None" }, { "value": "clock", "label": "Clock (duration)" }, { "value": "calendar", "label": "Calendar (date)" }, { "value": "briefcase", "label": "Briefcase" }, { "value": "users", "label": "People" }, { "value": "euro", "label": "Euro (price)" }, { "value": "location", "label": "Location" } ] },
         { "type": "header", "content": "CTA" },
         { "type": "text", "id": "button_label", "label": "Button label", "default": "Bekijk retraite" },
         { "type": "url", "id": "button_link", "label": "Button link" },
