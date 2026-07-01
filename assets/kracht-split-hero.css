@@ -176,11 +176,11 @@
   z-index: 0;
   pointer-events: none;
   background: linear-gradient(
-    0deg,
-    rgba(0, 26, 35, 0.97) 0%,
-    rgba(0, 10, 14, 0.92) 30%,
-    rgba(0, 10, 14, calc(0.55 * (var(--ksh-overlay, 0) + 0.4))) 55%,
-    rgba(0, 10, 14, 0) 85%
+    to top,
+    rgba(0, 0, 0, 0.97) 0%,
+    rgba(0, 0, 0, 0.92) 30%,
+    rgba(0, 0, 0, calc(0.55 * (var(--ksh-overlay, 0) + 0.4))) 55%,
+    rgba(0, 0, 0, 0) 85%
   );
 }
 .kracht-shero--image {

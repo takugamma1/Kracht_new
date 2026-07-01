@@ -27,11 +27,11 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    0deg,
-    rgba(0, 26, 35, 0.97) 0%,
-    rgba(0, 10, 14, 0.9)  28%,
-    rgba(0, 10, 14, calc(0.5 * (var(--kih-overlay, 0.35) + 0.5))) 55%,
-    rgba(0, 10, 14, 0) 85%
+    to top,
+    rgba(0, 0, 0, 0.97) 0%,
+    rgba(0, 0, 0, 0.9)  28%,
+    rgba(0, 0, 0, calc(0.5 * (var(--kih-overlay, 0.35) + 0.5))) 55%,
+    rgba(0, 0, 0, 0) 85%
   );
   pointer-events: none;
 }

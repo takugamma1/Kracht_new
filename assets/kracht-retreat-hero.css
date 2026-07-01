@@ -208,10 +208,10 @@
      breadcrumbs/tag stay legible even over a bright photo, and goes near-solid
      at the bottom for the price + "Reserveer plek" strip. */
   background: linear-gradient(
-    0deg,
-    rgba(0, 26, 35, 0.95) 0%,
-    rgba(0, 10, 14, 0.82) 40%,
-    rgba(0, 10, 14, calc(0.32 + 0.4 * var(--krh-overlay, 0))) 100%
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.8) 40%,
+    rgba(0, 0, 0, calc(0.32 + 0.4 * var(--krh-overlay, 0))) 100%
   );
 }
 .kracht-rhero--image {
