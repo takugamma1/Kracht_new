@@ -92,6 +92,7 @@
   align-items: center;
   gap: 0.5rem;
 }
+/* The vacancy icons carry no width/height attributes — size them by height. */
 .kracht-sched__row svg {
   color: var(--kracht-blauw);
   flex-shrink: 0;
