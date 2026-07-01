@@ -129,9 +129,9 @@
       "settings": {
         "first_active": true,
         "background_color": "#000000",
-        "text_color": "#FFFFFF",
+        "text_color": "#ffffff",
         "active_color": "#009de1",
-        "active_text_color": "#009DE1",
+        "active_text_color": "#009de1",
         "padding_y": 24
       }
     },
@@ -165,6 +165,7 @@
     },
     "cta": {
       "type": "kracht-cta-banner",
+      "disabled": true,
       "name": "Kracht — CTA Banner",
       "settings": {
         "eyebrow": "",
