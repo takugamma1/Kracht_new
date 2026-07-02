@@ -57,8 +57,8 @@
         "body_top": "<p>Van het moment dat de bus aankomt voor je deur tot aan het einde van de retraite. We zorgen voor alles — vluchten, transfers, finca, eten, programma — en zo voor jou is dat één ding: er <strong>écht</strong> zijn.</p>",
         "quote": "",
         "body_bottom": "<p>Geen vast programma, geen vaste tijden. Wel <strong>ruimte, rust en aandacht</strong> — en de structuur om die te benutten. Voor leiders die afstemmen op de kern. Voor teams die in stilte willen kijken. Voor mensen die durven zien wat er echt is.</p>",
-        "background_color": "#000000",
-        "text_color": "#ffffff",
+        "background_color": "#FFFFFF",
+        "text_color": "#000000",
         "padding_y": 96
       }
     },
