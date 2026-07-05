@@ -1,7 +1,7 @@
-/* Kracht — Booking Summary · "Zet de eerste stap"
+/* Kracht — Contact CTA · "Zet de eerste stap"
    Blue brand-gradient band (background/text come from .kracht-section--blue):
-   contact form on the left, contact-person card + compact price card on the
-   right. Mirrors vanuitkracht.nl's contact section. */
+   contact form on the left, contact-person card on the right. Mirrors
+   vanuitkracht.nl's /contact form. */
 
 .kracht-book {
   padding-block: var(--kb-pad-y, 66px);
@@ -27,8 +27,6 @@
 }
 .kracht-book__intro p { margin: 0 0 0.6rem; }
 .kracht-book__intro p:last-child { margin: 0; }
-
-.kracht-book__linkedin { margin-bottom: 2.5rem; }
 
 .kracht-book__form {
   display: flex;
@@ -152,9 +150,8 @@
 }
 
 /* --------------------------------------------------------------------------
-   Right column — contact-person card + compact price card
-   Both cards are white, so restore the black inline-link underline that
-   .kracht-section--blue flips to white.
+   Right column — contact-person card (white, so restore the black
+   inline-link underline that .kracht-section--blue flips to white).
    -------------------------------------------------------------------------- */
 .kracht-book__aside {
   display: flex;
@@ -162,8 +159,7 @@
   gap: 1.5rem;
 }
 
-.kracht-book__person,
-.kracht-book__price {
+.kracht-book__person {
   --kracht-underline: #000000;
   --kracht-underline-hover: linear-gradient(90deg, #01a4eb, #1763f8);
   background: var(--kracht-wit);
@@ -223,57 +219,17 @@
   gap: 10px;
   font-size: 0.9375rem;
 }
+/* The real site icons carry no width/height attrs — size by height so each
+   keeps its native proportions. */
 .kracht-book__person-list svg {
-  width: 17px;
   height: 17px;
+  width: auto;
   color: var(--kracht-blauw);
   flex: none;
 }
 .kracht-book__person-btn {
   align-self: flex-start;
   margin-top: auto;
-}
-
-/* Compact price card — carries the booking summary (date + room rows) */
-.kracht-book__price { padding: 30px; }
-.kracht-book__date {
-  display: inline-block;
-  background: var(--kracht-zwart);
-  color: var(--kracht-wit);
-  font-weight: 700;
-  font-size: 0.9375rem;
-  padding: 6px 14px;
-  border-radius: 4px;
-  margin-bottom: 0.75rem;
-}
-.kracht-book__rooms {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
-.kracht-book__room {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  padding: 0.65rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  font-size: 0.9375rem;
-}
-.kracht-book__room:last-child { border-bottom: 0; padding-bottom: 0; }
-.kracht-book__room-name { font-weight: 500; }
-.kracht-book__room-price p { margin: 0; display: inline; }
-.kracht-book__room-price strong {
-  font-family: var(--kracht-font-heading);
-  font-weight: 700;
-  font-size: 1.05rem;
-}
-.kracht-book__fine {
-  font-size: 0.8125rem;
-  color: var(--kracht-grijs);
-  margin: 0.85rem 0 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -292,11 +248,5 @@
   .kracht-book__person-media {
     min-height: 0;
     aspect-ratio: 16 / 10;
-  }
-  .kracht-book__linkedin {
-    width: 100%;
-    box-sizing: border-box;
-    white-space: normal;
-    text-align: center;
   }
 }
