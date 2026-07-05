@@ -56,7 +56,14 @@
   line-height: 0;
 }
 
-.kracht-book__input {
+/* Fields stay STATIC WHITE in every state — all visual properties are
+   pinned on hover/active/focus too, and transitions/animations are killed,
+   so the base theme's global field styles can't flicker through. */
+.kracht-book__input,
+.kracht-book__input:hover,
+.kracht-book__input:active,
+.kracht-book__input:focus,
+.kracht-book__input:focus-visible {
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
@@ -64,6 +71,11 @@
   background: var(--kracht-wit);
   color: var(--kracht-zwart);
   border: 0;
+  outline: none;
+  box-shadow: none;
+  filter: none;
+  transition: none;
+  animation: none;
   border-radius: var(--kracht-radius-sm);
   padding: 0.8rem 1rem;
   min-height: 48px;
@@ -72,13 +84,19 @@
   line-height: 1.4;
 }
 .kracht-book__input::placeholder { color: var(--kracht-grijs); }
-.kracht-book__input:focus {
-  outline: none;
+/* Static (non-animated) focus ring for keyboard accessibility. */
+.kracht-book__input:focus,
+.kracht-book__input:focus-visible {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
 }
 
-/* Select — custom blue chevron, matching the reference form */
-.kracht-book__select {
+/* Select — custom blue chevron, matching the reference form. States pinned
+   so the chevron survives the background reset in the rules above. */
+.kracht-book__select,
+.kracht-book__select:hover,
+.kracht-book__select:active,
+.kracht-book__select:focus,
+.kracht-book__select:focus-visible {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23009de1' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
