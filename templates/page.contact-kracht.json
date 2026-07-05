@@ -1,10 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "contact": {
       "type": "kracht-booking-summary",
       "name": "Kracht — Contact CTA",
-      "settings": {}
+      "settings": {
+        "form_heading": "<p><strong>Zet de eerste stap</strong></p>",
+        "form_intro": "<p>Na het invullen van ons contactformulier nemen we zo snel mogelijk contact met je op.</p>",
+        "linkedin_label": "Automatisch invullen vanuit LinkedIn",
+        "linkedin_link": "",
+        "role_label": "Ik ben een...",
+        "role_options": "Geïnteresseerde deelnemer\nBedrijf of team\nAnders",
+        "terms_text": "<p>Ik ga akkoord met de <a href=\"/policies/terms-of-service\">algemene voorwaarden</a> en <a href=\"/policies/privacy-policy\">privacy policy</a></p>",
+        "submit_label": "Verstuur bericht",
+        "success_text": "Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.",
+        "contact_image": "shopify://shop_images/pexels-polina-zimmerman-3747441.jpg",
+        "contact_name": "Merel Bakkers",
+        "contact_phone": "06 18 39 23 36",
+        "contact_whatsapp": "06 18 39 23 36",
+        "contact_email": "bakkers@vanuitkracht.nl",
+        "contact_button_label": "Meer informatie",
+        "contact_button_link": "",
+        "date_label": "12 — 18 oktober 2026",
+        "fallback_label": "Vanaf",
+        "fineprint": "Vrijblijvend gesprek — kan ook per video chat",
+        "padding_y": 88
+      }
     }
   },
-  "order": ["contact"]
+  "order": [
+    "contact"
+  ]
 }
