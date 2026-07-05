@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "contact": {
+      "type": "kracht-booking-summary",
+      "name": "Kracht — Contact CTA",
+      "settings": {}
+    }
+  },
+  "order": ["contact"]
+}
