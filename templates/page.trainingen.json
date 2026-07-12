@@ -13,6 +13,7 @@
       "type": "kracht-split-hero",
       "name": "Kracht — Split Hero",
       "settings": {
+        "hero_style": "default",
         "show_breadcrumbs": false,
         "breadcrumbs": "Home / Collecties / Trainingen",
         "tag": "",
@@ -22,14 +23,18 @@
         "button1_link": "#trainings",
         "button2_label": "",
         "button2_link": "/pages/contact",
-        "meta1_label": "",
         "meta1_value": "",
-        "meta2_label": "",
+        "meta1_label": "",
+        "meta1_icon": "clock",
         "meta2_value": "",
-        "meta3_label": "",
+        "meta2_label": "",
+        "meta2_icon": "briefcase",
         "meta3_value": "",
-        "meta4_label": "",
+        "meta3_label": "",
+        "meta3_icon": "users",
         "meta4_value": "",
+        "meta4_label": "",
+        "meta4_icon": "euro",
         "image": "shopify://shop_images/Image_3.png",
         "show_plus": false,
         "image_radius": 4,
@@ -103,10 +108,13 @@
             "description": "Bouw een team dat écht samenwerkt. Van vertrouwen tot gedeelde verantwoordelijkheid — krachtiger als groep dan als optelsom van individuen. Inclusief een teamprofiel-analyse en concrete actieplannen.",
             "meta1_label": "Duur",
             "meta1_value": "2 dagen",
+            "meta1_icon": "clock",
             "meta2_label": "Format",
             "meta2_value": "Klassikaal",
+            "meta2_icon": "briefcase",
             "meta3_label": "Voor",
             "meta3_value": "Teams 6 — 15 pers.",
+            "meta3_icon": "users",
             "button1_label": "Meer informatie",
             "button1_link": "shopify://pages/training-single",
             "button2_label": "Download brochure",
@@ -123,10 +131,13 @@
             "description": "Ontwikkel een authentieke leiderschapsstijl die past bij jou én bij je team. Effectief delegeren, lastige gesprekken voeren, en het beste uit anderen halen — met een concrete toolkit die je direct toepast.",
             "meta1_label": "Duur",
             "meta1_value": "4 dagdelen",
+            "meta1_icon": "clock",
             "meta2_label": "Format",
             "meta2_value": "Hybride",
+            "meta2_icon": "briefcase",
             "meta3_label": "Voor",
             "meta3_value": "Managers & leads",
+            "meta3_icon": "users",
             "button1_label": "Meer informatie",
             "button1_link": "shopify://pages/training-single",
             "button2_label": "Download brochure",
@@ -143,10 +154,13 @@
             "description": "Leer écht luisteren, helder overtuigen en feedback geven die bijdraagt aan groei. Een intensieve trainingsdag met praktijkcases uit de techniek, gericht op resultaat dat blijft hangen.",
             "meta1_label": "Duur",
             "meta1_value": "1 dag intensief",
+            "meta1_icon": "clock",
             "meta2_label": "Format",
             "meta2_value": "Klassikaal of online",
+            "meta2_icon": "briefcase",
             "meta3_label": "Voor",
             "meta3_value": "Iedere professional",
+            "meta3_icon": "users",
             "button1_label": "Meer informatie",
             "button1_link": "shopify://pages/training-single",
             "button2_label": "Download brochure",
@@ -221,25 +235,6 @@
         "card_radius": 8
       }
     },
-    "testimonial": {
-      "type": "kracht-testimonial",
-      "name": "Kracht — Testimonial",
-      "settings": {
-        "eyebrow": "",
-        "heading": "<p>De resultaten <strong>spreken voor </strong><em><strong>zich.</strong></em></p>",
-        "intro": "<p>Lees hoe teams en professionals groeiden met onze trainingen — vanuit hun eigen woorden.</p>",
-        "autoplay_seconds": 6,
-        "image": "shopify://shop_images/pexels-kindelmedia-7651813.jpg",
-        "card_tag": "Succesverhaal",
-        "card_meta": "Ted Maters · Architect",
-        "card_quote": "<p>\"Hoe Ted via Kracht terechtkwam bij het architectenbureau van zijn <strong>oud-docent.</strong>\"</p>",
-        "card_cta": "",
-        "card_cta_link": "shopify://pages/samenwerken-vanuit-kracht",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "padding_y": 80
-      }
-    },
     "audiences": {
       "type": "kracht-two-cards",
       "blocks": {
@@ -290,6 +285,25 @@
         "card_radius": 8
       }
     },
+    "testimonial": {
+      "type": "kracht-testimonial",
+      "name": "Kracht — Testimonial",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>De resultaten <strong>spreken voor </strong><em><strong>zich.</strong></em></p>",
+        "intro": "<p>Lees hoe teams en professionals groeiden met onze trainingen — vanuit hun eigen woorden.</p>",
+        "autoplay_seconds": 6,
+        "image": "shopify://shop_images/pexels-kindelmedia-7651813.jpg",
+        "card_tag": "Succesverhaal",
+        "card_meta": "Ted Maters · Architect",
+        "card_quote": "<p>\"Hoe Ted via Kracht terechtkwam bij het architectenbureau van zijn <strong>oud-docent.</strong>\"</p>",
+        "card_cta": "",
+        "card_cta_link": "shopify://pages/samenwerken-vanuit-kracht",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80
+      }
+    },
     "kracht_newsletter_qCN4aP": {
       "type": "kracht-newsletter",
       "name": "Kracht — Newsletter",
@@ -311,8 +325,8 @@
     "stats",
     "trainings",
     "process",
-    "testimonial",
     "audiences",
+    "testimonial",
     "kracht_newsletter_qCN4aP"
   ]
 }
