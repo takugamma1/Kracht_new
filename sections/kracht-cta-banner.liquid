@@ -1,8 +1,7 @@
 {{ 'kracht-cta-banner.css' | asset_url | stylesheet_tag }}
 
 <section
-  {%- comment -%} Per client feedback there is exactly ONE non-mail CTA block: the blue rounded card with the big '+'. The old dark/light variants no longer render. {%- endcomment -%}
-  class="kracht-cta kracht-cta--blue"
+  class="kracht-cta {% if section.settings.theme == 'dark' %}kracht-cta--dark{% elsif section.settings.theme == 'blue' %}kracht-cta--blue{% else %}kracht-cta--light{% endif %}"
   style="
     --kc-bg: {{ section.settings.background_color }};
     --kc-fg: {{ section.settings.text_color }};
@@ -116,6 +115,17 @@
     {
       "type": "header",
       "content": "Appearance"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "label": "Theme",
+      "options": [
+        { "value": "dark",  "label": "Dark"  },
+        { "value": "blue",  "label": "Blue"  },
+        { "value": "light", "label": "Light" }
+      ],
+      "default": "dark"
     },
     {
       "type": "color",

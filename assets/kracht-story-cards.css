@@ -6,12 +6,13 @@
   font-family: var(--kracht-font-body);
 }
 
+/* Identical treatment to the schedule-cards title (same family/ramp). */
 .kracht-stories__title {
   font-family: var(--kracht-font-heading);
-  font-weight: 400;
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.4vw, 2.375rem);
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -1px;
   margin: 0;
 }
 .kracht-stories__title strong { font-weight: 700; }
