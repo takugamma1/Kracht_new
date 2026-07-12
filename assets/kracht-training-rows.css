@@ -41,13 +41,14 @@
    One row = the reference open image/text split (their content-splitter):
    no card box at all — a rounded photo beside free-standing text.
    ========================================================================== */
+/* Equal column tracks so the middle gutter lands on the SAME line in every
+   row — alternating 1fr/1.05fr made the columns visibly misaligned. */
 .kracht-trrow {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 2.5rem;
   align-items: center;
 }
-.kracht-trrow--reverse { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
 .kracht-trrow--reverse .kracht-trrow__media { order: 2; }
 .kracht-trrow--reverse .kracht-trrow__body  { order: 1; }
 
@@ -89,9 +90,10 @@
 }
 
 /* Reference row headings sit on the h2 scale (38px, bold, -1px). */
+/* Base weight regular — only merchant-emphasized words render bold. */
 .kracht-trrow__title {
   font-family: var(--kracht-font-heading);
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(1.9rem, 3.4vw, 2.375rem);
   line-height: 1.1;
   letter-spacing: -1px;

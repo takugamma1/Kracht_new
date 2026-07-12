@@ -9,8 +9,6 @@
 .kracht-pdetail__crumbs {
   font-family: var(--kracht-font-body);
   font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
   margin: 0 0 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -163,9 +161,7 @@
 .kracht-pdetail__option { display: flex; flex-direction: column; gap: 0.5rem; position: relative; }
 .kracht-pdetail__option-label {
   font-size: 0.7rem;
-  letter-spacing: 0.18em;
   font-weight: 500;
-  text-transform: uppercase;
   color: var(--kracht-grijs);
 }
 .kracht-pdetail__option-label strong {

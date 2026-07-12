@@ -23,23 +23,11 @@
   padding: 60px;
 }
 
-/* Dark variant: full-width band (flush between sections), content aligned to
-   the container edges. The blue/light variants stay rounded inset boxes. */
-.kracht-cta--dark { padding-block: 0; }
-.kracht-cta--dark .kracht-cta__card {
-  background: var(--kracht-zwart);
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  border-radius: 0;
-  justify-content: flex-start;
-  padding-block: clamp(2.5rem, 5vw, 4rem);
-  padding-inline: calc(max((100vw - var(--kracht-container)) / 2, 0px) + var(--kracht-page-pad));
-}
+/* Single CTA style per client feedback: the blue rounded card. */
 .kracht-cta--blue .kracht-cta__card {
   /* Brand blue gradient (matches vanuitkracht.nl .bg-blue) */
   background: var(--kracht-blauw-gradient);
 }
-.kracht-cta--light .kracht-cta__card { background: var(--kracht-grijs-licht); }
 
 /* Big black "+" straddling the left edge of the box (reference: 140px wide,
    left = -size/2, vertically centered). */
@@ -110,15 +98,6 @@
   background: var(--kracht-wit);
   color: var(--kracht-zwart);
 }
-.kracht-cta--light .kracht-cta__secondary-btn {
-  border-color: var(--kracht-zwart);
-  color: var(--kracht-zwart);
-}
-.kracht-cta--light .kracht-cta__secondary-btn:hover {
-  background: var(--kracht-zwart);
-  color: var(--kracht-wit);
-}
-
 .kracht-cta__stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -135,8 +114,6 @@
 }
 .kracht-cta__stat-label {
   font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
   margin: 0.25rem 0 0;
   opacity: 0.8;
 }
@@ -144,8 +121,7 @@
 /* Reference tablet behavior: smaller plus, top padding makes room for it.
    (Scoped to the box variants — the dark band keeps container-edge padding.) */
 @media (max-width: 1370px) {
-  .kracht-cta--blue .kracht-cta__card,
-  .kracht-cta--light .kracht-cta__card {
+  .kracht-cta--blue .kracht-cta__card {
     justify-content: flex-start;
     padding: 90px 60px 60px;
   }
@@ -157,8 +133,7 @@
     align-items: flex-start;
     gap: 2rem;
   }
-  .kracht-cta--blue .kracht-cta__card,
-  .kracht-cta--light .kracht-cta__card {
+  .kracht-cta--blue .kracht-cta__card {
     padding: 60px 30px;
   }
 }

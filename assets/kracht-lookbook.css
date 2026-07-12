@@ -75,8 +75,6 @@
   font-family: var(--kracht-font-body);
   font-size: 0.7rem;
   font-weight: 300;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
 }

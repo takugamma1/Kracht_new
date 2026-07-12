@@ -42,9 +42,10 @@
 /* ==========================================================================
    One row = clean rounded photo beside free-standing text (alternating)
    ========================================================================== */
+/* Equal tracks keep the middle gutter aligned across alternating rows. */
 .kracht-dtime__row {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 2.5rem;
   align-items: center;
 }

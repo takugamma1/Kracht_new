@@ -130,12 +130,12 @@ body { overflow-x: clip; }
 /* ==========================================================================
    Section eyebrow label  ("+ section name")
    ========================================================================== */
+/* Sentence case per client feedback (no ALL-CAPS anywhere except the logo
+   lockup); sized up slightly now that the tracked-caps styling is gone. */
 .kracht-eyebrow {
   font-family: var(--kracht-font-body);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--kracht-blauw);
   display: inline-block;
   margin: 0 0 1rem;
@@ -345,8 +345,6 @@ body { overflow-x: clip; }
   font-family: var(--kracht-font-body);
   font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
   color: var(--kracht-grijs);
   margin: 0;
 }

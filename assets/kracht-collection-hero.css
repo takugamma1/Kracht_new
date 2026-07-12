@@ -9,8 +9,6 @@
 .kracht-coll-hero__crumbs {
   font-family: var(--kracht-font-body);
   font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
   margin: 0 0 1.5rem;
   display: flex;
   flex-wrap: wrap;

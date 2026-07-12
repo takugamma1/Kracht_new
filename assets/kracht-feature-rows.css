@@ -130,8 +130,6 @@
 }
 .kracht-frow-card__meta-item dt {
   font-size: 0.6rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--kracht-grijs);
   margin: 0;
   font-weight: 500;
@@ -151,8 +149,6 @@
   font-family: var(--kracht-font-body);
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
   text-decoration: none;
   color: var(--kracht-blauw);
   margin-top: 0.4rem;

@@ -13,7 +13,8 @@
   color: inherit;
   background: var(--kracht-wit);
   border: 1px solid var(--kracht-grijs-border);
-  border-radius: 4px;
+  /* House card radius (client feedback: rounded, consistent with other cards). */
+  border-radius: 10px;
   overflow: hidden;
   transition: transform var(--kracht-trans);
 }
