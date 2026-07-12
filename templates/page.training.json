@@ -207,7 +207,7 @@
       "name": "Kracht — Schedule Cards",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>Plan jouw <strong>team in.</strong></p>",
+        "heading": "<p><strong>Plan jouw team in.</strong></p>",
         "intro": "<p>Of kies voor <strong>in-company</strong> — dan komen we naar jullie locatie en stemmen het programma af op jullie context.</p>",
         "background_color": "#f4f4f5",
         "text_color": "#000000",
@@ -295,7 +295,6 @@
         "button2_label": "Download brochure",
         "button2_link": "",
         "show_stats": false,
-        "theme": "blue",
         "background_color": "#009de1",
         "text_color": "#ffffff",
         "padding_y": 64,
