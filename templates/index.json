@@ -33,7 +33,7 @@
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/KRACHT_I_Kledinglijn_2_-147.jpg",
-            "eyebrow": "+Comfort",
+            "eyebrow": "Comfort",
             "title": "Casual",
             "link": "/collections/casual"
           }
@@ -42,7 +42,7 @@
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/KRACHT_I_Kledinglijn_2_-95.jpg",
-            "eyebrow": "+Premium",
+            "eyebrow": "Premium",
             "title": "Zakelijk",
             "link": "/collections/zakelijk"
           }
@@ -51,7 +51,7 @@
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/Kracht_I_Canvas_tas.jpg",
-            "eyebrow": "+Merchandise",
+            "eyebrow": "Merchandise",
             "title": "Accessoires",
             "link": "/collections/accessoires"
           }
@@ -60,7 +60,7 @@
           "type": "category",
           "settings": {
             "image": "shopify://shop_images/BRAM_I_KAHMANN_X_Kracht_I_Carrierepoly_-4.jpg",
-            "eyebrow": "+Exclusief",
+            "eyebrow": "Exclusief",
             "title": "Limited edition",
             "link": "/collections/limited-edition"
           }
