@@ -179,7 +179,7 @@
           "type": "lookbook_card",
           "settings": {
             "image": "shopify://shop_images/BRAM_I_KAHMANN_X_Kracht_I_Foto_s_Noah_gijs-17.jpg",
-            "eyebrow": "+Comfort",
+            "eyebrow": "Comfort",
             "title": "Casual",
             "link": "/collections/casual"
           }
@@ -188,7 +188,7 @@
           "type": "lookbook_card",
           "settings": {
             "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-357.jpg",
-            "eyebrow": "+Premium",
+            "eyebrow": "Premium",
             "title": "Zakelijk",
             "link": "/collections/zakelijk"
           }
@@ -197,7 +197,7 @@
           "type": "lookbook_card",
           "settings": {
             "image": "shopify://shop_images/Kracht_I_Marrakesh_2025_45.jpg",
-            "eyebrow": "+Merchandise",
+            "eyebrow": "Merchandise",
             "title": "Accessoires",
             "link": "/collections/accessoires"
           }
@@ -206,7 +206,7 @@
           "type": "lookbook_card",
           "settings": {
             "image": "shopify://shop_images/Reiskussen-2.jpg",
-            "eyebrow": "+Exclusief",
+            "eyebrow": "Exclusief",
             "title": "Limited edition",
             "link": "/collections/limited-edition"
           }
