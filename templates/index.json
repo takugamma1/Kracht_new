@@ -32,7 +32,7 @@
         "c1": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/KRACHT_I_Kledinglijn_2_-147.jpg",
+            "image": "shopify://shop_images/Kracht_I_Marrakesh_2025_45.jpg",
             "eyebrow": "Comfort",
             "title": "Casual",
             "link": "/collections/casual"
@@ -41,7 +41,7 @@
         "c2": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/KRACHT_I_Kledinglijn_2_-95.jpg",
+            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-357.jpg",
             "eyebrow": "Premium",
             "title": "Zakelijk",
             "link": "/collections/zakelijk"
@@ -59,7 +59,7 @@
         "c4": {
           "type": "category",
           "settings": {
-            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_Kracht_I_Carrierepoly_-4.jpg",
+            "image": "shopify://shop_images/Kracht_I_Bouwvakroute-3.jpg",
             "eyebrow": "Exclusief",
             "title": "Limited edition",
             "link": "/collections/limited-edition"
@@ -178,7 +178,7 @@
         "lb1": {
           "type": "lookbook_card",
           "settings": {
-            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_Kracht_I_Foto_s_Noah_gijs-17.jpg",
+            "image": "shopify://shop_images/Kracht_Website_2024_V1_-88.jpg",
             "eyebrow": "Comfort",
             "title": "Casual",
             "link": "/collections/casual"
@@ -196,7 +196,7 @@
         "lb3": {
           "type": "lookbook_card",
           "settings": {
-            "image": "shopify://shop_images/Kracht_I_Marrakesh_2025_45.jpg",
+            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_Kracht_I_Foto_s_Noah_gijs-17.jpg",
             "eyebrow": "Merchandise",
             "title": "Accessoires",
             "link": "/collections/accessoires"
