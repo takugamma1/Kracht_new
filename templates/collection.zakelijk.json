@@ -13,13 +13,13 @@
       "type": "kracht-collection-hero",
       "name": "Kracht — Collection Hero",
       "settings": {
-        "image": "shopify://shop_images/pexels-kindelmedia-7651813.jpg",
+        "image": "shopify://shop_images/KRACHT_I_Kledinglijn_2_-95.jpg",
         "min_height": 400,
         "overlay_opacity": 0,
         "show_breadcrumbs": false,
         "tag": "Collectie",
-        "heading": "<p>Alle producten</p>",
-        "subheading": "<p>Kleding voor technici die met trots laten zien waar ze voor staan. Draag jouw vak met dezelfde passie als waarmee je het iedere dag uitoefent.</p>",
+        "heading": "<p>Alle zakelijke kleding</p>",
+        "subheading": "<p>Vakmanschap verdient een uitstraling die daarbij past. De business collectie combineert hoogwaardige materialen, een tijdloos ontwerp en optimaal draagcomfort. Perfect voor professionals die iedere dag met trots bouwen aan de toekomst.</p>",
         "button1_label": "Bekijk de collectie",
         "button1_link": "#",
         "button2_label": "",
@@ -36,54 +36,24 @@
           "type": "tab",
           "settings": {
             "icon": "all",
-            "label": "Alle items",
-            "count": "7",
-            "link": "/collections/all"
+            "label": "Zakelijke kleding",
+            "count": "2",
+            "link": "/collections/zakelijk"
           }
         },
         "t2": {
           "type": "tab",
           "settings": {
-            "icon": "tshirt",
-            "label": "Casual",
-            "count": "3",
-            "link": "/collections/casual"
-          }
-        },
-        "t3": {
-          "type": "tab",
-          "settings": {
             "icon": "polo",
-            "label": "Zakelijk",
+            "label": "Merino",
             "count": "2",
             "link": "/collections/zakelijk"
-          }
-        },
-        "t4": {
-          "type": "tab",
-          "settings": {
-            "icon": "bag",
-            "label": "Accessoires",
-            "count": "1",
-            "link": "/collections/accessoires"
-          }
-        },
-        "t5": {
-          "type": "tab",
-          "settings": {
-            "icon": "star",
-            "label": "Limited edition",
-            "count": "1",
-            "link": "/collections/limited-edition"
           }
         }
       },
       "block_order": [
         "t1",
-        "t2",
-        "t3",
-        "t4",
-        "t5"
+        "t2"
       ],
       "name": "Kracht — Category Tabs",
       "settings": {

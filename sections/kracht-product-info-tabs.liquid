@@ -41,7 +41,11 @@
           {%- for block in section.blocks -%}
             {%- if block.type == 'tab' -%}
               <div class="kracht-pinfo__panel {% if forloop.first %}is-active{% endif %}" role="tabpanel" data-panel="{{ forloop.index }}">
-                {{ block.settings.body }}
+                {%- if block.settings.body != blank -%}
+                  {{ block.settings.body }}
+                {%- else -%}
+                  {{ product.description }}
+                {%- endif -%}
               </div>
             {%- endif -%}
           {%- endfor -%}

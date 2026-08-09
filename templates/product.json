@@ -50,8 +50,8 @@
       "name": "Kracht — Product Detail",
       "settings": {
         "show_breadcrumbs": false,
-        "eyebrow": "T-shirts · Essentials",
-        "brand_prefix": "Kracht+",
+        "eyebrow": "Trots op Techniek",
+        "brand_prefix": "",
         "show_new_tag": true,
         "show_size_guide": true,
         "background_color": "#ffffff",
@@ -118,89 +118,17 @@
           "type": "tab",
           "settings": {
             "label": "Beschrijving",
-            "body": "<p>De <strong>Kracht+ Team Tee</strong> is meer dan een t-shirt — het is een statement. Gemaakt voor het team dat altijd wint, comfortabel genoeg om de hele dag te dragen, en met een snit die past bij elke houding. Het Kracht+ logo is met zorg geborduurd op de borst — discreet maar aanwezig.</p><p><strong>Wat je krijgt:</strong></p><ul><li>Premium 100% katoen — zwaar 220 gr/m² voor stevigheid</li><li>Geborduurd Kracht+ logo in krachtig blauw op de borst</li><li>Versterkte zomen getest op 50+ wasbeurten</li><li>Klassieke ronde hals met ribbing houdt z'n vorm</li><li>Unisex pasvorm — true to size</li></ul>"
-          }
-        },
-        "tab2": {
-          "type": "tab",
-          "settings": {
-            "label": "Materiaal",
-            "body": "<p>100% premium katoen, 220 gr/m². Pre-shrunk en kleurvast.</p>"
-          }
-        },
-        "tab3": {
-          "type": "tab",
-          "settings": {
-            "label": "Onderhoud",
-            "body": "<p>Wasbaar op 30 °C, niet bleken, lage temp strijken. Binnenstebuiten wassen voor de beste levensduur van het logo.</p>"
-          }
-        },
-        "s1": {
-          "type": "spec",
-          "settings": {
-            "label": "Materiaal",
-            "value": "100% katoen"
-          }
-        },
-        "s2": {
-          "type": "spec",
-          "settings": {
-            "label": "Gewicht",
-            "value": "220 gr/m²"
-          }
-        },
-        "s3": {
-          "type": "spec",
-          "settings": {
-            "label": "Pasvorm",
-            "value": "Unisex — regular"
-          }
-        },
-        "s4": {
-          "type": "spec",
-          "settings": {
-            "label": "Logo",
-            "value": "Geborduurd, blauw"
-          }
-        },
-        "s5": {
-          "type": "spec",
-          "settings": {
-            "label": "Productie",
-            "value": "Portugal"
-          }
-        },
-        "s6": {
-          "type": "spec",
-          "settings": {
-            "label": "Maten",
-            "value": "XS — 3XL"
-          }
-        },
-        "s7": {
-          "type": "spec",
-          "settings": {
-            "label": "Op voorraad",
-            "value": "Ja — 142 stuks"
+            "body": ""
           }
         }
       },
       "block_order": [
-        "tab1",
-        "tab2",
-        "tab3",
-        "s1",
-        "s2",
-        "s3",
-        "s4",
-        "s5",
-        "s6",
-        "s7"
+        "tab1"
       ],
       "name": "Kracht — Info Tabs",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>Alles over de <strong>Team Tee.</strong></p>",
+        "heading": "<p>Alles over dit <strong>product.</strong></p>",
         "cta_label": "Bekijk de maatgids",
         "cta_link": "",
         "background_color": "#ffffff",
@@ -298,7 +226,7 @@
       "name": "Kracht — Newsletter",
       "settings": {
         "heading": "<p>Blijf op de <strong>hoogte!</strong></p>",
-        "subheading": "Ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve Kracht+ merchandise.",
+        "subheading": "Meld je aan voor de nieuwsbrief en ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve merchandise.",
         "placeholder": "Jouw e-mailadres",
         "button_label": "Aanmelden",
         "success_message": "Bedankt! Je staat op de lijst.",
