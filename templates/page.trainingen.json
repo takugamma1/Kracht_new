@@ -18,7 +18,7 @@
         "breadcrumbs": "Home / Collecties / Trainingen",
         "tag": "",
         "heading": "<p>Voor <strong>groei</strong> heb je <em>Kracht</em> nodig.</p>",
-        "subheading": "<p>Onze <strong>trainingen</strong> zijn gemaakt voor teams en professionals die verder willen — niet alleen vakinhoudelijk, maar ook in <strong>samenwerken, leiderschap en communicatie</strong>. Praktisch, persoonlijk en altijd vanuit Kracht.</p>",
+        "subheading": "<p>Een trotse techneut blijft zich ontwikkelen. Daarom vind je naast onze collectie ook de trainingen van Kracht Training. Praktische trainingen die speciaal zijn ontwikkeld voor technici, zodat je niet alleen met trots naar je werk gaat, maar er ook iedere dag beter in wordt.</p>",
         "button1_label": "",
         "button1_link": "#trainings",
         "button2_label": "",
@@ -104,20 +104,20 @@
             "image": "shopify://shop_images/4_vrouw_helpt_lachende_man_achter_laptop.png",
             "tag": "",
             "eyebrow": "",
-            "title": "Samenwerken vanuit Kracht.",
-            "description": "Bouw een team dat écht samenwerkt. Van vertrouwen tot gedeelde verantwoordelijkheid — krachtiger als groep dan als optelsom van individuen. Inclusief een teamprofiel-analyse en concrete actieplannen.",
-            "meta1_label": "Duur",
-            "meta1_value": "2 dagen",
+            "title": "Communicatie",
+            "description": "Sterke communicatie voorkomt misverstanden, versterkt samenwerking en zorgt ervoor dat ideeën echt tot hun recht komen. In deze training leer je helder communiceren, beter luisteren en effectiever samenwerken met collega's, klanten en partners.",
+            "meta1_label": "Competentie",
+            "meta1_value": "Effectief communiceren",
             "meta1_icon": "clock",
-            "meta2_label": "Format",
-            "meta2_value": "Klassikaal",
+            "meta2_label": "Competentie",
+            "meta2_value": "Actief luisteren",
             "meta2_icon": "briefcase",
-            "meta3_label": "Voor",
-            "meta3_value": "Teams 6 — 15 pers.",
+            "meta3_label": "Competentie",
+            "meta3_value": "Overtuigingskracht",
             "meta3_icon": "users",
-            "button1_label": "Meer informatie",
+            "button1_label": "Ontdek de training",
             "button1_link": "shopify://pages/training-single",
-            "button2_label": "Download brochure",
+            "button2_label": "",
             "button2_link": ""
           }
         },
@@ -127,20 +127,20 @@
             "image": "shopify://shop_images/pexels-reneterp-13820231.jpg",
             "tag": "",
             "eyebrow": "",
-            "title": "Leiden vanuit Kracht.",
-            "description": "Ontwikkel een authentieke leiderschapsstijl die past bij jou én bij je team. Effectief delegeren, lastige gesprekken voeren, en het beste uit anderen halen — met een concrete toolkit die je direct toepast.",
-            "meta1_label": "Duur",
-            "meta1_value": "4 dagdelen",
+            "title": "Samenwerken",
+            "description": "De beste resultaten bereik je samen. Ontdek hoe je beter inspeelt op verschillende persoonlijkheden, onderlinge samenwerking versterkt en meer uit jezelf én je team haalt. Praktisch, herkenbaar en direct toepasbaar.",
+            "meta1_label": "Competentie",
+            "meta1_value": "Samenwerken",
             "meta1_icon": "clock",
-            "meta2_label": "Format",
-            "meta2_value": "Hybride",
+            "meta2_label": "Competentie",
+            "meta2_value": "Relatiegerichtheid",
             "meta2_icon": "briefcase",
-            "meta3_label": "Voor",
-            "meta3_value": "Managers & leads",
+            "meta3_label": "Competentie",
+            "meta3_value": "Omgevingsbewustzijn",
             "meta3_icon": "users",
-            "button1_label": "Meer informatie",
+            "button1_label": "Ontdek de training",
             "button1_link": "shopify://pages/training-single",
-            "button2_label": "Download brochure",
+            "button2_label": "",
             "button2_link": ""
           }
         },
@@ -150,20 +150,20 @@
             "image": "shopify://shop_images/de-kracht-van-samenwerken.jpg",
             "tag": "",
             "eyebrow": "",
-            "title": "Heldere taal, scherpe boodschap.",
-            "description": "Leer écht luisteren, helder overtuigen en feedback geven die bijdraagt aan groei. Een intensieve trainingsdag met praktijkcases uit de techniek, gericht op resultaat dat blijft hangen.",
-            "meta1_label": "Duur",
-            "meta1_value": "1 dag intensief",
+            "title": "Leiderschap",
+            "description": "Goed leiderschap begint bij jezelf. Of je nu een team aanstuurt of jezelf verder wilt ontwikkelen, in deze training werk je aan zelfinzicht, overtuigingskracht en het vermogen om anderen in beweging te brengen.",
+            "meta1_label": "Competentie",
+            "meta1_value": "Leiderschap",
             "meta1_icon": "clock",
-            "meta2_label": "Format",
-            "meta2_value": "Klassikaal of online",
+            "meta2_label": "Competentie",
+            "meta2_value": "Zelfinzicht",
             "meta2_icon": "briefcase",
-            "meta3_label": "Voor",
-            "meta3_value": "Iedere professional",
+            "meta3_label": "Competentie",
+            "meta3_value": "Besluitvaardigheid",
             "meta3_icon": "users",
-            "button1_label": "Meer informatie",
+            "button1_label": "Ontdek de training",
             "button1_link": "shopify://pages/training-single",
-            "button2_label": "Download brochure",
+            "button2_label": "",
             "button2_link": ""
           }
         }
@@ -175,9 +175,9 @@
       ],
       "name": "Kracht — Training Rows",
       "settings": {
-        "eyebrow": "Onze trainingen",
+        "eyebrow": "Kracht Training",
         "heading": "<p>Drie programma's,<br/><strong>één missie: </strong><em><strong>groei.</strong></em></p>",
-        "intro": "<p>Elke training is op maat te maken voor jouw team of organisatie. Klassikaal, online of hybride — altijd persoonlijk, altijd praktisch.</p>",
+        "intro": "<p>Blijven groeien stopt niet bij je vakkennis. Met de trainingen Samenwerken, Communicatie en Leiderschap ontwikkel je de soft skills die jou sterker maken als technisch professional. Praktisch, direct toepasbaar en volledig afgestemd op de technische branche.</p>",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "card_color": "#ffffff",
@@ -191,29 +191,36 @@
         "p1": {
           "type": "step",
           "settings": {
-            "title": "Intake",
-            "description": "We leren jou en je team kennen. Wat speelt er, wat zijn de doelen, wat is de context?"
+            "title": "Kennismaken",
+            "description": "Je hebt een ontwikkelbehoefte ontdekt voor jezelf, jouw collega's of je organisatie en vult het contactformulier in. Onze trainers nemen snel contact op."
           }
         },
         "p2": {
           "type": "step",
           "settings": {
-            "title": "Op maat",
-            "description": "Geen standaard programma — we ontwerpen de training rond jullie praktijk en uitdagingen."
+            "title": "Intake",
+            "description": "We leren jou en je team kennen en verdiepen de ontwikkelbehoefte. Samen brengen we jullie wensen, doelen en uitdagingen helder in kaart."
           }
         },
         "p3": {
           "type": "step",
           "settings": {
-            "title": "Training",
-            "description": "Intensieve, interactieve dagen. Praktisch, persoonlijk en met cases uit jullie eigen werkveld."
+            "title": "Op maat",
+            "description": "Op basis van de intake en analyse stellen we een programma samen dat aansluit op jouw dagelijkse praktijk. Geen standaardaanpak, maar maatwerk."
           }
         },
         "p4": {
           "type": "step",
           "settings": {
-            "title": "Opvolging",
-            "description": "Met follow-up sessies en concrete actieplannen borgen we wat je hebt geleerd in de praktijk."
+            "title": "Training",
+            "description": "We gaan aan de slag! Samen stemmen we de trainingslocatie, planning en verdere invulling van het traject af."
+          }
+        },
+        "p5": {
+          "type": "step",
+          "settings": {
+            "title": "Borging",
+            "description": "Na de training blijf je werken aan je ontwikkeling. Met concrete actiepunten, evaluaties en persoonlijke begeleiding zorgen we ervoor dat jouw nieuwe vaardigheden ook op de lange termijn het verschil maken."
           }
         }
       },
@@ -221,13 +228,14 @@
         "p1",
         "p2",
         "p3",
-        "p4"
+        "p4",
+        "p5"
       ],
       "name": "Kracht — Step Cards",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>Van intake <strong>tot impact </strong><em><strong>in 4 stappen.</strong></em></p>",
-        "intro": "<p>We werken altijd op maat. Geen losse trainingsdag, maar een traject met duidelijke doelen, persoonlijke begeleiding en borging achteraf.</p>",
+        "heading": "<p>Van ambitie naar impact <strong>in 5 stappen.</strong></p>",
+        "intro": "<p>Je wilt groeien als technische professional of je organisatie verder ontwikkelen. Daarom bieden we geen standaard trainingen, maar persoonlijke trajecten die volledig aansluiten op de dagelijkse praktijk en de ontwikkeldoelen van zowel technische professionals als de organisatie.</p>",
         "background_color": "#f4f4f5",
         "text_color": "#000000",
         "card_color": "#ffffff",
@@ -245,9 +253,9 @@
             "background_color": "#f4f4f5",
             "text_color": "#000000",
             "eyebrow": "Voor professionals",
-            "title": "Versterk je eigen Kracht.",
-            "description": "Investeer in jezelf en zet de volgende stap in je carrière. Onze trainingen sluiten aan bij wat je écht nodig hebt — geen ballast, alleen wat werkt.",
-            "checklist": "Vergroot je impact in de praktijk\nOntwikkel concrete vaardigheden direct toepasbaar\nBouw aan een krachtig persoonlijk profiel\nWerk met specialisten uit de technische sector",
+            "title": "Groei in je vak én als persoon.",
+            "description": "Technische kennis brengt je ver. Met sterke persoonlijke vaardigheden haal je nóg meer uit jezelf en vergroot je jouw impact op de werkvloer.",
+            "checklist": "Sterker communiceren met collega's en klanten\nEffectiever samenwerken in projecten\nMeer zelfvertrouwen in je rol\nBeter omgaan met uitdagingen en veranderingen\nGroeien in je carrière en leiderschap",
             "button1_label": "",
             "button1_link": "shopify://pages/trainingen",
             "button2_label": "",
@@ -261,9 +269,9 @@
             "background_color": "#000000",
             "text_color": "#ffffff",
             "eyebrow": "Voor werkgevers",
-            "title": "Investeer in je team.",
-            "description": "Een sterk team begint bij investeren in mensen. Vergroot productiviteit, behoud talent en bouw aan een cultuur waarin iedereen wint — vanuit Kracht.",
-            "checklist": "Meetbare resultaten en duidelijke ROI\nVerhoog medewerkertevredenheid en retentie\nIn-company, flexibel in te plannen\nMaatwerk programma's voor jouw organisatie",
+            "title": "Investeer in duurzame ontwikkeling.",
+            "description": "Sterke teams bestaan uit meer dan vakinhoudelijke kennis. Door te investeren in persoonlijke vaardigheden creëer je een organisatie die beter samenwerkt, effectiever communiceert en klaar is voor de toekomst.",
+            "checklist": "Betere samenwerking binnen teams\nEffectievere communicatie op de werkvloer\nMeer eigenaarschap en initiatief\nHogere betrokkenheid van medewerkers\nDuurzame groei van mens én organisatie",
             "button1_label": "",
             "button1_link": "shopify://pages/trainingen",
             "button2_label": "",
@@ -309,7 +317,7 @@
       "name": "Kracht — Newsletter",
       "settings": {
         "heading": "<p>Blijf op de <strong>hoogte!</strong></p>",
-        "subheading": "Ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve Kracht+ merchandise.",
+        "subheading": "Meld je aan voor de nieuwsbrief en ontvang als eerste nieuws over nieuwe collecties, acties en exclusieve merchandise.",
         "placeholder": "Jouw e-mailadres",
         "button_label": "Aanmelden",
         "success_message": "Bedankt! Je staat op de lijst.",
