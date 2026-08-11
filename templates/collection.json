@@ -37,7 +37,7 @@
           "settings": {
             "icon": "all",
             "label": "Alle items",
-            "count": "7",
+            "count": "5",
             "link": "/collections/all"
           }
         },
@@ -46,7 +46,7 @@
           "settings": {
             "icon": "tshirt",
             "label": "Casual",
-            "count": "3",
+            "count": "2",
             "link": "/collections/casual"
           }
         },
@@ -55,7 +55,7 @@
           "settings": {
             "icon": "polo",
             "label": "Zakelijk",
-            "count": "2",
+            "count": "1",
             "link": "/collections/zakelijk"
           }
         },

@@ -37,7 +37,7 @@
           "settings": {
             "icon": "all",
             "label": "Casual kleding",
-            "count": "3",
+            "count": "2",
             "link": "/collections/casual"
           }
         },
@@ -46,8 +46,8 @@
           "settings": {
             "icon": "tshirt",
             "label": "T-shirts",
-            "count": "2",
-            "link": "/collections/casual"
+            "count": "1",
+            "link": "/products/t-shirt"
           }
         },
         "t3": {

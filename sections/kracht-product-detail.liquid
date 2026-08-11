@@ -37,8 +37,14 @@
       <div class="kracht-pdetail__gallery">
         {%- if product != blank and product.images.size > 0 -%}
           <div class="kracht-pdetail__thumbs">
-            {%- for image in product.images limit: 6 -%}
-              <button class="kracht-pdetail__thumb {% if forloop.first %}is-active{% endif %}" data-idx="{{ forloop.index0 }}" type="button" aria-label="Afbeelding {{ forloop.index }}">
+            {%- for image in product.images -%}
+              {%- assign alt_d = image.alt | downcase -%}
+              {%- assign img_color = '' -%}
+              {%- if alt_d contains 'zwart' -%}{%- assign img_color = 'zwart' -%}
+              {%- elsif alt_d contains 'navy' -%}{%- assign img_color = 'navy' -%}
+              {%- elsif alt_d contains 'wit' -%}{%- assign img_color = 'wit' -%}
+              {%- endif -%}
+              <button class="kracht-pdetail__thumb {% if forloop.first %}is-active{% endif %}" data-idx="{{ forloop.index0 }}" data-color="{{ img_color }}" type="button" aria-label="Afbeelding {{ forloop.index }}">
                 <img src="{{ image | image_url: width: 120 }}" alt="" loading="lazy">
               </button>
             {%- endfor -%}
@@ -47,7 +53,7 @@
             {%- if section.settings.show_new_tag -%}
               <span class="kracht-tag kracht-tag--with-plus kracht-pdetail__corner-tag">Nieuw</span>
             {%- endif -%}
-            {%- for image in product.images limit: 6 -%}
+            {%- for image in product.images -%}
               <img
                 src="{{ image | image_url: width: 1000 }}"
                 alt="{{ image.alt | default: product.title }}"
@@ -115,18 +121,18 @@
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
             {%- for option in product.options_with_values -%}
-              <div class="kracht-pdetail__option">
+              <div class="kracht-pdetail__option" data-option-name="{{ option.name | escape }}">
                 <span class="kracht-pdetail__option-label">
                   {{ option.name | upcase }}
-                  <strong>{{ option.selected_value }}</strong>
+                  <strong data-option-current>{{ option.selected_value }}</strong>
                 </span>
                 <div class="kracht-pdetail__swatches">
                   {%- for value in option.values -%}
                     {%- assign vname = value | downcase -%}
                     {%- if option.name == 'Color' or option.name == 'Kleur' -%}
-                      <button type="button" class="kracht-pdetail__sw-color {% if option.selected_value == value %}is-active{% endif %}" style="background: {{ vname | replace: 'zwart','#000' | replace: 'wit','#fff' | replace: 'blauw','#009de1' | replace: 'grijs','#999' | replace: 'geel','#FAB725' }};" aria-label="{{ value }}"></button>
+                      <button type="button" data-value="{{ value | escape }}" class="kracht-pdetail__sw-color {% if option.selected_value == value %}is-active{% endif %}" style="background: {{ vname | replace: 'zwart','#000' | replace: 'navy','#1e2a45' | replace: 'wit','#fff' | replace: 'blauw','#009de1' | replace: 'grijs','#999' | replace: 'geel','#FAB725' }};" aria-label="{{ value }}"></button>
                     {%- else -%}
-                      <button type="button" class="kracht-pdetail__sw-size {% if option.selected_value == value %}is-active{% endif %}">{{ value }}</button>
+                      <button type="button" data-value="{{ value | escape }}" class="kracht-pdetail__sw-size {% if option.selected_value == value %}is-active{% endif %}">{{ value }}</button>
                     {%- endif -%}
                   {%- endfor -%}
                 </div>
@@ -150,6 +156,10 @@
               </button>
             </div>
           {%- endform -%}
+
+          <script type="application/json" data-kracht-product>
+            {"options": {{ product.options | json }}, "variants": {{ product.variants | json }}}
+          </script>
 
         {%- else -%}
           <h1 class="kracht-pdetail__title">
@@ -206,14 +216,68 @@
       });
     });
 
-    // Variant swatches
-    root.querySelectorAll('.kracht-pdetail__sw-color, .kracht-pdetail__sw-size').forEach(b => {
-      b.addEventListener('click', () => {
-        const grp = b.parentElement;
-        grp.querySelectorAll('button').forEach(x => x.classList.remove('is-active'));
-        b.classList.add('is-active');
+    // Variant selection — updates form id, price, current-value label and gallery
+    const dataEl = root.querySelector('[data-kracht-product]');
+    if (dataEl) {
+      const data = JSON.parse(dataEl.textContent);
+      const optionNames = data.options;
+      const groups = root.querySelectorAll('.kracht-pdetail__option');
+      const idInput = root.querySelector('input[name="id"]');
+      const priceEl = root.querySelector('.kracht-pdetail__price');
+      const selected = {};
+      groups.forEach(g => {
+        const active = g.querySelector('button.is-active');
+        if (active) selected[g.dataset.optionName] = active.dataset.value;
       });
-    });
+
+      const filterGallery = (color) => {
+        const c = (color || '').toLowerCase();
+        let firstVisible = null;
+        thumbs.forEach(t => {
+          const tc = t.dataset.color || '';
+          const show = !tc || !c || tc === c;
+          t.style.display = show ? '' : 'none';
+          if (show && firstVisible === null) firstVisible = t;
+        });
+        const active = root.querySelector('.kracht-pdetail__thumb.is-active');
+        if (firstVisible && (!active || active.style.display === 'none')) firstVisible.click();
+      };
+
+      const apply = () => {
+        const v = data.variants.find(vr =>
+          optionNames.every((n, i) => (vr['option' + (i + 1)] || null) === (selected[n] || null)));
+        if (!v) return;
+        if (idInput) idInput.value = v.id;
+        if (priceEl) priceEl.textContent = '€' + (v.price / 100).toFixed(2).replace('.', ',');
+      };
+
+      groups.forEach(g => {
+        g.querySelectorAll('.kracht-pdetail__sw-color, .kracht-pdetail__sw-size').forEach(b => {
+          b.addEventListener('click', () => {
+            g.querySelectorAll('button').forEach(x => x.classList.remove('is-active'));
+            b.classList.add('is-active');
+            selected[g.dataset.optionName] = b.dataset.value;
+            const cur = g.querySelector('[data-option-current]');
+            if (cur) cur.textContent = b.dataset.value;
+            if (g.dataset.optionName === 'Kleur' || g.dataset.optionName === 'Color') {
+              filterGallery(b.dataset.value);
+            }
+            apply();
+          });
+        });
+      });
+
+      filterGallery(selected['Kleur'] || selected['Color'] || '');
+      apply();
+    } else {
+      root.querySelectorAll('.kracht-pdetail__sw-color, .kracht-pdetail__sw-size').forEach(b => {
+        b.addEventListener('click', () => {
+          const grp = b.parentElement;
+          grp.querySelectorAll('button').forEach(x => x.classList.remove('is-active'));
+          b.classList.add('is-active');
+        });
+      });
+    }
   })();
 </script>
 

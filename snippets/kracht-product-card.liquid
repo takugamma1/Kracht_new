@@ -85,7 +85,7 @@
           {%- if option.name == 'Color' or option.name == 'Kleur' -%}
             <span class="kracht-card__swatches">
               {%- for value in option.values limit: 4 -%}
-                <span class="kracht-card__swatch" style="background: {{ value | downcase | replace: 'zwart','#000' | replace: 'wit','#fff' | replace: 'blauw','#009de1' | replace: 'grijs','#999' | replace: 'geel','#FAB725' }};" title="{{ value }}"></span>
+                <span class="kracht-card__swatch" style="background: {{ value | downcase | replace: 'zwart','#000' | replace: 'navy','#1e2a45' | replace: 'wit','#fff' | replace: 'blauw','#009de1' | replace: 'grijs','#999' | replace: 'geel','#FAB725' }};" title="{{ value }}"></span>
               {%- endfor -%}
             </span>
           {%- endif -%}
