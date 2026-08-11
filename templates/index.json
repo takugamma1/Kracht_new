@@ -80,7 +80,7 @@
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 56,
-        "card_radius": 12,
+        "card_radius": 20,
         "gradient_strength": 75
       }
     },
@@ -213,10 +213,10 @@
         }
       },
       "block_order": [
-        "lb1",
         "lb2",
-        "lb3",
-        "lb4"
+        "lb4",
+        "lb1",
+        "lb3"
       ],
       "name": "Kracht — Lookbook",
       "settings": {

@@ -22,31 +22,57 @@
       <!-- Tabs panel -->
       <div class="kracht-pinfo__tabs-wrap">
         <div class="kracht-pinfo__tabs" role="tablist">
+          {%- assign tab_i = 0 -%}
           {%- for block in section.blocks -%}
             {%- if block.type == 'tab' -%}
-              <button
-                type="button"
-                role="tab"
-                class="kracht-pinfo__tab {% if forloop.first %}is-active{% endif %}"
-                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-                data-tab="{{ forloop.index }}"
-                {{ block.shopify_attributes }}
-              >
-                {{ block.settings.label | upcase }}
-              </button>
+              {%- assign src = block.settings.source | default: 'custom' -%}
+              {%- assign tab_content = block.settings.body -%}
+              {%- if src == 'description' -%}
+                {%- capture tab_content -%}{{ product.description }}{%- endcapture -%}
+              {%- elsif src == 'materiaal' -%}
+                {%- assign tab_content = product.metafields.custom.materiaal.value -%}
+              {%- elsif src == 'onderhoud' -%}
+                {%- assign tab_content = product.metafields.custom.onderhoud.value -%}
+              {%- elsif tab_content == blank -%}
+                {%- capture tab_content -%}{{ product.description }}{%- endcapture -%}
+              {%- endif -%}
+              {%- if tab_content != blank -%}
+                {%- assign tab_i = tab_i | plus: 1 -%}
+                <button
+                  type="button"
+                  role="tab"
+                  class="kracht-pinfo__tab {% if tab_i == 1 %}is-active{% endif %}"
+                  aria-selected="{% if tab_i == 1 %}true{% else %}false{% endif %}"
+                  data-tab="{{ tab_i }}"
+                  {{ block.shopify_attributes }}
+                >
+                  {{ block.settings.label | upcase }}
+                </button>
+              {%- endif -%}
             {%- endif -%}
           {%- endfor -%}
         </div>
         <div class="kracht-pinfo__panels">
+          {%- assign panel_i = 0 -%}
           {%- for block in section.blocks -%}
             {%- if block.type == 'tab' -%}
-              <div class="kracht-pinfo__panel {% if forloop.first %}is-active{% endif %}" role="tabpanel" data-panel="{{ forloop.index }}">
-                {%- if block.settings.body != blank -%}
-                  {{ block.settings.body }}
-                {%- else -%}
-                  {{ product.description }}
-                {%- endif -%}
-              </div>
+              {%- assign src = block.settings.source | default: 'custom' -%}
+              {%- assign tab_content = block.settings.body -%}
+              {%- if src == 'description' -%}
+                {%- capture tab_content -%}{{ product.description }}{%- endcapture -%}
+              {%- elsif src == 'materiaal' -%}
+                {%- assign tab_content = product.metafields.custom.materiaal.value -%}
+              {%- elsif src == 'onderhoud' -%}
+                {%- assign tab_content = product.metafields.custom.onderhoud.value -%}
+              {%- elsif tab_content == blank -%}
+                {%- capture tab_content -%}{{ product.description }}{%- endcapture -%}
+              {%- endif -%}
+              {%- if tab_content != blank -%}
+                {%- assign panel_i = panel_i | plus: 1 -%}
+                <div class="kracht-pinfo__panel {% if panel_i == 1 %}is-active{% endif %}" role="tabpanel" data-panel="{{ panel_i }}">
+                  {{ tab_content }}
+                </div>
+              {%- endif -%}
             {%- endif -%}
           {%- endfor -%}
         </div>
@@ -55,7 +81,8 @@
       <!-- Specs card -->
       {%- assign has_specs = false -%}
       {%- for block in section.blocks -%}{%- if block.type == 'spec' -%}{%- assign has_specs = true -%}{%- endif -%}{%- endfor -%}
-      {%- if has_specs -%}
+      {%- assign mf_specs = product.metafields.custom.specs.value -%}
+      {%- if has_specs or mf_specs != blank -%}
         <aside class="kracht-pinfo__specs">
           <p class="kracht-pinfo__specs-title">Specs <span class="kracht-pinfo__plus" aria-hidden="true">{% render 'kracht-plus' %}</span></p>
           <dl class="kracht-pinfo__specs-list">
@@ -67,6 +94,18 @@
                 </div>
               {%- endif -%}
             {%- endfor -%}
+            {%- if mf_specs != blank -%}
+              {%- assign spec_lines = mf_specs | newline_to_br | split: '<br />' -%}
+              {%- for line in spec_lines -%}
+                {%- assign parts = line | strip | split: '|' -%}
+                {%- if parts.size >= 2 -%}
+                  <div class="kracht-pinfo__specs-row">
+                    <dt>{{ parts[0] | strip }}</dt>
+                    <dd>{{ parts[1] | strip }}</dd>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
           </dl>
           {%- if section.settings.cta_label != blank -%}
             <a href="{{ section.settings.cta_link | default: '#' }}" class="kracht-pinfo__specs-cta">
@@ -165,6 +204,18 @@
       "name": "Description tab",
       "settings": [
         { "type": "text", "id": "label", "label": "Tab label", "default": "Beschrijving" },
+        {
+          "type": "select",
+          "id": "source",
+          "label": "Content source",
+          "options": [
+            { "value": "custom", "label": "Custom body (below)" },
+            { "value": "description", "label": "Product description" },
+            { "value": "materiaal", "label": "Metafield: custom.materiaal" },
+            { "value": "onderhoud", "label": "Metafield: custom.onderhoud" }
+          ],
+          "default": "custom"
+        },
         { "type": "richtext", "id": "body", "label": "Body", "default": "<p>De <strong>Kracht+ Team Tee</strong> is meer dan een t-shirt — het is een statement.</p>" }
       ]
     },

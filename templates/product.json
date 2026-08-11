@@ -120,16 +120,32 @@
             "label": "Beschrijving",
             "body": ""
           }
+        },
+        "tab2": {
+          "type": "tab",
+          "settings": {
+            "label": "Materiaal",
+            "body": ""
+          }
+        },
+        "tab3": {
+          "type": "tab",
+          "settings": {
+            "label": "Onderhoud & pasvorm",
+            "body": ""
+          }
         }
       },
       "block_order": [
-        "tab1"
+        "tab1",
+        "tab2",
+        "tab3"
       ],
       "name": "Kracht — Info Tabs",
       "settings": {
         "eyebrow": "",
         "heading": "<p>Alles over dit <strong>product.</strong></p>",
-        "cta_label": "Bekijk de maatgids",
+        "cta_label": "",
         "cta_link": "",
         "background_color": "#ffffff",
         "text_color": "#000000",
