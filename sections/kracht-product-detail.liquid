@@ -113,9 +113,7 @@
             <span class="kracht-pdetail__tax">incl. btw</span>
           </div>
 
-          {%- if product.description != blank -%}
-            <div class="kracht-pdetail__desc">{{ product.description }}</div>
-          {%- endif -%}
+          {%- comment -%} Volledige beschrijving staat onderaan in de info-tabs; buy box blijft compact zodat kleur/maat/knoppen direct zichtbaar zijn. {%- endcomment -%}
 
           {%- form 'product', product, class: 'kracht-pdetail__form' -%}
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
@@ -136,8 +134,8 @@
                     {%- endif -%}
                   {%- endfor -%}
                 </div>
-                {%- if option.name != 'Color' and option.name != 'Kleur' and section.settings.show_size_guide -%}
-                  <a href="#size-guide" class="kracht-pdetail__sg">Maatgids <span aria-hidden="true">→</span></a>
+                {%- if option.name != 'Color' and option.name != 'Kleur' and section.settings.show_size_guide and product.metafields.custom.maattabel.value != blank -%}
+                  <button type="button" class="kracht-pdetail__sg" data-kracht-sizeguide-open>Maatgids <span aria-hidden="true">→</span></button>
                 {%- endif -%}
               </div>
             {%- endfor -%}
@@ -160,6 +158,95 @@
           <script type="application/json" data-kracht-product>
             {"options": {{ product.options | json }}, "variants": {{ product.variants | json }}}
           </script>
+
+          {%- assign maattabel = product.metafields.custom.maattabel.value -%}
+          {%- if maattabel != blank -%}
+            <dialog class="kracht-sizeguide" data-kracht-sizeguide aria-labelledby="kracht-sizeguide-title">
+              <div class="kracht-sizeguide__inner">
+                <div class="kracht-sizeguide__head">
+                  <h3 id="kracht-sizeguide-title" class="kracht-sizeguide__title">
+                    Maatgids <span class="kracht-sizeguide__plus">{% render 'kracht-plus' %}</span>
+                  </h3>
+                  <button type="button" class="kracht-sizeguide__close" data-kracht-sizeguide-close aria-label="Sluiten">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+                  </button>
+                </div>
+                <p class="kracht-sizeguide__product">{{ product.title }}</p>
+                <div class="kracht-sizeguide__body">{{ maattabel }}</div>
+                <p class="kracht-sizeguide__note">Alle maten zijn in centimeters. Twijfel je tussen twee maten? Kies dan de grotere maat.</p>
+              </div>
+            </dialog>
+
+            <style>
+              .kracht-sizeguide {
+                border: 0;
+                border-radius: 12px;
+                padding: 0;
+                max-width: min(560px, calc(100vw - 2rem));
+                width: 100%;
+                font-family: var(--kracht-font-body);
+                color: var(--kracht-zwart, #000);
+                box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
+              }
+              .kracht-sizeguide::backdrop { background: rgba(0, 0, 0, 0.55); }
+              .kracht-sizeguide__inner { padding: 1.75rem; }
+              .kracht-sizeguide__head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 0.25rem;
+              }
+              .kracht-sizeguide__title {
+                font-family: var(--kracht-font-heading);
+                font-weight: 700;
+                font-size: 1.4rem;
+                letter-spacing: -0.01em;
+                margin: 0;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+              }
+              .kracht-sizeguide__plus { color: var(--kracht-blauw, #009de1); display: inline-flex; }
+              .kracht-sizeguide__plus svg { width: 0.8em; height: 0.8em; }
+              .kracht-sizeguide__close {
+                appearance: none;
+                border: 0;
+                background: #f4f4f5;
+                border-radius: 8px;
+                width: 36px;
+                height: 36px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                color: var(--kracht-zwart, #000);
+                transition: background 200ms ease-out;
+              }
+              .kracht-sizeguide__close:hover { background: #e8e8ea; }
+              .kracht-sizeguide__product { margin: 0 0 1rem; color: #666; font-size: 0.9rem; }
+              .kracht-sizeguide__body { overflow-x: auto; }
+              .kracht-sizeguide__body table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.9375rem;
+              }
+              .kracht-sizeguide__body th,
+              .kracht-sizeguide__body td {
+                padding: 0.6rem 0.75rem;
+                text-align: center;
+                border-bottom: 1px solid #ececee;
+              }
+              .kracht-sizeguide__body th {
+                font-family: var(--kracht-font-heading);
+                font-weight: 700;
+                background: #f4f4f5;
+              }
+              .kracht-sizeguide__body th:first-child,
+              .kracht-sizeguide__body td:first-child { text-align: left; font-weight: 600; }
+              .kracht-sizeguide__body h3 { display: none; }
+              .kracht-sizeguide__note { margin: 1rem 0 0; color: #666; font-size: 0.85rem; }
+            </style>
+          {%- endif -%}
 
         {%- else -%}
           <h1 class="kracht-pdetail__title">
@@ -305,6 +392,16 @@
           if (btn) { btn.disabled = false; btn.innerHTML = oldHtml; }
         }
       });
+    }
+
+    // Maatgids popup
+    const sgDialog = root.querySelector('[data-kracht-sizeguide]');
+    const sgOpen = root.querySelector('[data-kracht-sizeguide-open]');
+    if (sgDialog && sgOpen) {
+      sgOpen.addEventListener('click', () => sgDialog.showModal());
+      sgDialog.addEventListener('click', (e) => { if (e.target === sgDialog) sgDialog.close(); });
+      const sgClose = sgDialog.querySelector('[data-kracht-sizeguide-close]');
+      if (sgClose) sgClose.addEventListener('click', () => sgDialog.close());
     }
 
     if (!dataEl) {
