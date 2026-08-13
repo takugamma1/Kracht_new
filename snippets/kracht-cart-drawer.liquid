@@ -1,0 +1,135 @@
+{%- comment -%}
+  Kracht — cart drawer
+  Wraps Horizon's cart-drawer-component with the Kracht header pill as trigger.
+  Accepts:
+    section_id (String) — id of the rendering section (for section-rendering refresh)
+    cart_label (String) — label on the trigger pill
+{%- endcomment -%}
+
+<script
+  src="{{ 'cart-drawer.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% capture empty_cart_drawer_content %}
+  <div class="cart-drawer__header">
+    <button
+      ref="closeButton"
+      on:click="cart-drawer-component/close"
+      class="button close-button cart-drawer__close-button button-unstyled"
+      aria-label="{{ 'actions.close_dialog' | t }}"
+    >
+      <span class="svg-wrapper">
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </span>
+    </button>
+  </div>
+
+  <div
+    class="cart-drawer__content"
+    aria-label="{{ 'accessibility.cart' | t }}"
+  >
+    <h2
+      class="cart-drawer__heading h4 cart-drawer__heading--empty"
+      id="cart-drawer-heading-empty"
+    >
+      {{ 'content.your_cart_is_empty' | t }}
+    </h2>
+
+    <div class="cart-drawer__items">
+      {% render 'cart-products', force_empty: true %}
+    </div>
+  </div>
+{% endcapture %}
+
+<cart-drawer-component class="cart-drawer kracht-cart-drawer" auto-open>
+  <template id="empty-cart-template">
+    {{ empty_cart_drawer_content }}
+  </template>
+
+  <button
+    class="kracht-header__cart-pill"
+    type="button"
+    on:click="/open"
+    aria-haspopup="dialog"
+    aria-label="{{ 'accessibility.cart' | t }}"
+    data-testid="cart-drawer-trigger"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 3h2l3 12h11l3-8H6"></path>
+      <circle cx="9" cy="20" r="1.5"></circle>
+      <circle cx="18" cy="20" r="1.5"></circle>
+    </svg>
+    <span class="kracht-header__cart-label">{{ cart_label | default: 'Winkelwagen' }}</span>
+    <span class="kracht-header__cart-count" data-kracht-cart-count>{{ cart.item_count }}</span>
+  </button>
+
+  <dialog
+    ref="dialog"
+    class="cart-drawer__dialog dialog-modal dialog-drawer color-{{ settings.drawer_color_scheme }}{% if cart.empty? %} cart-drawer--empty{% endif %}"
+    data-testid="cart-drawer-dialog"
+    aria-labelledby="{% if cart.empty? %}cart-drawer-heading-empty{% else %}cart-drawer-heading{% endif %}"
+    scroll-lock
+    cart-summary-sticky="true"
+  >
+    <span
+      ref="liveRegion"
+      class="visually-hidden"
+      role="status"
+    ></span>
+    <div
+      class="cart-drawer__inner"
+      data-hydration-key="cart-drawer-inner"
+    >
+      {% capture cart_items_children %}
+        {%- if cart.empty? -%}
+          {{ empty_cart_drawer_content }}
+        {%- else -%}
+          <div
+            class="cart-drawer__header"
+            id="cart-drawer-header"
+          >
+            <h2
+              class="cart-drawer__heading h4"
+              id="cart-drawer-heading"
+            >
+              {{ 'content.cart_title' | t }}
+              {% render 'cart-bubble' %}
+            </h2>
+
+            <button
+              ref="closeButton"
+              on:click="cart-drawer-component/close"
+              class="button close-button cart-drawer__close-button button-unstyled"
+              aria-label="{{ 'actions.close_dialog' | t }}"
+            >
+              <span class="svg-wrapper">
+                {{- 'icon-close.svg' | inline_asset_content -}}
+              </span>
+            </button>
+          </div>
+
+          <scroll-hint
+            class="cart-drawer__content"
+            aria-label="{{ 'accessibility.cart' | t }}"
+            style="--header-height: 60px;"
+          >
+            <scroll-hint
+              class="cart-drawer__items"
+            >
+              {% render 'cart-products' %}
+            </scroll-hint>
+
+            <div
+              class="cart-drawer__summary"
+            >
+              {% render 'cart-summary', section_id: section_id %}
+            </div>
+          </scroll-hint>
+        {%- endif -%}
+      {% endcapture %}
+      {% render 'cart-items-component', children: cart_items_children, is_drawer: true, section_id: section_id %}
+    </div>
+  </dialog>
+</cart-drawer-component>

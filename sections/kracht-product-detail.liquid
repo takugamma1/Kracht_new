@@ -270,6 +270,44 @@
       filterGallery(selected['Kleur'] || selected['Color'] || '');
       apply();
     } else {
+      /* fall through to cosmetic toggle below */
+    }
+
+    // AJAX add-to-cart -> update count + open cart drawer
+    const form = root.querySelector('.kracht-pdetail__form');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('.kracht-pdetail__add');
+        const oldHtml = btn ? btn.innerHTML : '';
+        if (btn) { btn.disabled = true; btn.textContent = 'Toevoegen…'; }
+        try {
+          const fd = new FormData(form);
+          const itemsComp = document.querySelector('cart-items-component[data-section-id]');
+          if (itemsComp) fd.append('sections', itemsComp.dataset.sectionId);
+          const res = await fetch('/cart/add.js', { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
+          const payload = await res.json();
+          if (!res.ok) throw new Error(payload.description || 'Toevoegen mislukt');
+          const cart = await (await fetch('/cart.js')).json();
+          document.querySelectorAll('[data-kracht-cart-count]').forEach(el => { el.textContent = cart.item_count; });
+          const ev = new Event('cart:update', { bubbles: true });
+          ev.detail = {
+            resource: cart,
+            sourceId: 'kracht-pdp',
+            data: { source: 'product-form-component', itemCount: cart.item_count, variantId: fd.get('id'), sections: payload.sections || undefined }
+          };
+          document.dispatchEvent(ev);
+          const drawer = document.querySelector('cart-drawer-component');
+          if (drawer && typeof drawer.open === 'function') drawer.open();
+        } catch (err) {
+          window.alert(err.message || 'Er ging iets mis. Probeer het opnieuw.');
+        } finally {
+          if (btn) { btn.disabled = false; btn.innerHTML = oldHtml; }
+        }
+      });
+    }
+
+    if (!dataEl) {
       root.querySelectorAll('.kracht-pdetail__sw-color, .kracht-pdetail__sw-size').forEach(b => {
         b.addEventListener('click', () => {
           const grp = b.parentElement;

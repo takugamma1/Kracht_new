@@ -114,15 +114,19 @@
         </a>
       {%- endif -%}
 
-      <a class="kracht-header__cart-pill" href="{{ routes.cart_url }}" aria-label="Winkelwagen">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 3h2l3 12h11l3-8H6"></path>
-          <circle cx="9" cy="20" r="1.5"></circle>
-          <circle cx="18" cy="20" r="1.5"></circle>
-        </svg>
-        <span class="kracht-header__cart-label">{{ section.settings.cart_label | default: 'Winkelwagen' }}</span>
-        <span class="kracht-header__cart-count" data-kracht-cart-count>{{ cart_count }}</span>
-      </a>
+      {%- if template.name == 'cart' -%}
+        <a class="kracht-header__cart-pill" href="{{ routes.cart_url }}" aria-label="Winkelwagen">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 3h2l3 12h11l3-8H6"></path>
+            <circle cx="9" cy="20" r="1.5"></circle>
+            <circle cx="18" cy="20" r="1.5"></circle>
+          </svg>
+          <span class="kracht-header__cart-label">{{ section.settings.cart_label | default: 'Winkelwagen' }}</span>
+          <span class="kracht-header__cart-count" data-kracht-cart-count>{{ cart_count }}</span>
+        </a>
+      {%- else -%}
+        {% render 'kracht-cart-drawer', section_id: section.id, cart_label: section.settings.cart_label %}
+      {%- endif -%}
 
       <button class="kracht-header__hamburger" type="button" aria-label="Menu openen" aria-expanded="false" data-kracht-drawer-open>
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
