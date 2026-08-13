@@ -173,6 +173,140 @@
                 <p class="kracht-sizeguide__note">Alle maten zijn in centimeters. Twijfel je tussen twee maten? Kies dan de grotere maat.</p>
               </div>
             </dialog>
+          {%- endif -%}
+
+          {%- if product.images.size > 0 -%}
+            <dialog class="kracht-lightbox" data-kracht-lightbox aria-label="Productfoto's">
+              <button type="button" class="kracht-lightbox__close" data-lb-close aria-label="Sluiten">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+              </button>
+              <button type="button" class="kracht-lightbox__nav kracht-lightbox__nav--prev" data-lb-prev aria-label="Vorige foto">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <div class="kracht-lightbox__stage">
+                {%- for image in product.images -%}
+                  {%- assign alt_d = image.alt | downcase -%}
+                  {%- assign img_color = '' -%}
+                  {%- if alt_d contains 'zwart' -%}{%- assign img_color = 'zwart' -%}
+                  {%- elsif alt_d contains 'navy' -%}{%- assign img_color = 'navy' -%}
+                  {%- elsif alt_d contains 'wit' -%}{%- assign img_color = 'wit' -%}
+                  {%- endif -%}
+                  <img
+                    class="kracht-lightbox__img {% if forloop.first %}is-active{% endif %}"
+                    data-idx="{{ forloop.index0 }}"
+                    data-color="{{ img_color }}"
+                    src="{{ image | image_url: width: 1800 }}"
+                    alt="{{ image.alt | default: product.title | escape }}"
+                    loading="lazy"
+                  >
+                {%- endfor -%}
+              </div>
+              <button type="button" class="kracht-lightbox__nav kracht-lightbox__nav--next" data-lb-next aria-label="Volgende foto">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+              <div class="kracht-lightbox__thumbs">
+                {%- for image in product.images -%}
+                  {%- assign alt_d = image.alt | downcase -%}
+                  {%- assign img_color = '' -%}
+                  {%- if alt_d contains 'zwart' -%}{%- assign img_color = 'zwart' -%}
+                  {%- elsif alt_d contains 'navy' -%}{%- assign img_color = 'navy' -%}
+                  {%- elsif alt_d contains 'wit' -%}{%- assign img_color = 'wit' -%}
+                  {%- endif -%}
+                  <button type="button" class="kracht-lightbox__thumb {% if forloop.first %}is-active{% endif %}" data-idx="{{ forloop.index0 }}" data-color="{{ img_color }}" aria-label="Foto {{ forloop.index }}">
+                    <img src="{{ image | image_url: width: 140 }}" alt="" loading="lazy">
+                  </button>
+                {%- endfor -%}
+              </div>
+            </dialog>
+
+            <style>
+              .kracht-lightbox {
+                border: 0;
+                padding: 0;
+                background: transparent;
+                width: 100vw;
+                height: 100dvh;
+                max-width: 100vw;
+                max-height: 100dvh;
+                display: none;
+                grid-template-rows: 1fr auto;
+                align-items: center;
+                justify-items: center;
+                color: #fff;
+                font-family: var(--kracht-font-body);
+              }
+              .kracht-lightbox[open] { display: grid; }
+              .kracht-lightbox::backdrop { background: rgba(0, 0, 0, 0.92); }
+              .kracht-lightbox__stage {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 3.5rem 4.5rem 1rem;
+              }
+              .kracht-lightbox__img {
+                display: none;
+                max-width: 100%;
+                max-height: calc(100dvh - 10rem);
+                object-fit: contain;
+                border-radius: 8px;
+              }
+              .kracht-lightbox__img.is-active { display: block; }
+              .kracht-lightbox__close,
+              .kracht-lightbox__nav {
+                position: fixed;
+                z-index: 2;
+                appearance: none;
+                border: 0;
+                background: rgba(255, 255, 255, 0.12);
+                color: #fff;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: background 200ms ease-out;
+              }
+              .kracht-lightbox__close:hover,
+              .kracht-lightbox__nav:hover { background: var(--kracht-blauw, #009de1); }
+              .kracht-lightbox__close { top: 1.25rem; right: 1.25rem; }
+              .kracht-lightbox__nav--prev { left: 1.25rem; top: 50%; transform: translateY(-50%); }
+              .kracht-lightbox__nav--next { right: 1.25rem; top: 50%; transform: translateY(-50%); }
+              .kracht-lightbox__thumbs {
+                display: flex;
+                gap: 0.5rem;
+                padding: 0.75rem 1rem 1.25rem;
+                max-width: 100vw;
+                overflow-x: auto;
+              }
+              .kracht-lightbox__thumb {
+                appearance: none;
+                padding: 0;
+                border: 2px solid transparent;
+                border-radius: 8px;
+                overflow: hidden;
+                cursor: pointer;
+                background: #1a1a1a;
+                width: 64px;
+                height: 64px;
+                flex: 0 0 auto;
+                opacity: 0.65;
+                transition: opacity 200ms ease, border-color 200ms ease;
+              }
+              .kracht-lightbox__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+              .kracht-lightbox__thumb.is-active,
+              .kracht-lightbox__thumb:hover { opacity: 1; border-color: var(--kracht-blauw, #009de1); }
+              .kracht-pdetail__main-img-el { cursor: zoom-in; }
+              @media (max-width: 749px) {
+                .kracht-lightbox__stage { padding: 3rem 0.5rem 0.5rem; }
+                .kracht-lightbox__nav--prev { left: 0.5rem; }
+                .kracht-lightbox__nav--next { right: 0.5rem; }
+              }
+            </style>
 
             <style>
               .kracht-sizeguide {
@@ -388,6 +522,62 @@
         } finally {
           if (btn) { btn.disabled = false; btn.innerHTML = oldHtml; }
         }
+      });
+    }
+
+    // Lightbox slideshow
+    const lb = root.querySelector('[data-kracht-lightbox]');
+    if (lb) {
+      const lbImgs = Array.from(lb.querySelectorAll('.kracht-lightbox__img'));
+      const lbThumbs = Array.from(lb.querySelectorAll('.kracht-lightbox__thumb'));
+      let lbCur = 0;
+      const activeColor = () => {
+        const b = root.querySelector('.kracht-pdetail__option[data-option-name="Kleur"] button.is-active, .kracht-pdetail__option[data-option-name="Color"] button.is-active');
+        return b ? (b.dataset.value || '').toLowerCase() : '';
+      };
+      const lbVisible = () => {
+        const a = activeColor();
+        return lbThumbs.filter(t => { const c = t.dataset.color || ''; return !c || !a || c === a; }).map(t => +t.dataset.idx);
+      };
+      const lbShow = (i) => {
+        lbCur = i;
+        lbImgs.forEach(im => im.classList.toggle('is-active', +im.dataset.idx === i));
+        lbThumbs.forEach(t => t.classList.toggle('is-active', +t.dataset.idx === i));
+        const at = lbThumbs.find(t => +t.dataset.idx === i);
+        if (at && at.scrollIntoView) at.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+      };
+      const lbStep = (dir) => {
+        const vis = lbVisible();
+        if (!vis.length) return;
+        const pos = vis.indexOf(lbCur);
+        lbShow(vis[(pos + dir + vis.length) % vis.length]);
+      };
+      const lbOpen = () => {
+        const vis = lbVisible();
+        lbThumbs.forEach(t => { t.style.display = vis.includes(+t.dataset.idx) ? '' : 'none'; });
+        const activeMain = root.querySelector('.kracht-pdetail__main-img-el.is-active');
+        let start = activeMain ? +activeMain.dataset.idx : (vis[0] || 0);
+        if (!vis.includes(start)) start = vis[0] || 0;
+        lb.showModal();
+        lbShow(start);
+      };
+      const mainWrap = root.querySelector('.kracht-pdetail__main-img');
+      if (mainWrap) {
+        mainWrap.addEventListener('click', (e) => {
+          if (e.target.closest('.kracht-pdetail__main-img-el') || e.target.closest('.kracht-pdetail__zoom')) lbOpen();
+        });
+      }
+      const lbClose = lb.querySelector('[data-lb-close]');
+      if (lbClose) lbClose.addEventListener('click', () => lb.close());
+      const lbPrev = lb.querySelector('[data-lb-prev]');
+      if (lbPrev) lbPrev.addEventListener('click', () => lbStep(-1));
+      const lbNext = lb.querySelector('[data-lb-next]');
+      if (lbNext) lbNext.addEventListener('click', () => lbStep(1));
+      lbThumbs.forEach(t => t.addEventListener('click', () => lbShow(+t.dataset.idx)));
+      lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+      lb.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') lbStep(1);
+        if (e.key === 'ArrowLeft') lbStep(-1);
       });
     }
 
