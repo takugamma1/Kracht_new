@@ -136,8 +136,18 @@
   color: #fff;
 }
 
-/* trigger pill rendered as a <button> instead of <a> — keep the pill look */
+/* trigger pill rendered as a <button> instead of <a> — strip all native button
+   chrome (border/outline/appearance) so it looks identical to the old link */
 button.kracht-header__cart-pill {
-  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
   cursor: pointer;
+}
+button.kracht-header__cart-pill:focus-visible {
+  outline: 2px solid var(--kracht-blauw-light, #2bb1ec);
+  outline-offset: 2px;
 }
