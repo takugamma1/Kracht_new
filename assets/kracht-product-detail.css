@@ -413,16 +413,15 @@
 /* ==========================================================================
    Kracht — vertical thumbnail carousel
    ========================================================================== */
-.kracht-pdetail__gallery {
-  align-items: stretch;
-}
 .kracht-pdetail__thumbrail {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 0.5rem;
-  min-height: 0;
-  height: 100%;
+  /* height 0 + min-height 100% = follow the main image's row height without
+     contributing to it (otherwise the row grows to fit all thumbnails) */
+  height: 0;
+  min-height: 100%;
   overflow: hidden;
 }
 .kracht-pdetail__thumbs {
@@ -454,5 +453,5 @@
 }
 @media (max-width: 600px) {
   .kracht-pdetail__thumbnav { display: none; }
-  .kracht-pdetail__thumbrail { order: 2; flex-direction: row; height: auto; overflow: visible; }
+  .kracht-pdetail__thumbrail { order: 2; flex-direction: row; height: auto; min-height: 0; overflow: visible; }
 }
