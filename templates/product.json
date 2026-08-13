@@ -118,28 +118,13 @@
           "type": "tab",
           "settings": {
             "label": "Beschrijving",
-            "body": ""
-          }
-        },
-        "tab2": {
-          "type": "tab",
-          "settings": {
-            "label": "Materiaal",
-            "body": ""
-          }
-        },
-        "tab3": {
-          "type": "tab",
-          "settings": {
-            "label": "Onderhoud & pasvorm",
+            "source": "custom",
             "body": ""
           }
         }
       },
       "block_order": [
-        "tab1",
-        "tab2",
-        "tab3"
+        "tab1"
       ],
       "name": "Kracht — Info Tabs",
       "settings": {
