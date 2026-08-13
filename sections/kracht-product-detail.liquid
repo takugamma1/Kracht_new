@@ -36,18 +36,26 @@
       <!-- Gallery -->
       <div class="kracht-pdetail__gallery">
         {%- if product != blank and product.images.size > 0 -%}
-          <div class="kracht-pdetail__thumbs">
-            {%- for image in product.images -%}
-              {%- assign alt_d = image.alt | downcase -%}
-              {%- assign img_color = '' -%}
-              {%- if alt_d contains 'zwart' -%}{%- assign img_color = 'zwart' -%}
-              {%- elsif alt_d contains 'navy' -%}{%- assign img_color = 'navy' -%}
-              {%- elsif alt_d contains 'wit' -%}{%- assign img_color = 'wit' -%}
-              {%- endif -%}
-              <button class="kracht-pdetail__thumb {% if forloop.first %}is-active{% endif %}" data-idx="{{ forloop.index0 }}" data-color="{{ img_color }}" type="button" aria-label="Afbeelding {{ forloop.index }}">
-                <img src="{{ image | image_url: width: 120 }}" alt="" loading="lazy">
-              </button>
-            {%- endfor -%}
+          <div class="kracht-pdetail__thumbrail">
+            <button type="button" class="kracht-pdetail__thumbnav" data-thumbnav="-1" aria-label="Vorige foto">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            </button>
+            <div class="kracht-pdetail__thumbs">
+              {%- for image in product.images -%}
+                {%- assign alt_d = image.alt | downcase -%}
+                {%- assign img_color = '' -%}
+                {%- if alt_d contains 'zwart' -%}{%- assign img_color = 'zwart' -%}
+                {%- elsif alt_d contains 'navy' -%}{%- assign img_color = 'navy' -%}
+                {%- elsif alt_d contains 'wit' -%}{%- assign img_color = 'wit' -%}
+                {%- endif -%}
+                <button class="kracht-pdetail__thumb {% if forloop.first %}is-active{% endif %}" data-idx="{{ forloop.index0 }}" data-color="{{ img_color }}" type="button" aria-label="Afbeelding {{ forloop.index }}">
+                  <img src="{{ image | image_url: width: 120 }}" alt="" loading="lazy">
+                </button>
+              {%- endfor -%}
+            </div>
+            <button type="button" class="kracht-pdetail__thumbnav" data-thumbnav="1" aria-label="Volgende foto">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
           </div>
           <div class="kracht-pdetail__main-img">
             {%- if section.settings.show_new_tag -%}
@@ -524,6 +532,19 @@
         }
       });
     }
+
+    // Vertical thumb carousel: arrows step through (and wrap around) the visible photos
+    root.querySelectorAll('[data-thumbnav]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dir = parseInt(btn.dataset.thumbnav, 10);
+        const list = Array.from(thumbs).filter(t => t.style.display !== 'none');
+        if (!list.length) return;
+        const cur = list.findIndex(t => t.classList.contains('is-active'));
+        const next = list[(cur + dir + list.length) % list.length];
+        next.click();
+        if (next.scrollIntoView) next.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      });
+    });
 
     // Lightbox slideshow
     const lb = root.querySelector('[data-kracht-lightbox]');

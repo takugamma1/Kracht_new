@@ -409,3 +409,50 @@
   .kracht-pdetail__sw-color { width: 32px; height: 32px; }
   .kracht-pdetail__sw-size { min-width: 38px; height: 34px; padding: 0 0.45rem; font-size: 0.8rem; }
 }
+
+/* ==========================================================================
+   Kracht — vertical thumbnail carousel
+   ========================================================================== */
+.kracht-pdetail__gallery {
+  align-items: stretch;
+}
+.kracht-pdetail__thumbrail {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.kracht-pdetail__thumbs {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.kracht-pdetail__thumbs::-webkit-scrollbar { display: none; }
+.kracht-pdetail__thumbnav {
+  flex: 0 0 auto;
+  appearance: none;
+  border: 1px solid #e2e2e5;
+  background: #fff;
+  color: var(--kracht-zwart, #000);
+  border-radius: 8px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 200ms ease-out, color 200ms ease-out, border-color 200ms ease-out;
+}
+.kracht-pdetail__thumbnav:hover {
+  background: var(--kracht-blauw, #009de1);
+  border-color: var(--kracht-blauw, #009de1);
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .kracht-pdetail__thumbnav { display: none; }
+  .kracht-pdetail__thumbrail { order: 2; flex-direction: row; height: auto; overflow: visible; }
+}
