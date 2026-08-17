@@ -575,3 +575,27 @@ h2[class*="kracht-"][class$="__title"] {
 @media (prefers-reduced-motion: reduce) {
   .kracht-reveal { animation: none; }
 }
+
+/* ==========================================================================
+   Map Horizon's font variables to the Kracht brand fonts so everything the
+   theme still renders through Horizon blocks (policy pages, cart, 404 leftovers)
+   uses the same typography as the rest of the site. `--font-primary--family`
+   was referenced by page templates but never defined -> browser default font.
+   html:root outranks Horizon's own :root definitions regardless of load order.
+   ========================================================================== */
+html:root {
+  --font-primary--family: var(--kracht-font-body);
+  --font-secondary--family: var(--kracht-font-heading);
+  --font-tertiary--family: var(--kracht-font-body);
+  --font-body--family: var(--kracht-font-body);
+  --font-heading--family: var(--kracht-font-heading);
+  --font-subheading--family: var(--kracht-font-heading);
+  --font-accent--family: var(--kracht-font-heading);
+}
+
+/* Policy/text pages: readable column + branded headings */
+.page-width .rte h2, .section .rte h2,
+.section h2:where(:not([class])) {
+  font-family: var(--kracht-font-heading);
+  letter-spacing: -0.01em;
+}
