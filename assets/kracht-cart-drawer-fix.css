@@ -151,3 +151,6 @@ button.kracht-header__cart-pill:focus-visible {
   outline: 2px solid var(--kracht-blauw-light, #2bb1ec);
   outline-offset: 2px;
 }
+
+/* full-width kenmerk rows in the Kenmerken card */
+.kracht-pinfo__specs-row--full dd { text-align: left; width: 100%; }

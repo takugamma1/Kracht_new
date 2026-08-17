@@ -1,0 +1,87 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "kracht-image-hero",
+      "name": "Kracht — Image Hero",
+      "settings": {
+        "show_breadcrumbs": false,
+        "heading": "<p>Ons <strong>verhaal</strong></p>",
+        "subheading": "<p>Techniek brengt ons vooruit. Achter iedere innovatie, ieder gebouw en iedere slimme oplossing staan technische professionals die met hun kennis en vakmanschap het verschil maken.</p>",
+        "tag": "Trots op Techniek",
+        "button1_label": "",
+        "button1_link": "",
+        "button2_label": "",
+        "button2_link": "",
+        "image": "shopify://shop_images/Trots_op_tecniek_-2.jpg",
+        "overlay_opacity": 35,
+        "text_color": "#ffffff",
+        "min_height": 520
+      }
+    },
+    "intro": {
+      "type": "kracht-quote-intro",
+      "name": "Kracht — Quote Intro",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>De technici van vandaag inspireren de <strong>technici van morgen</strong></p>",
+        "body_top": "<p>Bij Kracht Recruitment zien we dat iedere dag. Vanuit de arbeidsbemiddeling in de bouw en techniek helpen we technisch professionals van een goede naar een betere baan. Door het dagelijkse contact met technici en bedrijven zien we hoeveel kennis, ambitie en trots er in deze branche zit.</p><p>Maar we zien ook de uitdaging. De vraag naar technisch talent is groot, terwijl het vak niet altijd de aandacht en waardering krijgt die het verdient.</p>",
+        "quote": "",
+        "body_bottom": "<p>Daarom is Trots op Techniek ontstaan. Om iets terug te doen voor de branche en technisch vakmanschap zichtbaarder te maken. Want wie kan beter laten zien hoe mooi, uitdagend en impactvol de bouw en techniek is dan de mensen die er iedere dag in werken?</p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80
+      }
+    },
+    "plusje": {
+      "type": "kracht-cta-banner",
+      "name": "Kracht — CTA Banner",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Het verhaal achter <strong>het plusje</strong></p>",
+        "subheading": "Het plusje staat voor Trots en Techniek. Voor de kennis, ambitie en het vakmanschap waarmee technisch professionals iedere dag vooruitgang mogelijk maken. Met Trots op Techniek maken we die trots zichtbaar. Dus draag waar je voor staat, laat zien waar je trots op bent en inspireer de volgende generatie om hetzelfde te doen. Vakmanschap draag je uit. Draag je trots.",
+        "button1_label": "Ontdek Kracht Recruitment",
+        "button1_link": "https://vanuitkracht.nl",
+        "button2_label": "",
+        "button2_link": "",
+        "show_stats": false,
+        "theme": "dark",
+        "background_color": "#009de1",
+        "text_color": "#ffffff",
+        "padding_y": 64,
+        "radius": 24
+      }
+    },
+    "products": {
+      "type": "kracht-product-grid",
+      "name": "Kracht — Product Grid",
+      "settings": {
+        "heading": "Uitgelichte producten",
+        "subheading": "",
+        "collection": "frontpage",
+        "max_products": 4,
+        "link_label": "Alle producten",
+        "link_url": "/collections/all",
+        "columns_desktop": 4,
+        "columns_tablet": 3,
+        "background_color": "#f4f4f5",
+        "text_color": "#000000",
+        "padding_y": 64
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "intro",
+    "plusje",
+    "products"
+  ]
+}

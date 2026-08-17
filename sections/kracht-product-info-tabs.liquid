@@ -103,6 +103,10 @@
                     <dt>{{ parts[0] | strip }}</dt>
                     <dd>{{ parts[1] | strip }}</dd>
                   </div>
+                {%- elsif line != blank -%}
+                  <div class="kracht-pinfo__specs-row kracht-pinfo__specs-row--full">
+                    <dd>{{ line | strip }}</dd>
+                  </div>
                 {%- endif -%}
               {%- endfor -%}
             {%- endif -%}
