@@ -135,14 +135,16 @@
   .kracht-contact__card {
     background: #fff;
     border-radius: 10px;
-    padding: 1rem;
+    padding: 0;
     display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 1rem;
-    align-items: start;
+    grid-template-columns: 42% 1fr;
+    gap: 1.1rem;
+    align-items: stretch;
+    overflow: hidden;
     box-shadow: 0 4px 16px rgba(0,0,0,0.05);
   }
-  .kracht-contact__card-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 8px; }
+  .kracht-contact__card-img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; display: block; }
+  .kracht-contact__card-body { padding: 1.1rem 1.1rem 1.1rem 0; }
   .kracht-contact__card-name { font-family: var(--kracht-font-heading); font-weight: 700; margin: 0 0 0.5rem; }
   .kracht-contact__card-link { display: flex; align-items: center; gap: 0.4rem; color: #444; font-size: 0.85rem; text-decoration: underline; margin-bottom: 0.35rem; }
   .kracht-contact__card-link:hover { color: var(--kracht-blauw, #009de1); }
