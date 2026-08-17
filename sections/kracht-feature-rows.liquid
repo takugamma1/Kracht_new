@@ -165,23 +165,93 @@
       "type": "row",
       "name": "Card",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "tag", "label": "Tag (e.g. 02)", "default": "01" },
-        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Samenwerken vanuit Kracht." },
-        { "type": "textarea", "id": "description", "label": "Description", "default": "Bouw een team dat écht samenwerkt. Van vertrouwen tot gedeelde verantwoordelijkheid — krachtiger als groep dan als optelsom van individuen." },
-        { "type": "header", "content": "Metadata (optional, 3 columns)" },
-        { "type": "text", "id": "meta1_label", "label": "Label 1", "default": "" },
-        { "type": "text", "id": "meta1_value", "label": "Value 1", "default": "" },
-        { "type": "text", "id": "meta2_label", "label": "Label 2", "default": "" },
-        { "type": "text", "id": "meta2_value", "label": "Value 2", "default": "" },
-        { "type": "text", "id": "meta3_label", "label": "Label 3", "default": "" },
-        { "type": "text", "id": "meta3_value", "label": "Value 3", "default": "" },
-        { "type": "header", "content": "Links" },
-        { "type": "text", "id": "button1_label", "label": "Primary link label", "default": "Meer info" },
-        { "type": "url", "id": "button1_link", "label": "Primary link URL" },
-        { "type": "text", "id": "button2_label", "label": "Secondary link label", "default": "" },
-        { "type": "url", "id": "button2_link", "label": "Secondary link URL" }
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag (e.g. 02)",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Samenwerken vanuit Kracht."
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Bouw een team dat écht samenwerkt. Van vertrouwen tot gedeelde verantwoordelijkheid — krachtiger als groep dan als optelsom van individuen."
+        },
+        {
+          "type": "header",
+          "content": "Metadata (optional, 3 columns)"
+        },
+        {
+          "type": "text",
+          "id": "meta1_label",
+          "label": "Label 1"
+        },
+        {
+          "type": "text",
+          "id": "meta1_value",
+          "label": "Value 1"
+        },
+        {
+          "type": "text",
+          "id": "meta2_label",
+          "label": "Label 2"
+        },
+        {
+          "type": "text",
+          "id": "meta2_value",
+          "label": "Value 2"
+        },
+        {
+          "type": "text",
+          "id": "meta3_label",
+          "label": "Label 3"
+        },
+        {
+          "type": "text",
+          "id": "meta3_value",
+          "label": "Value 3"
+        },
+        {
+          "type": "header",
+          "content": "Links"
+        },
+        {
+          "type": "text",
+          "id": "button1_label",
+          "label": "Primary link label",
+          "default": "Meer info"
+        },
+        {
+          "type": "url",
+          "id": "button1_link",
+          "label": "Primary link URL"
+        },
+        {
+          "type": "text",
+          "id": "button2_label",
+          "label": "Secondary link label"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Secondary link URL"
+        }
       ]
     }
   ],
@@ -189,9 +259,32 @@
     {
       "name": "Kracht — Feature Rows",
       "blocks": [
-        { "type": "row", "settings": { "tag": "01", "eyebrow": "2.1.1 — Samenwerking", "title": "Samenwerken vanuit Kracht." } },
-        { "type": "row", "settings": { "tag": "02", "eyebrow": "2.1.2 — Leiderschap",  "title": "Leiden vanuit Kracht.",     "description": "Ontwikkel een authentieke leiderschapsstijl. Effectief delegeren en het beste uit je team halen." } },
-        { "type": "row", "settings": { "tag": "03", "eyebrow": "2.1.3 — Communicatie", "title": "Heldere taal, scherpe boodschap.", "description": "Leer écht luisteren, helder overtuigen en feedback geven die bijdraagt aan groei." } }
+        {
+          "type": "row",
+          "settings": {
+            "tag": "01",
+            "eyebrow": "2.1.1 — Samenwerking",
+            "title": "Samenwerken vanuit Kracht."
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "tag": "02",
+            "eyebrow": "2.1.2 — Leiderschap",
+            "title": "Leiden vanuit Kracht.",
+            "description": "Ontwikkel een authentieke leiderschapsstijl. Effectief delegeren en het beste uit je team halen."
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "tag": "03",
+            "eyebrow": "2.1.3 — Communicatie",
+            "title": "Heldere taal, scherpe boodschap.",
+            "description": "Leer écht luisteren, helder overtuigen en feedback geven die bijdraagt aan groei."
+          }
+        }
       ]
     }
   ]
