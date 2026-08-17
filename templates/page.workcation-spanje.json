@@ -33,9 +33,9 @@
       "settings": {
         "eyebrow": "Alles over deze workcation",
         "heading": "<p>Een strategische workcation <strong>aan de Costa Brava</strong></p>",
-        "body_top": "<p>Om als onderneming verder te groeien, moet je soms eerst afstand nemen. Afstand van volle agenda's, operationele problemen en gesprekken die steeds worden ingehaald door de waan van de dag. Niet om aan de werkelijkheid te ontsnappen, maar om er met een frisse en eerlijke blik naar te kunnen kijken.</p><p>Creciendo Juntos is een vijfdaagse strategische workcation aan de Costa Brava voor ondernemers, directies en managementteams die samen de volgende ontwikkelfase van hun organisatie willen vormgeven.</p>",
+        "body_top": "<p>Om als onderneming verder te groeien, moet je soms eerst afstand nemen.</p>",
         "quote": "",
-        "body_bottom": "<p><strong>Creciendo Juntos betekent samen groeien. Dat is precies waar deze workcation om draait.</strong></p>",
+        "body_bottom": "",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 80
@@ -46,6 +46,26 @@
       "name": "Kracht — Training Rows",
       "blocks": {
         "r1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08452.jpg",
+            "tag": "",
+            "eyebrow": "",
+            "title": "Loskomen van de waan van de dag",
+            "description": "Afstand van volle agenda's, operationele problemen en gesprekken die steeds worden ingehaald door de waan van de dag. Niet om aan de werkelijkheid te ontsnappen, maar om er met een frisse en eerlijke blik naar te kunnen kijken. Creciendo Juntos is een vijfdaagse strategische workcation aan de Costa Brava voor ondernemers, directies en managementteams die samen de volgende ontwikkelfase van hun organisatie willen vormgeven.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button1_label": "",
+            "button1_link": "",
+            "button2_label": "",
+            "button2_link": ""
+          }
+        },
+        "r2": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08537.jpg",
@@ -65,7 +85,7 @@
             "button2_link": ""
           }
         },
-        "r2": {
+        "r3": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08458.jpg",
@@ -85,7 +105,7 @@
             "button2_link": ""
           }
         },
-        "r3": {
+        "r4": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08500.jpg",
@@ -105,7 +125,7 @@
             "button2_link": ""
           }
         },
-        "r4": {
+        "r5": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08589.jpg",
@@ -125,7 +145,7 @@
             "button2_link": ""
           }
         },
-        "r5": {
+        "r6": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08595.jpg",
@@ -151,7 +171,8 @@
         "r2",
         "r3",
         "r4",
-        "r5"
+        "r5",
+        "r6"
       ],
       "settings": {
         "eyebrow": "",
