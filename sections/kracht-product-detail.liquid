@@ -126,7 +126,38 @@
           {%- form 'product', product, class: 'kracht-pdetail__form' -%}
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
+            {%- assign kleur_sib = product.metafields.custom.kleur_siblings.value -%}
+            {%- if kleur_sib != blank -%}
+              {%- assign sib_lines = kleur_sib | newline_to_br | split: '<br />' -%}
+              {%- assign kleur_current = '' -%}
+              {%- for line in sib_lines -%}
+                {%- assign parts = line | strip | split: '|' -%}
+                {%- if parts.size >= 2 and parts[1] == product.handle -%}{%- assign kleur_current = parts[0] -%}{%- endif -%}
+              {%- endfor -%}
+              <div class="kracht-pdetail__option">
+                <span class="kracht-pdetail__option-label">
+                  KLEUR
+                  <strong>{{ kleur_current }}</strong>
+                </span>
+                <div class="kracht-pdetail__swatches">
+                  {%- for line in sib_lines -%}
+                    {%- assign parts = line | strip | split: '|' -%}
+                    {%- if parts.size >= 4 -%}
+                      <a
+                        href="/products/{{ parts[1] }}"
+                        class="kracht-pdetail__sw-color kracht-pdetail__sw-logo {% if parts[1] == product.handle %}is-active{% endif %}"
+                        style="background: {{ parts[2] }}; color: {{ parts[3] }};"
+                        aria-label="{{ parts[0] }}"
+                        title="{{ parts[0] }}"
+                      >{% render 'kracht-plus' %}</a>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endif -%}
+
             {%- for option in product.options_with_values -%}
+              {%- if option.name == 'Kleur' and kleur_sib != blank -%}{%- continue -%}{%- endif -%}
               <div class="kracht-pdetail__option" data-option-name="{{ option.name | escape }}">
                 <span class="kracht-pdetail__option-label">
                   {{ option.name | upcase }}
@@ -471,6 +502,9 @@
       groups.forEach(g => {
         const active = g.querySelector('button.is-active');
         if (active) selected[g.dataset.optionName] = active.dataset.value;
+      });
+      optionNames.forEach((n, i) => {
+        if (!(n in selected) && data.variants[0]) selected[n] = data.variants[0]['option' + (i + 1)];
       });
 
       const filterGallery = (color) => {
