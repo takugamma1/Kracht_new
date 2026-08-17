@@ -37,7 +37,7 @@
           "settings": {
             "icon": "all",
             "label": "Alle items",
-            "count": "8",
+            "count": "9",
             "link": "/collections/all"
           }
         },
@@ -46,7 +46,7 @@
           "settings": {
             "icon": "tshirt",
             "label": "Casual",
-            "count": "2",
+            "count": "3",
             "link": "/collections/casual"
           }
         },

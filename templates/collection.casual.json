@@ -37,7 +37,7 @@
           "settings": {
             "icon": "all",
             "label": "Casual kleding",
-            "count": "2",
+            "count": "3",
             "link": "/collections/casual"
           }
         },
@@ -45,16 +45,25 @@
           "type": "tab",
           "settings": {
             "icon": "tshirt",
-            "label": "T-shirts",
+            "label": "T-shirt Wit",
             "count": "1",
-            "link": "/products/t-shirt"
+            "link": "/products/t-shirt-wit"
           }
         },
         "t3": {
           "type": "tab",
           "settings": {
+            "icon": "tshirt",
+            "label": "T-shirt Zwart",
+            "count": "1",
+            "link": "/products/t-shirt-zwart"
+          }
+        },
+        "t4": {
+          "type": "tab",
+          "settings": {
             "icon": "hoodie",
-            "label": "Hoodies",
+            "label": "Hoodie",
             "count": "1",
             "link": "/products/hoodie"
           }
@@ -63,7 +72,8 @@
       "block_order": [
         "t1",
         "t2",
-        "t3"
+        "t3",
+        "t4"
       ],
       "name": "Kracht — Category Tabs",
       "settings": {
