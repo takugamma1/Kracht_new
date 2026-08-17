@@ -10,6 +10,7 @@
     --kih-fg: {{ section.settings.text_color }};
     --kih-min-h: {{ section.settings.min_height }}px;
     --kih-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --kih-focal-y: {{ section.settings.focal_y | default: 50 }}%;
   "
 >
   <div class="kracht-img-hero__bg" aria-hidden="true">
@@ -143,6 +144,16 @@
       "step": 5,
       "unit": "%",
       "default": 35
+    },
+    {
+      "type": "range",
+      "id": "focal_y",
+      "label": "Focuspunt verticaal (0 = top)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 50
     },
     {
       "type": "header",
