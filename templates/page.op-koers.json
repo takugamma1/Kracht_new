@@ -1,0 +1,158 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "kracht-image-hero",
+      "name": "Kracht — Image Hero",
+      "settings": {
+        "show_breadcrumbs": false,
+        "heading": "<p>Op <strong>Koers</strong></p>",
+        "subheading": "<p>Stap met je directie of managementteam uit de dagelijkse hectiek en bepaal samen de koers voor de toekomst. Tijdens Op Koers verruil je de vergaderzaal voor een zeilschip en combineer je strategische sessies met teamontwikkeling, leiderschap en ervaringen op het water. <strong>Eén schip. Eén team. Eén koers.</strong></p>",
+        "tag": "Workcation",
+        "button1_label": "Plan Op Koers",
+        "button1_link": "/pages/contact",
+        "button2_label": "",
+        "button2_link": "",
+        "image": "shopify://shop_images/2023_-_THIJS_PEETERS_-_OP_KOERS_-_00304.jpg",
+        "overlay_opacity": 35,
+        "text_color": "#ffffff",
+        "min_height": 520
+      }
+    },
+    "intro": {
+      "type": "kracht-quote-intro",
+      "name": "Kracht — Quote Intro",
+      "settings": {
+        "eyebrow": "Alles over deze workcation",
+        "heading": "<p>Strategische teamtraining <strong>op het water</strong></p>",
+        "body_top": "<p>Soms moet je afstand nemen van de dagelijkse praktijk om weer scherp te kunnen zien waar je met de onderneming naartoe wilt.</p><p>Op Koers is een strategische training voor ondernemers, directies en managementteams die samen richting willen geven aan de toekomst van hun organisatie. Aan boord van een zeilschip verlaten we tijdelijk de vergaderzaal en de waan van de dag. Er ontstaat ruimte voor de gesprekken en keuzes die binnen de dagelijkse hectiek vaak blijven liggen.</p>",
+        "quote": "",
+        "body_bottom": "<p><strong>Want de omstandigheden kun je niet altijd bepalen. De koers die je daarin kiest wel.</strong></p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 80
+      }
+    },
+    "rows": {
+      "type": "kracht-feature-rows",
+      "name": "Kracht — Feature Rows",
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/2023_-_THIJS_PEETERS_-_OP_KOERS_-_00357.jpg",
+            "title": "Van buiten naar binnen naar buiten",
+            "description": "We beginnen met een bedrijfskundige analyse van de buitenwereld: welke economische, technologische en maatschappelijke ontwikkelingen komen op de onderneming af? Vervolgens richten we de blik naar binnen: waar ligt de werkelijke kracht van de organisatie en welke onderneming willen ondernemer, directie en management samen bouwen? Op het snijvlak van wat de organisatie moet doen en wil doen, ontstaat haar strategische sweet spot. Daarna vertalen we deze koers naar buiten: een scherpe why, missie, visie en positionering, en wat deze keuzes concreet betekenen voor leiderschap, samenwerking en dagelijks gedrag."
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-341.jpg",
+            "title": "Strategie en teamontwikkeling komen samen",
+            "description": "Op het water worden gedrag en samenwerking direct zichtbaar. Wie pakt het roer? Wie houdt overzicht? Wie spreekt zich uit wanneer de koers niet klopt? Strategische sessies worden afgewisseld met zeilen, beweging, gezamenlijke opdrachten, reflectie en ontspanning. De ervaringen aan boord gebruiken we voor gerichte teamcoaching, leiderschapsontwikkeling en organisatieontwikkeling."
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-346.jpg",
+            "title": "De koers vasthouden",
+            "description": "De echte uitdaging begint wanneer het schip weer aanlegt en de dagelijkse druk terugkeert. Daarom kan Op Koers worden aangevuld met coaching, leiderschapstraining, teamontwikkeling en begeleiding bij de implementatie. Zo helpen we het managementteam om de gekozen richting vast te houden en stap voor stap zichtbaar te maken in de organisatie."
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 72,
+        "image_radius": 12
+      }
+    },
+    "result": {
+      "type": "kracht-two-cards",
+      "name": "Kracht — Two Cards",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "theme": "light",
+            "background_color": "#f4f4f5",
+            "text_color": "#000000",
+            "eyebrow": "Strategie",
+            "title": "Een gezamenlijk kompas",
+            "description": "De opbrengst is geen strategie die in een presentatie blijft staan, maar een kompas dat richting geeft aan besluiten, gedrag en resultaat.",
+            "checklist": "Een helder beeld van marktontwikkelingen, kansen en bedreigingen\nEen gezamenlijk gekozen strategische richting\nEen scherpe why, missie, visie en positionering\nDuidelijke strategische prioriteiten",
+            "button1_label": "",
+            "button2_label": ""
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "theme": "dark",
+            "background_color": "#000000",
+            "text_color": "#ffffff",
+            "eyebrow": "Team",
+            "title": "Vertrouwen en eigenaarschap",
+            "description": "Naast de inhoud werk je aan de samenwerking en het leiderschap die nodig zijn om de koers waar te maken.",
+            "checklist": "Concrete afspraken over leiderschap en samenwerking\nHerkenbare kernwaarden en gewenst gedrag\nMeer verbinding binnen het managementteam\nHelder eigenaarschap voor de uitvoering",
+            "button1_label": "",
+            "button2_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Wat levert <strong>Op Koers</strong> op?</p>",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_y": 72,
+        "card_radius": 8
+      }
+    },
+    "cta": {
+      "type": "kracht-cta-banner",
+      "name": "Kracht — CTA Banner",
+      "settings": {
+        "eyebrow": "",
+        "heading": "<p>Klaar om samen een <strong>nieuwe koers</strong> te bepalen?</p>",
+        "subheading": "Wil je met jouw directie of managementteam afstand nemen van de dagelijkse operatie en werken aan een heldere strategie, sterkere samenwerking en concreet leiderschap? Neem contact op voor een vrijblijvend kennismakingsgesprek. Eén schip. Eén team. Eén koers.",
+        "button1_label": "Plan Op Koers",
+        "button1_link": "/pages/contact",
+        "button2_label": "",
+        "button2_link": "",
+        "show_stats": false,
+        "theme": "dark",
+        "background_color": "#009de1",
+        "text_color": "#ffffff",
+        "padding_y": 64,
+        "radius": 24
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "intro",
+    "rows",
+    "result",
+    "cta"
+  ]
+}
