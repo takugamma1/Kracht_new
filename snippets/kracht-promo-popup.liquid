@@ -1,0 +1,112 @@
+{%- comment -%}
+  Kracht — promo popup (KRACHT15 launch discount)
+  Shows once per visitor (dismissal stored in localStorage).
+  Disable by removing the render call in layout/theme.liquid.
+{%- endcomment -%}
+
+<dialog class="kracht-promo" data-kracht-promo>
+  <div class="kracht-promo__inner">
+    <button type="button" class="kracht-promo__close" data-kracht-promo-close aria-label="Sluiten">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+    </button>
+    <span class="kracht-promo__plus">{% render 'kracht-plus' %}</span>
+    <p class="kracht-promo__eyebrow">Tijdelijke lanceeractie</p>
+    <h2 class="kracht-promo__title">15% korting op je hele bestelling</h2>
+    <p class="kracht-promo__text">Gebruik onderstaande kortingscode bij het afrekenen en ontvang 15% korting op het volledige winkelmandje.</p>
+    <button type="button" class="kracht-promo__code" data-kracht-promo-code title="Klik om te kopiëren">
+      KRACHT15
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+    </button>
+    <a class="kracht-btn kracht-btn--primary kracht-promo__cta" href="/collections/all">Shop de collectie <span aria-hidden="true">→</span></a>
+  </div>
+</dialog>
+
+<style>
+  .kracht-promo {
+    border: 0;
+    border-radius: 14px;
+    padding: 0;
+    max-width: min(420px, calc(100vw - 2rem));
+    width: 100%;
+    font-family: var(--kracht-font-body);
+    color: var(--kracht-zwart, #000);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  .kracht-promo::backdrop { background: rgba(0, 0, 0, 0.5); }
+  .kracht-promo__inner { padding: 2.25rem 2rem 2rem; position: relative; }
+  .kracht-promo__close {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    appearance: none;
+    border: 0;
+    background: #f4f4f5;
+    border-radius: 8px;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .kracht-promo__close:hover { background: #e8e8ea; }
+  .kracht-promo__plus { color: var(--kracht-blauw, #009de1); display: inline-flex; }
+  .kracht-promo__plus svg { width: 2rem; height: 2rem; }
+  .kracht-promo__eyebrow {
+    margin: 0.75rem 0 0.25rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #666;
+  }
+  .kracht-promo__title {
+    font-family: var(--kracht-font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5rem;
+  }
+  .kracht-promo__text { margin: 0 auto 1.25rem; max-width: 20rem; color: #444; line-height: 1.55; }
+  .kracht-promo__code {
+    appearance: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px dashed var(--kracht-blauw, #009de1);
+    background: #f0faff;
+    color: var(--kracht-zwart, #000);
+    font-family: var(--kracht-font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .kracht-promo__cta { width: 100%; justify-content: center; }
+</style>
+
+<script>
+  (() => {
+    const KEY = 'kracht-promo-kracht15';
+    if (localStorage.getItem(KEY)) return;
+    const dlg = document.querySelector('[data-kracht-promo]');
+    if (!dlg) return;
+    const dismiss = () => { localStorage.setItem(KEY, '1'); if (dlg.open) dlg.close(); };
+    setTimeout(() => { try { dlg.showModal(); } catch (e) {} }, 1500);
+    const closeBtn = dlg.querySelector('[data-kracht-promo-close]');
+    if (closeBtn) closeBtn.addEventListener('click', dismiss);
+    dlg.addEventListener('click', (e) => { if (e.target === dlg) dismiss(); });
+    dlg.addEventListener('cancel', dismiss);
+    const cta = dlg.querySelector('.kracht-promo__cta');
+    if (cta) cta.addEventListener('click', () => localStorage.setItem(KEY, '1'));
+    const code = dlg.querySelector('[data-kracht-promo-code]');
+    if (code) code.addEventListener('click', () => {
+      navigator.clipboard && navigator.clipboard.writeText('KRACHT15');
+      code.insertAdjacentHTML('beforeend', ' ✓');
+      setTimeout(() => { code.innerHTML = code.innerHTML.replace(' ✓', ''); }, 1200);
+    });
+  })();
+</script>

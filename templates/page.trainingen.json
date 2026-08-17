@@ -17,7 +17,7 @@
         "show_breadcrumbs": false,
         "breadcrumbs": "Home / Collecties / Trainingen",
         "tag": "",
-        "heading": "<p>Voor <strong>groei</strong> heb je <em>Kracht</em> nodig.</p>",
+        "heading": "<p>Voor <strong>groei</strong> heb je <em>Kracht</em> nodig</p>",
         "subheading": "<p>Een trotse techneut blijft zich ontwikkelen. Daarom vind je naast onze collectie ook de trainingen van Kracht Training. Praktische trainingen die speciaal zijn ontwikkeld voor technici, zodat je niet alleen met trots naar je werk gaat, maar er ook iedere dag beter in wordt.</p>",
         "button1_label": "",
         "button1_link": "#trainings",
@@ -35,7 +35,7 @@
         "meta4_value": "",
         "meta4_label": "",
         "meta4_icon": "euro",
-        "image": "shopify://shop_images/Image_3.png",
+        "image": "shopify://shop_images/Kracht_training-13.jpg",
         "show_plus": false,
         "image_radius": 4,
         "bg_image": "shopify://shop_images/pexels-yankrukov-7793653.jpg",
@@ -101,10 +101,10 @@
         "r1": {
           "type": "row",
           "settings": {
-            "image": "shopify://shop_images/4_vrouw_helpt_lachende_man_achter_laptop.png",
+            "image": "shopify://shop_images/Kracht_I_Koen_training-19.jpg",
             "tag": "",
             "eyebrow": "",
-            "title": "Communicatie",
+            "title": "Krachtige Communicatie",
             "description": "Sterke communicatie voorkomt misverstanden, versterkt samenwerking en zorgt ervoor dat ideeën echt tot hun recht komen. In deze training leer je helder communiceren, beter luisteren en effectiever samenwerken met collega's, klanten en partners.",
             "meta1_label": "Competentie",
             "meta1_value": "Effectief communiceren",
@@ -116,7 +116,7 @@
             "meta3_value": "Overtuigingskracht",
             "meta3_icon": "users",
             "button1_label": "Ontdek de training",
-            "button1_link": "shopify://pages/training-single",
+            "button1_link": "/pages/contact",
             "button2_label": "",
             "button2_link": ""
           }
@@ -124,10 +124,10 @@
         "r2": {
           "type": "row",
           "settings": {
-            "image": "shopify://shop_images/pexels-reneterp-13820231.jpg",
+            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_Kracht_I_Foto_s_Noah_gijs-8.jpg",
             "tag": "",
             "eyebrow": "",
-            "title": "Samenwerken",
+            "title": "Samenwerken vanuit Kracht",
             "description": "De beste resultaten bereik je samen. Ontdek hoe je beter inspeelt op verschillende persoonlijkheden, onderlinge samenwerking versterkt en meer uit jezelf én je team haalt. Praktisch, herkenbaar en direct toepasbaar.",
             "meta1_label": "Competentie",
             "meta1_value": "Samenwerken",
@@ -139,7 +139,7 @@
             "meta3_value": "Omgevingsbewustzijn",
             "meta3_icon": "users",
             "button1_label": "Ontdek de training",
-            "button1_link": "shopify://pages/training-single",
+            "button1_link": "/pages/contact",
             "button2_label": "",
             "button2_link": ""
           }
@@ -147,10 +147,10 @@
         "r3": {
           "type": "row",
           "settings": {
-            "image": "shopify://shop_images/de-kracht-van-samenwerken.jpg",
+            "image": "shopify://shop_images/Website_bouwplaats_-2.jpg",
             "tag": "",
             "eyebrow": "",
-            "title": "Leiderschap",
+            "title": "Persoonlijk Leiderschap",
             "description": "Goed leiderschap begint bij jezelf. Of je nu een team aanstuurt of jezelf verder wilt ontwikkelen, in deze training werk je aan zelfinzicht, overtuigingskracht en het vermogen om anderen in beweging te brengen.",
             "meta1_label": "Competentie",
             "meta1_value": "Leiderschap",
@@ -162,7 +162,7 @@
             "meta3_value": "Besluitvaardigheid",
             "meta3_icon": "users",
             "button1_label": "Ontdek de training",
-            "button1_link": "shopify://pages/training-single",
+            "button1_link": "/pages/contact",
             "button2_label": "",
             "button2_link": ""
           }
@@ -176,7 +176,7 @@
       "name": "Kracht — Training Rows",
       "settings": {
         "eyebrow": "Kracht Training",
-        "heading": "<p>Drie programma's,<br/><strong>één missie: </strong><em><strong>groei.</strong></em></p>",
+        "heading": "<p>Drie programma's,<br/><strong>één missie: groei</strong></p>",
         "intro": "<p>Blijven groeien stopt niet bij je vakkennis. Met de trainingen Samenwerken, Communicatie en Leiderschap ontwikkel je de soft skills die jou sterker maken als technisch professional. Praktisch, direct toepasbaar en volledig afgestemd op de technische branche.</p>",
         "background_color": "#ffffff",
         "text_color": "#000000",
@@ -234,7 +234,7 @@
       "name": "Kracht — Step Cards",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>Van ambitie naar impact <strong>in 5 stappen.</strong></p>",
+        "heading": "<p>Van ambitie naar impact <strong>in 5 stappen</strong></p>",
         "intro": "<p>Je wilt groeien als technische professional of je organisatie verder ontwikkelen. Daarom bieden we geen standaard trainingen, maar persoonlijke trajecten die volledig aansluiten op de dagelijkse praktijk en de ontwikkeldoelen van zowel technische professionals als de organisatie.</p>",
         "background_color": "#f4f4f5",
         "text_color": "#000000",
@@ -253,7 +253,7 @@
             "background_color": "#f4f4f5",
             "text_color": "#000000",
             "eyebrow": "Voor professionals",
-            "title": "Groei in je vak én als persoon.",
+            "title": "Groei in je vak én als persoon",
             "description": "Technische kennis brengt je ver. Met sterke persoonlijke vaardigheden haal je nóg meer uit jezelf en vergroot je jouw impact op de werkvloer.",
             "checklist": "Sterker communiceren met collega's en klanten\nEffectiever samenwerken in projecten\nMeer zelfvertrouwen in je rol\nBeter omgaan met uitdagingen en veranderingen\nGroeien in je carrière en leiderschap",
             "button1_label": "",
@@ -269,7 +269,7 @@
             "background_color": "#000000",
             "text_color": "#ffffff",
             "eyebrow": "Voor werkgevers",
-            "title": "Investeer in duurzame ontwikkeling.",
+            "title": "Investeer in duurzame ontwikkeling",
             "description": "Sterke teams bestaan uit meer dan vakinhoudelijke kennis. Door te investeren in persoonlijke vaardigheden creëer je een organisatie die beter samenwerkt, effectiever communiceert en klaar is voor de toekomst.",
             "checklist": "Betere samenwerking binnen teams\nEffectievere communicatie op de werkvloer\nMeer eigenaarschap en initiatief\nHogere betrokkenheid van medewerkers\nDuurzame groei van mens én organisatie",
             "button1_label": "",
@@ -286,7 +286,7 @@
       "name": "Kracht — Two Cards",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>Trainingen voor <strong>professionals</strong><br/>én <em><strong>werkgevers.</strong></em></p>",
+        "heading": "<p>Trainingen voor <strong>professionals</strong><br/>én <em><strong>werkgevers</strong></em></p>",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 80,

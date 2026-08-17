@@ -17,11 +17,18 @@
         "m1": {
           "type": "message",
           "settings": {
-            "text": "Gratis verzending bij bestellingen boven €50",
+            "text": "Gebruik code KRACHT15 voor 15% korting op je hele bestelling",
             "link": ""
           }
         },
         "m2": {
+          "type": "message",
+          "settings": {
+            "text": "Gratis verzending bij bestellingen boven €25",
+            "link": ""
+          }
+        },
+        "m3": {
           "type": "message",
           "settings": {
             "text": "Werken vanuit Kracht!",
@@ -31,7 +38,8 @@
       },
       "block_order": [
         "m1",
-        "m2"
+        "m2",
+        "m3"
       ],
       "name": "Kracht — Announcement Bar",
       "settings": {

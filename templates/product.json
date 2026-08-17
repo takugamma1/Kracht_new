@@ -16,7 +16,7 @@
           "type": "usp",
           "settings": {
             "title": "Gratis verzending",
-            "subtitle": "vanaf €50"
+            "subtitle": "vanaf €25"
           }
         },
         "u2": {
@@ -129,7 +129,7 @@
       "name": "Kracht — Info Tabs",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>Alles over dit <strong>product.</strong></p>",
+        "heading": "<p>Alles over dit <strong>product</strong></p>",
         "cta_label": "",
         "cta_link": "",
         "background_color": "#ffffff",

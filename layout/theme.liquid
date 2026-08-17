@@ -132,6 +132,9 @@
       data-template="{{ template }}"
     >
       {{ content_for_layout }}
+      {% unless request.design_mode %}
+        {% render 'kracht-promo-popup' %}
+      {% endunless %}
     </main>
 
     <footer>

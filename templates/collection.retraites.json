@@ -14,14 +14,14 @@
       "name": "Kracht — Image Hero",
       "settings": {
         "show_breadcrumbs": false,
-        "heading": "<p>Even stilstaan, om met <strong>volle Kracht vooruit</strong> te komen.</p>",
+        "heading": "<p>Even stilstaan, om met <strong>volle Kracht vooruit</strong> te komen</p>",
         "subheading": "<p>Soms heb je alleen een andere omgeving nodig om weer vooruit te komen. Onze workcations combineren werken, ontspanning en inspiratie, zodat je met nieuwe energie en frisse ideeën terugkeert.</p>",
         "tag": "",
         "button1_label": "Plan een gesprek",
         "button1_link": "",
         "button2_label": "",
         "button2_link": "",
-        "image": "shopify://shop_images/pexels-tolgaaslanturk-13695885.jpg",
+        "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08468.jpg",
         "overlay_opacity": 35,
         "text_color": "#ffffff",
         "min_height": 560
@@ -32,7 +32,7 @@
       "name": "Kracht — Quote Intro",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>Meer uit je werk halen begint met een <strong>andere werkomgeving.</strong></p>",
+        "heading": "<p>Meer uit je werk halen begint met een <strong>andere werkomgeving</strong></p>",
         "body_top": "<p>Onze experiences zijn ontwikkeld voor professionals die zichzelf willen blijven uitdagen. Werk vanuit onze villa in Spanje of stap aan boord voor inspirerende dagen op het water. Twee unieke ervaringen waarin ontwikkeling, ontspanning en nieuwe ontmoetingen samenkomen. Kies wat bij jou past en ontdek hoe een andere omgeving voor nieuwe energie en inzichten zorgt.</p>",
         "quote": "",
         "body_bottom": "<p>Omdat de beste inzichten ontstaan wanneer je ruimte maakt voor nieuwe energie, ontmoetingen en perspectieven.</p>",
@@ -47,39 +47,39 @@
         "r1": {
           "type": "retreat",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_9.png",
-            "location": "Nederland · IJsselmeer",
+            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-338.jpg",
+            "location": "Nederland · Op het water",
             "code": "",
-            "title": "<p>Op <strong>Koers.</strong></p>",
-            "description": "Vier dagen aan boord van een klassiek tjalkschip over het IJsselmeer. Geen wifi, geen agenda — wel open water, goede gesprekken en de tijd om je richting te herijken. Voor wie even het roer in handen wil nemen.",
-            "meta1_label": "Duur",
-            "meta1_value": "4 dagen",
-            "meta2_label": "Volgende",
-            "meta2_value": "22 — 25 juni 2026",
-            "meta3_label": "Plekken",
-            "meta3_value": "Max. 8",
-            "button_label": "Bekijk retraite",
-            "button_link": "shopify://products/reset-in-spanje",
-            "price": "<p>Vanaf <strong>€1.850</strong> p.p.</p>"
+            "title": "<p>Op <strong>Koers</strong></p>",
+            "description": "Stap met je directie of managementteam uit de dagelijkse hectiek en bepaal samen de koers voor de toekomst. Tijdens Op Koers verruil je de vergaderzaal voor een zeilschip en combineer je strategische sessies met teamontwikkeling, leiderschap en ervaringen op het water. Eén schip. Eén team. Eén koers.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button_label": "Ontdek Op Koers",
+            "button_link": "/pages/op-koers",
+            "price": ""
           }
         },
         "r2": {
           "type": "retreat",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_10_07fb56a2-92c1-49d5-ae68-2226ed0f9aee.png",
-            "location": "Spanje · Andalusië",
+            "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08452.jpg",
+            "location": "Spanje · Costa Brava",
             "code": "",
-            "title": "<p>Reset in <strong>Spanje.</strong></p>",
-            "description": "Zeven dagen in een privé-finca aan de voet van de Sierra Nevada. Begeleide ochtenden, wandelingen door de bergen, lange tafels met lokaal eten. Een echte reset — voor wie ruimte zoekt voor de volgende stap.",
-            "meta1_label": "Duur",
-            "meta1_value": "7 dagen",
-            "meta2_label": "Volgende",
-            "meta2_value": "12 — 18 oktober 2026",
-            "meta3_label": "Plekken",
-            "meta3_value": "Max. 12",
-            "button_label": "Bekijk retraite",
-            "button_link": "/products/reset-in-spanje",
-            "price": "<p>Vanaf <strong>€3.450</strong> p.p.</p>"
+            "title": "<p><strong>Spanje</strong></p>",
+            "description": "Even weg van de dagelijkse operatie om samen te werken aan de toekomst van jullie organisatie. Tijdens de workcation in Spanje nemen ondernemers, directies en managementteams vijf dagen afstand aan de Costa Brava. Vijf dagen afstand. Jaren vooruitgang.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button_label": "Ontdek workcation Spanje",
+            "button_link": "/pages/workcation-spanje",
+            "price": ""
           }
         }
       },
@@ -101,49 +101,41 @@
     "process": {
       "type": "kracht-process-stepper",
       "blocks": {
-        "s1": {
+        "p1": {
           "type": "step",
           "settings": {
-            "title": "Kennismaking",
-            "content_title": "Vrijblijvend gesprek",
-            "content": "<p>We bellen 30 minuten en kijken of we matchen. Geen verkooppraatje — wel concrete vragen over wat je nodig hebt.</p>"
+            "title": "Aanvragen"
           }
         },
-        "s2": {
+        "p2": {
           "type": "step",
           "settings": {
-            "title": "Voorbereiding",
-            "content_title": "Het intaketraject",
-            "content": "<p>In de <strong>twee weken voor vertrek</strong> doe je een persoonlijke voorbereiding: intakevragen, een drijfverentest en een korte schrijfopdracht. Zo arriveer je niet leeg, maar gericht.</p>"
+            "title": "Voorbereiding"
           }
         },
-        "s3": {
+        "p3": {
           "type": "step",
           "settings": {
-            "title": "De retraite",
-            "content_title": "De dagen zelf",
-            "content": "<p>Begeleide reflectie, beweging, goede gesprekken en stilte — afgewisseld in een ritme dat werkt.</p>"
+            "title": "Workcation"
           }
         },
-        "s4": {
+        "p4": {
           "type": "step",
           "settings": {
-            "title": "Integratie",
-            "content_title": "Terug in het dagelijks leven",
-            "content": "<p>Een terugkomdag na zes weken om te toetsen wat is geland — en wat een vervolgstap nodig heeft.</p>"
+            "title": "Integratie"
           }
         }
       },
       "block_order": [
-        "s1",
-        "s2",
-        "s3",
-        "s4"
+        "p1",
+        "p2",
+        "p3",
+        "p4"
       ],
       "name": "Kracht — Process Stepper",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>In 4 stappen naar een <strong>retraite die past.</strong></p>",
+        "heading": "<p>In 4 stappen naar een <strong>workcation die past</strong></p>",
         "intro": "<p>Van eerste gesprek tot terugkomst — zo werkt het bij ons. Een gestructureerd traject dat zorgt dat de retraite niet eindigt op de laatste dag.</p>",
         "active_step": 1,
         "background_color": "#ffffff",

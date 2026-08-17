@@ -6,6 +6,7 @@
 {%- assign columns_t = section.settings.columns_tablet | default: 3 -%}
 
 <section
+  id="kracht-grid"
   class="kracht-cgrid"
   style="
     --kcg-bg: {{ section.settings.background_color }};
@@ -27,34 +28,18 @@
           {%- endif -%}
           resultaten
         </span>
-        <button type="button" class="kracht-cgrid__filter-btn" aria-label="Filters">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="9" y1="18" x2="15" y2="18"/></svg>
-          Filters
-        </button>
-        {%- assign demo_chips = section.settings.demo_chips | default: 'Maat: M, Kleur: Zwart, €0 — €50' | split: ',' -%}
-        {%- for chip in demo_chips -%}
-          <span class="kracht-cgrid__chip">{{ chip | strip }}<span aria-hidden="true">×</span></span>
-        {%- endfor -%}
       </div>
 
       <div class="kracht-cgrid__bar-right">
         <label class="kracht-cgrid__sort-label">
           Sorteer op:
-          <select class="kracht-cgrid__sort">
-            <option>Aanbevolen</option>
-            <option>Prijs ↑</option>
-            <option>Prijs ↓</option>
-            <option>Nieuwste</option>
+          <select class="kracht-cgrid__sort" data-kracht-sort>
+            <option value="manual">Aanbevolen</option>
+            <option value="price-ascending">Prijs ↑</option>
+            <option value="price-descending">Prijs ↓</option>
+            <option value="created-descending">Nieuwste</option>
           </select>
         </label>
-        <div class="kracht-cgrid__view">
-          <button type="button" class="kracht-cgrid__view-btn is-active" aria-label="Grid view">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-          </button>
-          <button type="button" class="kracht-cgrid__view-btn" aria-label="List view">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="5" width="18" height="3" rx="1"/><rect x="3" y="11" width="18" height="3" rx="1"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg>
-          </button>
-        </div>
       </div>
     </div>
 
@@ -100,6 +85,21 @@
     </div>
   </div>
 </section>
+
+<script>
+  (() => {
+    const sel = document.querySelector('[data-kracht-sort]');
+    if (!sel) return;
+    const params = new URLSearchParams(window.location.search);
+    const cur = params.get('sort_by');
+    if (cur) sel.value = cur;
+    sel.addEventListener('change', () => {
+      const p = new URLSearchParams(window.location.search);
+      p.set('sort_by', sel.value);
+      window.location.search = p.toString();
+    });
+  })();
+</script>
 
 {% schema %}
 {

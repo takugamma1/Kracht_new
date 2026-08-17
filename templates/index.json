@@ -18,7 +18,7 @@
         "overlay_opacity": 0,
         "text_color": "#ffffff",
         "tag": "",
-        "heading": "<p>Draag je Kracht <em>met trots.</em></p>",
+        "heading": "<p>Draag je Kracht <em>met trots</em></p>",
         "subheading": "De toekomst begint bij technici zoals jij. Met deze collectie laten we zien hoe waardevol werken in de bouw en techniek is en maken we zichtbaar dat achter ieder project mensen staan die met kennis, vakmanschap en passie het verschil maken. Draag die trots uit en inspireer de volgende generatie.",
         "button1_label": "Ontdek de collectie",
         "button1_link": "/collections/all",
@@ -76,7 +76,7 @@
       "settings": {
         "heading": "Categorieën",
         "link_label": "Bekijk alles",
-        "link_url": "",
+        "link_url": "/collections/all",
         "background_color": "#000000",
         "text_color": "#ffffff",
         "padding_y": 56,
@@ -158,8 +158,8 @@
       "name": "Kracht — CTA Banner",
       "settings": {
         "eyebrow": "",
-        "heading": "<p>Draag waar je <strong>voor staat.</strong></p>",
-        "subheading": "Het plusje is meer dan een logo. Het staat voor vakmanschap, innovatie en de mensen die Nederland iedere dag vooruit helpen. Samen bouwen aan de wereld voor morgen.",
+        "heading": "<p>Draag waar je <strong>voor staat</strong></p>",
+        "subheading": "Het plusje is meer dan een logo. Het staat voor vakmanschap, innovatie en de mensen die Nederland iedere dag vooruit helpen. Samen bouwen we aan de wereld van morgen.",
         "button1_label": "Ontdek Trots op Techniek",
         "button1_link": "/pages/ons-verhaal",
         "button2_label": "",
@@ -222,7 +222,7 @@
       "settings": {
         "heading": "Lookbook",
         "link_label": "Meer bekijken",
-        "link_url": "",
+        "link_url": "/collections/all",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 64,
