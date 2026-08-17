@@ -136,7 +136,14 @@
                   {%- for value in option.values -%}
                     {%- assign vname = value | downcase -%}
                     {%- if option.name == 'Color' or option.name == 'Kleur' -%}
-                      <button type="button" data-value="{{ value | escape }}" class="kracht-pdetail__sw-color {% if option.selected_value == value %}is-active{% endif %}" style="background: {{ vname | replace: 'zwart','#000' | replace: 'navy','#1e2a45' | replace: 'wit','#fff' | replace: 'blauw','#009de1' | replace: 'grijs','#999' | replace: 'geel','#FAB725' }};" aria-label="{{ value }}"></button>
+                      {%- assign sw_logo = '' -%}
+                      {%- if vname == 'wit' -%}{%- assign sw_logo = '#1a1a1a' -%}
+                      {%- elsif vname == 'zwart' -%}{%- assign sw_logo = '#9a9a9a' -%}
+                      {%- elsif vname == 'navy' -%}{%- assign sw_logo = '#8a95ad' -%}
+                      {%- endif -%}
+                      <button type="button" data-value="{{ value | escape }}" class="kracht-pdetail__sw-color{% if sw_logo != blank %} kracht-pdetail__sw-logo{% endif %} {% if option.selected_value == value %}is-active{% endif %}" style="background: {{ vname | replace: 'zwart','#000' | replace: 'navy','#1e2a45' | replace: 'wit','#fff' | replace: 'blauw','#009de1' | replace: 'grijs','#999' | replace: 'geel','#FAB725' }};{% if sw_logo != blank %} color: {{ sw_logo }};{% endif %}" aria-label="{{ value }}" title="{{ value }}">
+                        {%- if sw_logo != blank -%}{% render 'kracht-plus' %}{%- endif -%}
+                      </button>
                     {%- elsif option.name == 'Logo' -%}
                       {%- assign base_color = '#0a0a0a' -%}
                       {%- if product.title contains 'Navy' -%}{%- assign base_color = '#1e2a45' -%}{%- endif -%}
