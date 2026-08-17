@@ -143,7 +143,7 @@
         "heading": "Uitgelichte producten",
         "subheading": "",
         "collection": "frontpage",
-        "max_products": 8,
+        "max_products": 10,
         "link_label": "Alle producten",
         "link_url": "",
         "columns_desktop": 4,
@@ -175,15 +175,6 @@
     "lookbook": {
       "type": "kracht-lookbook",
       "blocks": {
-        "lb1": {
-          "type": "lookbook_card",
-          "settings": {
-            "image": "shopify://shop_images/Kracht_Website_2024_V1_-88.jpg",
-            "eyebrow": "Comfort",
-            "title": "Casual",
-            "link": "/collections/casual"
-          }
-        },
         "lb2": {
           "type": "lookbook_card",
           "settings": {
@@ -193,15 +184,6 @@
             "link": "/collections/zakelijk"
           }
         },
-        "lb3": {
-          "type": "lookbook_card",
-          "settings": {
-            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_Kracht_I_Foto_s_Noah_gijs-17.jpg",
-            "eyebrow": "Merchandise",
-            "title": "Accessoires",
-            "link": "/collections/accessoires"
-          }
-        },
         "lb4": {
           "type": "lookbook_card",
           "settings": {
@@ -209,6 +191,24 @@
             "eyebrow": "Exclusief",
             "title": "Limited edition",
             "link": "/collections/limited-edition"
+          }
+        },
+        "lb1": {
+          "type": "lookbook_card",
+          "settings": {
+            "image": "shopify://shop_images/Kracht_Website_2024_V1_-88.jpg",
+            "eyebrow": "Comfort",
+            "title": "Casual",
+            "link": "/collections/casual"
+          }
+        },
+        "lb3": {
+          "type": "lookbook_card",
+          "settings": {
+            "image": "shopify://shop_images/BRAM_I_KAHMANN_X_Kracht_I_Foto_s_Noah_gijs-17.jpg",
+            "eyebrow": "Merchandise",
+            "title": "Accessoires",
+            "link": "/collections/accessoires"
           }
         }
       },
