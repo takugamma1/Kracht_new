@@ -37,7 +37,7 @@
           "settings": {
             "icon": "all",
             "label": "Alle accessoires",
-            "count": "1",
+            "count": "2",
             "link": "/collections/accessoires"
           }
         },
@@ -45,15 +45,25 @@
           "type": "tab",
           "settings": {
             "icon": "bag",
-            "label": "Canvas tassen",
+            "label": "Canvastas",
             "count": "1",
             "link": "/products/canvas-bag"
+          }
+        },
+        "t3": {
+          "type": "tab",
+          "settings": {
+            "icon": "star",
+            "label": "Speelkaarten",
+            "count": "1",
+            "link": "/products/speelkaarten"
           }
         }
       },
       "block_order": [
         "t1",
-        "t2"
+        "t2",
+        "t3"
       ],
       "name": "Kracht — Category Tabs",
       "settings": {

@@ -37,7 +37,7 @@
           "settings": {
             "icon": "star",
             "label": "Alle limited edition",
-            "count": "1",
+            "count": "2",
             "link": "/collections/limited-edition"
           }
         },
@@ -49,11 +49,21 @@
             "count": "1",
             "link": "/products/koeltas"
           }
+        },
+        "t3": {
+          "type": "tab",
+          "settings": {
+            "icon": "star",
+            "label": "Reiskussen",
+            "count": "1",
+            "link": "/products/reiskussen"
+          }
         }
       },
       "block_order": [
         "t1",
-        "t2"
+        "t2",
+        "t3"
       ],
       "name": "Kracht — Category Tabs",
       "settings": {

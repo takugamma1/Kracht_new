@@ -34,8 +34,16 @@
 }
 .kracht-cattabs__item:hover {
   background: var(--kracht-grijs-licht);
-  color: var(--kct-fg);
+  color: #000;
 }
+.kracht-cattabs__item:hover .kracht-cattabs__icon { color: #000; }
+.kracht-cattabs__item:hover .kracht-cattabs__count { color: #555; }
+.kracht-cattabs__item.is-active:hover {
+  background: var(--kct-active-bg, var(--kracht-blauw));
+  color: var(--kct-active-fg, #fff);
+}
+.kracht-cattabs__item.is-active:hover .kracht-cattabs__icon { color: #fff; }
+.kracht-cattabs__item.is-active:hover .kracht-cattabs__count { color: rgba(255,255,255,0.85); }
 .kracht-cattabs__item.is-active {
   background: var(--kct-active-bg, var(--kracht-blauw));
   color: var(--kct-active-fg, #fff);

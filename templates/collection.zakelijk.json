@@ -37,7 +37,7 @@
           "settings": {
             "icon": "all",
             "label": "Zakelijke kleding",
-            "count": "1",
+            "count": "2",
             "link": "/collections/zakelijk"
           }
         },
@@ -45,15 +45,25 @@
           "type": "tab",
           "settings": {
             "icon": "polo",
-            "label": "Merino pullover",
+            "label": "Merino pullover Zwart",
             "count": "1",
-            "link": "/products/merino"
+            "link": "/products/merino-zwart"
+          }
+        },
+        "t3": {
+          "type": "tab",
+          "settings": {
+            "icon": "polo",
+            "label": "Merino pullover Navy",
+            "count": "1",
+            "link": "/products/merino-navy"
           }
         }
       },
       "block_order": [
         "t1",
-        "t2"
+        "t2",
+        "t3"
       ],
       "name": "Kracht — Category Tabs",
       "settings": {

@@ -37,7 +37,7 @@
           "settings": {
             "icon": "all",
             "label": "Alle items",
-            "count": "5",
+            "count": "8",
             "link": "/collections/all"
           }
         },
@@ -55,7 +55,7 @@
           "settings": {
             "icon": "polo",
             "label": "Zakelijk",
-            "count": "1",
+            "count": "2",
             "link": "/collections/zakelijk"
           }
         },
@@ -64,7 +64,7 @@
           "settings": {
             "icon": "bag",
             "label": "Accessoires",
-            "count": "1",
+            "count": "2",
             "link": "/collections/accessoires"
           }
         },
@@ -73,7 +73,7 @@
           "settings": {
             "icon": "star",
             "label": "Limited edition",
-            "count": "1",
+            "count": "2",
             "link": "/collections/limited-edition"
           }
         }
