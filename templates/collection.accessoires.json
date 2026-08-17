@@ -35,13 +35,22 @@
         "t1": {
           "type": "tab",
           "settings": {
+            "icon": "back",
+            "label": "Alle producten",
+            "count": "",
+            "link": "/collections/all"
+          }
+        },
+        "t2": {
+          "type": "tab",
+          "settings": {
             "icon": "all",
             "label": "Alle accessoires",
             "count": "2",
             "link": "/collections/accessoires"
           }
         },
-        "t2": {
+        "t3": {
           "type": "tab",
           "settings": {
             "icon": "bag",
@@ -50,7 +59,7 @@
             "link": "/products/canvas-bag"
           }
         },
-        "t3": {
+        "t4": {
           "type": "tab",
           "settings": {
             "icon": "star",
@@ -63,7 +72,8 @@
       "block_order": [
         "t1",
         "t2",
-        "t3"
+        "t3",
+        "t4"
       ],
       "name": "Kracht — Category Tabs",
       "settings": {

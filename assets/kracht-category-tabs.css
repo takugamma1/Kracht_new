@@ -72,3 +72,15 @@
   white-space: nowrap;
 }
 .kracht-cattabs__item.is-active .kracht-cattabs__count { color: rgba(255, 255, 255, 0.85); }
+
+/* back-to-all tab: subtly distinct from the category tabs */
+.kracht-cattabs__item--back {
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  opacity: 0.85;
+}
+.kracht-cattabs__item--back:hover {
+  opacity: 1;
+  border-style: solid;
+  border-color: transparent;
+}

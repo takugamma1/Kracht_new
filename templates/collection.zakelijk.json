@@ -35,13 +35,22 @@
         "t1": {
           "type": "tab",
           "settings": {
+            "icon": "back",
+            "label": "Alle producten",
+            "count": "",
+            "link": "/collections/all"
+          }
+        },
+        "t2": {
+          "type": "tab",
+          "settings": {
             "icon": "all",
             "label": "Zakelijke kleding",
             "count": "2",
             "link": "/collections/zakelijk"
           }
         },
-        "t2": {
+        "t3": {
           "type": "tab",
           "settings": {
             "icon": "polo",
@@ -50,7 +59,7 @@
             "link": "/products/merino-zwart"
           }
         },
-        "t3": {
+        "t4": {
           "type": "tab",
           "settings": {
             "icon": "polo",
@@ -63,7 +72,8 @@
       "block_order": [
         "t1",
         "t2",
-        "t3"
+        "t3",
+        "t4"
       ],
       "name": "Kracht — Category Tabs",
       "settings": {
