@@ -42,39 +42,87 @@
       }
     },
     "rows": {
-      "type": "kracht-feature-rows",
-      "name": "Kracht — Feature Rows",
+      "type": "kracht-training-rows",
+      "name": "Kracht — Training Rows",
       "blocks": {
         "r1": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08595.jpg",
+            "tag": "",
+            "eyebrow": "",
             "title": "Vijf dagen ruimte voor de toekomst",
-            "description": "De workcation vindt plaats op een bijzonder landgoed met een vierhonderd jaar oude Spaanse Masia en het gastenverblijf The Calm House. In deze rustige omgeving ontstaat ruimte voor verdieping, strategische sessies, teamcoaching en persoonlijke reflectie."
+            "description": "De workcation vindt plaats op een bijzonder landgoed met een vierhonderd jaar oude Spaanse Masia en het gastenverblijf The Calm House. In deze rustige omgeving ontstaat ruimte voor verdieping, strategische sessies, teamcoaching en persoonlijke reflectie.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button1_label": "",
+            "button1_link": "",
+            "button2_label": "",
+            "button2_link": ""
           }
         },
         "r2": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08471.jpg",
+            "tag": "",
+            "eyebrow": "",
             "title": "Leren door te ervaren",
-            "description": "Ook buiten de sessies werken we aan de ontwikkeling van het team. Wandelen, sport, padel en waar passend een professioneel begeleide via ferrata maken zichtbaar hoe het team omgaat met leiderschap, vertrouwen, spanning en samenwerking. Wie neemt initiatief? Wie durft zich uit te spreken? En wat gebeurt er wanneer de volgende stap spannend wordt?"
+            "description": "Ook buiten de sessies werken we aan de ontwikkeling van het team. Wandelen, sport, padel en waar passend een professioneel begeleide via ferrata maken zichtbaar hoe het team omgaat met leiderschap, vertrouwen, spanning en samenwerking. Wie neemt initiatief? Wie durft zich uit te spreken? En wat gebeurt er wanneer de volgende stap spannend wordt?",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button1_label": "",
+            "button1_link": "",
+            "button2_label": "",
+            "button2_link": ""
           }
         },
         "r3": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08500.jpg",
+            "tag": "",
+            "eyebrow": "",
             "title": "Van buiten naar binnen naar buiten",
-            "description": "Eerst onderzoeken we wat er rondom de onderneming verandert: marktontwikkelingen, klantbehoeften, concurrentie, technologie en de arbeidsmarkt. Daarna richten we de blik naar binnen: waar ligt de echte kracht van de onderneming en wat wil het team vanuit zijn eigen identiteit realiseren? Op het snijvlak van zakelijke noodzaak en gezamenlijke ambitie bepalen we de strategische sweet spot."
+            "description": "Eerst onderzoeken we wat er rondom de onderneming verandert: marktontwikkelingen, klantbehoeften, concurrentie, technologie en de arbeidsmarkt. Daarna richten we de blik naar binnen: waar ligt de echte kracht van de onderneming en wat wil het team vanuit zijn eigen identiteit realiseren? Op het snijvlak van zakelijke noodzaak en gezamenlijke ambitie bepalen we de strategische sweet spot.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button1_label": "",
+            "button1_link": "",
+            "button2_label": "",
+            "button2_link": ""
           }
         },
         "r4": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08556.jpg",
+            "tag": "",
+            "eyebrow": "",
             "title": "Samen groeien gaat thuis verder",
-            "description": "De waarde van een strategische workcation blijkt uiteindelijk in de dagelijkse praktijk. Daarom kan Creciendo Juntos worden gevolgd door periodieke coaching en terugkommomenten. Kracht Training ondersteunt deze ontwikkeling verder met leiderschapstraining, teamcoaching, cultuurprogramma's en begeleiding bij strategische verandering."
+            "description": "De waarde van een strategische workcation blijkt uiteindelijk in de dagelijkse praktijk. Daarom kan Creciendo Juntos worden gevolgd door periodieke coaching en terugkommomenten. Kracht Training ondersteunt deze ontwikkeling verder met leiderschapstraining, teamcoaching, cultuurprogramma's en begeleiding bij strategische verandering.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button1_label": "",
+            "button1_link": "",
+            "button2_label": "",
+            "button2_link": ""
           }
         }
       },
@@ -85,10 +133,14 @@
         "r4"
       ],
       "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "intro": "",
         "background_color": "#ffffff",
         "text_color": "#000000",
+        "card_color": "#ffffff",
         "padding_y": 72,
-        "image_radius": 12
+        "radius": 12
       }
     },
     "result": {

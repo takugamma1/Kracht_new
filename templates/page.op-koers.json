@@ -42,31 +42,67 @@
       }
     },
     "rows": {
-      "type": "kracht-feature-rows",
-      "name": "Kracht — Feature Rows",
+      "type": "kracht-training-rows",
+      "name": "Kracht — Training Rows",
       "blocks": {
         "r1": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/2023_-_THIJS_PEETERS_-_OP_KOERS_-_00357.jpg",
+            "tag": "",
+            "eyebrow": "",
             "title": "Van buiten naar binnen naar buiten",
-            "description": "We beginnen met een bedrijfskundige analyse van de buitenwereld: welke economische, technologische en maatschappelijke ontwikkelingen komen op de onderneming af? Vervolgens richten we de blik naar binnen: waar ligt de werkelijke kracht van de organisatie en welke onderneming willen ondernemer, directie en management samen bouwen? Op het snijvlak van wat de organisatie moet doen en wil doen, ontstaat haar strategische sweet spot. Daarna vertalen we deze koers naar buiten: een scherpe why, missie, visie en positionering, en wat deze keuzes concreet betekenen voor leiderschap, samenwerking en dagelijks gedrag."
+            "description": "We beginnen met een bedrijfskundige analyse van de buitenwereld: welke economische, technologische en maatschappelijke ontwikkelingen komen op de onderneming af? Vervolgens richten we de blik naar binnen: waar ligt de werkelijke kracht van de organisatie en welke onderneming willen ondernemer, directie en management samen bouwen? Op het snijvlak van wat de organisatie moet doen en wil doen, ontstaat haar strategische sweet spot. Daarna vertalen we deze koers naar buiten: een scherpe why, missie, visie en positionering, en wat deze keuzes concreet betekenen voor leiderschap, samenwerking en dagelijks gedrag.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button1_label": "",
+            "button1_link": "",
+            "button2_label": "",
+            "button2_link": ""
           }
         },
         "r2": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-341.jpg",
+            "tag": "",
+            "eyebrow": "",
             "title": "Strategie en teamontwikkeling komen samen",
-            "description": "Op het water worden gedrag en samenwerking direct zichtbaar. Wie pakt het roer? Wie houdt overzicht? Wie spreekt zich uit wanneer de koers niet klopt? Strategische sessies worden afgewisseld met zeilen, beweging, gezamenlijke opdrachten, reflectie en ontspanning. De ervaringen aan boord gebruiken we voor gerichte teamcoaching, leiderschapsontwikkeling en organisatieontwikkeling."
+            "description": "Op het water worden gedrag en samenwerking direct zichtbaar. Wie pakt het roer? Wie houdt overzicht? Wie spreekt zich uit wanneer de koers niet klopt? Strategische sessies worden afgewisseld met zeilen, beweging, gezamenlijke opdrachten, reflectie en ontspanning. De ervaringen aan boord gebruiken we voor gerichte teamcoaching, leiderschapsontwikkeling en organisatieontwikkeling.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button1_label": "",
+            "button1_link": "",
+            "button2_label": "",
+            "button2_link": ""
           }
         },
         "r3": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-346.jpg",
+            "tag": "",
+            "eyebrow": "",
             "title": "De koers vasthouden",
-            "description": "De echte uitdaging begint wanneer het schip weer aanlegt en de dagelijkse druk terugkeert. Daarom kan Op Koers worden aangevuld met coaching, leiderschapstraining, teamontwikkeling en begeleiding bij de implementatie. Zo helpen we het managementteam om de gekozen richting vast te houden en stap voor stap zichtbaar te maken in de organisatie."
+            "description": "De echte uitdaging begint wanneer het schip weer aanlegt en de dagelijkse druk terugkeert. Daarom kan Op Koers worden aangevuld met coaching, leiderschapstraining, teamontwikkeling en begeleiding bij de implementatie. Zo helpen we het managementteam om de gekozen richting vast te houden en stap voor stap zichtbaar te maken in de organisatie.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button1_label": "",
+            "button1_link": "",
+            "button2_label": "",
+            "button2_link": ""
           }
         }
       },
@@ -76,10 +112,14 @@
         "r3"
       ],
       "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "intro": "",
         "background_color": "#ffffff",
         "text_color": "#000000",
+        "card_color": "#ffffff",
         "padding_y": 72,
-        "image_radius": 12
+        "radius": 12
       }
     },
     "result": {
