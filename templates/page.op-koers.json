@@ -21,7 +21,7 @@
         "button1_link": "/pages/contact",
         "button2_label": "",
         "button2_link": "",
-        "image": "shopify://shop_images/2023_-_THIJS_PEETERS_-_OP_KOERS_-_00304.jpg",
+        "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-8.jpg",
         "overlay_opacity": 35,
         "text_color": "#ffffff",
         "min_height": 520
@@ -33,9 +33,9 @@
       "settings": {
         "eyebrow": "Alles over deze workcation",
         "heading": "<p>Strategische teamtraining <strong>op het water</strong></p>",
-        "body_top": "<p>Soms moet je afstand nemen van de dagelijkse praktijk om weer scherp te kunnen zien waar je met de onderneming naartoe wilt.</p><p>Op Koers is een strategische training voor ondernemers, directies en managementteams die samen richting willen geven aan de toekomst van hun organisatie. Aan boord van een zeilschip verlaten we tijdelijk de vergaderzaal en de waan van de dag. Er ontstaat ruimte voor de gesprekken en keuzes die binnen de dagelijkse hectiek vaak blijven liggen.</p>",
+        "body_top": "<p>Soms moet je afstand nemen van de dagelijkse praktijk om weer scherp te kunnen zien waar je met de onderneming naartoe wilt.</p>",
         "quote": "",
-        "body_bottom": "<p><strong>Want de omstandigheden kun je niet altijd bepalen. De koers die je daarin kiest wel.</strong></p>",
+        "body_bottom": "",
         "background_color": "#ffffff",
         "text_color": "#000000",
         "padding_y": 80
@@ -46,6 +46,26 @@
       "name": "Kracht — Training Rows",
       "blocks": {
         "r1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/2023_-_THIJS_PEETERS_-_OP_KOERS_-_00304.jpg",
+            "tag": "",
+            "eyebrow": "",
+            "title": "Ruimte om vooruit te kijken",
+            "description": "Op Koers is een strategische training voor ondernemers, directies en managementteams die samen richting willen geven aan de toekomst van hun organisatie. Aan boord van een zeilschip verlaten we tijdelijk de vergaderzaal en de waan van de dag. Er ontstaat ruimte voor de gesprekken en keuzes die binnen de dagelijkse hectiek vaak blijven liggen. Want de omstandigheden kun je niet altijd bepalen. De koers die je daarin kiest wel.",
+            "meta1_label": "",
+            "meta1_value": "",
+            "meta2_label": "",
+            "meta2_value": "",
+            "meta3_label": "",
+            "meta3_value": "",
+            "button1_label": "",
+            "button1_link": "",
+            "button2_label": "",
+            "button2_link": ""
+          }
+        },
+        "r2": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-346.jpg",
@@ -65,7 +85,7 @@
             "button2_link": ""
           }
         },
-        "r2": {
+        "r3": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-338.jpg",
@@ -85,7 +105,7 @@
             "button2_link": ""
           }
         },
-        "r3": {
+        "r4": {
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/BRAM_I_KAHMANN_X_KRACHT_I_IBIZA_LR._-341.jpg",
@@ -109,7 +129,8 @@
       "block_order": [
         "r1",
         "r2",
-        "r3"
+        "r3",
+        "r4"
       ],
       "settings": {
         "eyebrow": "",
