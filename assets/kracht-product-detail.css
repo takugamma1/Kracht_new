@@ -455,3 +455,11 @@
   .kracht-pdetail__thumbnav { display: none; }
   .kracht-pdetail__thumbrail { order: 2; flex-direction: row; height: auto; min-height: 0; overflow: visible; }
 }
+
+/* Logo swatches: garment color with the plus logo in the logo color */
+.kracht-pdetail__sw-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.kracht-pdetail__sw-logo svg { width: 14px; height: 14px; }

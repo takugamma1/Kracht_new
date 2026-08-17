@@ -104,25 +104,33 @@
         "p1": {
           "type": "step",
           "settings": {
-            "title": "Aanvragen"
+            "title": "Aanvragen",
+            "content_title": "Start jouw workcation-traject",
+            "content": "<p>Vul het contactformulier in. Zo zet je eenvoudig de eerste stap richting jouw workcation.</p>"
           }
         },
         "p2": {
           "type": "step",
           "settings": {
-            "title": "Voorbereiding"
+            "title": "Voorbereiding",
+            "content_title": "Samen bepalen we jouw workcation",
+            "content": "<p>We nemen contact met je op en bespreken jouw wensen en doelen. Samen stellen we een trainingsprogramma op dat bij jullie organisatie past.</p>"
           }
         },
         "p3": {
           "type": "step",
           "settings": {
-            "title": "Workcation"
+            "title": "Workcation",
+            "content_title": "Tijd voor ontwikkeling",
+            "content": "<p>De workcation gaat van start. Je doet nieuwe inzichten en ervaringen op en werkt actief aan je persoonlijke en professionele ontwikkeling.</p>"
           }
         },
         "p4": {
           "type": "step",
           "settings": {
-            "title": "Integratie"
+            "title": "Integratie",
+            "content_title": "Breng het in de praktijk",
+            "content": "<p>Na de workcation pas je toe wat je hebt geleerd in je dagelijkse praktijk. Tijdens een eventuele evaluatie kijken we samen terug op jouw ontwikkeling en vervolgstappen.</p>"
           }
         }
       },
