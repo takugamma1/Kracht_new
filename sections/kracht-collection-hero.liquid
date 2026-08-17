@@ -5,7 +5,7 @@
 {%- assign hero_text = section.settings.subheading | default: current_collection.description -%}
 {%- assign hero_image = section.settings.image | default: current_collection.image -%}
 {%- assign b1_label = section.settings.button1_label | default: 'Bekijk de collectie' -%}
-{%- assign b2_label = section.settings.button2_label | default: 'Nieuwste eerst' -%}
+{%- assign b2_label = section.settings.button2_label -%}
 
 <section
   class="kracht-coll-hero{% if hero_image != blank %} kracht-coll-hero--image{% endif %}"
