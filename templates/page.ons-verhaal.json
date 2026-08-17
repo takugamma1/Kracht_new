@@ -24,7 +24,8 @@
         "image": "shopify://shop_images/Trots_op_tecniek_-2.jpg",
         "overlay_opacity": 35,
         "text_color": "#ffffff",
-        "min_height": 520
+        "min_height": 520,
+        "focal_y": 0
       }
     },
     "intro": {
