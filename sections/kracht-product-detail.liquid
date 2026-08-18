@@ -142,14 +142,14 @@
                 <div class="kracht-pdetail__swatches">
                   {%- for line in sib_lines -%}
                     {%- assign parts = line | strip | split: '|' -%}
-                    {%- if parts.size >= 4 -%}
+                    {%- if parts.size >= 3 -%}
                       <a
                         href="/products/{{ parts[1] }}"
-                        class="kracht-pdetail__sw-color kracht-pdetail__sw-logo {% if parts[1] == product.handle %}is-active{% endif %}"
-                        style="background: {{ parts[2] }}; color: {{ parts[3] }};"
+                        class="kracht-pdetail__sw-color{% if parts[3] %} kracht-pdetail__sw-logo{% endif %} {% if parts[1] == product.handle %}is-active{% endif %}"
+                        style="background: {{ parts[2] }};{% if parts[3] %} color: {{ parts[3] }};{% endif %}"
                         aria-label="{{ parts[0] }}"
                         title="{{ parts[0] }}"
-                      >{% render 'kracht-plus' %}</a>
+                      >{%- if parts[3] -%}{% render 'kracht-plus' %}{%- endif -%}</a>
                     {%- endif -%}
                   {%- endfor -%}
                 </div>
