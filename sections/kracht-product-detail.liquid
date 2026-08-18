@@ -134,9 +134,10 @@
                 {%- assign parts = line | strip | split: '|' -%}
                 {%- if parts.size >= 2 and parts[1] == product.handle -%}{%- assign kleur_current = parts[0] -%}{%- endif -%}
               {%- endfor -%}
+              {%- assign sib_label = product.metafields.custom.kleur_siblings_label.value | default: 'KLEUR' -%}
               <div class="kracht-pdetail__option">
                 <span class="kracht-pdetail__option-label">
-                  KLEUR
+                  {{ sib_label }}
                   <strong>{{ kleur_current }}</strong>
                 </span>
                 <div class="kracht-pdetail__swatches">
