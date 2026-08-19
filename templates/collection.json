@@ -37,7 +37,7 @@
           "settings": {
             "icon": "all",
             "label": "Alle items",
-            "count": "11",
+            "count": "9",
             "link": "/collections/all"
           }
         },
@@ -55,7 +55,7 @@
           "settings": {
             "icon": "polo",
             "label": "Zakelijk",
-            "count": "4",
+            "count": "2",
             "link": "/collections/zakelijk"
           }
         },

@@ -46,7 +46,7 @@
           "settings": {
             "icon": "all",
             "label": "Zakelijke kleding",
-            "count": "4",
+            "count": "2",
             "link": "/collections/zakelijk"
           }
         },
@@ -54,8 +54,8 @@
           "type": "tab",
           "settings": {
             "icon": "polo",
-            "label": "Merino Zwart",
-            "count": "2",
+            "label": "Merino pullover Zwart",
+            "count": "1",
             "link": "/products/merino-zwart"
           }
         },
@@ -63,8 +63,8 @@
           "type": "tab",
           "settings": {
             "icon": "polo",
-            "label": "Merino Navy",
-            "count": "2",
+            "label": "Merino pullover Navy",
+            "count": "1",
             "link": "/products/merino-navy"
           }
         }
