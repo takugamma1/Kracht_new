@@ -10,11 +10,12 @@
 .kracht-pgrid__title {
   font-family: var(--kracht-font-heading);
   font-size: clamp(1.5rem, 2.4vw, 2rem);
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.01em;
   margin: 0;
   color: var(--kpg-fg);
 }
+.kracht-pgrid__title strong, .kracht-pgrid__title b { font-weight: 800; }
 .kracht-pgrid__sub {
   margin: 0.4rem 0 0;
   color: var(--kracht-grijs);

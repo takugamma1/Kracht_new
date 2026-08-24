@@ -141,7 +141,7 @@
       "type": "kracht-product-grid",
       "name": "Kracht — Product Grid",
       "settings": {
-        "heading": "Maak het compleet.",
+        "heading": "Maak het <strong>compleet</strong>",
         "subheading": "",
         "collection": "all",
         "max_products": 4,
