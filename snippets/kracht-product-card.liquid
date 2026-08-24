@@ -54,13 +54,11 @@
   </div>
 
   <div class="kracht-card__body">
-    <p class="kracht-cat-label kracht-card__cat">
-      {%- if product != blank and product.type != blank -%}
-        {{ product.type }}
-      {%- else -%}
-        Categorie
-      {%- endif -%}
-    </p>
+    {%- if product == blank -%}
+      <p class="kracht-cat-label kracht-card__cat">Categorie</p>
+    {%- elsif product.type != blank -%}
+      <p class="kracht-cat-label kracht-card__cat">{{ product.type }}</p>
+    {%- endif -%}
     <h3 class="kracht-card__title">
       {%- if product != blank -%}
         {{ product.title }}
