@@ -4,6 +4,7 @@
 {%- assign collection = collections[section.settings.collection] -%}
 {%- assign max = section.settings.max_products | default: 8 -%}
 {%- assign products_in_collection = collection.products | default: empty -%}
+{%- assign current_product_id = product.id | default: 0 -%}
 
 <section
   class="kracht-pgrid kracht-section--soft"
@@ -34,8 +35,12 @@
 
     <div class="kracht-pgrid__grid">
       {%- if collection != blank and collection.products_count > 0 -%}
-        {%- for product in products_in_collection limit: max -%}
-          {%- render 'kracht-product-card', product: product -%}
+        {%- assign shown = 0 -%}
+        {%- for item in products_in_collection -%}
+          {%- if item.id == current_product_id -%}{%- continue -%}{%- endif -%}
+          {%- render 'kracht-product-card', product: item -%}
+          {%- assign shown = shown | plus: 1 -%}
+          {%- if shown >= max -%}{%- break -%}{%- endif -%}
         {%- endfor -%}
       {%- else -%}
         {%- for i in (1..max) -%}
