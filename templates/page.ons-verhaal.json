@@ -25,7 +25,7 @@
         "overlay_opacity": 35,
         "text_color": "#ffffff",
         "min_height": 520,
-        "focal_y": 40
+        "focal_y": 25
       }
     },
     "intro": {
