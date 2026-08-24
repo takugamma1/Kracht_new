@@ -24,7 +24,7 @@
         "image": "shopify://shop_images/Kracht_Website_2024_V1_-14.jpg",
         "overlay_opacity": 35,
         "text_color": "#ffffff",
-        "min_height": 520,
+        "min_height": 640,
         "focal_y": 35
       }
     },
