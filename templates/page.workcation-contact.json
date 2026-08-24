@@ -1,0 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "form": {
+      "type": "kracht-contact-form",
+      "name": "Kracht — Contactform",
+      "settings": {
+        "heading": "Meer informatie aanvragen",
+        "intro": "Is jouw interesse gewekt of heb je graag wat meer informatie? Dat kan! Vul dan onderstaand formulier in.",
+        "categories": "Spanje, Op Koers",
+        "submit_label": "Aanmelden",
+        "aside_heading": "Meer weten over de Workcations via Kracht? Ik help je graag verder.",
+        "contact_image": "shopify://shop_images/Wieger_Willems.jpg",
+        "contact_name": "Wieger Willems",
+        "contact_phone": "06 54 60 47 71",
+        "contact_whatsapp": "06 54 60 47 71",
+        "contact_email": "wieger@vanuitkracht.nl",
+        "padding_y": 64
+      }
+    }
+  },
+  "order": [
+    "form"
+  ]
+}
