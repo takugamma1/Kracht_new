@@ -18,7 +18,7 @@
         "overlay_opacity": 0,
         "show_breadcrumbs": false,
         "tag": "Collectie",
-        "heading": "<p>Alle producten</p>",
+        "heading": "<p>Alle <strong>producten</strong></p>",
         "subheading": "<p>Kleding voor technici die met trots laten zien waar ze voor staan. Draag jouw vak met dezelfde passie als waarmee je het iedere dag uitoefent.</p>",
         "button1_label": "Bekijk de collectie",
         "button1_link": "#kracht-grid",
