@@ -123,7 +123,7 @@
         {%- endif -%}
       </div>
 
-      {%- comment -%} Column 4 — Socials + Certificaten {%- endcomment -%}
+      {%- comment -%} Column 4 — Socials {%- endcomment -%}
       <div class="kracht-footer__col">
         {%- if section.settings.socials_heading != blank -%}
           <h3 class="kracht-footer__col-title">{{ section.settings.socials_heading }}</h3>
@@ -161,38 +161,6 @@
           </div>
         {%- endif -%}
 
-        {%- if section.settings.cert_heading != blank -%}
-          <h3 class="kracht-footer__col-title kracht-footer__col-title--mt">{{ section.settings.cert_heading }}</h3>
-          <div class="kracht-footer__certs">
-            {%- if section.settings.cert_image_1 != blank -%}
-              {%- if section.settings.cert_link_1 != blank -%}
-                <a href="{{ section.settings.cert_link_1 }}" target="_blank" rel="noopener" class="kracht-footer__cert-link">
-                  <img src="{{ section.settings.cert_image_1 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
-                </a>
-              {%- else -%}
-                <img src="{{ section.settings.cert_image_1 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
-              {%- endif -%}
-            {%- endif -%}
-            {%- if section.settings.cert_image_2 != blank -%}
-              {%- if section.settings.cert_link_2 != blank -%}
-                <a href="{{ section.settings.cert_link_2 }}" target="_blank" rel="noopener" class="kracht-footer__cert-link">
-                  <img src="{{ section.settings.cert_image_2 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
-                </a>
-              {%- else -%}
-                <img src="{{ section.settings.cert_image_2 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
-              {%- endif -%}
-            {%- endif -%}
-            {%- if section.settings.cert_image_3 != blank -%}
-              {%- if section.settings.cert_link_3 != blank -%}
-                <a href="{{ section.settings.cert_link_3 }}" target="_blank" rel="noopener" class="kracht-footer__cert-link">
-                  <img src="{{ section.settings.cert_image_3 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
-                </a>
-              {%- else -%}
-                <img src="{{ section.settings.cert_image_3 | image_url: width: 200 }}" alt="" class="kracht-footer__cert" loading="lazy">
-              {%- endif -%}
-            {%- endif -%}
-          </div>
-        {%- endif -%}
       </div>
 
     </div>
@@ -257,15 +225,6 @@
     { "type": "url", "id": "spotify",   "label": "Spotify URL" },
     { "type": "url", "id": "youtube",   "label": "YouTube URL" },
     { "type": "url", "id": "tiktok",    "label": "TikTok URL" },
-
-    { "type": "header", "content": "Column 4 — Certificaten" },
-    { "type": "text", "id": "cert_heading", "label": "Certificates heading", "default": "Certificaten" },
-    { "type": "image_picker", "id": "cert_image_1", "label": "Certificate 1" },
-    { "type": "url",          "id": "cert_link_1",  "label": "Certificate 1 link" },
-    { "type": "image_picker", "id": "cert_image_2", "label": "Certificate 2" },
-    { "type": "url",          "id": "cert_link_2",  "label": "Certificate 2 link" },
-    { "type": "image_picker", "id": "cert_image_3", "label": "Certificate 3" },
-    { "type": "url",          "id": "cert_link_3",  "label": "Certificate 3 link" },
 
     { "type": "header", "content": "Appearance" },
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#000000" },
