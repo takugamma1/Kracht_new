@@ -207,7 +207,7 @@
       "name": "Kracht — Story Cards",
       "settings": {
         "eyebrow": "",
-        "heading": "<p><strong>Meer dan merch</strong></p>",
+        "heading": "<p>Meer dan <strong>merch</strong></p>",
         "show_arrows": false,
         "show_progress": false,
         "background_color": "#ffffff",
