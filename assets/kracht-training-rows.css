@@ -9,6 +9,7 @@
    black — vanuitkracht.nl has no heading/intro split and no gray copy. */
 .kracht-trrows__head {
   margin-bottom: 2.25rem;
+  text-align: right;
 }
 .kracht-trrows__title {
   font-family: var(--kracht-font-heading);
@@ -28,6 +29,7 @@
   color: var(--ktr-fg);
   max-width: 640px;
   margin-top: 1rem;
+  margin-left: auto;
 }
 .kracht-trrows__intro p { margin: 0; }
 
@@ -188,7 +190,8 @@
   .kracht-trrows { padding-block: 60px; }
 }
 @media (max-width: 900px) {
-  .kracht-trrows__head { margin-bottom: 1.5rem; }
+  .kracht-trrows__head { margin-bottom: 1.5rem; text-align: left; }
+  .kracht-trrows__intro { margin-left: 0; }
   .kracht-trrow,
   .kracht-trrow--reverse { grid-template-columns: 1fr; gap: 1.25rem; }
   .kracht-trrow--reverse .kracht-trrow__media,
