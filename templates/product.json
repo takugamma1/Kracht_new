@@ -160,45 +160,41 @@
         "s1": {
           "type": "story",
           "settings": {
-            "image": "shopify://shop_images/pexels-bymuratisikofficial-31112196.jpg",
-            "tag_label": "Team",
-            "tag_date": "12 mei 2026",
-            "title": "Hoe het Kracht team samen wint.",
+            "image": "shopify://shop_images/twee_mannen_op_bouwplaats_met_bouwhelm.jpg",
+            "tag_label": "Ons verhaal",
+            "title": "Het idee achter <strong>#TrotsopTechniek</strong>",
             "cta": "Lees meer",
-            "link": ""
+            "link": "/pages/ons-verhaal"
           }
         },
         "s2": {
           "type": "story",
           "settings": {
-            "image": "shopify://shop_images/pexels-polina-zimmerman-3747441.jpg",
-            "tag_label": "Cultuur",
-            "tag_date": "28 apr 2026",
-            "title": "Werken vanuit Kracht — wat dat écht betekent.",
+            "image": "shopify://shop_images/2025_-_GROEIKRACHT_EL_PODER-08570.jpg",
+            "tag_label": "Workcation",
+            "title": "Buiten de <strong>dagelijkse koers</strong>",
             "cta": "Lees meer",
-            "link": ""
+            "link": "/collections/retreats"
           }
         },
         "s3": {
           "type": "story",
           "settings": {
-            "image": "shopify://shop_images/Background_11.png",
-            "tag_label": "Stijl",
-            "tag_date": "15 apr 2026",
-            "title": "Van werkkleding tot lifestyle.",
+            "image": "shopify://shop_images/Kracht_training-13_20a7fc69-1a83-4cc9-9c8c-6626b1ddc0b2.jpg",
+            "tag_label": "Kracht Training",
+            "title": "Ontwikkel de <strong>kracht</strong> in je organisatie",
             "cta": "Lees meer",
-            "link": ""
+            "link": "/pages/training-collection"
           }
         },
         "s4": {
           "type": "story",
           "settings": {
-            "image": "shopify://shop_images/pexels-karolina-2031292-9629644.jpg",
-            "tag_label": "Kandidaten",
-            "tag_date": "",
-            "title": "Van een goede naar een betere baan.",
+            "image": "shopify://shop_images/Kracht_Website_2024_V1_-14.jpg",
+            "tag_label": "Kracht Recruitment",
+            "title": "Voor groei heb je <strong>Kracht</strong> nodig",
             "cta": "Lees meer",
-            "link": ""
+            "link": "https://vanuitkracht.nl"
           }
         }
       },
@@ -211,7 +207,7 @@
       "name": "Kracht — Story Cards",
       "settings": {
         "eyebrow": "",
-        "heading": "<p><strong>Meer dan merch.</strong></p>",
+        "heading": "<p><strong>Meer dan merch</strong></p>",
         "show_arrows": false,
         "show_progress": false,
         "background_color": "#ffffff",

@@ -119,9 +119,10 @@
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
+.kracht-story-card__title strong { font-weight: 800; }
 .kracht-story-card__title {
   font-family: var(--kracht-font-heading);
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.25rem;
   line-height: 1.2;
   margin: 0;

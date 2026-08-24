@@ -53,8 +53,8 @@
             </div>
             <div class="kracht-story-card__panel">
               <div class="kracht-story-card__body">
-                {%- if block.settings.tag_date != blank -%}
-                  <span class="kracht-story-card__date">{{ block.settings.tag_date }}</span>
+                {%- if block.settings.tag_label != blank -%}
+                  <span class="kracht-story-card__date">{{ block.settings.tag_label }}</span>
                 {%- endif -%}
                 {%- if block.settings.title != blank -%}
                   <p class="kracht-story-card__title">{{ block.settings.title }}</p>
@@ -234,8 +234,7 @@
       "name": "Story card",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "tag_label", "label": "Tag label", "default": "Team" },
-        { "type": "text", "id": "tag_date", "label": "Date / right meta", "default": "12 mei 2026" },
+        { "type": "text", "id": "tag_label", "label": "Label", "default": "Team" },
         { "type": "text", "id": "title", "label": "Title", "default": "Hoe het Kracht team samen wint." },
         { "type": "text", "id": "cta", "label": "CTA label", "default": "Lees meer" },
         { "type": "url", "id": "link", "label": "Link" }
@@ -246,10 +245,10 @@
     {
       "name": "Kracht — Story Cards",
       "blocks": [
-        { "type": "story", "settings": { "tag_label": "Team",      "tag_date": "12 mei 2026", "title": "Hoe het Kracht team samen wint.", "cta": "Lees meer" } },
-        { "type": "story", "settings": { "tag_label": "Cultuur",   "tag_date": "28 apr 2026", "title": "Werken vanuit Kracht — wat dat écht betekent.", "cta": "Lees meer" } },
-        { "type": "story", "settings": { "tag_label": "Stijl",     "tag_date": "15 apr 2026", "title": "Van werkkleding tot lifestyle.", "cta": "Lees meer" } },
-        { "type": "story", "settings": { "tag_label": "Kandidaten","tag_date": "",            "title": "Van een goede naar een betere baan.", "cta": "Lees meer" } }
+        { "type": "story", "settings": { "tag_label": "Team",      "title": "Hoe het Kracht team samen wint.", "cta": "Lees meer" } },
+        { "type": "story", "settings": { "tag_label": "Cultuur",   "title": "Werken vanuit Kracht — wat dat écht betekent.", "cta": "Lees meer" } },
+        { "type": "story", "settings": { "tag_label": "Stijl",     "title": "Van werkkleding tot lifestyle.", "cta": "Lees meer" } },
+        { "type": "story", "settings": { "tag_label": "Kandidaten","title": "Van een goede naar een betere baan.", "cta": "Lees meer" } }
       ]
     }
   ]
