@@ -293,25 +293,6 @@
         "card_radius": 8
       }
     },
-    "testimonial": {
-      "type": "kracht-testimonial",
-      "name": "Kracht — Testimonial",
-      "settings": {
-        "eyebrow": "",
-        "heading": "<p>De resultaten <strong>spreken voor </strong><em><strong>zich.</strong></em></p>",
-        "intro": "<p>Lees hoe teams en professionals groeiden met onze trainingen — vanuit hun eigen woorden.</p>",
-        "autoplay_seconds": 6,
-        "image": "shopify://shop_images/pexels-kindelmedia-7651813.jpg",
-        "card_tag": "Succesverhaal",
-        "card_meta": "Ted Maters · Architect",
-        "card_quote": "<p>\"Hoe Ted via Kracht terechtkwam bij het architectenbureau van zijn <strong>oud-docent.</strong>\"</p>",
-        "card_cta": "",
-        "card_cta_link": "shopify://pages/samenwerken-vanuit-kracht",
-        "background_color": "#ffffff",
-        "text_color": "#000000",
-        "padding_y": 80
-      }
-    },
     "kracht_newsletter_qCN4aP": {
       "type": "kracht-newsletter",
       "name": "Kracht — Newsletter",
@@ -334,7 +315,6 @@
     "trainings",
     "process",
     "audiences",
-    "testimonial",
     "kracht_newsletter_qCN4aP"
   ]
 }
