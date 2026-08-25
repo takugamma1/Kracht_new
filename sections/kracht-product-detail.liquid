@@ -158,6 +158,7 @@
             {%- endif -%}
 
             {%- for option in product.options_with_values -%}
+              {%- if product.has_only_default_variant -%}{%- continue -%}{%- endif -%}
               {%- if option.name == 'Kleur' and kleur_sib != blank -%}{%- continue -%}{%- endif -%}
               <div class="kracht-pdetail__option" data-option-name="{{ option.name | escape }}">
                 <span class="kracht-pdetail__option-label">
