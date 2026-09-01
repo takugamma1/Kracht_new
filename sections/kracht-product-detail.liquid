@@ -48,7 +48,12 @@
                 {%- elsif alt_d contains 'navy' -%}{%- assign img_color = 'navy' -%}
                 {%- elsif alt_d contains 'wit' -%}{%- assign img_color = 'wit' -%}
                 {%- endif -%}
-                <button class="kracht-pdetail__thumb {% if forloop.first %}is-active{% endif %}" data-idx="{{ forloop.index0 }}" data-color="{{ img_color }}" type="button" aria-label="Afbeelding {{ forloop.index }}">
+                {%- assign img_logo = '' -%}
+                {%- if alt_d contains 'logo: kracht blauw' -%}{%- assign img_logo = 'kracht blauw' -%}
+                {%- elsif alt_d contains 'logo: zwart' -%}{%- assign img_logo = 'zwart' -%}
+                {%- elsif alt_d contains 'logo: navy' -%}{%- assign img_logo = 'navy' -%}
+                {%- endif -%}
+                <button class="kracht-pdetail__thumb {% if forloop.first %}is-active{% endif %}" data-idx="{{ forloop.index0 }}" data-color="{{ img_color }}" data-logo="{{ img_logo }}" type="button" aria-label="Afbeelding {{ forloop.index }}">
                   <img src="{{ image | image_url: width: 120 }}" alt="" loading="lazy">
                 </button>
               {%- endfor -%}
@@ -64,7 +69,7 @@
             {%- for image in product.images -%}
               <img
                 src="{{ image | image_url: width: 1000 }}"
-                alt="{{ image.alt | default: product.title }}"
+                alt="{{ image.alt | split: ' | logo:' | first | default: product.title }}"
                 class="kracht-pdetail__main-img-el {% if forloop.first %}is-active{% endif %}"
                 data-idx="{{ forloop.index0 }}"
                 loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
@@ -545,6 +550,34 @@
           });
         });
       });
+
+      // Logo option <-> gallery two-way sync (merino: images tagged via alt "| logo: X")
+      const logoGroup = root.querySelector('.kracht-pdetail__option[data-option-name="Logo"]');
+      if (logoGroup) {
+        const syncSwatchToThumb = (t) => {
+          const lg = (t.dataset.logo || '').toLowerCase();
+          if (!lg) return;
+          const btn = Array.from(logoGroup.querySelectorAll('button[data-value]'))
+            .find(b => (b.dataset.value || '').toLowerCase() === lg);
+          if (!btn || btn.classList.contains('is-active')) return;
+          logoGroup.querySelectorAll('button').forEach(x => x.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          selected[logoGroup.dataset.optionName] = btn.dataset.value;
+          const cur = logoGroup.querySelector('[data-option-current]');
+          if (cur) cur.textContent = btn.dataset.value;
+          apply();
+        };
+        thumbs.forEach(t => t.addEventListener('click', () => syncSwatchToThumb(t)));
+        logoGroup.querySelectorAll('.kracht-pdetail__sw-color').forEach(b => {
+          b.addEventListener('click', () => {
+            const lg = (b.dataset.value || '').toLowerCase();
+            const target = Array.from(thumbs).find(t => (t.dataset.logo || '').toLowerCase() === lg);
+            if (target && !target.classList.contains('is-active')) target.click();
+          });
+        });
+        const initActive = root.querySelector('.kracht-pdetail__thumb.is-active');
+        if (initActive) syncSwatchToThumb(initActive);
+      }
 
       filterGallery(selected['Kleur'] || selected['Color'] || '');
       apply();
