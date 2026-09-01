@@ -140,10 +140,10 @@
       "type": "kracht-product-grid",
       "name": "Kracht — Product Grid",
       "settings": {
-        "heading": "Uitgelichte <strong>producten</strong>",
+        "heading": "Uitgelichte producten",
         "subheading": "",
         "collection": "frontpage",
-        "max_products": 10,
+        "max_products": 16,
         "link_label": "Alle producten",
         "link_url": "",
         "columns_desktop": 4,
