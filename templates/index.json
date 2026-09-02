@@ -13,7 +13,7 @@
       "type": "kracht-home-hero",
       "name": "Kracht — Home Hero",
       "settings": {
-        "image": "shopify://shop_images/model-in-neutral-colors-by-window.jpg",
+        "video_url": "https://youtu.be/8jGGtHU189Y?si=1A30B_VZlC55Fhuh",
         "min_height": 700,
         "overlay_opacity": 0,
         "text_color": "#ffffff",
@@ -142,8 +142,8 @@
       "settings": {
         "heading": "Uitgelichte producten",
         "subheading": "",
-        "collection": "frontpage",
-        "max_products": 16,
+        "collection": "all",
+        "max_products": 24,
         "link_label": "Alle producten",
         "link_url": "",
         "columns_desktop": 4,
