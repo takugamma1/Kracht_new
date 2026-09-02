@@ -13,7 +13,7 @@
       "type": "kracht-home-hero",
       "name": "Kracht — Home Hero",
       "settings": {
-        "video_url": "https://youtu.be/8jGGtHU189Y?si=1A30B_VZlC55Fhuh",
+        "image": "shopify://shop_images/model-in-neutral-colors-by-window.jpg",
         "min_height": 700,
         "overlay_opacity": 0,
         "text_color": "#ffffff",
@@ -23,7 +23,8 @@
         "button1_label": "Ontdek de collectie",
         "button1_link": "/collections/all",
         "button2_label": "Ons verhaal",
-        "button2_link": "/pages/ons-verhaal"
+        "button2_link": "/pages/ons-verhaal",
+        "video_url": "https://youtu.be/8jGGtHU189Y?si=1A30B_VZlC55Fhuh"
       }
     },
     "categories": {

@@ -96,3 +96,22 @@
   .kracht-hero__cta { flex-direction: column; align-items: stretch; }
   .kracht-hero__cta .kracht-btn { justify-content: center; }
 }
+
+/* YouTube background video: 16:9 iframe scaled to cover the hero */
+.kracht-hero__yt {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  container-type: size;
+}
+.kracht-hero__yt iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100cqw, 177.78cqh);
+  height: max(100cqh, 56.25cqw);
+  border: 0;
+}

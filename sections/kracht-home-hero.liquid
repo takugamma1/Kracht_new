@@ -14,15 +14,47 @@
         autoplay: true, loop: true, muted: true, controls: false, playsinline: true,
         image_size: '1600x' }}
   {%- elsif section.settings.video_url != blank -%}
-    <video
-      class="kracht-hero__bg"
-      autoplay muted loop playsinline
-      preload="auto"
-      {% if section.settings.image != blank %}poster="{{ section.settings.image | image_url: width: 1600 }}"{% endif %}
-      aria-hidden="true"
-    >
-      <source src="{{ section.settings.video_url }}" type="video/mp4">
-    </video>
+    {%- assign vurl = section.settings.video_url -%}
+    {%- assign yt_id = '' -%}
+    {%- if vurl contains 'youtu.be/' -%}
+      {%- assign yt_id = vurl | split: 'youtu.be/' | last | split: '?' | first | split: '/' | first -%}
+    {%- elsif vurl contains 'youtube.com' -%}
+      {%- if vurl contains 'v=' -%}
+        {%- assign yt_id = vurl | split: 'v=' | last | split: '&' | first -%}
+      {%- elsif vurl contains '/embed/' -%}
+        {%- assign yt_id = vurl | split: '/embed/' | last | split: '?' | first -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- if yt_id != blank -%}
+      {%- if section.settings.image != blank -%}
+        <img
+          src="{{ section.settings.image | image_url: width: 1600 }}"
+          alt=""
+          class="kracht-hero__bg"
+          loading="eager"
+          aria-hidden="true"
+        >
+      {%- endif -%}
+      <div class="kracht-hero__yt" aria-hidden="true">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/{{ yt_id }}?autoplay=1&mute=1&loop=1&playlist={{ yt_id }}&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3"
+          title="Achtergrondvideo"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          tabindex="-1"
+        ></iframe>
+      </div>
+    {%- else -%}
+      <video
+        class="kracht-hero__bg"
+        autoplay muted loop playsinline
+        preload="auto"
+        {% if section.settings.image != blank %}poster="{{ section.settings.image | image_url: width: 1600 }}"{% endif %}
+        aria-hidden="true"
+      >
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+      </video>
+    {%- endif -%}
   {%- elsif section.settings.image != blank -%}
     <img
       src="{{ section.settings.image | image_url: width: 2400 }}"
@@ -98,8 +130,8 @@
     {
       "type": "text",
       "id": "video_url",
-      "label": "Background video URL (.mp4)",
-      "info": "Directe link naar een .mp4-bestand (bijv. uit Content → Files). Speelt gedempt af in een loop; de afbeelding wordt als poster gebruikt."
+      "label": "Background video URL",
+      "info": "YouTube-link of directe .mp4-link. Speelt gedempt af in een loop; de afbeelding wordt als poster gebruikt."
     },
     {
       "type": "range",
