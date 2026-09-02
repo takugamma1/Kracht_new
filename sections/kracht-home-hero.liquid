@@ -8,7 +8,22 @@
     --khh-text: {{ section.settings.text_color }};
   "
 >
-  {%- if section.settings.image != blank -%}
+  {%- if section.settings.video != blank -%}
+    {{ section.settings.video | video_tag:
+        class: 'kracht-hero__bg',
+        autoplay: true, loop: true, muted: true, controls: false, playsinline: true,
+        image_size: '1600x' }}
+  {%- elsif section.settings.video_url != blank -%}
+    <video
+      class="kracht-hero__bg"
+      autoplay muted loop playsinline
+      preload="auto"
+      {% if section.settings.image != blank %}poster="{{ section.settings.image | image_url: width: 1600 }}"{% endif %}
+      aria-hidden="true"
+    >
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+    </video>
+  {%- elsif section.settings.image != blank -%}
     <img
       src="{{ section.settings.image | image_url: width: 2400 }}"
       srcset="
@@ -73,6 +88,18 @@
       "type": "image_picker",
       "id": "image",
       "label": "Background image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background video (upload)",
+      "info": "Speelt gedempt af in een loop. Heeft voorrang op de video-URL en de afbeelding."
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Background video URL (.mp4)",
+      "info": "Directe link naar een .mp4-bestand (bijv. uit Content → Files). Speelt gedempt af in een loop; de afbeelding wordt als poster gebruikt."
     },
     {
       "type": "range",
