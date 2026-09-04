@@ -599,3 +599,15 @@ html:root {
   font-family: var(--kracht-font-heading);
   letter-spacing: -0.01em;
 }
+
+/* Rich-text headings render as <h2><p>…</p></h2>; make the inner <p> inherit the
+   heading's font instead of picking up paragraph/body typography. */
+[class*="kracht-"] :is(h1, h2, h3, h4) > p,
+[class*="kracht-"] :is(h1, h2, h3, h4) > p > strong,
+[class*="kracht-"] :is(h1, h2, h3, h4) > p > em {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+[class*="kracht-"] :is(h1, h2, h3, h4) > p { font-weight: inherit; margin: 0; }
