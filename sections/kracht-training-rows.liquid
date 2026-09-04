@@ -31,7 +31,11 @@
       {%- for block in section.blocks -%}
         {%- assign mod = forloop.index | modulo: 2 -%}
         {%- assign reverse = false -%}
-        {%- if mod != 0 -%}{%- assign reverse = true -%}{%- endif -%}
+        {%- if section.settings.image_first_side == 'right' -%}
+          {%- if mod != 0 -%}{%- assign reverse = true -%}{%- endif -%}
+        {%- else -%}
+          {%- if mod == 0 -%}{%- assign reverse = true -%}{%- endif -%}
+        {%- endif -%}
 
         <article class="kracht-trrow {% if reverse %}kracht-trrow--reverse{% endif %}" {{ block.shopify_attributes }}>
           <div class="kracht-trrow__media">
@@ -123,6 +127,7 @@
     { "type": "richtext", "id": "intro",   "label": "Intro paragraph", "default": "<p>Elke training is op maat te maken voor jouw team of organisatie. Klassikaal, online of hybride — altijd persoonlijk, altijd praktisch.</p>" },
 
     { "type": "header", "content": "Appearance" },
+    { "type": "select", "id": "image_first_side", "label": "Eerste rij: afbeelding links of rechts", "options": [ { "value": "left", "label": "Links" }, { "value": "right", "label": "Rechts" } ], "default": "left" },
     { "type": "color", "id": "background_color", "label": "Background color", "default": "#ffffff" },
     { "type": "color", "id": "text_color",       "label": "Text color",       "default": "#000000" },
     { "type": "color", "id": "card_color",       "label": "Card background",  "default": "#F8F8F8" },

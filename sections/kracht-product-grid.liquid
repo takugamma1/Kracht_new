@@ -20,7 +20,16 @@
     <div class="kracht-section__head">
       <div class="kracht-section__head-text">
         {%- if section.settings.heading != blank -%}
-          <h2 class="kracht-pgrid__title">{{ section.settings.heading }}</h2>
+          {%- assign pg_heading = section.settings.heading -%}
+          {%- unless pg_heading contains '<strong' -%}
+            {%- assign pg_words = pg_heading | split: ' ' -%}
+            {%- if pg_words.size > 1 -%}
+              {%- assign pg_last = pg_words | last -%}
+              {%- assign pg_first = pg_heading | remove_last: pg_last | strip -%}
+              {%- assign pg_heading = pg_first | append: ' <strong>' | append: pg_last | append: '</strong>' -%}
+            {%- endif -%}
+          {%- endunless -%}
+          <h2 class="kracht-pgrid__title">{{ pg_heading }}</h2>
         {%- endif -%}
         {%- if section.settings.subheading != blank -%}
           <p class="kracht-pgrid__sub">{{ section.settings.subheading }}</p>

@@ -141,7 +141,8 @@
         "text_color": "#000000",
         "card_color": "#ffffff",
         "padding_y": 72,
-        "radius": 12
+        "radius": 12,
+        "image_first_side": "left"
       }
     },
     "result": {

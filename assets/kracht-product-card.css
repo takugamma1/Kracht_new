@@ -22,7 +22,7 @@
 
 .kracht-card__media {
   position: relative;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5;
   background: var(--kracht-grijs-licht);
   overflow: hidden;
 }
@@ -31,7 +31,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: opacity 250ms ease;
 }
 .kracht-card__img--placeholder {

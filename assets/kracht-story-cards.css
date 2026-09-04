@@ -115,9 +115,10 @@
   gap: 12px;
 }
 .kracht-story-card__date {
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 500;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 .kracht-story-card__title strong { font-weight: 800; }
 .kracht-story-card__title {

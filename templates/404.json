@@ -24,7 +24,7 @@
       "type": "kracht-product-grid",
       "name": "Kracht — Product Grid",
       "settings": {
-        "heading": "Uitgelichte producten",
+        "heading": "Uitgelichte <strong>producten</strong>",
         "subheading": "",
         "collection": "frontpage",
         "max_products": 4,
