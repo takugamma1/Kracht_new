@@ -6,6 +6,60 @@
       <h1 class="kracht-contact__title">{{ section.settings.heading }}</h1>
       <p class="kracht-contact__intro">{{ section.settings.intro }}</p>
 
+      {%- if section.settings.relay_key != blank -%}
+      {%- comment -%} Mail-relay variant: posts to Web3Forms, which e-mails the address the key was created for {%- endcomment -%}
+      <form action="https://api.web3forms.com/submit" method="POST" class="kracht-contact__form">
+        <input type="hidden" name="access_key" value="{{ section.settings.relay_key }}">
+        <input type="hidden" name="subject" value="Nieuw bericht via {{ shop.name }} — {{ page.title | default: 'Contact' }}">
+        <input type="hidden" name="from_name" value="{{ shop.name }} contactformulier">
+        <input type="hidden" name="redirect" value="{{ shop.url }}{{ request.path }}?verzonden=1">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <p class="kracht-contact__success" data-kc-success hidden>Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.</p>
+        <label class="kracht-contact__label" for="kc-category">Categorie*</label>
+        <div class="kracht-contact__select-wrap">
+          <select id="kc-category" name="Categorie" required class="kracht-contact__field">
+            <option value="" disabled selected>Maak een keuze</option>
+            {%- assign cats = section.settings.categories | split: ',' -%}
+            {%- for cat in cats -%}
+              <option value="{{ cat | strip }}">{{ cat | strip }}</option>
+            {%- endfor -%}
+          </select>
+        </div>
+
+        <div class="kracht-contact__row">
+          <div>
+            <label class="kracht-contact__label" for="kc-fname">Voornaam*</label>
+            <input id="kc-fname" type="text" name="Voornaam" required class="kracht-contact__field">
+          </div>
+          <div>
+            <label class="kracht-contact__label" for="kc-lname">Achternaam*</label>
+            <input id="kc-lname" type="text" name="Achternaam" required class="kracht-contact__field">
+          </div>
+        </div>
+
+        <div class="kracht-contact__row">
+          <div>
+            <label class="kracht-contact__label" for="kc-email">E-mailadres*</label>
+            <input id="kc-email" type="email" name="email" required class="kracht-contact__field">
+          </div>
+          <div>
+            <label class="kracht-contact__label" for="kc-phone">Telefoonnummer*</label>
+            <input id="kc-phone" type="tel" name="Telefoonnummer" required class="kracht-contact__field">
+          </div>
+        </div>
+
+        <label class="kracht-contact__label" for="kc-body">Bericht</label>
+        <textarea id="kc-body" name="Bericht" rows="5" class="kracht-contact__field"></textarea>
+
+        <label class="kracht-contact__consent">
+          <input type="checkbox" required>
+          <span>Ik ga akkoord met de <a href="/pages/algemene-voorwaarden">algemene voorwaarden</a> en <a href="/pages/privacybeleid">privacy policy</a>*</span>
+        </label>
+
+        <button type="submit" class="kracht-btn kracht-btn--primary kracht-contact__submit">{{ section.settings.submit_label }}</button>
+      </form>
+      <script>if (location.search.indexOf('verzonden=1') > -1) { var s = document.querySelector('[data-kc-success]'); if (s) s.hidden = false; }</script>
+      {%- else -%}
       {%- form 'contact', class: 'kracht-contact__form' -%}
         {%- if form.posted_successfully? -%}
           <p class="kracht-contact__success">Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.</p>
@@ -57,6 +111,7 @@
 
         <button type="submit" class="kracht-btn kracht-btn--primary kracht-contact__submit">{{ section.settings.submit_label }}</button>
       {%- endform -%}
+      {%- endif -%}
     </div>
 
     <aside class="kracht-contact__aside">
@@ -165,6 +220,7 @@
     { "type": "textarea", "id": "intro", "label": "Intro", "default": "Is jouw interesse gewekt of heb je graag wat meer informatie? Dat kan! Vul dan onderstaand formulier in." },
     { "type": "text", "id": "categories", "label": "Categorieën (komma-gescheiden)", "default": "Communicatie, Samenwerken, Leiderschap, Workcation" },
     { "type": "text", "id": "submit_label", "label": "Submit label", "default": "Aanmelden" },
+    { "type": "text", "id": "relay_key", "label": "Mail-relay sleutel (Web3Forms)", "info": "Leeg = standaard Shopify-formulier (mail gaat naar het winkel-e-mailadres). Ingevuld = inzendingen gaan rechtstreeks naar het adres waarvoor de sleutel is aangemaakt, bijv. werken@vanuitkracht.nl." },
     { "type": "header", "content": "Contactpersoon" },
     { "type": "text", "id": "aside_heading", "label": "Aside heading", "default": "Meer weten over Kracht Training? Ik help je graag verder." },
     { "type": "image_picker", "id": "contact_image", "label": "Foto" },
