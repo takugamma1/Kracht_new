@@ -11,6 +11,8 @@
     --kih-min-h: {{ section.settings.min_height }}px;
     --kih-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
     --kih-focal-y: {{ section.settings.focal_y | default: 50 }}%;
+    --kih-title-scale: {{ section.settings.title_scale | default: 100 | divided_by: 100.0 }};
+    --kih-sub-scale: {{ section.settings.sub_scale | default: 100 | divided_by: 100.0 }};
   "
 >
   <div class="kracht-img-hero__bg" aria-hidden="true">
@@ -144,6 +146,18 @@
       "step": 5,
       "unit": "%",
       "default": 35
+    },
+    {
+      "type": "range",
+      "id": "title_scale",
+      "label": "Titelgrootte",
+      "min": 70, "max": 130, "step": 5, "unit": "%", "default": 100
+    },
+    {
+      "type": "range",
+      "id": "sub_scale",
+      "label": "Tekstgrootte",
+      "min": 70, "max": 130, "step": 5, "unit": "%", "default": 100
     },
     {
       "type": "range",

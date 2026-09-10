@@ -111,3 +111,13 @@
   .kracht-img-hero { min-height: 440px; }
   .kracht-img-hero__title { margin-bottom: 0.75rem; }
 }
+
+/* Editor size controls (Titelgrootte / Tekstgrootte). 100% = the store-wide default;
+   selectors carry [class] so they outrank the global heading/subtitle normalizers. */
+section.kracht-img-hero[class] h1.kracht-img-hero__title {
+  font-size: calc(clamp(2.5rem, 4.5vw, 3.125rem) * var(--kih-title-scale, 1));
+}
+section.kracht-img-hero[class] .kracht-img-hero__sub {
+  font-size: calc(0.9375rem * var(--kih-sub-scale, 1));
+  line-height: calc(1.5625rem * var(--kih-sub-scale, 1));
+}
