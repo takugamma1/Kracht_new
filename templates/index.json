@@ -23,7 +23,8 @@
         "button1_label": "Ontdek de collectie",
         "button1_link": "/collections/all",
         "button2_label": "Ons verhaal",
-        "button2_link": "/pages/ons-verhaal"
+        "button2_link": "/pages/ons-verhaal",
+        "button_scale": 125
       }
     },
     "categories": {

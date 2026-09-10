@@ -115,3 +115,9 @@
   height: max(100cqh, 56.25cqw);
   border: 0;
 }
+
+/* Editor control: Knopgrootte (button size), 100% = store-wide default button */
+.kracht-hero__cta .kracht-btn {
+  font-size: calc(0.9375rem * var(--khh-btn-scale, 1));
+  padding: calc(10px * var(--khh-btn-scale, 1)) calc(20px * var(--khh-btn-scale, 1));
+}
