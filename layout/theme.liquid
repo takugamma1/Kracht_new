@@ -132,7 +132,7 @@
       data-template="{{ template }}"
     >
       {{ content_for_layout }}
-      {% if settings.promo_enabled and settings.promo_code != blank %}
+      {% if settings.promo_enabled and settings.promo_code != blank and request.design_mode == false %}
         {% unless settings.promo_homepage_only and template.name != 'index' %}
           {% render 'kracht-promo-popup' %}
         {% endunless %}
