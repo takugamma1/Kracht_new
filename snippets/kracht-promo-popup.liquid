@@ -90,8 +90,9 @@
 
 <script>
   (() => {
-    const KEY = 'kracht-promo-' + {{ settings.promo_code | downcase | json }};
-    if (localStorage.getItem(KEY)) return;
+    const KEY = 'kracht-promo-v2-' + {{ settings.promo_code | downcase | json }};
+    const force = location.search.indexOf('promo=1') > -1;
+    if (!force && localStorage.getItem(KEY)) return;
     const dlg = document.querySelector('[data-kracht-promo]');
     if (!dlg) return;
     const dismiss = () => { localStorage.setItem(KEY, '1'); if (dlg.open) dlg.close(); };
