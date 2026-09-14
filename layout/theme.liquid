@@ -132,9 +132,11 @@
       data-template="{{ template }}"
     >
       {{ content_for_layout }}
-      {% unless request.design_mode %}
-        {% render 'kracht-promo-popup' %}
-      {% endunless %}
+      {% if settings.promo_enabled and settings.promo_code != blank %}
+        {% unless settings.promo_homepage_only and template.name != 'index' %}
+          {% render 'kracht-promo-popup' %}
+        {% endunless %}
+      {% endif %}
     </main>
 
     <footer>

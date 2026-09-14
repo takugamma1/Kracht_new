@@ -1,5 +1,5 @@
 {%- comment -%}
-  Kracht — promo popup (KRACHT15 launch discount)
+  Kracht — promo popup (percentage/code/delay set under Theme settings → Kracht — Promo popup)
   Shows once per visitor (dismissal stored in localStorage).
   Disable by removing the render call in layout/theme.liquid.
 {%- endcomment -%}
@@ -10,14 +10,14 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
     </button>
     <span class="kracht-promo__plus">{% render 'kracht-plus' %}</span>
-    <p class="kracht-promo__eyebrow">Tijdelijke lanceeractie</p>
-    <h2 class="kracht-promo__title">15% korting op je hele bestelling</h2>
-    <p class="kracht-promo__text">Gebruik onderstaande kortingscode bij het afrekenen en ontvang 15% korting op het volledige winkelmandje.</p>
+    <p class="kracht-promo__eyebrow">{{ settings.promo_eyebrow }}</p>
+    <h2 class="kracht-promo__title">{{ settings.promo_percentage }}% korting op je hele bestelling</h2>
+    <p class="kracht-promo__text">Gebruik onderstaande kortingscode bij het afrekenen en ontvang {{ settings.promo_percentage }}% korting op het volledige winkelmandje.</p>
     <button type="button" class="kracht-promo__code" data-kracht-promo-code title="Klik om te kopiëren">
-      KRACHT15
+      {{ settings.promo_code }}
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
     </button>
-    <a class="kracht-btn kracht-btn--primary kracht-promo__cta" href="/collections/all">Shop de collectie <span aria-hidden="true">→</span></a>
+    <a class="kracht-btn kracht-btn--primary kracht-promo__cta" href="{{ settings.promo_link | default: '/collections/all' }}">Shop de collectie <span aria-hidden="true">→</span></a>
   </div>
 </dialog>
 
@@ -90,12 +90,12 @@
 
 <script>
   (() => {
-    const KEY = 'kracht-promo-kracht15';
+    const KEY = 'kracht-promo-' + {{ settings.promo_code | downcase | json }};
     if (localStorage.getItem(KEY)) return;
     const dlg = document.querySelector('[data-kracht-promo]');
     if (!dlg) return;
     const dismiss = () => { localStorage.setItem(KEY, '1'); if (dlg.open) dlg.close(); };
-    setTimeout(() => { try { dlg.showModal(); } catch (e) {} }, 1500);
+    setTimeout(() => { try { dlg.showModal(); } catch (e) {} }, {{ settings.promo_delay | default: 5 | times: 1000 }});
     const closeBtn = dlg.querySelector('[data-kracht-promo-close]');
     if (closeBtn) closeBtn.addEventListener('click', dismiss);
     dlg.addEventListener('click', (e) => { if (e.target === dlg) dismiss(); });
@@ -104,7 +104,7 @@
     if (cta) cta.addEventListener('click', () => localStorage.setItem(KEY, '1'));
     const code = dlg.querySelector('[data-kracht-promo-code]');
     if (code) code.addEventListener('click', () => {
-      navigator.clipboard && navigator.clipboard.writeText('KRACHT15');
+      navigator.clipboard && navigator.clipboard.writeText({{ settings.promo_code | json }});
       code.insertAdjacentHTML('beforeend', ' ✓');
       setTimeout(() => { code.innerHTML = code.innerHTML.replace(' ✓', ''); }, 1200);
     });

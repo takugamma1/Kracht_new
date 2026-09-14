@@ -2284,5 +2284,61 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Kracht — Promo popup",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "promo_enabled",
+        "label": "Popup tonen",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "promo_homepage_only",
+        "label": "Alleen op de homepage",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "promo_delay",
+        "label": "Vertraging",
+        "min": 0,
+        "max": 15,
+        "step": 1,
+        "unit": "s",
+        "default": 5
+      },
+      {
+        "type": "range",
+        "id": "promo_percentage",
+        "label": "Kortingspercentage",
+        "min": 5,
+        "max": 50,
+        "step": 5,
+        "unit": "%",
+        "default": 15
+      },
+      {
+        "type": "text",
+        "id": "promo_code",
+        "label": "Kortingscode",
+        "default": "KRACHT15",
+        "info": "Bij een nieuwe code zien bezoekers de popup opnieuw."
+      },
+      {
+        "type": "text",
+        "id": "promo_eyebrow",
+        "label": "Bovenregel",
+        "default": "Tijdelijke lanceeractie"
+      },
+      {
+        "type": "url",
+        "id": "promo_link",
+        "label": "Knop-link",
+        "info": "Leeg = alle producten"
+      }
+    ]
   }
 ]
