@@ -463,3 +463,15 @@
   justify-content: center;
 }
 .kracht-pdetail__sw-logo svg { width: 14px; height: 14px; }
+
+/* Mobile: the horizontal thumbnail row must never widen the gallery column.
+   Without min-width:0 a product with many photos (e.g. 21 thumbs) forced the
+   column, and therefore the 4:5 image frame, to ~1300px -> sideways overflow. */
+@media (max-width: 600px) {
+  .kracht-pdetail__layout,
+  .kracht-pdetail__gallery,
+  .kracht-pdetail__gallery > * { min-width: 0; max-width: 100%; }
+  .kracht-pdetail__thumbrail { overflow: hidden; }
+  .kracht-pdetail__thumbs { width: 100%; min-width: 0; overflow-x: auto; }
+  .kracht-pdetail__main-img { width: 100%; }
+}
